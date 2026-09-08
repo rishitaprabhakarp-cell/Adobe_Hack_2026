@@ -1,0 +1,88 @@
+# ── Virtual environments ──────────────────────────────────────────────────────
+venv/
+.venv/
+env/
+.env/
+ENV/
+
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+develop-eggs/
+.installed.cfg
+lib/
+lib64/
+.eggs/
+
+# ── Audit outputs (generated at runtime) ─────────────────────────────────────
+# Local audit runs go to /tmp/audit_results/ by default;
+# if run_audit_live.sh is pointed at a local path, ignore those too.
+audit_results/
+audit_output/
+*.audit_results/
+
+# ── Generated reports (sample reports in repo root are kept intentionally) ────
+# Ignore any reports/ subdirectory that gets created inside skill dirs
+**/reports/
+# Ignore bulk report files if generated locally (not the tracked samples)
+# To track a report, use: git add -f sample_report_*.html
+# Untracked local report files
+local_report_*/
+
+# ── macOS ─────────────────────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V8
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.swp
+*~
+
+# ── IDE / Editor ──────────────────────────────────────────────────────────────
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ── Environment variables / secrets ──────────────────────────────────────────
+.env
+.env.local
+.env.*.local
+*.env
+secrets.json
+config.local.json
+
+# ── Logs ──────────────────────────────────────────────────────────────────────
+*.log
+*.err
+logs/
+
+# ── OS temp / system ──────────────────────────────────────────────────────────
+/tmp/
+Thumbs.db
+Desktop.ini
+
+# ── Node (if any tooling added later) ────────────────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-error.log*
+.npm
+.yarn-integrity
