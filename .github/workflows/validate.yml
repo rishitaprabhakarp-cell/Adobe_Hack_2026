@@ -1,0 +1,41 @@
+name: Validate Skills
+
+on:
+  push:
+    paths:
+      - "skills/**/SKILL.md"
+  pull_request:
+    paths:
+      - "skills/**/SKILL.md"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Validate all SKILL.md files
+        run: |
+          FAILED=0
+          for skill_file in skills/*/SKILL.md; do
+            skill_dir=$(dirname "$skill_file")
+            echo "Validating $skill_file..."
+            if ! npx --yes skills-ref@0.1.5 validate "$skill_dir" 2>&1; then
+              echo "❌ FAILED: $skill_file"
+              FAILED=$((FAILED + 1))
+            else
+              echo "✅ OK: $skill_file"
+            fi
+          done
+          if [ $FAILED -gt 0 ]; then
+            echo ""
+            echo "❌ $FAILED skill(s) failed validation."
+            exit 1
+          fi
+          echo ""
+          echo "✅ All skills passed validation."
