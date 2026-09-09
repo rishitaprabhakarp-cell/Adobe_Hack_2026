@@ -702,6 +702,26 @@ def _bar_svg(categories: list[str], values: list[int], width: int = 540, height:
     )
 
 
+def _score_ring(score: int, size: int = 200, sw: int = 18) -> str:
+    """SVG donut ring showing score/100."""
+    r = (size - sw) / 2
+    cx = cy = size / 2
+    circ = 2 * math.pi * r
+    filled = circ * score / 100
+    gap = circ - filled
+    sc = "#1E8449" if score >= 70 else "#E37400" if score >= 50 else "#D93025"
+    return (
+        f'<svg width="{size}" height="{size}" viewBox="0 0 {size} {size}" xmlns="http://www.w3.org/2000/svg">'
+        f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="{r:.1f}" fill="none" stroke="#334155" stroke-width="{sw}"/>'
+        f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="{r:.1f}" fill="none" stroke="{sc}" stroke-width="{sw}" '
+        f'stroke-dasharray="{filled:.2f} {gap:.2f}" stroke-linecap="round" '
+        f'transform="rotate(-90 {cx:.1f} {cy:.1f})"/>'
+        f'<text x="{cx:.1f}" y="{cy - 8:.1f}" text-anchor="middle" font-size="{int(size * 0.28)}" font-weight="800" fill="{sc}">{score}</text>'
+        f'<text x="{cx:.1f}" y="{cy + size * 0.18:.1f}" text-anchor="middle" font-size="{int(size * 0.1)}" fill="#94a3b8">/100</text>'
+        f'</svg>'
+    )
+
+
 def render_html(report: dict, output_path: Path, brand_name: str = "", brand_color: str = "#0066CC") -> Path:
     out = output_path.with_suffix(".html")
     site = report["site"]
@@ -715,241 +735,237 @@ def render_html(report: dict, output_path: Path, brand_name: str = "", brand_col
     audited = report["audited_at"][:10]
     accent = brand_color
 
-    # Score color
-    if score >= 70:
-        score_color = "#1E8449"
-        geo_badge_class = "badge-green"
-    elif score >= 50:
-        score_color = "#E37400"
-        geo_badge_class = "badge-orange"
-    else:
-        score_color = "#D93025"
-        geo_badge_class = "badge-red"
+    score_color = "#1E8449" if score >= 70 else "#E37400" if score >= 50 else "#D93025"
+    geo_bg   = "#d1fae5" if geo == "GEO Ready" else "#fff7ed" if geo == "Developing" else "#fee2e2"
+    geo_text = "#065f46" if geo == "GEO Ready" else "#92400e" if geo == "Developing" else "#7f1d1d"
 
-    # Charts
-    dim_chart = _bar_svg(
-        [d["name"].split()[0] for d in dim_scores],
-        [d["score"] for d in dim_scores],
-        color=accent,
+    dim_chart    = _bar_svg([d["name"].split()[0] for d in dim_scores], [d["score"] for d in dim_scores], color=accent)
+    engine_chart = _bar_svg([e.split()[0] for e in engine_scores.keys()], list(engine_scores.values()), color=accent)
+
+    # ── Build slides ──────────────────────────────────────────────────────────
+    slides = []
+
+    # Slide 0: Cover
+    ring = _score_ring(score)
+    pill_row = (
+        f'<span class="pill pill-crit">{summ["critical"]} Critical</span>'
+        f'<span class="pill pill-high">{summ["high"]} High</span>'
+        f'<span class="pill pill-med">{summ["medium"]} Medium</span>'
+        f'<span class="pill pill-low">{summ["low"]} Low</span>'
     )
-    engine_chart = _bar_svg(
-        [e.split()[0] for e in engine_scores.keys()],
-        list(engine_scores.values()),
-        color=accent,
-    )
-
-    # Findings HTML
-    def finding_card(f: dict) -> str:
-        sev = f["severity"]
-        action = f["suggested_action"]
-        color = SEV_COLOR_HEX.get(sev, "#555")
-        icon = SEV_ICON.get(sev, "●")
-        effort_badge = f'<span class="badge">{action.get("effort","?").upper()} effort</span>'
-        return f"""
-<div class="finding-card" id="{f['id']}">
-  <div class="finding-header">
-    <span class="sev-dot" style="color:{color}">{icon}</span>
-    <span class="sev-label" style="color:{color}">{sev}</span>
-    <code class="finding-id">{f['id']}</code>
-    <span class="finding-title">{f['title']}</span>
-    {effort_badge}
+    slides.append(f"""<div class="slide active" data-label="Overview">
+  <div class="cover-layout">
+    <div class="cover-left">
+      <div class="eyebrow">Brand AI Readiness Audit</div>
+      <h1 class="cover-h1">{display_name}</h1>
+      <p class="cover-sub"><a href="https://{site}">{site}</a> &middot; Audited {audited}</p>
+      <div class="pill-row">{pill_row}</div>
+      <p class="cover-note">{summ["total_findings"]} findings &middot; 6 GEO dimensions &middot; 5 AI engines</p>
+    </div>
+    <div class="cover-right">
+      {ring}
+      <div class="geo-badge" style="background:{geo_bg};color:{geo_text}">{geo}</div>
+    </div>
   </div>
-  <div class="finding-body">
-    <div class="evidence"><strong>Evidence:</strong> {f['evidence']}</div>
-    <div class="action"><strong>Action:</strong> {action['summary']}</div>
-  </div>
-</div>"""
+</div>""")
 
-    findings_html = ""
-    for sev in ["CRITICAL", "HIGH", "MEDIUM", "LOW"]:
-        sf = [f for f in findings if f["severity"] == sev]
-        if not sf:
-            continue
-        color = SEV_COLOR_HEX[sev]
-        findings_html += f"""
-<section class="sev-section">
-  <h3 class="sev-heading" style="border-left:4px solid {color};padding-left:10px;color:{color}">
-    {SEV_ICON[sev]} {sev} &mdash; {len(sf)} finding{'s' if len(sf)>1 else ''}
-  </h3>
-  {''.join(finding_card(f) for f in sf)}
-</section>"""
-
-    # Dimension table
+    # Slide 1: GEO Dimension Scores
     dim_rows = ""
     for d in dim_scores:
-        status = "✓ On track" if d["score"] >= 70 else "⚠ Developing" if d["score"] >= 50 else "✗ Critical gap"
-        status_color = "#1E8449" if d["score"] >= 70 else "#E37400" if d["score"] >= 50 else "#D93025"
-        dim_rows += f"""<tr>
-  <td><strong>{d['id']}</strong></td>
-  <td>{d['name']}</td>
-  <td class="score-cell"><strong style="color:{score_color if d['score']>=70 else '#E37400' if d['score']>=50 else '#D93025'}">{d['score']}</strong></td>
-  <td style="color:{status_color}">{status}</td>
-</tr>"""
+        sc = "#1E8449" if d["score"] >= 70 else "#E37400" if d["score"] >= 50 else "#D93025"
+        mark = "✓" if d["score"] >= 70 else "⚠" if d["score"] >= 50 else "✗"
+        dim_rows += (
+            f'<tr><td><strong>{d["id"]}</strong></td><td>{d["name"]}</td>'
+            f'<td style="text-align:right;color:{sc};font-weight:700">{d["score"]}</td>'
+            f'<td style="color:{sc}">{mark}</td></tr>'
+        )
+    slides.append(f"""<div class="slide" data-label="GEO Dimensions">
+  <div class="slide-head">
+    <div class="eyebrow">6 GEO Dimensions &mdash; Directive Consulting 2026</div>
+    <h2 class="slide-h2">Dimension Scores</h2>
+  </div>
+  <div class="two-col">
+    <div class="chart-card">{dim_chart}</div>
+    <div class="table-card"><table><thead><tr><th>ID</th><th>Dimension</th><th>Score</th><th></th></tr></thead><tbody>{dim_rows}</tbody></table></div>
+  </div>
+</div>""")
 
-    # Engine table
+    # Slide 2: Per-Engine Scores
     eng_rows = ""
     for engine, escore in engine_scores.items():
         sc = "#1E8449" if escore >= 70 else "#E37400" if escore >= 50 else "#D93025"
-        eng_rows += f"""<tr>
-  <td>{engine}</td>
-  <td class="score-cell"><strong style="color:{sc}">{escore}</strong></td>
-  <td style="color:{sc}">{'✓ On track' if escore>=70 else '⚠ Developing' if escore>=50 else '✗ Gap'}</td>
-</tr>"""
+        mark = "✓ Ready" if escore >= 70 else "⚠ Developing" if escore >= 50 else "✗ Gap"
+        eng_rows += (
+            f'<tr><td>{engine}</td>'
+            f'<td style="text-align:right;color:{sc};font-weight:700">{escore}</td>'
+            f'<td style="color:{sc}">{mark}</td></tr>'
+        )
+    slides.append(f"""<div class="slide" data-label="Per-Engine">
+  <div class="slide-head">
+    <div class="eyebrow">Threshold &ge;70 = GEO Ready (Directive Consulting 2026)</div>
+    <h2 class="slide-h2">Per-Engine GEO Readiness</h2>
+  </div>
+  <div class="two-col">
+    <div class="chart-card">{engine_chart}</div>
+    <div class="table-card"><table><thead><tr><th>Engine</th><th>Score</th><th>Status</th></tr></thead><tbody>{eng_rows}</tbody></table></div>
+  </div>
+</div>""")
+
+    # Individual slides for CRITICAL and HIGH
+    for sev in ["CRITICAL", "HIGH"]:
+        sev_color = SEV_COLOR_HEX[sev]
+        sev_icon  = SEV_ICON[sev]
+        for f in [x for x in findings if x["severity"] == sev]:
+            action = f["suggested_action"]
+            slides.append(f"""<div class="slide" data-label="{sev}">
+  <div class="slide-head">
+    <div class="eyebrow" style="color:{sev_color}">{sev_icon} {sev} &mdash; <code>{f['id']}</code></div>
+    <h2 class="slide-h2">{f['title']}</h2>
+  </div>
+  <div class="two-col">
+    <div class="finding-panel">
+      <div class="panel-label">Evidence</div>
+      <p>{f['evidence']}</p>
+    </div>
+    <div class="finding-panel action-panel">
+      <div class="panel-label">Recommended Action</div>
+      <p class="action-text">{action['summary']}</p>
+      <span class="effort-tag">Effort: {action.get('effort', '?').upper()} &middot; Priority: {action.get('priority', '?').upper()}</span>
+    </div>
+  </div>
+</div>""")
+
+    # Batch slides for MEDIUM and LOW
+    for sev in ["MEDIUM", "LOW"]:
+        sev_color    = SEV_COLOR_HEX[sev]
+        sev_icon     = SEV_ICON[sev]
+        sev_findings = [x for x in findings if x["severity"] == sev]
+        if not sev_findings:
+            continue
+        rows = "".join(
+            f'<tr><td><code class="fid-sm">{f["id"]}</code></td>'
+            f'<td>{f["title"]}</td>'
+            f'<td style="color:var(--muted);font-size:12px">{f["suggested_action"]["summary"][:72]}…</td>'
+            f'<td><span class="effort-sm">{f["suggested_action"].get("effort", "?").upper()}</span></td></tr>'
+            for f in sev_findings
+        )
+        slides.append(f"""<div class="slide" data-label="{sev}">
+  <div class="slide-head">
+    <div class="eyebrow" style="color:{sev_color}">{sev_icon} {sev}</div>
+    <h2 class="slide-h2">{sev.title()} Findings ({len(sev_findings)})</h2>
+  </div>
+  <div class="table-card"><table>
+    <thead><tr><th>ID</th><th>Finding</th><th>Action</th><th>Effort</th></tr></thead>
+    <tbody>{rows}</tbody>
+  </table></div>
+</div>""")
+
+    total       = len(slides)
+    slides_html = "\n".join(slides)
+    dots        = "\n".join(
+        f'<button class="dot{" active" if i == 0 else ""}" onclick="goTo({i})"></button>'
+        for i in range(total)
+    )
 
     html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AI Readiness Audit — {display_name}</title>
+<title>AI Readiness &mdash; {display_name}</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-  :root {{
-    --accent: {accent};
-    --bg: #fafafa;
-    --surface: #ffffff;
-    --border: #e5e7eb;
-    --text: #111827;
-    --muted: #6b7280;
-    --radius: 8px;
-  }}
-  * {{ box-sizing: border-box; margin: 0; padding: 0; }}
-  body {{ font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
-          background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.6; }}
-  .page {{ max-width: 960px; margin: 0 auto; padding: 32px 24px 64px; }}
-
-  /* Header */
-  .report-header {{ display:flex; justify-content:space-between; align-items:flex-start;
-                    border-bottom: 2px solid var(--accent); padding-bottom: 20px; margin-bottom: 28px; }}
-  .report-title {{ font-size: 22px; font-weight: 700; color: var(--text); }}
-  .report-meta {{ font-size: 12px; color: var(--muted); margin-top: 4px; }}
-  .score-block {{ text-align: right; }}
-  .score-number {{ font-size: 56px; font-weight: 800; line-height: 1; color: {score_color}; }}
-  .score-label {{ font-size: 11px; color: var(--muted); }}
-  .badge-green  {{ background:#d1fae5; color:#065f46; border-radius:9999px; padding:3px 10px; font-size:12px; font-weight:600; display:inline-block; margin-top:4px; }}
-  .badge-orange {{ background:#fff7ed; color:#92400e; border-radius:9999px; padding:3px 10px; font-size:12px; font-weight:600; display:inline-block; margin-top:4px; }}
-  .badge-red    {{ background:#fee2e2; color:#7f1d1d; border-radius:9999px; padding:3px 10px; font-size:12px; font-weight:600; display:inline-block; margin-top:4px; }}
-
-  /* Stat strip */
-  .stat-strip {{ display:grid; grid-template-columns: repeat(4,1fr); gap:12px; margin-bottom:28px; }}
-  .stat-card {{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
-                padding: 14px 16px; }}
-  .stat-value {{ font-size: 28px; font-weight: 700; }}
-  .stat-label {{ font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing:.5px; margin-top:2px; }}
-  .critical {{ color: #D93025; }}
-  .high     {{ color: #E37400; }}
-  .medium   {{ color: #1A73E8; }}
-  .low      {{ color: #34A853; }}
-  .pass     {{ color: #1E8449; }}
-
-  /* Charts */
-  .chart-grid {{ display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:28px; }}
-  .chart-card {{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:16px; }}
-  .chart-title {{ font-size:13px; font-weight:600; margin-bottom:12px; color:var(--muted); }}
-
-  /* Tables */
-  h2 {{ font-size:16px; font-weight:700; margin:28px 0 12px; color:var(--text); }}
-  h3 {{ font-size:14px; font-weight:600; margin:0 0 10px; }}
-  table {{ width:100%; border-collapse:collapse; margin-bottom:24px; background:var(--surface);
-           border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; font-size:13px; }}
-  th {{ background:#f3f4f6; font-weight:600; text-align:left; padding:8px 12px; border-bottom:1px solid var(--border); }}
-  td {{ padding:8px 12px; border-bottom:1px solid var(--border); vertical-align:top; }}
-  tr:last-child td {{ border-bottom:none; }}
-  .score-cell {{ text-align:right; font-size:16px; }}
-
-  /* Findings */
-  .sev-section {{ margin-bottom:24px; }}
-  .sev-heading {{ font-size:14px; font-weight:700; margin-bottom:12px; }}
-  .finding-card {{ background:var(--surface); border:1px solid var(--border);
-                   border-radius:var(--radius); margin-bottom:10px; overflow:hidden; }}
-  .finding-header {{ display:flex; align-items:center; gap:8px; padding:10px 14px;
-                     border-bottom:1px solid var(--border); flex-wrap:wrap; }}
-  .sev-dot {{ font-size:14px; flex-shrink:0; }}
-  .sev-label {{ font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; flex-shrink:0; }}
-  .finding-id {{ background:#f3f4f6; padding:1px 6px; border-radius:4px; font-size:11px; flex-shrink:0; }}
-  .finding-title {{ font-weight:600; font-size:13px; flex:1; min-width:200px; }}
-  .badge {{ background:#f3f4f6; color:var(--muted); border-radius:4px; padding:1px 6px; font-size:10px;
-            text-transform:uppercase; letter-spacing:.4px; }}
-  .finding-body {{ padding:10px 14px; font-size:13px; }}
-  .evidence {{ color:var(--muted); margin-bottom:6px; }}
-  .action {{ color:var(--text); }}
-
-  /* Footer */
-  .report-footer {{ margin-top:40px; padding-top:16px; border-top:1px solid var(--border);
-                    font-size:11px; color:var(--muted); }}
-
-  @media print {{
-    body {{ background:white; }}
-    .page {{ padding:16px; }}
-    .finding-card {{ break-inside:avoid; }}
-    .sev-section {{ break-inside:avoid; }}
-  }}
+  :root{{--accent:{accent};--bg:#fafafa;--surface:#fff;--border:#e5e7eb;--text:#111827;--muted:#6b7280;--rad:10px}}
+  html.dark{{--bg:#0f172a;--surface:#1e293b;--border:#334155;--text:#f1f5f9;--muted:#94a3b8}}
+  *,*::before,*::after{{box-sizing:border-box;margin:0;padding:0}}
+  html,body{{height:100%;overflow:hidden}}
+  body{{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--text);font-size:14px;line-height:1.6}}
+  a{{color:var(--accent);text-decoration:none}}a:hover{{text-decoration:underline}}
+  .deck{{position:fixed;inset:0;background:var(--bg)}}
+  .slide{{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;padding:52px 72px 88px;transform:translateX(100%);transition:transform .38s cubic-bezier(.4,0,.2,1);background:var(--bg)}}
+  .slide.active{{transform:none}}
+  .slide.gone{{transform:translateX(-100%)}}
+  .cover-layout{{display:flex;align-items:center;justify-content:space-between;min-height:calc(100vh - 140px);gap:48px}}
+  .cover-left{{flex:1;max-width:580px}}
+  .cover-right{{text-align:center;flex-shrink:0}}
+  .cover-h1{{font-size:52px;font-weight:900;line-height:1.05;margin:8px 0 16px;color:var(--text)}}
+  .cover-sub{{font-size:15px;color:var(--muted);margin-bottom:24px}}
+  .cover-note{{font-size:13px;color:var(--muted);margin-top:16px}}
+  .geo-badge{{display:inline-block;margin-top:14px;padding:6px 20px;border-radius:9999px;font-size:14px;font-weight:700}}
+  .slide-head{{margin-bottom:28px}}
+  .eyebrow{{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:6px}}
+  .slide-h2{{font-size:34px;font-weight:800;color:var(--text);line-height:1.15}}
+  .two-col{{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}}
+  .chart-card,.table-card{{background:var(--surface);border:1px solid var(--border);border-radius:var(--rad);padding:20px;overflow:hidden}}
+  .table-card{{padding:0}}
+  .finding-panel{{background:var(--surface);border:1px solid var(--border);border-radius:var(--rad);padding:28px;font-size:15px;line-height:1.75}}
+  .action-panel{{border-left:4px solid var(--accent)}}
+  .panel-label{{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:12px}}
+  .action-text{{font-size:16px;font-weight:600;line-height:1.5}}
+  .pill-row{{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px}}
+  .pill{{padding:5px 14px;border-radius:9999px;font-size:13px;font-weight:700}}
+  .pill-crit{{background:#fee2e2;color:#7f1d1d}}
+  .pill-high{{background:#fff7ed;color:#92400e}}
+  .pill-med{{background:#eff6ff;color:#1e40af}}
+  .pill-low{{background:#f0fdf4;color:#166534}}
+  .effort-tag{{display:inline-block;margin-top:18px;padding:4px 10px;background:var(--border);border-radius:5px;font-size:11px;color:var(--muted);font-weight:600}}
+  .fid-sm{{background:var(--border);padding:1px 6px;border-radius:4px;font-size:11px;font-family:monospace;color:var(--muted)}}
+  .effort-sm{{padding:2px 6px;background:var(--border);border-radius:4px;font-size:11px;color:var(--muted)}}
+  code{{background:var(--border);padding:1px 5px;border-radius:4px;font-size:11px;font-family:monospace;color:var(--muted)}}
+  table{{width:100%;border-collapse:collapse;font-size:13px}}
+  th,td{{padding:9px 14px;text-align:left;border-bottom:1px solid var(--border)}}
+  th{{font-weight:600;color:var(--muted);text-transform:uppercase;font-size:10px;letter-spacing:.5px;background:var(--bg)}}
+  tr:last-child td{{border-bottom:none}}
+  html.dark .chart-card svg text{{fill:#94a3b8}}
+  html.dark .chart-card svg line{{stroke:#334155}}
+  .nav-btn{{position:fixed;top:50%;transform:translateY(-50%);background:var(--surface);border:1px solid var(--border);border-radius:50%;width:44px;height:44px;font-size:18px;cursor:pointer;z-index:200;display:flex;align-items:center;justify-content:center;color:var(--text);transition:background .2s,opacity .2s;box-shadow:0 2px 8px rgba(0,0,0,.08)}}
+  .nav-btn:hover{{background:var(--border)}}
+  .nav-btn:disabled{{opacity:.2;cursor:default}}
+  #prevBtn{{left:14px}}#nextBtn{{right:14px}}
+  .dots{{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:200}}
+  .dot{{width:8px;height:8px;border-radius:50%;background:var(--border);border:none;cursor:pointer;transition:background .2s,transform .2s;padding:0}}
+  .dot.active{{background:var(--accent);transform:scale(1.3)}}
+  .dark-btn{{position:fixed;top:18px;right:18px;z-index:200;background:var(--surface);border:1px solid var(--border);border-radius:9999px;padding:6px 14px;font-size:13px;cursor:pointer;color:var(--text);transition:background .2s;font-family:inherit}}
+  .dark-btn:hover{{background:var(--border)}}
+  .counter{{position:fixed;top:18px;left:18px;z-index:200;font-size:12px;color:var(--muted);background:var(--surface);border:1px solid var(--border);border-radius:9999px;padding:4px 12px}}
 </style>
 </head>
 <body>
-<div class="page">
-
-  <!-- Header -->
-  <div class="report-header">
-    <div>
-      <div class="report-title">Brand AI Readiness Audit &mdash; {display_name}</div>
-      <div class="report-meta">
-        <a href="https://{site}" style="color:var(--accent)">{site}</a> &middot;
-        Audited {audited} &middot; 10 skill scripts &middot; live HTTP probes
-      </div>
-    </div>
-    <div class="score-block">
-      <div class="score-number">{score}</div>
-      <div class="score-label">/ 100 overall GEO score</div>
-      <div class="{geo_badge_class}">{geo}</div>
-    </div>
-  </div>
-
-  <!-- Stat strip -->
-  <div class="stat-strip">
-    <div class="stat-card"><div class="stat-value critical">{summ['critical']}</div><div class="stat-label">Critical</div></div>
-    <div class="stat-card"><div class="stat-value high">{summ['high']}</div><div class="stat-label">High</div></div>
-    <div class="stat-card"><div class="stat-value medium">{summ['medium']}</div><div class="stat-label">Medium</div></div>
-    <div class="stat-card"><div class="stat-value low">{summ['low']}</div><div class="stat-label">Low</div></div>
-  </div>
-
-  <!-- Charts -->
-  <div class="chart-grid">
-    <div class="chart-card">
-      <div class="chart-title">GEO DIMENSION SCORES (threshold: 70)</div>
-      {dim_chart}
-    </div>
-    <div class="chart-card">
-      <div class="chart-title">PER-ENGINE GEO SCORES (threshold: 70)</div>
-      {engine_chart}
-    </div>
-  </div>
-
-  <!-- Dimension table -->
-  <h2>6 GEO Dimensions</h2>
-  <table>
-    <thead><tr><th>ID</th><th>Dimension</th><th style="text-align:right">Score</th><th>Status</th></tr></thead>
-    <tbody>{dim_rows}</tbody>
-  </table>
-
-  <!-- Engine table -->
-  <h2>Per-Engine Readiness</h2>
-  <table>
-    <thead><tr><th>AI Engine</th><th style="text-align:right">Score</th><th>Status</th></tr></thead>
-    <tbody>{eng_rows}</tbody>
-  </table>
-
-  <!-- Findings -->
-  <h2>Findings ({summ['total_findings']} total)</h2>
-  {findings_html}
-
-  <!-- Footer -->
-  <div class="report-footer">
-    Generated by Brand AI Readiness Audit v2.0 &middot; {audited} &middot;
-    72 finding IDs across 6 GEO dimensions &middot;
-    <a href="https://github.com/Adobe_Hack_2026" style="color:var(--accent)">github</a>
-  </div>
-
+<div class="deck">
+{slides_html}
 </div>
+<button class="nav-btn" id="prevBtn" onclick="go(-1)" disabled>&#8592;</button>
+<button class="nav-btn" id="nextBtn" onclick="go(1)">&#8594;</button>
+<div class="dots" id="dotsEl">{dots}</div>
+<button class="dark-btn" id="darkBtn" onclick="toggleDark()">&#127769; Dark</button>
+<div class="counter"><span id="cur">1</span> / {total}</div>
+<script>
+const slides=document.querySelectorAll('.slide');
+const dotEls=document.querySelectorAll('.dot');
+let cur=0;
+function goTo(n){{
+  if(n===cur||n<0||n>=slides.length)return;
+  slides[cur].classList.remove('active');
+  slides[cur].classList.add('gone');
+  cur=n;
+  slides.forEach((s,i)=>{{s.classList.remove('active','gone');if(i<cur)s.classList.add('gone');}});
+  slides[cur].classList.add('active');
+  dotEls.forEach((d,i)=>d.classList.toggle('active',i===cur));
+  document.getElementById('cur').textContent=cur+1;
+  document.getElementById('prevBtn').disabled=cur===0;
+  document.getElementById('nextBtn').disabled=cur===slides.length-1;
+}}
+function go(d){{goTo(cur+d);}}
+document.addEventListener('keydown',e=>{{
+  if(e.key==='ArrowRight'||e.key==='ArrowDown')go(1);
+  if(e.key==='ArrowLeft'||e.key==='ArrowUp')go(-1);
+}});
+function toggleDark(){{
+  const dark=document.documentElement.classList.toggle('dark');
+  document.getElementById('darkBtn').textContent=dark?'☀ Light':'🌙 Dark';
+}}
+if(window.matchMedia('(prefers-color-scheme: dark)').matches)toggleDark();
+</script>
 </body>
 </html>"""
 
@@ -1066,6 +1082,151 @@ def render_pdf(report: dict, output_path: Path, brand_name: str = "", brand_colo
     return notice
 
 
+def render_ppt(report: dict, output_path: Path, brand_name: str = "", brand_color: str = "#0066CC") -> Path:
+    try:
+        from pptx import Presentation            # type: ignore
+        from pptx.util import Inches, Pt         # type: ignore
+        from pptx.dml.color import RGBColor      # type: ignore
+        from pptx.enum.text import PP_ALIGN      # type: ignore
+    except ImportError:
+        print("  ⚠  python-pptx not installed. Run: pip install python-pptx", file=sys.stderr)
+        fallback = output_path.with_suffix(".pptx.txt")
+        fallback.write_text("Install python-pptx: pip install python-pptx\n")
+        return fallback
+
+    site          = report["site"]
+    display_name  = brand_name or site
+    score         = report["overall_score"]
+    geo           = report["geo_readiness"]
+    summ          = report["summary"]
+    findings      = report["findings"]
+    dim_scores    = report["dimension_scores"]
+    engine_scores = report["engine_scores"]
+    audited       = report["audited_at"][:10]
+
+    hx        = brand_color.lstrip("#")
+    accent    = RGBColor(int(hx[0:2], 16), int(hx[2:4], 16), int(hx[4:6], 16))
+    dark_bg   = RGBColor(15, 23, 42)
+    white     = RGBColor(255, 255, 255)
+    muted_clr = RGBColor(100, 116, 139)
+    score_clr = RGBColor(30, 132, 73) if score >= 70 else RGBColor(227, 116, 0) if score >= 50 else RGBColor(217, 48, 37)
+
+    prs = Presentation()
+    prs.slide_width  = Inches(13.33)
+    prs.slide_height = Inches(7.5)
+    blank = prs.slide_layouts[6]
+
+    def add_bg(slide, color=dark_bg):
+        fill = slide.background.fill
+        fill.solid()
+        fill.fore_color.rgb = color
+
+    def txb(slide, text, l, t, w, h, size=14, bold=False, color=white, align=PP_ALIGN.LEFT, wrap=True):
+        tb = slide.shapes.add_textbox(Inches(l), Inches(t), Inches(w), Inches(h))
+        tf = tb.text_frame
+        tf.word_wrap = wrap
+        p  = tf.paragraphs[0]
+        p.alignment = align
+        r  = p.add_run()
+        r.text = text
+        r.font.size      = Pt(size)
+        r.font.bold      = bold
+        r.font.color.rgb = color
+        return tb
+
+    def bar_rect(slide, l, t, w, h, color=accent):
+        s = slide.shapes.add_shape(1, Inches(l), Inches(t), Inches(w), Inches(h))
+        s.fill.solid()
+        s.fill.fore_color.rgb = color
+        s.line.fill.background()
+        return s
+
+    def accent_bar(slide):
+        bar_rect(slide, 0, 0, 0.08, 7.5, accent)
+
+    # Cover slide
+    s = prs.slides.add_slide(blank); add_bg(s); accent_bar(s)
+    txb(s, "BRAND AI READINESS AUDIT", 0.3, 0.55, 9, 0.35, size=11, color=muted_clr)
+    txb(s, display_name, 0.3, 0.95, 9, 1.4, size=44, bold=True)
+    txb(s, f"{site}  ·  Audited {audited}", 0.3, 2.45, 9, 0.4, size=13, color=muted_clr)
+    txb(s, str(score), 9.8, 1.6, 3.1, 1.7, size=90, bold=True, color=score_clr, align=PP_ALIGN.CENTER)
+    txb(s, "/ 100 GEO Score", 9.8, 3.3, 3.1, 0.4, size=12, color=muted_clr, align=PP_ALIGN.CENTER)
+    txb(s, geo.upper(), 9.8, 3.8, 3.1, 0.5, size=15, bold=True, color=score_clr, align=PP_ALIGN.CENTER)
+    sev_data = [
+        ("CRITICAL", "critical", RGBColor(217, 48, 37)),
+        ("HIGH",     "high",     RGBColor(227, 116, 0)),
+        ("MEDIUM",   "medium",   RGBColor(26, 115, 232)),
+        ("LOW",      "low",      RGBColor(52, 168, 83)),
+    ]
+    for i, (lbl, key, clr) in enumerate(sev_data):
+        txb(s, f"{summ[key]}  {lbl}", 0.3, 3.3 + i * 0.52, 5, 0.45, size=14,
+            bold=(key in ("critical", "high")), color=clr)
+
+    # Dimension scores slide
+    s = prs.slides.add_slide(blank); add_bg(s); accent_bar(s)
+    txb(s, "6 GEO DIMENSIONS", 0.3, 0.4, 12, 0.3, size=11, color=muted_clr)
+    txb(s, "Dimension Scores", 0.3, 0.7, 12, 0.8, size=34, bold=True)
+    for i, d in enumerate(dim_scores):
+        sc_clr = RGBColor(30, 132, 73) if d["score"] >= 70 else RGBColor(227, 116, 0) if d["score"] >= 50 else RGBColor(217, 48, 37)
+        y = 1.75 + i * 0.65
+        txb(s, f'{d["id"]}  {d["name"]}', 0.3, y, 7.5, 0.45, size=13)
+        bar_rect(s, 8.1, y + 0.08, (d["score"] / 100) * 4.8, 0.28, sc_clr)
+        txb(s, str(d["score"]), 13.1, y, 0.7, 0.45, size=13, bold=True, color=sc_clr, align=PP_ALIGN.RIGHT)
+
+    # Per-engine scores slide
+    s = prs.slides.add_slide(blank); add_bg(s); accent_bar(s)
+    txb(s, "DIRECTIVE CONSULTING 2026  ·  ≥70 = GEO READY", 0.3, 0.4, 12, 0.3, size=11, color=muted_clr)
+    txb(s, "Per-Engine GEO Readiness", 0.3, 0.7, 12, 0.8, size=34, bold=True)
+    for i, (engine, escore) in enumerate(engine_scores.items()):
+        sc_clr = RGBColor(30, 132, 73) if escore >= 70 else RGBColor(227, 116, 0) if escore >= 50 else RGBColor(217, 48, 37)
+        y = 1.75 + i * 0.72
+        txb(s, engine, 0.3, y, 5, 0.45, size=13)
+        bar_rect(s, 5.6, y + 0.08, (escore / 100) * 5.0, 0.28, sc_clr)
+        txb(s, str(escore), 10.8, y, 0.6, 0.45, size=13, bold=True, color=sc_clr)
+        status = "✓ Ready" if escore >= 70 else "⚠ Developing" if escore >= 50 else "✗ Gap"
+        txb(s, status, 11.5, y, 1.7, 0.45, size=12, color=sc_clr)
+
+    # CRITICAL + HIGH: one slide per finding
+    for sev in ["CRITICAL", "HIGH"]:
+        sc_clr = {"CRITICAL": RGBColor(217, 48, 37), "HIGH": RGBColor(227, 116, 0)}[sev]
+        for f in [x for x in findings if x["severity"] == sev]:
+            s = prs.slides.add_slide(blank); add_bg(s)
+            bar_rect(s, 0, 0, 0.08, 7.5, sc_clr)
+            txb(s, f'{SEV_ICON[sev]} {sev}  ·  {f["id"]}', 0.3, 0.4, 12, 0.35, size=12, color=sc_clr)
+            txb(s, f["title"], 0.3, 0.75, 12.7, 1.1, size=24, bold=True)
+            bar_rect(s, 0.3, 2.1, 6.0, 4.6, RGBColor(30, 41, 59))
+            txb(s, "EVIDENCE", 0.5, 2.2, 5.5, 0.3, size=9, color=muted_clr)
+            txb(s, f["evidence"], 0.5, 2.6, 5.6, 3.7, size=12, color=RGBColor(203, 213, 225), wrap=True)
+            bar_rect(s, 6.7, 2.1, 6.3, 4.6, RGBColor(30, 41, 59))
+            txb(s, "ACTION", 6.9, 2.2, 5.9, 0.3, size=9, color=muted_clr)
+            txb(s, f["suggested_action"]["summary"], 6.9, 2.6, 5.9, 2.8, size=14, bold=True, wrap=True)
+            effort = f["suggested_action"].get("effort", "?").upper()
+            prio   = f["suggested_action"].get("priority", "?").upper()
+            txb(s, f"Effort: {effort}  ·  Priority: {prio}", 6.9, 5.7, 5.5, 0.5, size=11, color=muted_clr)
+
+    # MEDIUM + LOW: one batch slide each
+    for sev in ["MEDIUM", "LOW"]:
+        sc_clr = {"MEDIUM": RGBColor(26, 115, 232), "LOW": RGBColor(52, 168, 83)}[sev]
+        batch = [x for x in findings if x["severity"] == sev]
+        if not batch:
+            continue
+        s = prs.slides.add_slide(blank); add_bg(s)
+        bar_rect(s, 0, 0, 0.08, 7.5, sc_clr)
+        txb(s, f'{SEV_ICON[sev]} {sev}  ·  {len(batch)} findings', 0.3, 0.4, 12, 0.35, size=12, color=sc_clr)
+        txb(s, f'{sev.title()} Priority Findings', 0.3, 0.75, 12, 0.8, size=30, bold=True)
+        for j, f in enumerate(batch[:10]):
+            y = 1.8 + j * 0.47
+            txb(s, f'{f["id"]}  {f["title"]}', 0.3, y, 10, 0.42, size=12)
+            effort = f["suggested_action"].get("effort", "?").upper()
+            txb(s, effort, 10.4, y, 1.0, 0.42, size=11, color=muted_clr)
+        if len(batch) > 10:
+            txb(s, f'+ {len(batch) - 10} more…', 0.3, 1.8 + 10 * 0.47, 4, 0.4, size=12, color=muted_clr)
+
+    out = output_path.with_suffix(".pptx")
+    prs.save(str(out))
+    return out
+
+
 # ══════════════════════════════════════════════════════════════════════════════
 # 3. CLI
 # ══════════════════════════════════════════════════════════════════════════════
@@ -1078,7 +1239,7 @@ def parse_args() -> argparse.Namespace:
     )
     p.add_argument("audit_dir", help="Directory containing the 10 skill JSON output files")
     p.add_argument("--format", default="html,md",
-                   help="Comma-separated list of output formats: html,md,pdf,json (default: html,md)")
+                   help="Comma-separated list of output formats: html,md,pdf,json,pptx (default: html,md)")
     p.add_argument("--output-dir", default="",
                    help="Where to write report files (default: <audit_dir>/reports/)")
     p.add_argument("--brand-name", default="",
@@ -1102,7 +1263,7 @@ def main() -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
 
     formats = [f.strip().lower() for f in args.format.split(",")]
-    valid_formats = {"html", "md", "pdf", "json"}
+    valid_formats = {"html", "md", "pdf", "json", "pptx"}
     invalid = set(formats) - valid_formats
     if invalid:
         print(f"Error: unknown format(s): {invalid}. Valid: {valid_formats}", file=sys.stderr)
@@ -1176,6 +1337,11 @@ def main() -> None:
         path = render_pdf(report, output_dir / stem, args.brand_name, args.brand_color)
         generated.append(("PDF", path))
         print(f"  ✅ PDF    → {path}")
+
+    if "pptx" in formats:
+        path = render_ppt(report, output_dir / stem, args.brand_name, args.brand_color)
+        generated.append(("PPT", path))
+        print(f"  ✅ PPTX   → {path}")
 
     print()
     print(f"  {'─'*50}")
