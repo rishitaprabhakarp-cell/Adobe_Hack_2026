@@ -673,15 +673,15 @@ def render_markdown(report: dict, output_path: Path, brand_name: str = "", brand
 
 # ── 2c. HTML renderer ─────────────────────────────────────────────────────────
 
-def _bar_svg(categories: list[str], values: list[int], width: int = 540, height: int = 180,
+def _bar_svg(categories: list[str], values: list[int], width: int = 540, height: int = 300,
              threshold: int | None = 70, color: str = "#0066CC") -> str:
     """Render a minimal inline SVG bar chart — zero dependencies."""
-    pad_l, pad_r, pad_t, pad_b = 40, 12, 10, 40
+    pad_l, pad_r, pad_t, pad_b = 44, 16, 14, 52
     chart_w = width - pad_l - pad_r
     chart_h = height - pad_t - pad_b
     max_val = max(max(values), threshold or 0, 1)
     bar_w = chart_w / len(categories)
-    gap = bar_w * 0.18
+    gap = bar_w * 0.16
 
     bars = []
     for i, (cat, val) in enumerate(zip(categories, values)):
@@ -689,35 +689,30 @@ def _bar_svg(categories: list[str], values: list[int], width: int = 540, height:
         bh = (val / max_val) * chart_h
         bx = pad_l + i * bar_w + gap
         by = pad_t + chart_h - bh
-        # Color by value vs threshold
         fill = color if (threshold is None or val >= threshold) else "#E37400" if val >= threshold * 0.7 else "#D93025"
-        bars.append(f'<rect x="{bx:.1f}" y="{by:.1f}" width="{bw:.1f}" height="{bh:.1f}" fill="{fill}" rx="2"/>')
-        bars.append(f'<text x="{bx+bw/2:.1f}" y="{by-3:.1f}" text-anchor="middle" font-size="10" fill="#555">{val}</text>')
-        # x-label — truncate
-        label = cat if len(cat) <= 10 else cat[:9] + "…"
-        bars.append(f'<text x="{bx+bw/2:.1f}" y="{pad_t+chart_h+14:.1f}" text-anchor="middle" font-size="9" fill="#666">{label}</text>')
+        bars.append(f'<rect x="{bx:.1f}" y="{by:.1f}" width="{bw:.1f}" height="{bh:.1f}" fill="{fill}" rx="4"/>')
+        bars.append(f'<text x="{bx+bw/2:.1f}" y="{by-6:.1f}" text-anchor="middle" font-size="12" font-weight="600" fill="#555">{val}</text>')
+        label = cat if len(cat) <= 11 else cat[:10] + "…"
+        bars.append(f'<text x="{bx+bw/2:.1f}" y="{pad_t+chart_h+18:.1f}" text-anchor="middle" font-size="11" fill="#666">{label}</text>')
 
-    # Y-axis line
     axes = [f'<line x1="{pad_l}" y1="{pad_t}" x2="{pad_l}" y2="{pad_t+chart_h}" stroke="#ddd" stroke-width="1"/>']
-    # Y gridlines
     for v in [25, 50, 75, 100]:
         y = pad_t + chart_h - (v / max_val) * chart_h
         axes.append(f'<line x1="{pad_l}" y1="{y:.1f}" x2="{pad_l+chart_w}" y2="{y:.1f}" stroke="#eee" stroke-width="1"/>')
-        axes.append(f'<text x="{pad_l-4:.1f}" y="{y+3:.1f}" text-anchor="end" font-size="9" fill="#999">{v}</text>')
+        axes.append(f'<text x="{pad_l-6:.1f}" y="{y+4:.1f}" text-anchor="end" font-size="10" fill="#999">{v}</text>')
 
-    # Threshold line
     thresh_line = ""
     if threshold is not None:
         ty = pad_t + chart_h - (threshold / max_val) * chart_h
         thresh_line = (
             f'<line x1="{pad_l}" y1="{ty:.1f}" x2="{pad_l+chart_w}" y2="{ty:.1f}" '
-            f'stroke="#E37400" stroke-width="1.5" stroke-dasharray="4,3"/>'
-            f'<text x="{pad_l+chart_w+2}" y="{ty+4:.1f}" font-size="9" fill="#E37400">threshold</text>'
+            f'stroke="#E37400" stroke-width="1.5" stroke-dasharray="5,3"/>'
+            f'<text x="{pad_l+chart_w+3}" y="{ty+4:.1f}" font-size="10" fill="#E37400">threshold</text>'
         )
 
     return (
         f'<svg viewBox="0 0 {width} {height}" xmlns="http://www.w3.org/2000/svg" '
-        f'style="width:100%;max-width:{width}px;display:block">'
+        f'style="width:100%;display:block">'
         + "".join(axes) + thresh_line + "".join(bars) +
         "</svg>"
     )
@@ -929,7 +924,7 @@ def render_html(report: dict, output_path: Path, brand_name: str = "", brand_col
   .slide-head{{margin-bottom:32px}}
   .eyebrow{{font-size:11px;text-transform:uppercase;letter-spacing:1.2px;color:var(--muted);margin-bottom:8px;font-weight:600}}
   .slide-h2{{font-size:36px;font-weight:800;color:var(--text);line-height:1.1;letter-spacing:-.5px}}
-  .two-col{{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}}
+  .two-col{{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:stretch}}
   .chart-card,.table-card{{background:var(--surface);border:1px solid var(--border);border-radius:var(--rad);padding:24px;overflow:hidden}}
   .table-card{{padding:0;overflow:auto}}
   .finding-panel{{background:var(--surface);border:1px solid var(--border);border-radius:var(--rad);padding:32px;font-size:15px;line-height:1.8}}
