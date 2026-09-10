@@ -775,17 +775,19 @@ def render_html(report: dict, output_path: Path, brand_name: str = "", brand_col
         f'<span class="pill pill-low">{summ["low"]} Low</span>'
     )
     slides.append(f"""<div class="slide active" data-label="Overview">
-  <div class="cover-layout">
-    <div class="cover-left">
-      <div class="eyebrow">Brand AI Readiness Audit</div>
-      <h1 class="cover-h1">{display_name}</h1>
-      <p class="cover-sub"><a href="https://{site}">{site}</a> &middot; Audited {audited}</p>
-      <div class="pill-row">{pill_row}</div>
-      <p class="cover-note">{summ["total_findings"]} findings &middot; 6 GEO dimensions &middot; 5 AI engines</p>
-    </div>
-    <div class="cover-right">
-      {ring}
-      <div class="geo-badge" style="background:{geo_bg};color:{geo_text}">{geo}</div>
+  <div class="slide-inner">
+    <div class="cover-layout">
+      <div class="cover-left">
+        <div class="eyebrow">Brand AI Readiness Audit</div>
+        <h1 class="cover-h1">{display_name}</h1>
+        <p class="cover-sub"><a href="https://{site}">{site}</a> &middot; Audited {audited}</p>
+        <div class="pill-row">{pill_row}</div>
+        <p class="cover-note">{summ["total_findings"]} findings &middot; 6 GEO dimensions &middot; 5 AI engines</p>
+      </div>
+      <div class="cover-right">
+        {ring}
+        <div class="geo-badge" style="background:{geo_bg};color:{geo_text}">{geo}</div>
+      </div>
     </div>
   </div>
 </div>""")
@@ -801,13 +803,15 @@ def render_html(report: dict, output_path: Path, brand_name: str = "", brand_col
             f'<td style="color:{sc}">{mark}</td></tr>'
         )
     slides.append(f"""<div class="slide" data-label="GEO Dimensions">
-  <div class="slide-head">
-    <div class="eyebrow">6 GEO Dimensions &mdash; Directive Consulting 2026</div>
-    <h2 class="slide-h2">Dimension Scores</h2>
-  </div>
-  <div class="two-col">
-    <div class="chart-card">{dim_chart}</div>
-    <div class="table-card"><table><thead><tr><th>ID</th><th>Dimension</th><th>Score</th><th></th></tr></thead><tbody>{dim_rows}</tbody></table></div>
+  <div class="slide-inner">
+    <div class="slide-head">
+      <div class="eyebrow">6 GEO Dimensions &mdash; Directive Consulting 2026</div>
+      <h2 class="slide-h2">Dimension Scores</h2>
+    </div>
+    <div class="two-col">
+      <div class="chart-card">{dim_chart}</div>
+      <div class="table-card"><table><thead><tr><th>ID</th><th>Dimension</th><th>Score</th><th></th></tr></thead><tbody>{dim_rows}</tbody></table></div>
+    </div>
   </div>
 </div>""")
 
@@ -822,13 +826,15 @@ def render_html(report: dict, output_path: Path, brand_name: str = "", brand_col
             f'<td style="color:{sc}">{mark}</td></tr>'
         )
     slides.append(f"""<div class="slide" data-label="Per-Engine">
-  <div class="slide-head">
-    <div class="eyebrow">Threshold &ge;70 = GEO Ready (Directive Consulting 2026)</div>
-    <h2 class="slide-h2">Per-Engine GEO Readiness</h2>
-  </div>
-  <div class="two-col">
-    <div class="chart-card">{engine_chart}</div>
-    <div class="table-card"><table><thead><tr><th>Engine</th><th>Score</th><th>Status</th></tr></thead><tbody>{eng_rows}</tbody></table></div>
+  <div class="slide-inner">
+    <div class="slide-head">
+      <div class="eyebrow">Threshold &ge;70 = GEO Ready (Directive Consulting 2026)</div>
+      <h2 class="slide-h2">Per-Engine GEO Readiness</h2>
+    </div>
+    <div class="two-col">
+      <div class="chart-card">{engine_chart}</div>
+      <div class="table-card"><table><thead><tr><th>Engine</th><th>Score</th><th>Status</th></tr></thead><tbody>{eng_rows}</tbody></table></div>
+    </div>
   </div>
 </div>""")
 
@@ -839,19 +845,21 @@ def render_html(report: dict, output_path: Path, brand_name: str = "", brand_col
         for f in [x for x in findings if x["severity"] == sev]:
             action = f["suggested_action"]
             slides.append(f"""<div class="slide" data-label="{sev}">
-  <div class="slide-head">
-    <div class="eyebrow" style="color:{sev_color}">{sev_icon} {sev} &mdash; <code>{f['id']}</code></div>
-    <h2 class="slide-h2">{f['title']}</h2>
-  </div>
-  <div class="two-col">
-    <div class="finding-panel">
-      <div class="panel-label">Evidence</div>
-      <p>{f['evidence']}</p>
+  <div class="slide-inner">
+    <div class="slide-head">
+      <div class="eyebrow" style="color:{sev_color}">{sev_icon} {sev} &mdash; <code>{f['id']}</code></div>
+      <h2 class="slide-h2">{f['title']}</h2>
     </div>
-    <div class="finding-panel action-panel">
-      <div class="panel-label">Recommended Action</div>
-      <p class="action-text">{action['summary']}</p>
-      <span class="effort-tag">Effort: {action.get('effort', '?').upper()} &middot; Priority: {action.get('priority', '?').upper()}</span>
+    <div class="two-col">
+      <div class="finding-panel">
+        <div class="panel-label">Evidence</div>
+        <p>{f['evidence']}</p>
+      </div>
+      <div class="finding-panel action-panel">
+        <div class="panel-label">Recommended Action</div>
+        <p class="action-text">{action['summary']}</p>
+        <span class="effort-tag">Effort: {action.get('effort', '?').upper()} &middot; Priority: {action.get('priority', '?').upper()}</span>
+      </div>
     </div>
   </div>
 </div>""")
@@ -871,14 +879,16 @@ def render_html(report: dict, output_path: Path, brand_name: str = "", brand_col
             for f in sev_findings
         )
         slides.append(f"""<div class="slide" data-label="{sev}">
-  <div class="slide-head">
-    <div class="eyebrow" style="color:{sev_color}">{sev_icon} {sev}</div>
-    <h2 class="slide-h2">{sev.title()} Findings ({len(sev_findings)})</h2>
+  <div class="slide-inner">
+    <div class="slide-head">
+      <div class="eyebrow" style="color:{sev_color}">{sev_icon} {sev}</div>
+      <h2 class="slide-h2">{sev.title()} Findings ({len(sev_findings)})</h2>
+    </div>
+    <div class="table-card"><table>
+      <thead><tr><th>ID</th><th>Finding</th><th>Action</th><th>Effort</th></tr></thead>
+      <tbody>{rows}</tbody>
+    </table></div>
   </div>
-  <div class="table-card"><table>
-    <thead><tr><th>ID</th><th>Finding</th><th>Action</th><th>Effort</th></tr></thead>
-    <tbody>{rows}</tbody>
-  </table></div>
 </div>""")
 
     total       = len(slides)
@@ -903,52 +913,60 @@ def render_html(report: dict, output_path: Path, brand_name: str = "", brand_col
   body{{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--text);font-size:14px;line-height:1.6}}
   a{{color:var(--accent);text-decoration:none}}a:hover{{text-decoration:underline}}
   .deck{{position:fixed;inset:0;background:var(--bg)}}
-  .slide{{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;padding:52px 72px 88px;transform:translateX(100%);transition:transform .38s cubic-bezier(.4,0,.2,1);background:var(--bg)}}
+  /* slide fills viewport; overflow-y allows scroll on tall content */
+  .slide{{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;display:flex;flex-direction:column;padding:0;transform:translateX(100%);transition:transform .42s cubic-bezier(.4,0,.2,1);background:var(--bg)}}
   .slide.active{{transform:none}}
   .slide.gone{{transform:translateX(-100%)}}
-  .cover-layout{{display:flex;align-items:center;justify-content:space-between;min-height:calc(100vh - 140px);gap:48px}}
-  .cover-left{{flex:1;max-width:580px}}
+  /* slide-inner: margin:auto = centered when short; collapses to 0 when content overflows */
+  .slide-inner{{width:100%;max-width:1200px;margin:auto;padding:60px 88px 96px;flex-shrink:0}}
+  .cover-layout{{display:flex;align-items:center;justify-content:space-between;gap:56px}}
+  .cover-left{{flex:1;min-width:0}}
   .cover-right{{text-align:center;flex-shrink:0}}
-  .cover-h1{{font-size:52px;font-weight:900;line-height:1.05;margin:8px 0 16px;color:var(--text)}}
-  .cover-sub{{font-size:15px;color:var(--muted);margin-bottom:24px}}
-  .cover-note{{font-size:13px;color:var(--muted);margin-top:16px}}
-  .geo-badge{{display:inline-block;margin-top:14px;padding:6px 20px;border-radius:9999px;font-size:14px;font-weight:700}}
-  .slide-head{{margin-bottom:28px}}
-  .eyebrow{{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:6px}}
-  .slide-h2{{font-size:34px;font-weight:800;color:var(--text);line-height:1.15}}
+  .cover-h1{{font-size:54px;font-weight:900;line-height:1.05;margin:10px 0 18px;color:var(--text);letter-spacing:-1px}}
+  .cover-sub{{font-size:15px;color:var(--muted);margin-bottom:28px}}
+  .cover-note{{font-size:13px;color:var(--muted);margin-top:18px;line-height:1.7}}
+  .geo-badge{{display:inline-block;margin-top:16px;padding:7px 22px;border-radius:9999px;font-size:14px;font-weight:700;letter-spacing:.3px}}
+  .slide-head{{margin-bottom:32px}}
+  .eyebrow{{font-size:11px;text-transform:uppercase;letter-spacing:1.2px;color:var(--muted);margin-bottom:8px;font-weight:600}}
+  .slide-h2{{font-size:36px;font-weight:800;color:var(--text);line-height:1.1;letter-spacing:-.5px}}
   .two-col{{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}}
-  .chart-card,.table-card{{background:var(--surface);border:1px solid var(--border);border-radius:var(--rad);padding:20px;overflow:hidden}}
-  .table-card{{padding:0}}
-  .finding-panel{{background:var(--surface);border:1px solid var(--border);border-radius:var(--rad);padding:28px;font-size:15px;line-height:1.75}}
-  .action-panel{{border-left:4px solid var(--accent)}}
-  .panel-label{{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:12px}}
-  .action-text{{font-size:16px;font-weight:600;line-height:1.5}}
-  .pill-row{{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px}}
-  .pill{{padding:5px 14px;border-radius:9999px;font-size:13px;font-weight:700}}
+  .chart-card,.table-card{{background:var(--surface);border:1px solid var(--border);border-radius:var(--rad);padding:24px;overflow:hidden}}
+  .table-card{{padding:0;overflow:auto}}
+  .finding-panel{{background:var(--surface);border:1px solid var(--border);border-radius:var(--rad);padding:32px;font-size:15px;line-height:1.8}}
+  .action-panel{{border-left:4px solid var(--accent);background:var(--bg)}}
+  .panel-label{{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--muted);margin-bottom:14px}}
+  .action-text{{font-size:16px;font-weight:600;line-height:1.6;color:var(--text)}}
+  .pill-row{{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px}}
+  .pill{{padding:5px 16px;border-radius:9999px;font-size:13px;font-weight:700}}
   .pill-crit{{background:#fee2e2;color:#7f1d1d}}
   .pill-high{{background:#fff7ed;color:#92400e}}
   .pill-med{{background:#eff6ff;color:#1e40af}}
   .pill-low{{background:#f0fdf4;color:#166534}}
-  .effort-tag{{display:inline-block;margin-top:18px;padding:4px 10px;background:var(--border);border-radius:5px;font-size:11px;color:var(--muted);font-weight:600}}
-  .fid-sm{{background:var(--border);padding:1px 6px;border-radius:4px;font-size:11px;font-family:monospace;color:var(--muted)}}
-  .effort-sm{{padding:2px 6px;background:var(--border);border-radius:4px;font-size:11px;color:var(--muted)}}
-  code{{background:var(--border);padding:1px 5px;border-radius:4px;font-size:11px;font-family:monospace;color:var(--muted)}}
+  html.dark .pill-crit{{background:#450a0a;color:#fca5a5}}
+  html.dark .pill-high{{background:#431407;color:#fdba74}}
+  html.dark .pill-med{{background:#1e3a5f;color:#93c5fd}}
+  html.dark .pill-low{{background:#052e16;color:#86efac}}
+  .effort-tag{{display:inline-block;margin-top:20px;padding:5px 12px;background:var(--border);border-radius:6px;font-size:11px;color:var(--muted);font-weight:600;letter-spacing:.3px}}
+  .fid-sm{{background:var(--border);padding:2px 7px;border-radius:4px;font-size:11px;font-family:monospace;color:var(--muted);white-space:nowrap}}
+  .effort-sm{{padding:2px 7px;background:var(--border);border-radius:4px;font-size:11px;color:var(--muted);white-space:nowrap}}
+  code{{background:var(--border);padding:2px 6px;border-radius:4px;font-size:11px;font-family:monospace;color:var(--muted)}}
   table{{width:100%;border-collapse:collapse;font-size:13px}}
-  th,td{{padding:9px 14px;text-align:left;border-bottom:1px solid var(--border)}}
-  th{{font-weight:600;color:var(--muted);text-transform:uppercase;font-size:10px;letter-spacing:.5px;background:var(--bg)}}
+  th,td{{padding:11px 16px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}}
+  th{{font-weight:700;color:var(--muted);text-transform:uppercase;font-size:10px;letter-spacing:.7px;background:var(--bg);position:sticky;top:0}}
   tr:last-child td{{border-bottom:none}}
+  tbody tr:hover td{{background:var(--border)}}
   html.dark .chart-card svg text{{fill:#94a3b8}}
   html.dark .chart-card svg line{{stroke:#334155}}
-  .nav-btn{{position:fixed;top:50%;transform:translateY(-50%);background:var(--surface);border:1px solid var(--border);border-radius:50%;width:44px;height:44px;font-size:18px;cursor:pointer;z-index:200;display:flex;align-items:center;justify-content:center;color:var(--text);transition:background .2s,opacity .2s;box-shadow:0 2px 8px rgba(0,0,0,.08)}}
-  .nav-btn:hover{{background:var(--border)}}
-  .nav-btn:disabled{{opacity:.2;cursor:default}}
-  #prevBtn{{left:14px}}#nextBtn{{right:14px}}
-  .dots{{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:200}}
+  .nav-btn{{position:fixed;top:50%;transform:translateY(-50%);background:var(--surface);border:1px solid var(--border);border-radius:50%;width:46px;height:46px;font-size:20px;cursor:pointer;z-index:200;display:flex;align-items:center;justify-content:center;color:var(--text);transition:background .2s,box-shadow .2s,opacity .2s;box-shadow:0 2px 12px rgba(0,0,0,.1)}}
+  .nav-btn:hover{{background:var(--border);box-shadow:0 4px 16px rgba(0,0,0,.15)}}
+  .nav-btn:disabled{{opacity:.18;cursor:default;box-shadow:none}}
+  #prevBtn{{left:16px}}#nextBtn{{right:16px}}
+  .dots{{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:200;background:var(--surface);border:1px solid var(--border);border-radius:9999px;padding:8px 14px;box-shadow:0 2px 8px rgba(0,0,0,.06)}}
   .dot{{width:8px;height:8px;border-radius:50%;background:var(--border);border:none;cursor:pointer;transition:background .2s,transform .2s;padding:0}}
-  .dot.active{{background:var(--accent);transform:scale(1.3)}}
-  .dark-btn{{position:fixed;top:18px;right:18px;z-index:200;background:var(--surface);border:1px solid var(--border);border-radius:9999px;padding:6px 14px;font-size:13px;cursor:pointer;color:var(--text);transition:background .2s;font-family:inherit}}
-  .dark-btn:hover{{background:var(--border)}}
-  .counter{{position:fixed;top:18px;left:18px;z-index:200;font-size:12px;color:var(--muted);background:var(--surface);border:1px solid var(--border);border-radius:9999px;padding:4px 12px}}
+  .dot.active{{background:var(--accent);transform:scale(1.35)}}
+  .dark-btn{{position:fixed;top:18px;right:18px;z-index:200;background:var(--surface);border:1px solid var(--border);border-radius:9999px;padding:7px 16px;font-size:13px;cursor:pointer;color:var(--text);transition:background .2s,box-shadow .2s;font-family:inherit;font-weight:500}}
+  .dark-btn:hover{{background:var(--border);box-shadow:0 2px 8px rgba(0,0,0,.1)}}
+  .counter{{position:fixed;top:18px;left:18px;z-index:200;font-size:12px;color:var(--muted);background:var(--surface);border:1px solid var(--border);border-radius:9999px;padding:5px 14px;font-weight:600}}
 </style>
 </head>
 <body>
