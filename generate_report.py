@@ -41,16 +41,19 @@ from typing import Any
 # ══════════════════════════════════════════════════════════════════════════════
 
 SKILL_FILES = {
-    "crawlability": "crawlability.json",
-    "render":       "render.json",
-    "schema":       "schema.json",
-    "entity":       "entity.json",
-    "content":      "content.json",
-    "eeeat":        "eeeat.json",
-    "engagement":   "engagement.json",
-    "rsl":          "rsl.json",
-    "opengraph":    "opengraph.json",
-    "technical":    "technical.json",
+    "crawlability":   "crawlability.json",
+    "render":         "render.json",
+    "schema":         "schema.json",
+    "entity":         "entity.json",
+    "content":        "content.json",
+    "eeeat":          "eeeat.json",
+    "engagement":     "engagement.json",
+    "rsl":            "rsl.json",
+    "opengraph":      "opengraph.json",
+    "technical":      "technical.json",
+    "landing_clarity": "landing_clarity.json",
+    "content_trust":  "content_trust.json",
+    "url_resilience": "url_resilience.json",
 }
 
 SEVERITY_ORDER = {"CRITICAL": 0, "HIGH": 1, "MEDIUM": 2, "LOW": 3}
@@ -75,12 +78,12 @@ def load_skill_outputs(audit_dir: Path) -> dict[str, Any]:
 # ── Dimension definitions ────────────────────────────────────────────────────
 
 DIMENSIONS = [
-    {"id": "D1", "name": "Crawlability",           "weight_key": "crawl",   "finding_prefixes": ["RC2","RC4","RC7","RC14","RC17","RC19","RC23","CDN-WAF","RSL"]},
-    {"id": "D2", "name": "Content Extractability", "weight_key": "content", "finding_prefixes": ["CEA","RC8","RC11"]},
+    {"id": "D1", "name": "Crawlability",           "weight_key": "crawl",   "finding_prefixes": ["RC2","RC4","RC7","RC14","RC17","RC19","RC23","RC29","CDN-WAF","RSL"]},
+    {"id": "D2", "name": "Content Extractability", "weight_key": "content", "finding_prefixes": ["CEA","RC8","RC11","RC24","RC26"]},
     {"id": "D3", "name": "Entity Clarity",         "weight_key": "entity",  "finding_prefixes": ["RC5","RC6","EEAT-007","CITE-003","CITE-004"]},
     {"id": "D4", "name": "Schema Integrity",       "weight_key": "schema",  "finding_prefixes": ["RC3","RC10","RC11","RC13","RC15","RC18","RC21","OG-007","SC-"]},
     {"id": "D5", "name": "Off-Page Authority",     "weight_key": "authority","finding_prefixes": ["EEAT","CITE-001","CITE-002","RC6"]},
-    {"id": "D6", "name": "Technical Foundation",   "weight_key": "technical","finding_prefixes": ["RC1","RC9","RC12","RC20","TSEO","OG-00","IMG-"]},
+    {"id": "D6", "name": "Technical Foundation",   "weight_key": "technical","finding_prefixes": ["RC1","RC9","RC12","RC20","TSEO","OG-00","IMG-","RC25","RC27","RC28","RC30","RC-NAV","RC-TRUST"]},
 ]
 
 ENGINE_WEIGHTS = {
@@ -467,6 +470,24 @@ def extract_findings_from_outputs(outputs: dict[str, Any]) -> list[dict]:
                 "severity": "MEDIUM" if rt < 4000 else "HIGH",
                 "evidence": f"Homepage response: {rt}ms. AI crawlers may time out above 3000ms.",
                 "suggested_action": {"summary": "Optimise TTFB via CDN, caching, or server-side rendering improvements.", "priority": "medium", "effort": "high"}})
+
+    # ── Landing Clarity (RC24, RC25, RC28, RC30) ─────────────────────────────
+    landing = outputs.get("landing_clarity", {})
+    if landing:
+        for f in landing.get("findings", []):
+            findings.append(f)
+
+    # ── Content Trust (RC26, RC27, RC-TRUST, RC-NAV) ──────────────────────────
+    content_trust = outputs.get("content_trust", {})
+    if content_trust:
+        for f in content_trust.get("findings", []):
+            findings.append(f)
+
+    # ── URL Resilience (RC29, RC30) ────────────────────────────────────────────
+    url_resilience = outputs.get("url_resilience", {})
+    if url_resilience:
+        for f in url_resilience.get("findings", []):
+            findings.append(f)
 
     return findings
 

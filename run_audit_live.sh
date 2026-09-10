@@ -52,31 +52,37 @@ echo "  Timestamp  : $TIMESTAMP"
 echo ""
 
 # ── Launch all scripts in parallel ──────────────────────────────────────────
-echo "  🚀 Launching 10 skill scripts in parallel…"
+echo "  🚀 Launching 13 skill scripts in parallel…"
 echo ""
 
-"$PYTHON" "$BASE/crawlability-probe/scripts/crawlability_check.py"        "$URL" > "$OUTPUT_DIR/crawlability.json"  2>"$OUTPUT_DIR/crawlability.err"  &  PID_crawlability=$!
-"$PYTHON" "$BASE/render-gap-detector/scripts/render_check.py"             "$URL" > "$OUTPUT_DIR/render.json"         2>"$OUTPUT_DIR/render.err"         &  PID_render=$!
-"$PYTHON" "$BASE/structured-data-auditor/scripts/schema_audit.py"         "$URL" > "$OUTPUT_DIR/schema.json"         2>"$OUTPUT_DIR/schema.err"         &  PID_schema=$!
-"$PYTHON" "$BASE/entity-corroboration-checker/scripts/entity_check.py"   "$URL" > "$OUTPUT_DIR/entity.json"         2>"$OUTPUT_DIR/entity.err"         &  PID_entity=$!
-"$PYTHON" "$BASE/content-extractability-auditor/scripts/content_check.py" "$URL" > "$OUTPUT_DIR/content.json"        2>"$OUTPUT_DIR/content.err"        &  PID_content=$!
-"$PYTHON" "$BASE/eeeat-signal-checker/scripts/eeeat_check.py"             "$URL" > "$OUTPUT_DIR/eeeat.json"          2>"$OUTPUT_DIR/eeeat.err"          &  PID_eeeat=$!
-"$PYTHON" "$BASE/engagement-analyzer/scripts/engagement_check.py"        "$URL" > "$OUTPUT_DIR/engagement.json"     2>"$OUTPUT_DIR/engagement.err"     &  PID_engagement=$!
-"$PYTHON" "$BASE/rsl-licensing-checker/scripts/rsl_check.py"              "$URL" > "$OUTPUT_DIR/rsl.json"            2>"$OUTPUT_DIR/rsl.err"            &  PID_rsl=$!
-"$PYTHON" "$BASE/opengraph-meta-auditor/scripts/og_audit.py"              "$URL" > "$OUTPUT_DIR/opengraph.json"      2>"$OUTPUT_DIR/opengraph.err"      &  PID_opengraph=$!
-"$PYTHON" "$BASE/technical-seo-probe/scripts/technical_check.py"          "$URL" > "$OUTPUT_DIR/technical.json"      2>"$OUTPUT_DIR/technical.err"      &  PID_technical=$!
+"$PYTHON" "$BASE/crawlability-probe/scripts/crawlability_check.py"                    "$URL" > "$OUTPUT_DIR/crawlability.json"    2>"$OUTPUT_DIR/crawlability.err"    &  PID_crawlability=$!
+"$PYTHON" "$BASE/render-gap-detector/scripts/render_check.py"                         "$URL" > "$OUTPUT_DIR/render.json"           2>"$OUTPUT_DIR/render.err"           &  PID_render=$!
+"$PYTHON" "$BASE/structured-data-auditor/scripts/schema_audit.py"                     "$URL" > "$OUTPUT_DIR/schema.json"           2>"$OUTPUT_DIR/schema.err"           &  PID_schema=$!
+"$PYTHON" "$BASE/entity-corroboration-checker/scripts/entity_check.py"               "$URL" > "$OUTPUT_DIR/entity.json"           2>"$OUTPUT_DIR/entity.err"           &  PID_entity=$!
+"$PYTHON" "$BASE/content-extractability-auditor/scripts/content_check.py"             "$URL" > "$OUTPUT_DIR/content.json"          2>"$OUTPUT_DIR/content.err"          &  PID_content=$!
+"$PYTHON" "$BASE/eeeat-signal-checker/scripts/eeeat_check.py"                         "$URL" > "$OUTPUT_DIR/eeeat.json"            2>"$OUTPUT_DIR/eeeat.err"            &  PID_eeeat=$!
+"$PYTHON" "$BASE/engagement-analyzer/scripts/engagement_check.py"                    "$URL" > "$OUTPUT_DIR/engagement.json"       2>"$OUTPUT_DIR/engagement.err"       &  PID_engagement=$!
+"$PYTHON" "$BASE/rsl-licensing-checker/scripts/rsl_check.py"                          "$URL" > "$OUTPUT_DIR/rsl.json"              2>"$OUTPUT_DIR/rsl.err"              &  PID_rsl=$!
+"$PYTHON" "$BASE/opengraph-meta-auditor/scripts/og_audit.py"                          "$URL" > "$OUTPUT_DIR/opengraph.json"        2>"$OUTPUT_DIR/opengraph.err"        &  PID_opengraph=$!
+"$PYTHON" "$BASE/technical-seo-probe/scripts/technical_check.py"                      "$URL" > "$OUTPUT_DIR/technical.json"        2>"$OUTPUT_DIR/technical.err"        &  PID_technical=$!
+"$PYTHON" "$BASE/landing-clarity-auditor/scripts/landing_clarity_check.py"            "$URL" > "$OUTPUT_DIR/landing_clarity.json"  2>"$OUTPUT_DIR/landing_clarity.err"  &  PID_landing_clarity=$!
+"$PYTHON" "$BASE/content-trust-auditor/scripts/content_trust_check.py"                "$URL" > "$OUTPUT_DIR/content_trust.json"    2>"$OUTPUT_DIR/content_trust.err"    &  PID_content_trust=$!
+"$PYTHON" "$BASE/url-resilience-checker/scripts/url_resilience_check.py"              "$URL" > "$OUTPUT_DIR/url_resilience.json"   2>"$OUTPUT_DIR/url_resilience.err"   &  PID_url_resilience=$!
 
 echo "  ⏳ Waiting for all scripts to finish…"
-wait $PID_crawlability; EC_crawlability=$?
-wait $PID_render;       EC_render=$?
-wait $PID_schema;       EC_schema=$?
-wait $PID_entity;       EC_entity=$?
-wait $PID_content;      EC_content=$?
-wait $PID_eeeat;        EC_eeeat=$?
-wait $PID_engagement;   EC_engagement=$?
-wait $PID_rsl;          EC_rsl=$?
-wait $PID_opengraph;    EC_opengraph=$?
-wait $PID_technical;    EC_technical=$?
+wait $PID_crawlability;   EC_crawlability=$?
+wait $PID_render;         EC_render=$?
+wait $PID_schema;         EC_schema=$?
+wait $PID_entity;         EC_entity=$?
+wait $PID_content;        EC_content=$?
+wait $PID_eeeat;          EC_eeeat=$?
+wait $PID_engagement;     EC_engagement=$?
+wait $PID_rsl;            EC_rsl=$?
+wait $PID_opengraph;      EC_opengraph=$?
+wait $PID_technical;      EC_technical=$?
+wait $PID_landing_clarity; EC_landing_clarity=$?
+wait $PID_content_trust;  EC_content_trust=$?
+wait $PID_url_resilience; EC_url_resilience=$?
 
 # ── Summary table ─────────────────────────────────────────────────────────────
 echo ""
@@ -183,16 +189,19 @@ print(f\"https={https} | canonical={canon} | h1={h1}\")" 2>/dev/null)
   printf "│ %-24s │ %-6s │ %-42s │\n" "$skill" "✅ OK " "${sig:0:42}"
 }
 
-print_row "crawlability"  "$EC_crawlability"  "$OUTPUT_DIR/crawlability.json"  "$OUTPUT_DIR/crawlability.err"
-print_row "render-gap"    "$EC_render"         "$OUTPUT_DIR/render.json"         "$OUTPUT_DIR/render.err"
-print_row "schema"        "$EC_schema"         "$OUTPUT_DIR/schema.json"         "$OUTPUT_DIR/schema.err"
-print_row "entity"        "$EC_entity"         "$OUTPUT_DIR/entity.json"         "$OUTPUT_DIR/entity.err"
-print_row "content"       "$EC_content"        "$OUTPUT_DIR/content.json"        "$OUTPUT_DIR/content.err"
-print_row "eeeat"         "$EC_eeeat"          "$OUTPUT_DIR/eeeat.json"          "$OUTPUT_DIR/eeeat.err"
-print_row "engagement"    "$EC_engagement"     "$OUTPUT_DIR/engagement.json"     "$OUTPUT_DIR/engagement.err"
-print_row "rsl"           "$EC_rsl"            "$OUTPUT_DIR/rsl.json"            "$OUTPUT_DIR/rsl.err"
-print_row "opengraph"     "$EC_opengraph"      "$OUTPUT_DIR/opengraph.json"      "$OUTPUT_DIR/opengraph.err"
-print_row "technical"     "$EC_technical"      "$OUTPUT_DIR/technical.json"      "$OUTPUT_DIR/technical.err"
+print_row "crawlability"    "$EC_crawlability"    "$OUTPUT_DIR/crawlability.json"    "$OUTPUT_DIR/crawlability.err"
+print_row "render-gap"      "$EC_render"          "$OUTPUT_DIR/render.json"          "$OUTPUT_DIR/render.err"
+print_row "schema"          "$EC_schema"          "$OUTPUT_DIR/schema.json"          "$OUTPUT_DIR/schema.err"
+print_row "entity"          "$EC_entity"          "$OUTPUT_DIR/entity.json"          "$OUTPUT_DIR/entity.err"
+print_row "content"         "$EC_content"         "$OUTPUT_DIR/content.json"         "$OUTPUT_DIR/content.err"
+print_row "eeeat"           "$EC_eeeat"           "$OUTPUT_DIR/eeeat.json"           "$OUTPUT_DIR/eeeat.err"
+print_row "engagement"      "$EC_engagement"      "$OUTPUT_DIR/engagement.json"      "$OUTPUT_DIR/engagement.err"
+print_row "rsl"             "$EC_rsl"             "$OUTPUT_DIR/rsl.json"             "$OUTPUT_DIR/rsl.err"
+print_row "opengraph"       "$EC_opengraph"       "$OUTPUT_DIR/opengraph.json"       "$OUTPUT_DIR/opengraph.err"
+print_row "technical"       "$EC_technical"       "$OUTPUT_DIR/technical.json"       "$OUTPUT_DIR/technical.err"
+print_row "landing-clarity" "$EC_landing_clarity" "$OUTPUT_DIR/landing_clarity.json" "$OUTPUT_DIR/landing_clarity.err"
+print_row "content-trust"   "$EC_content_trust"   "$OUTPUT_DIR/content_trust.json"   "$OUTPUT_DIR/content_trust.err"
+print_row "url-resilience"  "$EC_url_resilience"  "$OUTPUT_DIR/url_resilience.json"  "$OUTPUT_DIR/url_resilience.err"
 
 echo "└──────────────────────────┴────────┴────────────────────────────────────────────┘"
 echo ""
@@ -201,7 +210,7 @@ echo "  All JSON outputs: $OUTPUT_DIR/"
 echo ""
 
 # ── Print stderr for any failures ────────────────────────────────────────────
-for skill in crawlability render schema entity content eeeat engagement rsl opengraph technical; do
+for skill in crawlability render schema entity content eeeat engagement rsl opengraph technical landing_clarity content_trust url_resilience; do
   ec_var="EC_${skill}"
   if [[ "${!ec_var}" -ne 0 ]]; then
     echo "── stderr: $skill ──────────────────────────────────────"
