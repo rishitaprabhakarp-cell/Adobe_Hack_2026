@@ -5,11 +5,11 @@ generate_report.py — Brand AI Readiness Audit · Multi-Format Report Generator
 Usage:
     python generate_report.py <audit_output_dir> [options]
 
-Reads the 10 JSON outputs produced by run_audit_live.sh from <audit_output_dir>,
+Reads the 13 JSON outputs produced by run_audit_live.sh from <audit_output_dir>,
 merges them into a unified report, then renders it in the requested formats.
 
 Options:
-    --format html,md,pdf,json   Comma-separated formats (default: html,md)
+    --format html,md,pdf,json   Comma-separated formats (default: html,md,json)
     --output-dir <path>         Where to write reports (default: <audit_output_dir>/reports)
     --brand-name <str>          Brand name in report title (default: inferred from domain)
     --brand-color <hex>         Accent color for HTML/PDF (default: #0066CC)
@@ -590,8 +590,13 @@ SEV_COLOR_HEX = {"CRITICAL": "#D93025", "HIGH": "#E37400", "MEDIUM": "#1A73E8", 
 
 def render_json(report: dict, output_path: Path) -> Path:
     out = output_path.with_suffix(".json")
+    # Lowercase severity to match the published schema's casing. Only done here —
+    # HTML/MD/PPT renderers key off the uppercase values (SEV_ICON, SEV_COLOR_HEX,
+    # severity-group filters), so we leave the in-memory `report` untouched.
+    json_report = dict(report)
+    json_report["findings"] = [{**f, "severity": f["severity"].lower()} for f in report["findings"]]
     with open(out, "w") as f:
-        json.dump(report, f, indent=2)
+        json.dump(json_report, f, indent=2)
     return out
 
 
@@ -1272,8 +1277,8 @@ def parse_args() -> argparse.Namespace:
         epilog=__doc__,
     )
     p.add_argument("audit_dir", help="Directory containing the 10 skill JSON output files")
-    p.add_argument("--format", default="html,md",
-                   help="Comma-separated list of output formats: html,md,pdf,json,pptx (default: html,md)")
+    p.add_argument("--format", default="html,md,json",
+                   help="Comma-separated list of output formats: html,md,pdf,json,pptx (default: html,md,json)")
     p.add_argument("--output-dir", default="",
                    help="Where to write report files (default: <audit_dir>/reports/)")
     p.add_argument("--brand-name", default="",

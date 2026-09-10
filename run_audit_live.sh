@@ -3,7 +3,7 @@
 # Usage: bash run_audit_live.sh <url> [options]
 #
 # Options:
-#   --format html,md,pdf,json   Report formats (default: html,md)
+#   --format html,md,pdf,json   Report formats (default: html,md,json)
 #   --brand-name "Acme Corp"    Brand name in report title
 #   --brand-color "#FF0000"     Accent color for HTML/PDF reports
 #   --no-report                 Skip report generation (raw JSON outputs only)
@@ -17,7 +17,7 @@ URL="${1:-https://www.adobe.com}"
 shift 2>/dev/null || true
 
 # ── Parse options ─────────────────────────────────────────────────────────────
-REPORT_FORMAT="html,md"
+REPORT_FORMAT="html,md,json"
 BRAND_NAME=""
 BRAND_COLOR="#0066CC"
 NO_REPORT=false

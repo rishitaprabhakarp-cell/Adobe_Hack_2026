@@ -21,6 +21,11 @@ except ImportError:
 
 DEFAULT_UA = "Mozilla/5.0 (compatible; BrandAuditBot/1.0)"
 TIMEOUT = 12
+# Cap structural HTML analyzed per page. Modern JS-framework pages (Next.js/Vercel-style)
+# ship 500KB+ of markup; several detectors below use lazy DOTALL regexes whose cost on
+# unbounded/minified HTML can blow up to minutes. Capping bounds worst-case regex cost
+# while still covering far more than the above-fold + first few sections we care about.
+MAX_HTML_CHARS = 200_000
 
 # Hedge words that signal uncertain content
 HEDGE_WORDS = [
@@ -101,10 +106,19 @@ def fetch_page(url, ua=DEFAULT_UA):
         return None, None, str(e)
 
 
-def strip_tags(html):
+def strip_script_style(html):
+    """Remove script/style/comment blocks but keep other tags intact.
+    Run once per page before any structural (heading/paragraph/faq) regex pass —
+    inline JS/JSON bundles are the bulk of a modern page's bytes and contribute
+    nothing to content analysis, only regex cost."""
     text = re.sub(r"<script[^>]*>.*?</script>", " ", html, flags=re.IGNORECASE | re.DOTALL)
     text = re.sub(r"<style[^>]*>.*?</style>", " ", text, flags=re.IGNORECASE | re.DOTALL)
     text = re.sub(r"<!--.*?-->", " ", text, flags=re.DOTALL)
+    return text
+
+
+def strip_tags(html):
+    text = strip_script_style(html)
     text = re.sub(r"<[^>]+>", " ", text)
     text = re.sub(r"&[a-zA-Z]+;", " ", text)
     return re.sub(r"\s+", " ", text).strip()
@@ -164,9 +178,8 @@ def analyze_headings(html):
     }
 
 
-def analyze_statistics(html):
-    """Find statistics with and without source attribution."""
-    text = strip_tags(html)
+def analyze_statistics(text):
+    """Find statistics with and without source attribution. `text` is pre-stripped plain text."""
     sentences = re.split(r'[.!?]+', text)
 
     stats_with_citation = 0
@@ -240,12 +253,14 @@ def detect_faq_section(html):
         items = re.findall(pattern, html, re.IGNORECASE | re.DOTALL)
         qa_count = max(qa_count, len(items))
 
-    # Also check for question-like list items
-    list_questions = re.findall(
-        r'<li[^>]*>.*?(?:what|how|why|when|is|are|can|does)\b.*?\?.*?</li>',
-        html, re.IGNORECASE | re.DOTALL
-    )
-    qa_count = max(qa_count, len(list_questions))
+    # Question-like list items: extract <li> blocks with a single lazy scan, then test
+    # each one in plain Python. Chaining 3 lazy DOTALL wildcards in one regex (the old
+    # approach) re-scans to end-of-document on every near-miss <li> — quadratic on
+    # pages with many list items (nav/footer menus etc).
+    list_items = re.findall(r'<li[^>]*>(.*?)</li>', html, re.IGNORECASE | re.DOTALL)
+    question_word_re = re.compile(r'\b(?:what|how|why|when|is|are|can|does)\b', re.IGNORECASE)
+    list_question_count = sum(1 for li in list_items if "?" in li and question_word_re.search(li))
+    qa_count = max(qa_count, list_question_count)
 
     return {
         "has_faq_heading": has_faq_heading,
@@ -270,9 +285,8 @@ def detect_key_takeaways(html):
     }
 
 
-def measure_hedge_words(html):
-    """Measure hedge word ratio in content."""
-    text = strip_tags(html)
+def measure_hedge_words(text):
+    """Measure hedge word ratio in content. `text` is pre-stripped plain text."""
     sentences = [s.strip() for s in re.split(r'[.!?]+', text) if len(s.split()) > 5]
 
     hedge_sentences = []
@@ -294,9 +308,8 @@ def measure_hedge_words(html):
     }
 
 
-def detect_date_markers(html):
-    """Detect explicit freshness date markers."""
-    text = strip_tags(html)
+def detect_date_markers(text):
+    """Detect explicit freshness date markers. `text` is pre-stripped plain text."""
     markers = DATE_MARKER_PATTERN.findall(text)
     return {
         "has_date_marker": len(markers) > 0,
@@ -304,13 +317,13 @@ def detect_date_markers(html):
     }
 
 
-def detect_ai_cliches(html):
+def detect_ai_cliches(text):
     """
     Detect AI-generated cliché phrases. Content that reads as AI-generated slop
     is deprioritized by citation engines (kai-cmo-harness research, 2026).
     Pages with many clichés signal low substance density.
     """
-    text = strip_tags(html).lower()
+    text = text.lower()
     found_cliches = []
     for pattern in AI_CLICHES_T1:
         matches = re.findall(pattern, text, re.IGNORECASE)
@@ -412,19 +425,24 @@ def main():
             output["pages"].append({"url": page_url, "path": path, "error": error or f"HTTP {status}"})
             continue
 
+        # Strip script/style/comments and cap size ONCE — bounds every regex below
+        # regardless of how large or JS-heavy the source page is.
+        html_struct = strip_script_style(html)[:MAX_HTML_CHARS]
+        plain_text = strip_tags(html_struct)
+
         page_result = {
             "url": page_url,
             "path": path,
-            "above_fold": analyze_above_fold(html),
-            "headings": analyze_headings(html),
-            "statistics": analyze_statistics(html),
-            "paragraphs": analyze_paragraphs(html),
-            "faq": detect_faq_section(html),
-            "key_takeaways": detect_key_takeaways(html),
-            "hedge_words": measure_hedge_words(html),
-            "date_markers": detect_date_markers(html),
-            "ai_cliches": detect_ai_cliches(html),
-            "answer_capsules": detect_answer_capsules(html),
+            "above_fold": analyze_above_fold(html_struct),
+            "headings": analyze_headings(html_struct),
+            "statistics": analyze_statistics(plain_text),
+            "paragraphs": analyze_paragraphs(html_struct),
+            "faq": detect_faq_section(html_struct),
+            "key_takeaways": detect_key_takeaways(html_struct),
+            "hedge_words": measure_hedge_words(plain_text),
+            "date_markers": detect_date_markers(plain_text),
+            "ai_cliches": detect_ai_cliches(plain_text),
+            "answer_capsules": detect_answer_capsules(html_struct),
         }
         output["pages"].append(page_result)
 
