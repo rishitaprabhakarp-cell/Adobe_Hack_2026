@@ -1,7 +1,7 @@
 {
   "name": "brand-ai-readiness-audit",
   "version": "2.0.0",
-  "description": "A 13-skill marketplace that audits any website for AI discoverability and on-site engagement issues across 6 GEO dimensions (crawlability, content extractability, entity clarity, schema integrity, off-page authority, technical foundation). Produces a structured JSON report with evidence-backed findings, prioritized suggested actions, and a per-engine GEO readiness score (ChatGPT, Perplexity, Google AI Overviews, Gemini, Bing Copilot). Covers 55 finding IDs (RC, CDN-WAF, CEA, EEAT, TSEO, OG, RSL, GEO, CITE, ORCH namespaces).",
+  "description": "A 16-skill marketplace that audits any website for AI discoverability and on-site engagement issues across 6 GEO dimensions (crawlability, content extractability, entity clarity, schema integrity, off-page authority, technical foundation). Produces a structured JSON report with evidence-backed findings, prioritized suggested actions, and a per-engine GEO readiness score (ChatGPT, Perplexity, Google AI Overviews, Gemini, Bing Copilot). Covers RC, CDN-WAF, CEA, EEAT, TSEO, OG, RSL, RC24-RC30 engagement, RC-TRUST, RC-NAV, GEO, CITE, and ORCH namespaces.",
   "research_basis": [
     "Aggarwal et al., Princeton/ACM KDD 2024 — foundational GEO study (10,000 queries)",
     "AutoGEO, ICLR 2026 — automated GEO optimization",
@@ -83,6 +83,24 @@
       "path": "skills/rsl-licensing-checker",
       "entrypoint": false,
       "description": "Checks RSL 1.0 machine-readable licensing, llms-full.txt, AI FAQ/service/summary endpoints, IndexNow, and deep llms.txt spec validation. Covers RSL-001 to 005."
+    },
+    {
+      "id": "landing-clarity-auditor",
+      "path": "skills/landing-clarity-auditor",
+      "entrypoint": false,
+      "description": "Audits the first-5-second landing experience for AI-referred visitors: H1 presence/conciseness, navigation item overload, above-fold CTA density, and AI-referrer handling signals. Covers RC24, RC25, RC28, RC30."
+    },
+    {
+      "id": "content-trust-auditor",
+      "path": "skills/content-trust-auditor",
+      "entrypoint": false,
+      "description": "Audits content scannability and on-page trust signals: paragraph length, subheading density, on-site search, social proof, contact info, legal links, author bylines, breadcrumb navigation. Covers RC26, RC27, RC-TRUST, RC-NAV."
+    },
+    {
+      "id": "url-resilience-checker",
+      "path": "skills/url-resilience-checker",
+      "entrypoint": false,
+      "description": "Tests URL integrity for AI-cited pages: catch-all homepage redirects, deep redirect chains, dead URLs in llms.txt/sitemap.xml, and absence of a dedicated AI-referrer landing page. Covers RC29, RC30."
     },
     {
       "id": "geo-score-aggregator",

@@ -25,7 +25,7 @@
 |-------|------|----------|-------------|
 | `id` | string | Yes | Unique finding ID. Format: `<RC-code>-<NNN>`, e.g. `RC1-001`. Use `ORCH-ERR-<skill>` for orchestrator-level errors. |
 | `title` | string | Yes | Short, human-readable title of the finding (≤ 80 chars) |
-| `severity` | string | Yes | One of: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW` |
+| `severity` | string | Yes | One of (lowercase, exact): `critical`, `high`, `medium`, `low`. Sub-skills and internal severity tables reason in uppercase for readability — lowercase only when writing the final `severity` value into this report. |
 | `evidence` | string | Yes | Concrete evidence observed (URL, count, snippet, word count, etc.) |
 | `suggested_action` | object | Yes | Recommended fix (see below) |
 
@@ -64,7 +64,7 @@
     {
       "id": "RC1-001",
       "title": "Homepage is fully JS-rendered — content invisible to AI crawlers",
-      "severity": "CRITICAL",
+      "severity": "critical",
       "evidence": "Fetching homepage with Googlebot UA returned 12 words and <div id='root'></div> SPA shell. No H1 or meta description found in raw HTML.",
       "suggested_action": {
         "summary": "Implement server-side rendering (SSR) or static generation for the homepage. At minimum, ensure the H1, meta description, and Organization JSON-LD are present in the initial HTML response before any JavaScript executes.",
@@ -76,7 +76,7 @@
     {
       "id": "RC2-001",
       "title": "llms.txt absent — AI citation bots have no structured content manifest",
-      "severity": "HIGH",
+      "severity": "high",
       "evidence": "GET https://acme.com/llms.txt returned HTTP 404.",
       "suggested_action": {
         "summary": "Create /llms.txt following the llms.txt spec (https://llmstxt.org). Include a # heading, a brief description, and links to key pages (about, product, docs). Serve as text/plain.",
@@ -88,7 +88,7 @@
     {
       "id": "RC3-001",
       "title": "No JSON-LD structured data on product pages",
-      "severity": "MEDIUM",
+      "severity": "medium",
       "evidence": "Sampled 3 product pages (/product/a, /product/b, /product/c). 0/3 contain any schema.org JSON-LD blocks.",
       "suggested_action": {
         "summary": "Add Product and Offer JSON-LD to every product page. Include at minimum: @type, name, description, url, brand, and offers. Rich schema increases citation frequency by ~61% in AI assistant responses.",
@@ -100,7 +100,7 @@
     {
       "id": "RC10-001",
       "title": "speakable schema absent — audio AI assistants cannot identify quotable passages",
-      "severity": "LOW",
+      "severity": "low",
       "evidence": "No speakable property found in any JSON-LD block across homepage and sampled pages.",
       "suggested_action": {
         "summary": "Add speakable JSON-LD to key landing pages, marking the H1 and the first paragraph as speakable. This improves citations in voice and audio AI surfaces.",

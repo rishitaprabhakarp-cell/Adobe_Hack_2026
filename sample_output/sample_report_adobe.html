@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Readiness &mdash; Adobe</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{--accent:#0066CC;--bg:#fafafa;--surface:#fff;--border:#e5e7eb;--text:#111827;--muted:#6b7280;--rad:10px}
+  html.dark{--bg:#0f172a;--surface:#1e293b;--border:#334155;--text:#f1f5f9;--muted:#94a3b8}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;overflow:hidden}
+  body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--text);font-size:14px;line-height:1.6}
+  a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+  .deck{position:fixed;inset:0;background:var(--bg)}
+  /* slide fills viewport; overflow-y allows scroll on tall content */
+  .slide{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;display:flex;flex-direction:column;padding:0;transform:translateX(100%);transition:transform .42s cubic-bezier(.4,0,.2,1);background:var(--bg)}
+  .slide.active{transform:none}
+  .slide.gone{transform:translateX(-100%)}
+  /* slide-inner: margin:auto = centered when short; collapses to 0 when content overflows */
+  .slide-inner{width:100%;max-width:1200px;margin:auto;padding:60px 88px 96px;flex-shrink:0}
+  .cover-layout{display:flex;align-items:center;justify-content:space-between;gap:56px}
+  .cover-left{flex:1;min-width:0}
+  .cover-right{text-align:center;flex-shrink:0}
+  .cover-h1{font-size:54px;font-weight:900;line-height:1.05;margin:10px 0 18px;color:var(--text);letter-spacing:-1px}
+  .cover-sub{font-size:15px;color:var(--muted);margin-bottom:28px}
+  .cover-note{font-size:13px;color:var(--muted);margin-top:18px;line-height:1.7}
+  .geo-badge{display:inline-block;margin-top:16px;padding:7px 22px;border-radius:9999px;font-size:14px;font-weight:700;letter-spacing:.3px}
+  .slide-head{margin-bottom:32px}
+  .eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:1.2px;color:var(--muted);margin-bottom:8px;font-weight:600}
+  .slide-h2{font-size:36px;font-weight:800;color:var(--text);line-height:1.1;letter-spacing:-.5px}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:stretch}
+  .chart-card,.table-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--rad);padding:24px;overflow:hidden}
+  .table-card{padding:0;overflow:auto}
+  .finding-panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--rad);padding:32px;font-size:15px;line-height:1.8}
+  .action-panel{border-left:4px solid var(--accent);background:var(--bg)}
+  .panel-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--muted);margin-bottom:14px}
+  .action-text{font-size:16px;font-weight:600;line-height:1.6;color:var(--text)}
+  .pill-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+  .pill{padding:5px 16px;border-radius:9999px;font-size:13px;font-weight:700}
+  .pill-crit{background:#fee2e2;color:#7f1d1d}
+  .pill-high{background:#fff7ed;color:#92400e}
+  .pill-med{background:#eff6ff;color:#1e40af}
+  .pill-low{background:#f0fdf4;color:#166534}
+  html.dark .pill-crit{background:#450a0a;color:#fca5a5}
+  html.dark .pill-high{background:#431407;color:#fdba74}
+  html.dark .pill-med{background:#1e3a5f;color:#93c5fd}
+  html.dark .pill-low{background:#052e16;color:#86efac}
+  .effort-tag{display:inline-block;margin-top:20px;padding:5px 12px;background:var(--border);border-radius:6px;font-size:11px;color:var(--muted);font-weight:600;letter-spacing:.3px}
+  .fid-sm{background:var(--border);padding:2px 7px;border-radius:4px;font-size:11px;font-family:monospace;color:var(--muted);white-space:nowrap}
+  .effort-sm{padding:2px 7px;background:var(--border);border-radius:4px;font-size:11px;color:var(--muted);white-space:nowrap}
+  code{background:var(--border);padding:2px 6px;border-radius:4px;font-size:11px;font-family:monospace;color:var(--muted)}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{padding:11px 16px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+  th{font-weight:700;color:var(--muted);text-transform:uppercase;font-size:10px;letter-spacing:.7px;background:var(--bg);position:sticky;top:0}
+  tr:last-child td{border-bottom:none}
+  tbody tr:hover td{background:var(--border)}
+  html.dark .chart-card svg text{fill:#94a3b8}
+  html.dark .chart-card svg line{stroke:#334155}
+  .nav-btn{position:fixed;top:50%;transform:translateY(-50%);background:var(--surface);border:1px solid var(--border);border-radius:50%;width:46px;height:46px;font-size:20px;cursor:pointer;z-index:200;display:flex;align-items:center;justify-content:center;color:var(--text);transition:background .2s,box-shadow .2s,opacity .2s;box-shadow:0 2px 12px rgba(0,0,0,.1)}
+  .nav-btn:hover{background:var(--border);box-shadow:0 4px 16px rgba(0,0,0,.15)}
+  .nav-btn:disabled{opacity:.18;cursor:default;box-shadow:none}
+  #prevBtn{left:16px}#nextBtn{right:16px}
+  .dots{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:200;background:var(--surface);border:1px solid var(--border);border-radius:9999px;padding:8px 14px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--border);border:none;cursor:pointer;transition:background .2s,transform .2s;padding:0}
+  .dot.active{background:var(--accent);transform:scale(1.35)}
+  .dark-btn{position:fixed;top:18px;right:18px;z-index:200;background:var(--surface);border:1px solid var(--border);border-radius:9999px;padding:7px 16px;font-size:13px;cursor:pointer;color:var(--text);transition:background .2s,box-shadow .2s;font-family:inherit;font-weight:500}
+  .dark-btn:hover{background:var(--border);box-shadow:0 2px 8px rgba(0,0,0,.1)}
+  .counter{position:fixed;top:18px;left:18px;z-index:200;font-size:12px;color:var(--muted);background:var(--surface);border:1px solid var(--border);border-radius:9999px;padding:5px 14px;font-weight:600}
+</style>
+</head>
+<body>
+<div class="deck">
+<div class="slide active" data-label="Overview">
+  <div class="slide-inner">
+    <div class="cover-layout">
+      <div class="cover-left">
+        <div class="eyebrow">Brand AI Readiness Audit</div>
+        <h1 class="cover-h1">Adobe</h1>
+        <p class="cover-sub"><a href="https://www.adobe.com">www.adobe.com</a> &middot; Audited 2026-09-12</p>
+        <div class="pill-row"><span class="pill pill-crit">1 Critical</span><span class="pill pill-high">4 High</span><span class="pill pill-med">12 Medium</span><span class="pill pill-low">7 Low</span></div>
+        <p class="cover-note">24 findings &middot; 6 GEO dimensions &middot; 5 AI engines</p>
+      </div>
+      <div class="cover-right">
+        <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><circle cx="100.0" cy="100.0" r="91.0" fill="none" stroke="#334155" stroke-width="18"/><circle cx="100.0" cy="100.0" r="91.0" fill="none" stroke="#D93025" stroke-width="18" stroke-dasharray="263.01 308.76" stroke-linecap="round" transform="rotate(-90 100.0 100.0)"/><text x="100.0" y="92.0" text-anchor="middle" font-size="56" font-weight="800" fill="#D93025">46</text><text x="100.0" y="136.0" text-anchor="middle" font-size="20" fill="#94a3b8">/100</text></svg>
+        <div class="geo-badge" style="background:#fee2e2;color:#7f1d1d">Not GEO Ready</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="slide" data-label="GEO Dimensions">
+  <div class="slide-inner">
+    <div class="slide-head">
+      <div class="eyebrow">6 GEO Dimensions &mdash; Directive Consulting 2026</div>
+      <h2 class="slide-h2">Dimension Scores</h2>
+    </div>
+    <div class="two-col">
+      <div class="chart-card"><svg viewBox="0 0 540 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block"><line x1="44" y1="14" x2="44" y2="248" stroke="#ddd" stroke-width="1"/><line x1="44" y1="181.5" x2="524" y2="181.5" stroke="#eee" stroke-width="1"/><text x="38.0" y="185.5" text-anchor="end" font-size="10" fill="#999">25</text><line x1="44" y1="115.0" x2="524" y2="115.0" stroke="#eee" stroke-width="1"/><text x="38.0" y="119.0" text-anchor="end" font-size="10" fill="#999">50</text><line x1="44" y1="48.6" x2="524" y2="48.6" stroke="#eee" stroke-width="1"/><text x="38.0" y="52.6" text-anchor="end" font-size="10" fill="#999">75</text><line x1="44" y1="-17.9" x2="524" y2="-17.9" stroke="#eee" stroke-width="1"/><text x="38.0" y="-13.9" text-anchor="end" font-size="10" fill="#999">100</text><line x1="44" y1="61.9" x2="524" y2="61.9" stroke="#E37400" stroke-width="1.5" stroke-dasharray="5,3"/><text x="527" y="65.9" font-size="10" fill="#E37400">threshold</text><rect x="56.8" y="160.2" width="54.4" height="87.8" fill="#D93025" rx="4"/><text x="84.0" y="154.2" text-anchor="middle" font-size="12" font-weight="600" fill="#555">33</text><text x="84.0" y="266.0" text-anchor="middle" font-size="11" fill="#666">Crawlabili…</text><rect x="136.8" y="165.6" width="54.4" height="82.4" fill="#D93025" rx="4"/><text x="164.0" y="159.6" text-anchor="middle" font-size="12" font-weight="600" fill="#555">31</text><text x="164.0" y="266.0" text-anchor="middle" font-size="11" fill="#666">Content</text><rect x="216.8" y="14.0" width="54.4" height="234.0" fill="#0066CC" rx="4"/><text x="244.0" y="8.0" text-anchor="middle" font-size="12" font-weight="600" fill="#555">88</text><text x="244.0" y="266.0" text-anchor="middle" font-size="11" fill="#666">Entity</text><rect x="296.8" y="88.5" width="54.4" height="159.5" fill="#E37400" rx="4"/><text x="324.0" y="82.5" text-anchor="middle" font-size="12" font-weight="600" fill="#555">60</text><text x="324.0" y="266.0" text-anchor="middle" font-size="11" fill="#666">Schema</text><rect x="376.8" y="162.9" width="54.4" height="85.1" fill="#D93025" rx="4"/><text x="404.0" y="156.9" text-anchor="middle" font-size="12" font-weight="600" fill="#555">32</text><text x="404.0" y="266.0" text-anchor="middle" font-size="11" fill="#666">Off-Page</text><rect x="456.8" y="186.8" width="54.4" height="61.2" fill="#D93025" rx="4"/><text x="484.0" y="180.8" text-anchor="middle" font-size="12" font-weight="600" fill="#555">23</text><text x="484.0" y="266.0" text-anchor="middle" font-size="11" fill="#666">Technical</text></svg></div>
+      <div class="table-card"><table><thead><tr><th>ID</th><th>Dimension</th><th>Score</th><th></th></tr></thead><tbody><tr><td><strong>D1</strong></td><td>Crawlability</td><td style="text-align:right;color:#D93025;font-weight:700">33</td><td style="color:#D93025">✗</td></tr><tr><td><strong>D2</strong></td><td>Content Extractability</td><td style="text-align:right;color:#D93025;font-weight:700">31</td><td style="color:#D93025">✗</td></tr><tr><td><strong>D3</strong></td><td>Entity Clarity</td><td style="text-align:right;color:#1E8449;font-weight:700">88</td><td style="color:#1E8449">✓</td></tr><tr><td><strong>D4</strong></td><td>Schema Integrity</td><td style="text-align:right;color:#E37400;font-weight:700">60</td><td style="color:#E37400">⚠</td></tr><tr><td><strong>D5</strong></td><td>Off-Page Authority</td><td style="text-align:right;color:#D93025;font-weight:700">32</td><td style="color:#D93025">✗</td></tr><tr><td><strong>D6</strong></td><td>Technical Foundation</td><td style="text-align:right;color:#D93025;font-weight:700">23</td><td style="color:#D93025">✗</td></tr></tbody></table></div>
+    </div>
+  </div>
+</div>
+<div class="slide" data-label="Per-Engine">
+  <div class="slide-inner">
+    <div class="slide-head">
+      <div class="eyebrow">Threshold &ge;70 = GEO Ready (Directive Consulting 2026)</div>
+      <h2 class="slide-h2">Per-Engine GEO Readiness</h2>
+    </div>
+    <div class="two-col">
+      <div class="chart-card"><svg viewBox="0 0 540 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block"><line x1="44" y1="14" x2="44" y2="248" stroke="#ddd" stroke-width="1"/><line x1="44" y1="164.4" x2="524" y2="164.4" stroke="#eee" stroke-width="1"/><text x="38.0" y="168.4" text-anchor="end" font-size="10" fill="#999">25</text><line x1="44" y1="80.9" x2="524" y2="80.9" stroke="#eee" stroke-width="1"/><text x="38.0" y="84.9" text-anchor="end" font-size="10" fill="#999">50</text><line x1="44" y1="-2.7" x2="524" y2="-2.7" stroke="#eee" stroke-width="1"/><text x="38.0" y="1.3" text-anchor="end" font-size="10" fill="#999">75</text><line x1="44" y1="-86.3" x2="524" y2="-86.3" stroke="#eee" stroke-width="1"/><text x="38.0" y="-82.3" text-anchor="end" font-size="10" fill="#999">100</text><line x1="44" y1="14.0" x2="524" y2="14.0" stroke="#E37400" stroke-width="1.5" stroke-dasharray="5,3"/><text x="527" y="18.0" font-size="10" fill="#E37400">threshold</text><rect x="59.4" y="77.5" width="65.3" height="170.5" fill="#E37400" rx="4"/><text x="92.0" y="71.5" text-anchor="middle" font-size="12" font-weight="600" fill="#555">51</text><text x="92.0" y="266.0" text-anchor="middle" font-size="11" fill="#666">ChatGPT</text><rect x="155.4" y="100.9" width="65.3" height="147.1" fill="#D93025" rx="4"/><text x="188.0" y="94.9" text-anchor="middle" font-size="12" font-weight="600" fill="#555">44</text><text x="188.0" y="266.0" text-anchor="middle" font-size="11" fill="#666">Perplexity</text><rect x="251.4" y="94.2" width="65.3" height="153.8" fill="#D93025" rx="4"/><text x="284.0" y="88.2" text-anchor="middle" font-size="12" font-weight="600" fill="#555">46</text><text x="284.0" y="266.0" text-anchor="middle" font-size="11" fill="#666">Google</text><rect x="347.4" y="90.9" width="65.3" height="157.1" fill="#D93025" rx="4"/><text x="380.0" y="84.9" text-anchor="middle" font-size="12" font-weight="600" fill="#555">47</text><text x="380.0" y="266.0" text-anchor="middle" font-size="11" fill="#666">Gemini</text><rect x="443.4" y="100.9" width="65.3" height="147.1" fill="#D93025" rx="4"/><text x="476.0" y="94.9" text-anchor="middle" font-size="12" font-weight="600" fill="#555">44</text><text x="476.0" y="266.0" text-anchor="middle" font-size="11" fill="#666">Bing</text></svg></div>
+      <div class="table-card"><table><thead><tr><th>Engine</th><th>Score</th><th>Status</th></tr></thead><tbody><tr><td>ChatGPT</td><td style="text-align:right;color:#E37400;font-weight:700">51</td><td style="color:#E37400">⚠ Developing</td></tr><tr><td>Perplexity</td><td style="text-align:right;color:#D93025;font-weight:700">44</td><td style="color:#D93025">✗ Gap</td></tr><tr><td>Google AI Overviews</td><td style="text-align:right;color:#D93025;font-weight:700">46</td><td style="color:#D93025">✗ Gap</td></tr><tr><td>Gemini</td><td style="text-align:right;color:#D93025;font-weight:700">47</td><td style="color:#D93025">✗ Gap</td></tr><tr><td>Bing Copilot</td><td style="text-align:right;color:#D93025;font-weight:700">44</td><td style="color:#D93025">✗ Gap</td></tr></tbody></table></div>
+    </div>
+  </div>
+</div>
+<div class="slide" data-label="CRITICAL">
+  <div class="slide-inner">
+    <div class="slide-head">
+      <div class="eyebrow" style="color:#D93025">● CRITICAL &mdash; <code>OG-001</code></div>
+      <h2 class="slide-h2">No OpenGraph tags on homepage</h2>
+    </div>
+    <div class="two-col">
+      <div class="finding-panel">
+        <div class="panel-label">Evidence</div>
+        <p>og:title, og:description, og:image all absent from homepage.</p>
+      </div>
+      <div class="finding-panel action-panel">
+        <div class="panel-label">Recommended Action</div>
+        <p class="action-text">Add og:title, og:description, og:image, og:type to every page template.</p>
+        <span class="effort-tag">Effort: LOW &middot; Priority: HIGH</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="slide" data-label="HIGH">
+  <div class="slide-inner">
+    <div class="slide-head">
+      <div class="eyebrow" style="color:#E37400">▲ HIGH &mdash; <code>CEA-004</code></div>
+      <h2 class="slide-h2">Statistics without source citations on /</h2>
+    </div>
+    <div class="two-col">
+      <div class="finding-panel">
+        <div class="panel-label">Evidence</div>
+        <p>3 uncited stats, 0 cited. Princeton KDD 2024: sourced stats → +40% AI citation.</p>
+      </div>
+      <div class="finding-panel action-panel">
+        <div class="panel-label">Recommended Action</div>
+        <p class="action-text">Add source links or parenthetical citations to every statistic.</p>
+        <span class="effort-tag">Effort: LOW &middot; Priority: HIGH</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="slide" data-label="HIGH">
+  <div class="slide-inner">
+    <div class="slide-head">
+      <div class="eyebrow" style="color:#E37400">▲ HIGH &mdash; <code>EEAT-001</code></div>
+      <h2 class="slide-h2">No author bylines detected on homepage</h2>
+    </div>
+    <div class="two-col">
+      <div class="finding-panel">
+        <div class="panel-label">Evidence</div>
+        <p>author_count=0, has_person_schema=False. No bylines, bio sections, or author credential markup.</p>
+      </div>
+      <div class="finding-panel action-panel">
+        <div class="panel-label">Recommended Action</div>
+        <p class="action-text">Add named author bylines + Person schema to blog and editorial content.</p>
+        <span class="effort-tag">Effort: MEDIUM &middot; Priority: HIGH</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="slide" data-label="HIGH">
+  <div class="slide-inner">
+    <div class="slide-head">
+      <div class="eyebrow" style="color:#E37400">▲ HIGH &mdash; <code>RSL-001</code></div>
+      <h2 class="slide-h2">No RSL 1.0 machine-readable license declaration</h2>
+    </div>
+    <div class="two-col">
+      <div class="finding-panel">
+        <div class="panel-label">Evidence</div>
+        <p>/.well-known/rsl.json returns 404 and no <link rel='robots-standard-license'> in HTML.</p>
+      </div>
+      <div class="finding-panel action-panel">
+        <div class="panel-label">Recommended Action</div>
+        <p class="action-text">Deploy /.well-known/rsl.json with RSL 1.0 to declare content reuse terms for AI crawlers.</p>
+        <span class="effort-tag">Effort: LOW &middot; Priority: HIGH</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="slide" data-label="HIGH">
+  <div class="slide-inner">
+    <div class="slide-head">
+      <div class="eyebrow" style="color:#E37400">▲ HIGH &mdash; <code>RSL-003</code></div>
+      <h2 class="slide-h2">Zero AI discovery endpoints present (0/14 checked)</h2>
+    </div>
+    <div class="two-col">
+      <div class="finding-panel">
+        <div class="panel-label">Evidence</div>
+        <p>None of 14 AI discovery endpoints return HTTP 200.</p>
+      </div>
+      <div class="finding-panel action-panel">
+        <div class="panel-label">Recommended Action</div>
+        <p class="action-text">Deploy /.well-known/ai.txt and /ai/summary.json as minimum viable AI discovery.</p>
+        <span class="effort-tag">Effort: LOW &middot; Priority: HIGH</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="slide" data-label="MEDIUM">
+  <div class="slide-inner">
+    <div class="slide-head">
+      <div class="eyebrow" style="color:#1A73E8">◆ MEDIUM</div>
+      <h2 class="slide-h2">Medium Findings (12)</h2>
+    </div>
+    <div class="table-card"><table>
+      <thead><tr><th>ID</th><th>Finding</th><th>Action</th><th>Effort</th></tr></thead>
+      <tbody><tr><td><code class="fid-sm">CEA-003</code></td><td>Low question-format heading ratio (4%) on /</td><td style="color:var(--muted);font-size:12px">Rewrite key H2 headings as questions to improve FAQ schema eligibility a…</td><td><span class="effort-sm">LOW</span></td></tr><tr><td><code class="fid-sm">CEA-005</code></td><td>No FAQ section on /</td><td style="color:var(--muted);font-size:12px">Add FAQ section + FAQPage schema.…</td><td><span class="effort-sm">MEDIUM</span></td></tr><tr><td><code class="fid-sm">CEA-008</code></td><td>No content freshness date marker on /</td><td style="color:var(--muted);font-size:12px">Add 'Last updated: [Month Year]' visible text. Freshness is top Perplexi…</td><td><span class="effort-sm">LOW</span></td></tr><tr><td><code class="fid-sm">CEA-009</code></td><td>Low answer-capsule ratio (20%) on /</td><td style="color:var(--muted);font-size:12px">Add a direct 40–60 word answer paragraph immediately after each major H2…</td><td><span class="effort-sm">MEDIUM</span></td></tr><tr><td><code class="fid-sm">EEAT-002</code></td><td>No review platform links from homepage</td><td style="color:var(--muted);font-size:12px">Add G2/Trustpilot badges. SE Ranking 2026: review links → 3× citation pr…</td><td><span class="effort-sm">LOW</span></td></tr><tr><td><code class="fid-sm">EEAT-003</code></td><td>Social profile links absent from homepage HTML</td><td style="color:var(--muted);font-size:12px">Add visible social links in footer HTML matching the sameAs JSON-LD valu…</td><td><span class="effort-sm">LOW</span></td></tr><tr><td><code class="fid-sm">EEAT-004</code></td><td>No original research or proprietary data signals</td><td style="color:var(--muted);font-size:12px">Publish an original study or benchmark. Original research is the highest…</td><td><span class="effort-sm">HIGH</span></td></tr><tr><td><code class="fid-sm">EEAT-005</code></td><td>No privacy policy link detectable on homepage</td><td style="color:var(--muted);font-size:12px">Add a visible Privacy Policy link to the homepage footer.…</td><td><span class="effort-sm">LOW</span></td></tr><tr><td><code class="fid-sm">IMG-001</code></td><td>6 images missing alt text</td><td style="color:var(--muted);font-size:12px">Add descriptive alt text to all images. Alt text is an AI-indexable cont…</td><td><span class="effort-sm">LOW</span></td></tr><tr><td><code class="fid-sm">RC17-001</code></td><td>No RSS/Atom feed found</td><td style="color:var(--muted);font-size:12px">Create an RSS/Atom feed. Perplexity and AI news agents index feeds for f…</td><td><span class="effort-sm">LOW</span></td></tr><tr><td><code class="fid-sm">SC-001</code></td><td>No Speakable schema</td><td style="color:var(--muted);font-size:12px">Add Speakable schema to product descriptions and key content sections.…</td><td><span class="effort-sm">LOW</span></td></tr><tr><td><code class="fid-sm">SC-002</code></td><td>No FAQPage schema</td><td style="color:var(--muted);font-size:12px">Add FAQPage + Question + Answer schema to key landing pages.…</td><td><span class="effort-sm">MEDIUM</span></td></tr></tbody>
+    </table></div>
+  </div>
+</div>
+<div class="slide" data-label="LOW">
+  <div class="slide-inner">
+    <div class="slide-head">
+      <div class="eyebrow" style="color:#34A853">○ LOW</div>
+      <h2 class="slide-h2">Low Findings (7)</h2>
+    </div>
+    <div class="table-card"><table>
+      <thead><tr><th>ID</th><th>Finding</th><th>Action</th><th>Effort</th></tr></thead>
+      <tbody><tr><td><code class="fid-sm">CEA-006</code></td><td>No key-takeaway / TL;DR box on /</td><td style="color:var(--muted);font-size:12px">Add a 'Key highlights' box near top of content pages.…</td><td><span class="effort-sm">LOW</span></td></tr><tr><td><code class="fid-sm">OG-005</code></td><td>No Twitter Card meta tags</td><td style="color:var(--muted);font-size:12px">Add twitter:card=summary_large_image and twitter:title/description.…</td><td><span class="effort-sm">LOW</span></td></tr><tr><td><code class="fid-sm">RC-TRUST-002</code></td><td>No contact information in static HTML</td><td style="color:var(--muted);font-size:12px">Include a contact email or /contact link in the footer. AI assistants us…</td><td><span class="effort-sm">LOW</span></td></tr><tr><td><code class="fid-sm">RC-TRUST-003</code></td><td>Missing legal links in footer: privacy policy, terms of service</td><td style="color:var(--muted);font-size:12px">Add privacy policy and terms of service links to the footer. These are t…</td><td><span class="effort-sm">LOW</span></td></tr><tr><td><code class="fid-sm">RC30-002</code></td><td>No dedicated AI-referrer landing page</td><td style="color:var(--muted);font-size:12px">Create /from/ai optimised for AI-referred visitors: concise 60-word summ…</td><td><span class="effort-sm">MEDIUM</span></td></tr><tr><td><code class="fid-sm">RSL-002</code></td><td>No llms-full.txt companion file</td><td style="color:var(--muted);font-size:12px">Create /llms-full.txt with complete product documentation for LLM ingest…</td><td><span class="effort-sm">HIGH</span></td></tr><tr><td><code class="fid-sm">RSL-004</code></td><td>IndexNow not implemented</td><td style="color:var(--muted);font-size:12px">Implement IndexNow to notify Bing/Perplexity on publish.…</td><td><span class="effort-sm">LOW</span></td></tr></tbody>
+    </table></div>
+  </div>
+</div>
+</div>
+<button class="nav-btn" id="prevBtn" onclick="go(-1)" disabled>&#8592;</button>
+<button class="nav-btn" id="nextBtn" onclick="go(1)">&#8594;</button>
+<div class="dots" id="dotsEl"><button class="dot active" onclick="goTo(0)"></button>
+<button class="dot" onclick="goTo(1)"></button>
+<button class="dot" onclick="goTo(2)"></button>
+<button class="dot" onclick="goTo(3)"></button>
+<button class="dot" onclick="goTo(4)"></button>
+<button class="dot" onclick="goTo(5)"></button>
+<button class="dot" onclick="goTo(6)"></button>
+<button class="dot" onclick="goTo(7)"></button>
+<button class="dot" onclick="goTo(8)"></button>
+<button class="dot" onclick="goTo(9)"></button></div>
+<button class="dark-btn" id="darkBtn" onclick="toggleDark()">&#127769; Dark</button>
+<div class="counter"><span id="cur">1</span> / 10</div>
+<script>
+const slides=document.querySelectorAll('.slide');
+const dotEls=document.querySelectorAll('.dot');
+let cur=0;
+function goTo(n){
+  if(n===cur||n<0||n>=slides.length)return;
+  slides[cur].classList.remove('active');
+  slides[cur].classList.add('gone');
+  cur=n;
+  slides.forEach((s,i)=>{s.classList.remove('active','gone');if(i<cur)s.classList.add('gone');});
+  slides[cur].classList.add('active');
+  dotEls.forEach((d,i)=>d.classList.toggle('active',i===cur));
+  document.getElementById('cur').textContent=cur+1;
+  document.getElementById('prevBtn').disabled=cur===0;
+  document.getElementById('nextBtn').disabled=cur===slides.length-1;
+}
+function go(d){goTo(cur+d);}
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key==='ArrowDown')go(1);
+  if(e.key==='ArrowLeft'||e.key==='ArrowUp')go(-1);
+});
+function toggleDark(){
+  const dark=document.documentElement.classList.toggle('dark');
+  document.getElementById('darkBtn').textContent=dark?'☀ Light':'🌙 Dark';
+}
+if(window.matchMedia('(prefers-color-scheme: dark)').matches)toggleDark();
+</script>
+</body>
+</html>

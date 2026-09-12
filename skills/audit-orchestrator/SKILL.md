@@ -1,6 +1,6 @@
 ---
 name: audit-orchestrator
-description: Entrypoint for the Brand AI Readiness Audit marketplace. Takes a website URL, sequentially invokes all 6 sub-skills (crawlability-probe, render-gap-detector, structured-data-auditor, entity-corroboration-checker, engagement-analyzer, llm-citation-tester), merges their findings, deduplicates, scores severity, and emits a single structured JSON audit report. Use when a user wants to audit a website for AI discoverability or on-site engagement problems.
+description: Entrypoint for the Brand AI Readiness Audit marketplace. Takes a website URL, sequentially invokes all 15 sub-skills covering AI discoverability (crawlability-probe, render-gap-detector, structured-data-auditor, entity-corroboration-checker, llm-citation-tester, content-extractability-auditor, eeeat-signal-checker, technical-seo-probe, opengraph-meta-auditor, rsl-licensing-checker) and on-site engagement (engagement-analyzer, landing-clarity-auditor, content-trust-auditor, url-resilience-checker), scores GEO readiness via geo-score-aggregator, merges all findings, deduplicates, and emits a single structured JSON audit report. Use when a user wants to audit a website for AI discoverability or on-site engagement problems.
 license: MIT
 ---
 
@@ -40,18 +40,23 @@ Invoke each sub-skill below, passing `site_url`. Collect the `findings` array ea
 | 2 | `render-gap-detector` | RC1, RC9, RC12, RC20 — JS render gaps |
 | 3 | `structured-data-auditor` | RC3, RC10, RC11, RC13, RC15, RC16, RC18, RC21 — JSON-LD quality |
 | 4 | `entity-corroboration-checker` | RC5, RC6 — Wikidata/sameAs/entity collision |
-| 5 | `engagement-analyzer` | RC8, RC16, RC22 — CTA, above-fold, response time |
-| 6 | `llm-citation-tester` | CITE-001 to 004 — LLM perspective via web_search |
-| 7 | `content-extractability-auditor` | CEA-001 to 008 — passage-level structure (Princeton KDD 2024) |
-| 8 | `eeeat-signal-checker` | EEAT-001 to 006 — E-E-A-T, review platforms, Reddit |
-| 9 | `technical-seo-probe` | TSEO-001 to 009 — canonical, nosnippet, HTTPS, redirects |
-| 10 | `opengraph-meta-auditor` | OG-001 to 008 — OpenGraph, Twitter Card, meta quality |
-| 11 | `rsl-licensing-checker` | RSL-001 to 005 — RSL 1.0, llms-full.txt, deep llms.txt |
-| 12 | `geo-score-aggregator` | Scoring layer — produces GEO readiness % and per-engine scores |
+| 5 | `llm-citation-tester` | CITE-001 to 004 — LLM perspective via web_search |
+| 6 | `content-extractability-auditor` | CEA-001 to 008 — passage-level structure (Princeton KDD 2024) |
+| 7 | `eeeat-signal-checker` | EEAT-001 to 006 — E-E-A-T, review platforms, Reddit |
+| 8 | `technical-seo-probe` | TSEO-001 to 009 — canonical, nosnippet, HTTPS, redirects |
+| 9 | `opengraph-meta-auditor` | OG-001 to 008 — OpenGraph, Twitter Card, meta quality |
+| 10 | `rsl-licensing-checker` | RSL-001 to 005 — RSL 1.0, llms-full.txt, deep llms.txt |
+| 11 | `engagement-analyzer` | RC8, RC16, RC22 — CTA, above-fold, response time |
+| 12 | `landing-clarity-auditor` | RC24, RC25, RC28, RC30 — first-5-second landing clarity, nav overload, CTA density, AI-referrer handling |
+| 13 | `content-trust-auditor` | RC26, RC27, RC-TRUST, RC-NAV — scannability, search, social proof, trust signals |
+| 14 | `url-resilience-checker` | RC29, RC30 — catch-all redirects, dead llms.txt/sitemap URLs, AI-referrer landing page |
+| 15 | `geo-score-aggregator` | Scoring layer — produces GEO readiness % and per-engine scores |
+
+Sub-skills 12–14 emit their `findings[]` directly (each finding already includes `id`, `title`, `severity`, `evidence`, `suggested_action`) — pass them straight into the merge step without re-deriving severity.
 
 ### Step 3 — Merge and deduplicate findings
 
-1. Concatenate all `findings` arrays from the 6 sub-skills.
+1. Concatenate all `findings` arrays from sub-skills at order 1–14 above (`geo-score-aggregator` at order 15 consumes the merged findings rather than producing its own).
 2. Deduplicate: if two findings share the same `id`, keep the one with the higher severity (CRITICAL > HIGH > MEDIUM > LOW). If same severity, keep the one with more evidence text.
 3. Sort: CRITICAL → HIGH → MEDIUM → LOW, then alphabetically by `id` within each group.
 
@@ -77,6 +82,11 @@ After merging findings, pass the full findings array to `geo-score-aggregator`. 
 Add the returned `geo_score` object as a top-level key in the final report.
 
 ### Step 6 — Emit report
+
+Before emitting, lowercase every finding's `severity` value (`critical`/`high`/`medium`/`low`) to match the
+published report schema exactly — sub-skills and the severity tables above use uppercase internally for
+readability, but the final JSON must use lowercase. `suggested_action.priority` is already lowercase from
+every sub-skill; leave it as-is.
 
 Output the final JSON report using the schema in [references/report-schema.md](references/report-schema.md).
 

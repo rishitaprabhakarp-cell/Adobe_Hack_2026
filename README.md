@@ -1,6 +1,6 @@
 # Brand AI Readiness Audit
 
-A **13-skill** Agent Skill Marketplace that audits any website for AI discoverability and on-site engagement issues across **6 GEO dimensions**, producing evidence-backed findings, a prioritized fix roadmap, and a **per-engine GEO readiness score** (ChatGPT, Perplexity, Google AI Overviews, Gemini, Bing Copilot) — in HTML, Markdown, PDF, and JSON formats.
+A **16-skill** Agent Skill Marketplace that audits any website for AI discoverability and on-site engagement issues across **6 GEO dimensions**, producing evidence-backed findings, a prioritized fix roadmap, and a **per-engine GEO readiness score** (ChatGPT, Perplexity, Google AI Overviews, Gemini, Bing Copilot) — in HTML, Markdown, PDF, and JSON formats.
 
 **Research basis**: Princeton/ACM KDD 2024 foundational GEO study · Directive Consulting 2026 70%-threshold framework · Onely 2026 5,000-site schema study · AutoGEO ICLR 2026 · Cognism 2026 (72.4% ChatGPT-cited pages have answer capsules) · seoprocheck/ai-crawler-audit · kai-cmo-harness/llm-cliche-detector · Wikidata P856 entity corroboration
 
@@ -196,10 +196,10 @@ The `audit-orchestrator` SKILL.md calls all 12 sub-skills in sequence, merges th
 
 ### Sample reports (adobe.com live run)
 
-The `sample_ouput/` directory contains real audit outputs from a live run against `www.adobe.com`:
+The `sample_output/` directory contains real audit outputs from a live run against `www.adobe.com`:
 
 ```
-sample_ouput/
+sample_output/
 ├── sample_report_adobe.html   ← open in browser
 ├── sample_report_adobe.pdf    ← 5-page PDF
 ├── sample_report_adobe.md     ← Markdown
@@ -208,9 +208,9 @@ sample_ouput/
 
 ```bash
 # Open the HTML report in your default browser
-open sample_ouput/sample_report_adobe.html          # macOS
-xdg-open sample_ouput/sample_report_adobe.html      # Linux
-start sample_ouput/sample_report_adobe.html         # Windows
+open sample_output/sample_report_adobe.html          # macOS
+xdg-open sample_output/sample_report_adobe.html      # Linux
+start sample_output/sample_report_adobe.html         # Windows
 ```
 
 ### PDF generation
@@ -235,20 +235,20 @@ Adobe_Hack_2026/
 ├── README.md                                ← this file
 ├── TESTING.md                               ← detailed testing guide
 ├── requirements.txt                         ← pip dependencies
-├── marketplace.json                         ← skill manifest (13 skills, 1 entrypoint)
+├── marketplace.json                         ← skill manifest (16 skills, 1 entrypoint)
 │
 ├── run_audit_live.sh                        ← main runner: audits + generates reports
 ├── run_audit.sh                             ← legacy runner (raw JSON only)
 ├── generate_report.py                       ← report generator: HTML / MD / PDF / JSON
 │
-├── sample_ouput/                            ← live audit results from www.adobe.com
+├── sample_output/                            ← live audit results from www.adobe.com
 │   ├── sample_report_adobe.html
 │   ├── sample_report_adobe.pdf
 │   ├── sample_report_adobe.md
 │   └── sample_report_adobe.json
 │
 └── skills/
-    ├── audit-orchestrator/                  ← ENTRYPOINT (orchestrates all 12 sub-skills)
+    ├── audit-orchestrator/                  ← ENTRYPOINT (orchestrates all 15 sub-skills)
     │   ├── SKILL.md
     │   └── references/report-schema.md
     │
@@ -285,6 +285,15 @@ Adobe_Hack_2026/
     ├── rsl-licensing-checker/               ← RSL 1.0, llms-full.txt, ADF 2026 endpoints
     │   ├── SKILL.md
     │   └── scripts/rsl_check.py
+    ├── landing-clarity-auditor/              ← first-5s clarity, nav overload, CTA density
+    │   ├── SKILL.md
+    │   └── scripts/landing_clarity_check.py
+    ├── content-trust-auditor/               ← scannability, search, social proof, trust
+    │   ├── SKILL.md
+    │   └── scripts/content_trust_check.py
+    ├── url-resilience-checker/              ← catch-all redirects, dead llms.txt/sitemap URLs
+    │   ├── SKILL.md
+    │   └── scripts/url_resilience_check.py
     └── geo-score-aggregator/                ← dimension scoring, per-engine GEO scores
         └── SKILL.md
 ```
@@ -298,16 +307,19 @@ Adobe_Hack_2026/
 ```
 run_audit_live.sh
   │
-  ├─ [parallel] crawlability_check.py   → crawlability.json
-  ├─ [parallel] render_check.py         → render.json
-  ├─ [parallel] schema_audit.py         → schema.json
-  ├─ [parallel] entity_check.py         → entity.json
-  ├─ [parallel] content_check.py        → content.json
-  ├─ [parallel] eeeat_check.py          → eeeat.json
-  ├─ [parallel] engagement_check.py     → engagement.json
-  ├─ [parallel] rsl_check.py            → rsl.json
-  ├─ [parallel] og_audit.py             → opengraph.json
-  └─ [parallel] technical_check.py      → technical.json
+  ├─ [parallel] crawlability_check.py       → crawlability.json
+  ├─ [parallel] render_check.py             → render.json
+  ├─ [parallel] schema_audit.py             → schema.json
+  ├─ [parallel] entity_check.py             → entity.json
+  ├─ [parallel] content_check.py            → content.json
+  ├─ [parallel] eeeat_check.py              → eeeat.json
+  ├─ [parallel] engagement_check.py         → engagement.json
+  ├─ [parallel] rsl_check.py                → rsl.json
+  ├─ [parallel] og_audit.py                 → opengraph.json
+  ├─ [parallel] technical_check.py          → technical.json
+  ├─ [parallel] landing_clarity_check.py    → landing_clarity.json
+  ├─ [parallel] content_trust_check.py      → content_trust.json
+  └─ [parallel] url_resilience_check.py     → url_resilience.json
         │
         ▼
   generate_report.py
@@ -332,7 +344,10 @@ run_audit_live.sh
 | 9 | `technical-seo-probe` | TSEO-001–009 | HTTPS, noindex/nosnippet, canonicals, H1 hierarchy |
 | 10 | `opengraph-meta-auditor` | OG-001–008 | og:title/image/description, Twitter Card, meta description |
 | 11 | `rsl-licensing-checker` | RSL-001–005 | RSL 1.0, 14 ADF endpoints, llms-full.txt, IndexNow |
-| 12 | `geo-score-aggregator` | GEO scoring | 6 dimension scores, 5 per-engine scores, action roadmap |
+| 12 | `landing-clarity-auditor` | RC24, RC25, RC28, RC30 | H1 clarity, nav overload, CTA density, AI-referrer handling |
+| 13 | `content-trust-auditor` | RC26, RC27, RC-TRUST-001–004, RC-NAV-001 | Scannability, on-site search, social proof, trust signals |
+| 14 | `url-resilience-checker` | RC29, RC30 | Catch-all redirects, dead llms.txt/sitemap URLs, AI landing page |
+| 15 | `geo-score-aggregator` | GEO scoring | 6 dimension scores, 5 per-engine scores, action roadmap |
 | — | `audit-orchestrator` | (entrypoint) | Orchestrates all above, merges, deduplicates, scores |
 
 ---
@@ -374,7 +389,7 @@ Every generated JSON report has this structure:
     {
       "id": "OG-001",
       "title": "No OpenGraph tags on homepage",
-      "severity": "CRITICAL",
+      "severity": "critical",
       "evidence": "og:title, og:description, og:image all absent from homepage.",
       "suggested_action": {
         "summary": "Add og:title, og:description, og:image, og:type to every page template.",
@@ -432,6 +447,15 @@ Full finding schema in `skills/audit-orchestrator/references/report-schema.md`.
 | TSEO-001–009: Technical SEO | `technical-seo-probe` |
 | OG-001–008: OpenGraph / meta | `opengraph-meta-auditor` |
 | RSL-001–005: RSL 1.0, 14 ADF endpoints | `rsl-licensing-checker` |
+| RC24: Weak first-5-second landing clarity (H1/summary) | `landing-clarity-auditor` |
+| RC25: Navigation overload (> Miller's Law 7 items) | `landing-clarity-auditor` |
+| RC26: Poor content scannability (paragraph length, subheadings) | `content-trust-auditor` |
+| RC27: Complex site with no on-site search | `content-trust-auditor` |
+| RC28: Above-fold CTA overload | `landing-clarity-auditor` |
+| RC29: Catch-all redirects / dead llms.txt & sitemap URLs | `url-resilience-checker` |
+| RC30: No AI-referrer landing experience | `landing-clarity-auditor` + `url-resilience-checker` |
+| RC-TRUST-001–004: Social proof, contact info, legal links, author bylines | `content-trust-auditor` |
+| RC-NAV-001: No breadcrumb navigation on inner pages | `content-trust-auditor` |
 | GEO Score: 6-dimension + 5 per-engine scoring | `geo-score-aggregator` |
 
 ---
@@ -443,4 +467,4 @@ Full finding schema in `skills/audit-orchestrator/references/report-schema.md`.
 - **No authenticated actions**: no login, form submission, or destructive operations.
 - **Rate-limited**: each script makes ≤ 15 HTTP requests per site, with a 12-second timeout per request.
 - **No API keys required**: all checks use open HTTP probes or agent-native tools.
-- **Runtime**: ~90 seconds for a typical site (10 scripts in parallel + report generation).
+- **Runtime**: typically well under 60 seconds for a standard site (13 scripts in parallel + report generation); comfortably inside the 5-minute budget even on JS-heavy sites.

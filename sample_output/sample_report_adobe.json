@@ -1,15 +1,15 @@
 {
   "site": "www.adobe.com",
-  "audited_at": "2026-09-08T19:50:27Z",
-  "overall_score": 48,
+  "audited_at": "2026-09-12T10:33:21Z",
+  "overall_score": 46,
   "geo_readiness": "Not GEO Ready",
   "summary": {
-    "total_findings": 21,
+    "total_findings": 24,
     "critical": 1,
     "high": 4,
     "medium": 12,
-    "low": 4,
-    "passing_checks": 10
+    "low": 7,
+    "passing_checks": 13
   },
   "dimension_scores": [
     {
@@ -24,6 +24,7 @@
         "RC17",
         "RC19",
         "RC23",
+        "RC29",
         "CDN-WAF",
         "RSL"
       ],
@@ -36,7 +37,9 @@
       "finding_prefixes": [
         "CEA",
         "RC8",
-        "RC11"
+        "RC11",
+        "RC24",
+        "RC26"
       ],
       "score": 31
     },
@@ -68,7 +71,7 @@
         "OG-007",
         "SC-"
       ],
-      "score": 64
+      "score": 60
     },
     {
       "id": "D5",
@@ -93,23 +96,29 @@
         "RC20",
         "TSEO",
         "OG-00",
-        "IMG-"
+        "IMG-",
+        "RC25",
+        "RC27",
+        "RC28",
+        "RC30",
+        "RC-NAV",
+        "RC-TRUST"
       ],
-      "score": 27
+      "score": 23
     }
   ],
   "engine_scores": {
-    "ChatGPT": 52,
-    "Perplexity": 45,
-    "Google AI Overviews": 48,
-    "Gemini": 48,
-    "Bing Copilot": 45
+    "ChatGPT": 51,
+    "Perplexity": 44,
+    "Google AI Overviews": 46,
+    "Gemini": 47,
+    "Bing Copilot": 44
   },
   "findings": [
     {
       "id": "OG-001",
       "title": "No OpenGraph tags on homepage",
-      "severity": "CRITICAL",
+      "severity": "critical",
       "evidence": "og:title, og:description, og:image all absent from homepage.",
       "suggested_action": {
         "summary": "Add og:title, og:description, og:image, og:type to every page template.",
@@ -120,7 +129,7 @@
     {
       "id": "CEA-004",
       "title": "Statistics without source citations on /",
-      "severity": "HIGH",
+      "severity": "high",
       "evidence": "3 uncited stats, 0 cited. Princeton KDD 2024: sourced stats \u2192 +40% AI citation.",
       "suggested_action": {
         "summary": "Add source links or parenthetical citations to every statistic.",
@@ -131,7 +140,7 @@
     {
       "id": "EEAT-001",
       "title": "No author bylines detected on homepage",
-      "severity": "HIGH",
+      "severity": "high",
       "evidence": "author_count=0, has_person_schema=False. No bylines, bio sections, or author credential markup.",
       "suggested_action": {
         "summary": "Add named author bylines + Person schema to blog and editorial content.",
@@ -142,7 +151,7 @@
     {
       "id": "RSL-001",
       "title": "No RSL 1.0 machine-readable license declaration",
-      "severity": "HIGH",
+      "severity": "high",
       "evidence": "/.well-known/rsl.json returns 404 and no <link rel='robots-standard-license'> in HTML.",
       "suggested_action": {
         "summary": "Deploy /.well-known/rsl.json with RSL 1.0 to declare content reuse terms for AI crawlers.",
@@ -153,7 +162,7 @@
     {
       "id": "RSL-003",
       "title": "Zero AI discovery endpoints present (0/14 checked)",
-      "severity": "HIGH",
+      "severity": "high",
       "evidence": "None of 14 AI discovery endpoints return HTTP 200.",
       "suggested_action": {
         "summary": "Deploy /.well-known/ai.txt and /ai/summary.json as minimum viable AI discovery.",
@@ -164,7 +173,7 @@
     {
       "id": "CEA-003",
       "title": "Low question-format heading ratio (4%) on /",
-      "severity": "MEDIUM",
+      "severity": "medium",
       "evidence": "4/104 H2/H3s are questions. Sample: ['do it all in less time.', 'do it all in less time.']",
       "suggested_action": {
         "summary": "Rewrite key H2 headings as questions to improve FAQ schema eligibility and AI direct-answer targeting.",
@@ -175,7 +184,7 @@
     {
       "id": "CEA-005",
       "title": "No FAQ section on /",
-      "severity": "MEDIUM",
+      "severity": "medium",
       "evidence": "has_faq_section=False, estimated_qa_pairs=0.",
       "suggested_action": {
         "summary": "Add FAQ section + FAQPage schema.",
@@ -186,7 +195,7 @@
     {
       "id": "CEA-008",
       "title": "No content freshness date marker on /",
-      "severity": "MEDIUM",
+      "severity": "medium",
       "evidence": "No visible 'As of [date]' or 'Last updated' text marker found.",
       "suggested_action": {
         "summary": "Add 'Last updated: [Month Year]' visible text. Freshness is top Perplexity ranking signal.",
@@ -197,7 +206,7 @@
     {
       "id": "CEA-009",
       "title": "Low answer-capsule ratio (20%) on /",
-      "severity": "MEDIUM",
+      "severity": "medium",
       "evidence": "1/5 H2/H3 sections have a 40+ word direct answer capsule. ChatGPT citation correlation: 72.4% of cited pages have \u226550%.",
       "suggested_action": {
         "summary": "Add a direct 40\u201360 word answer paragraph immediately after each major H2/H3 heading.",
@@ -208,7 +217,7 @@
     {
       "id": "EEAT-002",
       "title": "No review platform links from homepage",
-      "severity": "MEDIUM",
+      "severity": "medium",
       "evidence": "No G2, Capterra, Trustpilot, or other review platform links detected.",
       "suggested_action": {
         "summary": "Add G2/Trustpilot badges. SE Ranking 2026: review links \u2192 3\u00d7 citation probability.",
@@ -219,7 +228,7 @@
     {
       "id": "EEAT-003",
       "title": "Social profile links absent from homepage HTML",
-      "severity": "MEDIUM",
+      "severity": "medium",
       "evidence": "No LinkedIn company, Twitter/X, or YouTube links detected in homepage HTML.",
       "suggested_action": {
         "summary": "Add visible social links in footer HTML matching the sameAs JSON-LD values.",
@@ -230,7 +239,7 @@
     {
       "id": "EEAT-004",
       "title": "No original research or proprietary data signals",
-      "severity": "MEDIUM",
+      "severity": "medium",
       "evidence": "No 'our study', 'we surveyed', 'n=X respondents' signals found.",
       "suggested_action": {
         "summary": "Publish an original study or benchmark. Original research is the highest-value citation magnet.",
@@ -242,7 +251,7 @@
     {
       "id": "EEAT-005",
       "title": "No privacy policy link detectable on homepage",
-      "severity": "MEDIUM",
+      "severity": "medium",
       "evidence": "Privacy policy link pattern not found in homepage HTML.",
       "suggested_action": {
         "summary": "Add a visible Privacy Policy link to the homepage footer.",
@@ -253,7 +262,7 @@
     {
       "id": "IMG-001",
       "title": "6 images missing alt text",
-      "severity": "MEDIUM",
+      "severity": "medium",
       "evidence": "Images without alt attributes: ./media_15d0c67d468c6ab860bd67d3af2d0998c15f45bbc.webp?width=750&#x26;format=web, ./media_180a8327664c8013005414b32d539cb95ce16ef7a.webp?width=750&#x26;format=web, ./media_13dac5079e7f5c35eb785e3e282b020d3859f4c5a.webp?width=750&#x26;format=web...",
       "suggested_action": {
         "summary": "Add descriptive alt text to all images. Alt text is an AI-indexable content signal.",
@@ -264,7 +273,7 @@
     {
       "id": "RC17-001",
       "title": "No RSS/Atom feed found",
-      "severity": "MEDIUM",
+      "severity": "medium",
       "evidence": "Checked /feed, /rss.xml, /atom.xml, /feed.xml \u2014 all returned non-200.",
       "suggested_action": {
         "summary": "Create an RSS/Atom feed. Perplexity and AI news agents index feeds for freshness.",
@@ -275,7 +284,7 @@
     {
       "id": "SC-001",
       "title": "No Speakable schema",
-      "severity": "MEDIUM",
+      "severity": "medium",
       "evidence": "site_has_speakable=False. No SpeakableSpecification markup found.",
       "suggested_action": {
         "summary": "Add Speakable schema to product descriptions and key content sections.",
@@ -286,7 +295,7 @@
     {
       "id": "SC-002",
       "title": "No FAQPage schema",
-      "severity": "MEDIUM",
+      "severity": "medium",
       "evidence": "site_has_faqpage=False.",
       "suggested_action": {
         "summary": "Add FAQPage + Question + Answer schema to key landing pages.",
@@ -297,7 +306,7 @@
     {
       "id": "CEA-006",
       "title": "No key-takeaway / TL;DR box on /",
-      "severity": "LOW",
+      "severity": "low",
       "evidence": "No TL;DR, summary, or key-highlight block detected.",
       "suggested_action": {
         "summary": "Add a 'Key highlights' box near top of content pages.",
@@ -309,7 +318,7 @@
     {
       "id": "OG-005",
       "title": "No Twitter Card meta tags",
-      "severity": "LOW",
+      "severity": "low",
       "evidence": "No twitter:card, twitter:title, or twitter:description found.",
       "suggested_action": {
         "summary": "Add twitter:card=summary_large_image and twitter:title/description.",
@@ -319,9 +328,45 @@
       }
     },
     {
+      "id": "RC-TRUST-002",
+      "title": "No contact information in static HTML",
+      "severity": "low",
+      "evidence": "https://www.adobe.com: no email, phone, or contact link found in static HTML.",
+      "suggested_action": {
+        "summary": "Include a contact email or /contact link in the footer. AI assistants use contact info to validate the brand as a real, reachable entity.",
+        "priority": "low",
+        "effort": "low",
+        "proactive": true
+      }
+    },
+    {
+      "id": "RC-TRUST-003",
+      "title": "Missing legal links in footer: privacy policy, terms of service",
+      "severity": "low",
+      "evidence": "https://www.adobe.com: privacy policy, terms of service not found in footer HTML.",
+      "suggested_action": {
+        "summary": "Add privacy policy and terms of service links to the footer. These are trust signals for users and AI systems evaluating brand legitimacy.",
+        "priority": "low",
+        "effort": "low",
+        "proactive": true
+      }
+    },
+    {
+      "id": "RC30-002",
+      "title": "No dedicated AI-referrer landing page",
+      "severity": "low",
+      "evidence": "Checked https://www.adobe.com/from/ai, https://www.adobe.com/ai-landing, https://www.adobe.com/ai \u2014 none return HTTP 200.",
+      "suggested_action": {
+        "summary": "Create /from/ai optimised for AI-referred visitors: concise 60-word summary, one CTA, one trust signal. Reference it in llms.txt so AI assistants can send users directly to it.",
+        "priority": "low",
+        "effort": "medium",
+        "proactive": true
+      }
+    },
+    {
       "id": "RSL-002",
       "title": "No llms-full.txt companion file",
-      "severity": "LOW",
+      "severity": "low",
       "evidence": "/llms-full.txt returns 404.",
       "suggested_action": {
         "summary": "Create /llms-full.txt with complete product documentation for LLM ingestion.",
@@ -333,7 +378,7 @@
     {
       "id": "RSL-004",
       "title": "IndexNow not implemented",
-      "severity": "LOW",
+      "severity": "low",
       "evidence": "No IndexNow key found in HTML or robots.txt.",
       "suggested_action": {
         "summary": "Implement IndexNow to notify Bing/Perplexity on publish.",
