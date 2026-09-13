@@ -1,0 +1,42 @@
+{
+  "site": "linear.app",
+  "base_url": "https://linear.app",
+  "probed_at": "2026-09-12T18:21:05Z",
+  "homepage_status": 200,
+  "homepage_error": null,
+  "brand_name": "Linear \u2013 The system for product development",
+  "brand_name_source": "page <title>",
+  "same_as_links": [],
+  "same_as_categorized": {
+    "wikidata": null,
+    "wikipedia": null,
+    "crunchbase": null,
+    "linkedin": null,
+    "twitter": null,
+    "facebook": null,
+    "other": []
+  },
+  "wikidata": {
+    "query": "Linear \u2013 The system for product development",
+    "found": false,
+    "qid": null,
+    "label": null,
+    "description": null,
+    "candidates": [],
+    "error": null
+  },
+  "entity_collision_risk": {
+    "name": "Linear \u2013 The system for product development",
+    "risk_factors": [],
+    "high_risk": false
+  },
+  "name_variants": {
+    "homepage_title": "Linear \u2013 The system for product development"
+  },
+  "name_is_consistent": true,
+  "_agent_next_steps": [
+    "web_search: \\\"Linear \u2013 The system for product development\\\" founded",
+    "web_search: \\\"Linear \u2013 The system for product development\\\" company",
+    "web_search: \\\"Linear \u2013 The system for product development\\\" linear"
+  ]
+}

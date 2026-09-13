@@ -28,6 +28,33 @@
 | Gemini | 48 | ⚠️ 70 |
 | Bing Copilot | 45 | ⚠️ 70 |
 
+## 🚀 Projected Score After Fixes
+
+> Fixing 5 CRITICAL/HIGH findings would raise your score from 48 to 62 (+14 pts)
+
+| Metric | Current | After Fixes |
+|--------|---------|-------------|
+| Overall GEO Score | 48 | **62** |
+| GEO Readiness | Not GEO Ready | **Developing** |
+| Score Lift | — | **+14 pts** |
+
+
+## 🗺 Prioritised Action Roadmap
+
+| # | Dimension | Action | Effort | Est. Lift |
+|---|-----------|--------|--------|-----------|
+| 1 | Technical Foundation | Add og:title, og:description, og:image, og:type to every page template. | `low` | +15 overall |
+| 2 | Technical Foundation | Add descriptive alt text to all images. Alt text is an AI-indexable content sign | `low` | +3 overall |
+| 3 | Content Extractability | Add source links or parenthetical citations to every statistic. | `low` | +8 overall |
+| 4 | Content Extractability | Rewrite key H2 headings as questions to improve FAQ schema eligibility and AI di | `low` | +3 overall |
+| 5 | Content Extractability | Add FAQ section + FAQPage schema. | `medium` | +3 overall |
+| 6 | Content Extractability | Add 'Last updated: [Month Year]' visible text. Freshness is top Perplexity ranki | `low` | +3 overall |
+| 7 | Content Extractability | Add a direct 40–60 word answer paragraph immediately after each major H2/H3 head | `medium` | +3 overall |
+| 8 | Off-Page Authority | Add named author bylines + Person schema to blog and editorial content. | `medium` | +8 overall |
+| 9 | Off-Page Authority | Add G2/Trustpilot badges. SE Ranking 2026: review links → 3× citation probabilit | `low` | +3 overall |
+| 10 | Off-Page Authority | Add visible social links in footer HTML matching the sameAs JSON-LD values. | `low` | +3 overall |
+
+
 ---
 
 ## ● CRITICAL — 1 finding

@@ -1,0 +1,593 @@
+{
+  "site": "vercel.com",
+  "base_url": "https://vercel.com",
+  "probed_at": "2026-09-12T18:19:34Z",
+  "robots_txt": {
+    "url": "https://vercel.com/robots.txt",
+    "status": 200,
+    "error": null,
+    "sitemap_declared": [
+      "https://vercel.com/sitemap.xml"
+    ],
+    "bots": {
+      "GPTBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/api/",
+          "/oauth",
+          "/confirm",
+          "/notifications",
+          "/old-browser.html",
+          "/preauthorize",
+          "/signup?*",
+          "/invites/",
+          "/blog/authors",
+          "/changelog/authors"
+        ],
+        "fully_blocked": false
+      },
+      "ChatGPT-User": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/api/",
+          "/oauth",
+          "/confirm",
+          "/notifications",
+          "/old-browser.html",
+          "/preauthorize",
+          "/signup?*",
+          "/invites/",
+          "/blog/authors",
+          "/changelog/authors"
+        ],
+        "fully_blocked": false
+      },
+      "OAI-SearchBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/api/",
+          "/oauth",
+          "/confirm",
+          "/notifications",
+          "/old-browser.html",
+          "/preauthorize",
+          "/signup?*",
+          "/invites/",
+          "/blog/authors",
+          "/changelog/authors"
+        ],
+        "fully_blocked": false
+      },
+      "ClaudeBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/api/",
+          "/oauth",
+          "/confirm",
+          "/notifications",
+          "/old-browser.html",
+          "/preauthorize",
+          "/signup?*",
+          "/invites/",
+          "/blog/authors",
+          "/changelog/authors"
+        ],
+        "fully_blocked": false
+      },
+      "Claude-Web": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/api/",
+          "/oauth",
+          "/confirm",
+          "/notifications",
+          "/old-browser.html",
+          "/preauthorize",
+          "/signup?*",
+          "/invites/",
+          "/blog/authors",
+          "/changelog/authors"
+        ],
+        "fully_blocked": false
+      },
+      "anthropic-ai": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/api/",
+          "/oauth",
+          "/confirm",
+          "/notifications",
+          "/old-browser.html",
+          "/preauthorize",
+          "/signup?*",
+          "/invites/",
+          "/blog/authors",
+          "/changelog/authors"
+        ],
+        "fully_blocked": false
+      },
+      "PerplexityBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/api/",
+          "/oauth",
+          "/confirm",
+          "/notifications",
+          "/old-browser.html",
+          "/preauthorize",
+          "/signup?*",
+          "/invites/",
+          "/blog/authors",
+          "/changelog/authors"
+        ],
+        "fully_blocked": false
+      },
+      "Perplexity-User": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/api/",
+          "/oauth",
+          "/confirm",
+          "/notifications",
+          "/old-browser.html",
+          "/preauthorize",
+          "/signup?*",
+          "/invites/",
+          "/blog/authors",
+          "/changelog/authors"
+        ],
+        "fully_blocked": false
+      },
+      "Gemini-Web": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/api/",
+          "/oauth",
+          "/confirm",
+          "/notifications",
+          "/old-browser.html",
+          "/preauthorize",
+          "/signup?*",
+          "/invites/",
+          "/blog/authors",
+          "/changelog/authors"
+        ],
+        "fully_blocked": false
+      },
+      "Google-Extended": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/api/",
+          "/oauth",
+          "/confirm",
+          "/notifications",
+          "/old-browser.html",
+          "/preauthorize",
+          "/signup?*",
+          "/invites/",
+          "/blog/authors",
+          "/changelog/authors"
+        ],
+        "fully_blocked": false
+      },
+      "BingBot-AI": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/api/",
+          "/oauth",
+          "/confirm",
+          "/notifications",
+          "/old-browser.html",
+          "/preauthorize",
+          "/signup?*",
+          "/invites/",
+          "/blog/authors",
+          "/changelog/authors"
+        ],
+        "fully_blocked": false
+      },
+      "YouBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/api/",
+          "/oauth",
+          "/confirm",
+          "/notifications",
+          "/old-browser.html",
+          "/preauthorize",
+          "/signup?*",
+          "/invites/",
+          "/blog/authors",
+          "/changelog/authors"
+        ],
+        "fully_blocked": false
+      },
+      "CCBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/api/",
+          "/oauth",
+          "/confirm",
+          "/notifications",
+          "/old-browser.html",
+          "/preauthorize",
+          "/signup?*",
+          "/invites/",
+          "/blog/authors",
+          "/changelog/authors"
+        ],
+        "fully_blocked": false
+      },
+      "Applebot-Extended": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/api/",
+          "/oauth",
+          "/confirm",
+          "/notifications",
+          "/old-browser.html",
+          "/preauthorize",
+          "/signup?*",
+          "/invites/",
+          "/blog/authors",
+          "/changelog/authors"
+        ],
+        "fully_blocked": false
+      },
+      "Amazonbot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/api/",
+          "/oauth",
+          "/confirm",
+          "/notifications",
+          "/old-browser.html",
+          "/preauthorize",
+          "/signup?*",
+          "/invites/",
+          "/blog/authors",
+          "/changelog/authors"
+        ],
+        "fully_blocked": false
+      },
+      "DuckAssistBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/api/",
+          "/oauth",
+          "/confirm",
+          "/notifications",
+          "/old-browser.html",
+          "/preauthorize",
+          "/signup?*",
+          "/invites/",
+          "/blog/authors",
+          "/changelog/authors"
+        ],
+        "fully_blocked": false
+      },
+      "FacebookBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/api/",
+          "/oauth",
+          "/confirm",
+          "/notifications",
+          "/old-browser.html",
+          "/preauthorize",
+          "/signup?*",
+          "/invites/",
+          "/blog/authors",
+          "/changelog/authors"
+        ],
+        "fully_blocked": false
+      },
+      "cohere-ai": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/api/",
+          "/oauth",
+          "/confirm",
+          "/notifications",
+          "/old-browser.html",
+          "/preauthorize",
+          "/signup?*",
+          "/invites/",
+          "/blog/authors",
+          "/changelog/authors"
+        ],
+        "fully_blocked": false
+      },
+      "AI2Bot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/api/",
+          "/oauth",
+          "/confirm",
+          "/notifications",
+          "/old-browser.html",
+          "/preauthorize",
+          "/signup?*",
+          "/invites/",
+          "/blog/authors",
+          "/changelog/authors"
+        ],
+        "fully_blocked": false
+      },
+      "Bytespider": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/api/",
+          "/oauth",
+          "/confirm",
+          "/notifications",
+          "/old-browser.html",
+          "/preauthorize",
+          "/signup?*",
+          "/invites/",
+          "/blog/authors",
+          "/changelog/authors"
+        ],
+        "fully_blocked": false
+      },
+      "PetalBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/api/",
+          "/oauth",
+          "/confirm",
+          "/notifications",
+          "/old-browser.html",
+          "/preauthorize",
+          "/signup?*",
+          "/invites/",
+          "/blog/authors",
+          "/changelog/authors"
+        ],
+        "fully_blocked": false
+      },
+      "SemrushBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/api/",
+          "/oauth",
+          "/confirm",
+          "/notifications",
+          "/old-browser.html",
+          "/preauthorize",
+          "/signup?*",
+          "/invites/",
+          "/blog/authors",
+          "/changelog/authors"
+        ],
+        "fully_blocked": false
+      },
+      "AhrefsBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/api/",
+          "/oauth",
+          "/confirm",
+          "/notifications",
+          "/old-browser.html",
+          "/preauthorize",
+          "/signup?*",
+          "/invites/",
+          "/blog/authors",
+          "/changelog/authors"
+        ],
+        "fully_blocked": false
+      },
+      "DataForSeoBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/api/",
+          "/oauth",
+          "/confirm",
+          "/notifications",
+          "/old-browser.html",
+          "/preauthorize",
+          "/signup?*",
+          "/invites/",
+          "/blog/authors",
+          "/changelog/authors"
+        ],
+        "fully_blocked": false
+      },
+      "MJ12bot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/api/",
+          "/oauth",
+          "/confirm",
+          "/notifications",
+          "/old-browser.html",
+          "/preauthorize",
+          "/signup?*",
+          "/invites/",
+          "/blog/authors",
+          "/changelog/authors"
+        ],
+        "fully_blocked": false
+      },
+      "ia_archiver": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/api/",
+          "/oauth",
+          "/confirm",
+          "/notifications",
+          "/old-browser.html",
+          "/preauthorize",
+          "/signup?*",
+          "/invites/",
+          "/blog/authors",
+          "/changelog/authors"
+        ],
+        "fully_blocked": false
+      }
+    },
+    "raw_snippet": "User-Agent: *\nContent-Signal: search=yes, ai-input=yes, ai-train=no\n\n# Allow robots to be able to crawl the OG Image API route and all the subpaths\nAllow: /api/og/*\nAllow: /api/docs-og*\nAllow: /api/product-og*\nAllow: /api/dynamic-og*\nAllow: /api/model-og*\nAllow: /api/www/avatar/*\n\nDisallow:\nDisallow: /api/\nDisallow: /oauth\nDisallow: /confirm\nDisallow: /notifications\nDisallow: /old-browser.html\nDisallow: /preauthorize\nDisallow: /signup?*\nDisallow: /invites/\n# No-index author pages (direct URL onl"
+  },
+  "llms_txt": {
+    "url": "https://vercel.com/llms.txt",
+    "status": 200,
+    "content_type": "text/plain; charset=utf-8",
+    "error": null,
+    "redirect_chain": [],
+    "redirect_count": 0,
+    "starts_with_hash": true,
+    "word_count": 530,
+    "first_100_chars": "# Vercel\n\n> Vercel is a cloud platform for building, deploying, and scaling web applications and AI ",
+    "first_200_bytes_has_html": false
+  },
+  "sitemap": [
+    {
+      "url": "https://vercel.com/sitemap.xml",
+      "status": 200,
+      "error": null,
+      "lastmod_count": 7092,
+      "lastmod_dates": [
+        "2026-08-26T01:31:12.753Z",
+        "2026-08-29T03:11:19.144Z",
+        "2026-08-18T06:10:12.418Z",
+        "2026-06-17T09:43:59.816Z",
+        "2026-07-22T23:22:20.419Z"
+      ]
+    }
+  ],
+  "feeds": [
+    {
+      "url": "https://vercel.com/feed",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "looks_like_feed": false
+    },
+    {
+      "url": "https://vercel.com/rss.xml",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "looks_like_feed": false
+    },
+    {
+      "url": "https://vercel.com/atom.xml",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "looks_like_feed": false
+    },
+    {
+      "url": "https://vercel.com/feed.xml",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "looks_like_feed": false
+    },
+    {
+      "url": "https://vercel.com/feeds/posts/default",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "looks_like_feed": false
+    }
+  ],
+  "ai_endpoints": [
+    {
+      "url": "https://vercel.com/.well-known/ai.txt",
+      "status": 404,
+      "content_type": "text/plain;charset=UTF-8",
+      "error": null
+    },
+    {
+      "url": "https://vercel.com/ai/summary.json",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "error": null
+    }
+  ],
+  "bot_enforcement": [
+    {
+      "bot": "GPTBot",
+      "robots_txt_blocked": false,
+      "actual_status": 200,
+      "actual_word_count": 24557,
+      "browser_baseline_words": 24557,
+      "cdn_waf_blocked": false,
+      "js_dependent": false,
+      "content_ratio_vs_browser": 1.0,
+      "effective_block": false,
+      "error": null
+    },
+    {
+      "bot": "ChatGPT-User",
+      "robots_txt_blocked": false,
+      "actual_status": 200,
+      "actual_word_count": 24557,
+      "browser_baseline_words": 24557,
+      "cdn_waf_blocked": false,
+      "js_dependent": false,
+      "content_ratio_vs_browser": 1.0,
+      "effective_block": false,
+      "error": null
+    },
+    {
+      "bot": "OAI-SearchBot",
+      "robots_txt_blocked": false,
+      "actual_status": 200,
+      "actual_word_count": 24557,
+      "browser_baseline_words": 24557,
+      "cdn_waf_blocked": false,
+      "js_dependent": false,
+      "content_ratio_vs_browser": 1.0,
+      "effective_block": false,
+      "error": null
+    },
+    {
+      "bot": "ClaudeBot",
+      "robots_txt_blocked": false,
+      "actual_status": 200,
+      "actual_word_count": 24557,
+      "browser_baseline_words": 24557,
+      "cdn_waf_blocked": false,
+      "js_dependent": false,
+      "content_ratio_vs_browser": 1.0,
+      "effective_block": false,
+      "error": null
+    },
+    {
+      "bot": "Claude-Web",
+      "robots_txt_blocked": false,
+      "actual_status": 200,
+      "actual_word_count": 24557,
+      "browser_baseline_words": 24557,
+      "cdn_waf_blocked": false,
+      "js_dependent": false,
+      "content_ratio_vs_browser": 1.0,
+      "effective_block": false,
+      "error": null
+    },
+    {
+      "bot": "anthropic-ai",
+      "robots_txt_blocked": false,
+      "actual_status": 200,
+      "actual_word_count": 24557,
+      "browser_baseline_words": 24557,
+      "cdn_waf_blocked": false,
+      "js_dependent": false,
+      "content_ratio_vs_browser": 1.0,
+      "effective_block": false,
+      "error": null
+    }
+  ],
+  "oai_searchbot_policy": {
+    "gptbot_blocked": false,
+    "oai_searchbot_blocked": false,
+    "chatgpt_user_blocked": false,
+    "training_blocked_citation_allowed": false,
+    "both_blocked": false,
+    "both_allowed": true,
+    "policy_note": "OPEN: both allowed (acceptable)"
+  }
+}

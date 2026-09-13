@@ -1,0 +1,76 @@
+{
+  "site": "stripe.com",
+  "base_url": "https://stripe.com",
+  "probed_at": "2026-09-12T19:39:45Z",
+  "homepage_status": 200,
+  "homepage_error": null,
+  "brand_name": "Stripe",
+  "brand_name_source": "page <title>",
+  "same_as_links": [],
+  "same_as_categorized": {
+    "wikidata": null,
+    "wikipedia": null,
+    "crunchbase": null,
+    "linkedin": null,
+    "twitter": null,
+    "facebook": null,
+    "other": []
+  },
+  "wikidata": {
+    "query": "Stripe",
+    "found": true,
+    "qid": "Q7624104",
+    "label": "Stripe",
+    "description": "Irish-American payment technology company",
+    "candidates": [
+      {
+        "qid": "Q7624104",
+        "label": "Stripe",
+        "description": "Irish-American payment technology company",
+        "url": "//www.wikidata.org/wiki/Q7624104"
+      },
+      {
+        "qid": "Q3421342",
+        "label": "stripe",
+        "description": "long, narrow band of color, often in alternating sets",
+        "url": "//www.wikidata.org/wiki/Q3421342"
+      },
+      {
+        "qid": "Q127900502",
+        "label": "Stripe",
+        "description": "fictional character in the Gremlins franchise",
+        "url": "//www.wikidata.org/wiki/Q127900502"
+      },
+      {
+        "qid": "Q117454382",
+        "label": "Stripe",
+        "description": "South African progamer",
+        "url": "//www.wikidata.org/wiki/Q117454382"
+      },
+      {
+        "qid": "Q297115",
+        "label": "Meloidae",
+        "description": "family of beetles",
+        "url": "//www.wikidata.org/wiki/Q297115"
+      }
+    ],
+    "error": null
+  },
+  "entity_collision_risk": {
+    "name": "Stripe",
+    "risk_factors": [
+      "\"Stripe\" is a common English word",
+      "Short single lowercase word \u2014 high overlap risk"
+    ],
+    "high_risk": true
+  },
+  "name_variants": {
+    "homepage_title": "Stripe | Financial Infrastructure to Grow Your Revenue"
+  },
+  "name_is_consistent": true,
+  "_agent_next_steps": [
+    "web_search: \\\"Stripe\\\" founded",
+    "web_search: \\\"Stripe\\\" company",
+    "web_search: \\\"Stripe\\\" stripe"
+  ]
+}

@@ -1,0 +1,262 @@
+{
+  "site": "vercel.com",
+  "base_url": "https://vercel.com",
+  "probed_at": "2026-09-12T18:19:34Z",
+  "pages": [
+    {
+      "path": "/",
+      "url": "https://vercel.com",
+      "status": 200,
+      "error": null,
+      "jsonld_blocks": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Vercel Inc.",
+          "legalName": "Vercel Inc.",
+          "url": "https://vercel.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://lishhsx6kmthaacj.public.blob.vercel-storage.com/vercel-wordmark.svg"
+          },
+          "foundingDate": "2015-11-04",
+          "founder": {
+            "@type": "Person",
+            "name": "Guillermo Rauch",
+            "sameAs": "https://x.com/rauchg"
+          },
+          "description": "Vercel provides the developer tools and cloud infrastructure to build, scale, and secure a faster, more personalized web.",
+          "sameAs": [
+            "https://www.facebook.com/VercelHQ/",
+            "https://x.com/vercel",
+            "https://www.linkedin.com/company/vercel/",
+            "https://github.com/vercel",
+            "https://en.wikipedia.org/wiki/Vercel",
+            "https://www.wikidata.org/wiki/Q56069184",
+            "https://www.youtube.com/@VercelHQ",
+            "https://www.npmjs.com/package/vercel",
+            "https://bsky.app/profile/vercel.com",
+            "https://www.reddit.com/r/vercel/"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "Customer Support",
+            "url": "https://vercel.com/contact",
+            "availableLanguage": [
+              "English"
+            ]
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "440 N Barranca Ave #4133",
+            "addressLocality": "Covina",
+            "addressRegion": "CA",
+            "postalCode": "91723",
+            "addressCountry": "US"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "Vercel",
+          "description": "Vercel is agentic infrastructure for every app and agent. It is the platform where humans and agents build software together.",
+          "url": "https://vercel.com/",
+          "serviceType": "Agentic infrastructure platform",
+          "areaServed": "Worldwide",
+          "provider": {
+            "@type": "Organization",
+            "name": "Vercel Inc.",
+            "url": "https://vercel.com/"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          "name": "Vercel",
+          "description": "Vercel provides the developer tools and cloud infrastructure to build, scale, and secure a faster, more personalized web.",
+          "url": "https://vercel.com/",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Web",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/OnlineOnly"
+          },
+          "provider": {
+            "@type": "Organization",
+            "name": "Vercel Inc.",
+            "url": "https://vercel.com/"
+          }
+        }
+      ],
+      "schema_types": [
+        "Organization",
+        "Service",
+        "SoftwareApplication"
+      ],
+      "schema_richness": [
+        {
+          "@type": "Organization",
+          "field_count": 10
+        },
+        {
+          "@type": "Service",
+          "field_count": 6
+        },
+        {
+          "@type": "SoftwareApplication",
+          "field_count": 7
+        }
+      ],
+      "has_speakable": false,
+      "freshness_dates": [],
+      "images_missing_alt": [
+        "(no src)",
+        "/vc-ap-vercel-marketing/_next/image?url=%2Fvc-ap-vercel-marketing%2F_next%2Fstat",
+        "/vc-ap-vercel-marketing/_next/image?url=%2Fvc-ap-vercel-marketing%2F_next%2Fstat"
+      ],
+      "html_lang": "en",
+      "hreflang_count": 0,
+      "paywall_detected": false,
+      "paywall_evidence": null,
+      "is_accessible_for_free": null,
+      "video_objects": [],
+      "faq_howto_headings": []
+    },
+    {
+      "path": "/product",
+      "url": "https://vercel.com/product",
+      "status": 200,
+      "error": null,
+      "jsonld_blocks": [],
+      "schema_types": [],
+      "schema_richness": [],
+      "has_speakable": false,
+      "freshness_dates": [],
+      "images_missing_alt": [
+        "/_next/static/immutable/media/logo-google-color-light.2x6g4y99zlarz.svg",
+        "/_next/static/immutable/media/logo-google-color-dark.3nr_e0zdganvm.svg",
+        "/_next/static/immutable/media/logo-github-color-light.1184n6l5g07-6.svg",
+        "/_next/static/immutable/media/logo-github-color-dark.1k-70sin_m3qn.svg",
+        "/_next/static/immutable/media/logo-open-ai-color-light.19_d6xia9t_gb.svg",
+        "/_next/static/immutable/media/logo-open-ai-color-dark.2s69z6l-k1q-7.svg"
+      ],
+      "html_lang": "en-US",
+      "hreflang_count": 0,
+      "paywall_detected": false,
+      "paywall_evidence": null,
+      "is_accessible_for_free": null,
+      "video_objects": [],
+      "faq_howto_headings": []
+    },
+    {
+      "path": "/about",
+      "url": "https://vercel.com/about",
+      "status": 200,
+      "error": null,
+      "jsonld_blocks": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Vercel Inc.",
+          "legalName": "Vercel Inc.",
+          "url": "https://vercel.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://lishhsx6kmthaacj.public.blob.vercel-storage.com/vercel-wordmark.svg"
+          },
+          "foundingDate": "2015-11-04",
+          "founder": {
+            "@type": "Person",
+            "name": "Guillermo Rauch",
+            "sameAs": "https://x.com/rauchg"
+          },
+          "description": "Vercel provides the developer tools and cloud infrastructure to build, scale, and secure a faster, more personalized web.",
+          "sameAs": [
+            "https://www.facebook.com/VercelHQ/",
+            "https://x.com/vercel",
+            "https://www.linkedin.com/company/vercel/",
+            "https://github.com/vercel",
+            "https://en.wikipedia.org/wiki/Vercel",
+            "https://www.wikidata.org/wiki/Q56069184",
+            "https://www.youtube.com/@VercelHQ",
+            "https://www.npmjs.com/package/vercel",
+            "https://bsky.app/profile/vercel.com",
+            "https://www.reddit.com/r/vercel/"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "Customer Support",
+            "url": "https://vercel.com/contact",
+            "availableLanguage": [
+              "English"
+            ]
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "440 N Barranca Ave #4133",
+            "addressLocality": "Covina",
+            "addressRegion": "CA",
+            "postalCode": "91723",
+            "addressCountry": "US"
+          }
+        }
+      ],
+      "schema_types": [
+        "Organization"
+      ],
+      "schema_richness": [
+        {
+          "@type": "Organization",
+          "field_count": 10
+        }
+      ],
+      "has_speakable": false,
+      "freshness_dates": [],
+      "images_missing_alt": [
+        "(no src)"
+      ],
+      "html_lang": "en",
+      "hreflang_count": 0,
+      "paywall_detected": false,
+      "paywall_evidence": null,
+      "is_accessible_for_free": null,
+      "video_objects": [],
+      "faq_howto_headings": []
+    },
+    {
+      "path": "/pricing",
+      "url": "https://vercel.com/pricing",
+      "status": 200,
+      "error": null,
+      "jsonld_blocks": [],
+      "schema_types": [],
+      "schema_richness": [],
+      "has_speakable": false,
+      "freshness_dates": [],
+      "images_missing_alt": [
+        "(no src)"
+      ],
+      "html_lang": "en",
+      "hreflang_count": 0,
+      "paywall_detected": false,
+      "paywall_evidence": null,
+      "is_accessible_for_free": null,
+      "video_objects": [],
+      "faq_howto_headings": [
+        "frequently asked questions"
+      ]
+    }
+  ],
+  "site_schema_types": [
+    "Organization",
+    "Service",
+    "SoftwareApplication"
+  ],
+  "site_has_speakable": false,
+  "site_has_faqpage": false,
+  "site_has_howto": false,
+  "site_has_video_object": false,
+  "site_inlanguage": null
+}

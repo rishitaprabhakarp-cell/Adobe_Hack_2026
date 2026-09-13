@@ -233,7 +233,9 @@ If Chrome is not available, `weasyprint` is tried next. If neither works, the HT
 Adobe_Hack_2026/
 ├── .gitignore
 ├── README.md                                ← this file
-├── TESTING.md                               ← detailed testing guide
+├── TESTING.md                               ← per-skill test cases, grading rubric
+├── EVAL.md                                  ← benchmark methodology, competitor comparison, defensible claims
+├── benchmark_runner.py                      ← runs 10-site benchmark suite, produces comparative JSON
 ├── requirements.txt                         ← pip dependencies
 ├── marketplace.json                         ← skill manifest (13 skills, 1 entrypoint)
 │
@@ -288,6 +290,33 @@ Adobe_Hack_2026/
     └── geo-score-aggregator/                ← dimension scoring, per-engine GEO scores
         └── SKILL.md
 ```
+
+---
+
+## Benchmarking
+
+Run the 10-site benchmark suite to validate the scoring model and compare against competing tools:
+
+```bash
+# Run all 10 benchmark sites (parallel scripts + report generation)
+python benchmark_runner.py --output-dir ./benchmark_results --generate-reports
+
+# Run a subset (faster, for spot-checking)
+python benchmark_runner.py --sites stripe.com craigslist.org adobe.com
+
+# View the master summary
+cat benchmark_results/benchmark_summary.json | python -m json.tool | grep -E '"domain|observed_score|in_expected'
+```
+
+The benchmark suite covers **3 GEO tiers** across **6 industries**:
+
+| Tier | Sites | Expected Score Range |
+|------|-------|----------------------|
+| 🟢 GEO Ready | stripe.com, openai.com, anthropic.com | 65–90 |
+| 🟡 Developing | vercel.com, linear.app, hubspot.com, shopify.com, supabase.com | 45–70 |
+| 🔴 Not GEO Ready | adobe.com *(confirmed: 48)*, craigslist.org | 10–55 |
+
+See **[EVAL.md](EVAL.md)** for the full evaluation framework, competitor comparison table, and claims substantiation.
 
 ---
 

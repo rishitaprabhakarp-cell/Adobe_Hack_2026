@@ -1,0 +1,87 @@
+{
+  "site": "www.shopify.com",
+  "base_url": "https://www.shopify.com",
+  "probed_at": "2026-09-12T18:24:29Z",
+  "homepage_status": 200,
+  "homepage_error": null,
+  "brand_name": "Shopify",
+  "brand_name_source": "Organization JSON-LD",
+  "same_as_links": [
+    "https://www.facebook.com/shopify/",
+    "https://x.com/Shopify",
+    "https://www.instagram.com/shopify/",
+    "https://www.youtube.com/shopify",
+    "https://www.linkedin.com/company/shopify/",
+    "https://github.com/Shopify",
+    "https://en.wikipedia.org/wiki/Shopify"
+  ],
+  "same_as_categorized": {
+    "wikidata": null,
+    "wikipedia": "https://en.wikipedia.org/wiki/Shopify",
+    "crunchbase": null,
+    "linkedin": "https://www.linkedin.com/company/shopify/",
+    "twitter": "https://x.com/Shopify",
+    "facebook": "https://www.facebook.com/shopify/",
+    "other": [
+      "https://www.instagram.com/shopify/",
+      "https://www.youtube.com/shopify",
+      "https://github.com/Shopify"
+    ]
+  },
+  "wikidata": {
+    "query": "Shopify",
+    "found": true,
+    "qid": "Q7501150",
+    "label": "Shopify",
+    "description": "Canadian e-commerce company",
+    "candidates": [
+      {
+        "qid": "Q7501150",
+        "label": "Shopify",
+        "description": "Canadian e-commerce company",
+        "url": "//www.wikidata.org/wiki/Q7501150"
+      },
+      {
+        "qid": "Q141100259",
+        "label": "Shopify",
+        "description": "commerce platform operated by Shopify Inc.",
+        "url": "//www.wikidata.org/wiki/Q141100259"
+      },
+      {
+        "qid": "Q105620580",
+        "label": "Shopify Rebellion",
+        "description": "Esports team",
+        "url": "//www.wikidata.org/wiki/Q105620580"
+      },
+      {
+        "qid": "Q107384438",
+        "label": "shopifyapi",
+        "description": "Python library",
+        "url": "//www.wikidata.org/wiki/Q107384438"
+      },
+      {
+        "qid": "Q137270105",
+        "label": "Shopify Success: Creating a Thriving Online Store",
+        "description": "book by Atharva Inamdar",
+        "url": "//www.wikidata.org/wiki/Q137270105"
+      }
+    ],
+    "error": null
+  },
+  "entity_collision_risk": {
+    "name": "Shopify",
+    "risk_factors": [],
+    "high_risk": false
+  },
+  "name_variants": {
+    "homepage_og_site_name": "Shopify",
+    "homepage_title": "Shopify: The All-in-One Commerce Platform for Businesses - Shopify",
+    "about_og_site_name": "Shopify"
+  },
+  "name_is_consistent": false,
+  "_agent_next_steps": [
+    "web_search: \\\"Shopify\\\" founded",
+    "web_search: \\\"Shopify\\\" company",
+    "web_search: \\\"Shopify\\\" www"
+  ]
+}

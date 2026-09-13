@@ -1,0 +1,38 @@
+{
+  "site": "www.adobe.com",
+  "base_url": "https://www.adobe.com",
+  "probed_at": "2026-09-12T18:22:35Z",
+  "homepage_status": 200,
+  "response_time_ms": 194,
+  "error": null,
+  "above_fold": {
+    "text_snippet": "Adobe homepage mobile Creative Cloud Create at the highest level. Photoshop, Illustrator, Premiere, and much more. Work with the tools behind the world's most iconic creative content. https://main--upp--adobecom.aem.page/homepage/fragments/loggedout/redesign/default/en-lingo/marquee-sub-copy/cc-pro/",
+    "word_count": 200,
+    "h1": "Adobe homepage",
+    "has_h1": true,
+    "has_description_paragraph": true
+  },
+  "cta_found": true,
+  "ctas": [
+    "https://main--upp--adobecom.aem.page/homepage/fragments/logg"
+  ],
+  "avg_paragraph_word_count": 16.4,
+  "long_paragraph_samples": [],
+  "dynamic_state_signals": [
+    "loading",
+    "fetching"
+  ],
+  "hero_images_missing_alt": [],
+  "has_meta_viewport": true,
+  "contact_info": {
+    "contact_reachable": true,
+    "contact_url": "https://www.adobe.com/contact",
+    "contact_evidence": "HTTP 200",
+    "about_reachable": false,
+    "about_url": "https://www.adobe.com/about",
+    "about_evidence": "HTTP 404",
+    "has_email_inline": false,
+    "has_phone_inline": true
+  },
+  "static_word_count": 614
+}

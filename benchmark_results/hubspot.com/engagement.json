@@ -1,0 +1,46 @@
+{
+  "site": "www.hubspot.com",
+  "base_url": "https://www.hubspot.com",
+  "probed_at": "2026-09-12T18:23:52Z",
+  "homepage_status": 200,
+  "response_time_ms": 1414,
+  "error": null,
+  "above_fold": {
+    "text_snippet": "The HubSpot Customer Platform All of HubSpot's marketing, sales, and customer service software on one agentic platform. Free HubSpot CRM Overview of all products Marketing Hub Marketing automation software Free and premium plans Sales Hub Sales software Free and premium plans Service Hub Customer se",
+    "word_count": 149,
+    "h1": "Where go-to-market teams go to \n               grow scale close retain grow",
+    "has_h1": true,
+    "has_description_paragraph": true
+  },
+  "cta_found": true,
+  "ctas": [
+    "contact us",
+    "learn more",
+    "learn more\n                        \n                        ",
+    "learn more\n        \n          about hubspot\u2019s starter custom",
+    "learn moreabout content agent"
+  ],
+  "avg_paragraph_word_count": 23.3,
+  "long_paragraph_samples": [
+    "\");background-repeat:no-repeat}[data-cl-brand=hubspot-2025] .cl-input-input::-webkit-resizer{background-image:url(\"data:image/svg+xml, \")}[data-cl-theme=dark] .cl-input-input::-webkit-resizer{background-image:url(\"data:image/svg+xml, \")}[data-cl-brand=hubspot-2025] [data-cl-theme=dark] .cl-input-input::-webkit-resizer{background-image:url(\"data:image/svg+xml, \")}.cl-input-input:is(select){cursor:pointer;appearance:none;padding-right:2.5rem}.cl-input-input:has(~.cl-input-state-icon),.cl-input.-invalid .cl-input-input{padding:.5rem 2.5rem .5rem 1rem}.cl-input-input:is(select):has(~.cl-input-state-icon),.cl-input.-invalid .cl-input-input:is(select){padding-right:4.25rem}.cl-input-input:is(input[type=search]):has(~.cl-input-state-icon),.cl-input.-invalid .cl-input-input:is(input[type=search]){padding-left:2.5rem}.cl-input.-invalid .cl-input-input{border:1px solid var(--cl-color-error-01)}.cl-input.-invalid .cl-input-input:hover,.cl-input.-invalid .cl-input-input:focus-visible{box-shadow:0 1px..."
+  ],
+  "dynamic_state_signals": [
+    "loading",
+    "results for",
+    "showing",
+    "reserve"
+  ],
+  "hero_images_missing_alt": [],
+  "has_meta_viewport": true,
+  "contact_info": {
+    "contact_reachable": true,
+    "contact_url": "https://www.hubspot.com/contact",
+    "contact_evidence": "HTTP 200",
+    "about_reachable": true,
+    "about_url": "https://www.hubspot.com/about",
+    "about_evidence": "HTTP 200",
+    "has_email_inline": true,
+    "has_phone_inline": true
+  },
+  "static_word_count": 2191
+}

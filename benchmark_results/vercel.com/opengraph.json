@@ -1,0 +1,138 @@
+{
+  "site": "vercel.com",
+  "base_url": "https://vercel.com",
+  "probed_at": "2026-09-12T18:19:34Z",
+  "pages": [
+    {
+      "url": "https://vercel.com",
+      "status": 200,
+      "og_tags": {
+        "title": "Agentic Infrastructure - Vercel",
+        "description": "The autonomous stack for every app and agent.",
+        "url": "https://vercel.com",
+        "site_name": "Vercel",
+        "locale": "en_US",
+        "image": "https://lishhsx6kmthaacj.public.blob.vercel-storage.com/og-home-not-x.png",
+        "type": "website"
+      },
+      "og_title": "Agentic Infrastructure - Vercel",
+      "og_description": "The autonomous stack for every app and agent.",
+      "og_type": "website",
+      "og_site_name": "Vercel",
+      "og_image": "https://lishhsx6kmthaacj.public.blob.vercel-storage.com/og-home-not-x.png",
+      "og_image_validation": {
+        "present": true,
+        "url": "https://lishhsx6kmthaacj.public.blob.vercel-storage.com/og-home-not-x.png",
+        "is_absolute": true,
+        "http_status": 200,
+        "valid": true
+      },
+      "twitter_card": {
+        "card": "summary_large_image",
+        "title": "Agentic Infrastructure - Vercel",
+        "description": "The autonomous stack for every app and agent.",
+        "image": "https://lishhsx6kmthaacj.public.blob.vercel-storage.com/og-home-x.png"
+      },
+      "meta_description": "The autonomous stack for every app and agent.",
+      "meta_description_quality": {
+        "present": true,
+        "text": "The autonomous stack for every app and agent.",
+        "length": 45,
+        "too_short": true,
+        "too_long": false,
+        "optimal_length": false,
+        "is_generic": false
+      },
+      "meta_author": null,
+      "canonical": "https://vercel.com",
+      "markdown_alternate": {
+        "has_markdown_alternate": false,
+        "markdown_url": null
+      }
+    },
+    {
+      "url": "https://vercel.com/about",
+      "status": 200,
+      "og_tags": {
+        "title": "About Us",
+        "description": "At Vercel, our mission is to enable developers to build and publish wonderful, high-performant apps and websites. Learn more about Vercel here.",
+        "url": "https://vercel.com/about",
+        "site_name": "Vercel",
+        "locale": "en_US",
+        "image": "https://lishhsx6kmthaacj.public.blob.vercel-storage.com/about-og.png",
+        "type": "website"
+      },
+      "og_title": "About Us",
+      "og_description": "At Vercel, our mission is to enable developers to build and publish wonderful, high-performant apps and websites. Learn more about Vercel here.",
+      "og_type": "website",
+      "og_site_name": "Vercel",
+      "og_image": "https://lishhsx6kmthaacj.public.blob.vercel-storage.com/about-og.png",
+      "og_image_validation": {
+        "present": true,
+        "url": "https://lishhsx6kmthaacj.public.blob.vercel-storage.com/about-og.png",
+        "is_absolute": true,
+        "http_status": 200,
+        "valid": true
+      },
+      "twitter_card": {
+        "card": "summary_large_image",
+        "title": "About Us",
+        "description": "At Vercel, our mission is to enable developers to build and publish wonderful, high-performant apps and websites. Learn more about Vercel here.",
+        "image": "https://lishhsx6kmthaacj.public.blob.vercel-storage.com/about-og.png"
+      },
+      "meta_description": "At Vercel, our mission is to enable developers to build and publish wonderful, high-performant apps and websites. Learn more about Vercel here.",
+      "meta_description_quality": {
+        "present": true,
+        "text": "At Vercel, our mission is to enable developers to build and publish wonderful, high-performant apps and websites. Learn more about Vercel here.",
+        "length": 143,
+        "too_short": false,
+        "too_long": false,
+        "optimal_length": true,
+        "is_generic": true
+      },
+      "meta_author": null,
+      "canonical": "https://vercel.com/about",
+      "markdown_alternate": {
+        "has_markdown_alternate": false,
+        "markdown_url": null
+      }
+    },
+    {
+      "url": "https://vercel.com/product",
+      "status": 200,
+      "og_tags": {
+        "title": "Overview \u2013 Vercel",
+        "image": "https://vercel.com/api/product-og?product=overview"
+      },
+      "og_title": "Overview \u2013 Vercel",
+      "og_description": "",
+      "og_type": "",
+      "og_site_name": "",
+      "og_image": "https://vercel.com/api/product-og?product=overview",
+      "og_image_validation": {
+        "present": true,
+        "url": "https://vercel.com/api/product-og?product=overview",
+        "is_absolute": true,
+        "http_status": 200,
+        "valid": true
+      },
+      "twitter_card": {
+        "card": "summary_large_image",
+        "title": "Overview \u2013 Vercel",
+        "image": "https://vercel.com/api/product-og?product=overview"
+      },
+      "meta_description": null,
+      "meta_description_quality": {
+        "present": false
+      },
+      "meta_author": null,
+      "canonical": "https://vercel.com/login",
+      "markdown_alternate": {
+        "has_markdown_alternate": false,
+        "markdown_url": null
+      }
+    }
+  ],
+  "duplicate_meta_descriptions": false,
+  "og_site_name_consistent": true
+}

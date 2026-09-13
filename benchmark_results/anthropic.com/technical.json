@@ -1,0 +1,131 @@
+{
+  "site": "anthropic.com",
+  "base_url": "https://anthropic.com",
+  "probed_at": "2026-09-12T18:19:14Z",
+  "https_redirect": {
+    "http_status": 301,
+    "redirects_to_https": true,
+    "redirect_type": 301,
+    "location": "https://www.anthropic.com/",
+    "error": null
+  },
+  "homepage_status": 200,
+  "response_time_ms": 372,
+  "error": null,
+  "meta_robots": {
+    "meta_robots": null,
+    "x_robots_tag": "",
+    "has_noindex": false,
+    "has_nosnippet": false,
+    "has_max_snippet_0": false
+  },
+  "canonical": {
+    "has_canonical": true,
+    "canonical_url": "https://www.anthropic.com",
+    "is_self_referential": false,
+    "is_cross_domain": true
+  },
+  "heading_hierarchy": {
+    "total_headings": 28,
+    "h1_count": 1,
+    "heading_tree": [
+      {
+        "level": 1,
+        "text": "AI research and products that put safety at the frontier"
+      },
+      {
+        "level": 2,
+        "text": ":Claude: Fable 5.1 and Mythos 5.1"
+      },
+      {
+        "level": 2,
+        "text": "Latest releases"
+      },
+      {
+        "level": 3,
+        "text": "Introducing Fable 5.1 and Mythos 5.1"
+      },
+      {
+        "level": 3,
+        "text": "Introducing Opus 5"
+      },
+      {
+        "level": 3,
+        "text": "Introducing Sonnet 5"
+      },
+      {
+        "level": 2,
+        "text": "At Anthropic, we build AI to serve humanity\u2019s long-term well"
+      },
+      {
+        "level": 2,
+        "text": "\u200d"
+      },
+      {
+        "level": 3,
+        "text": "Claude Science"
+      },
+      {
+        "level": 3,
+        "text": "Core views on AI safety"
+      },
+      {
+        "level": 3,
+        "text": "Anthropic\u2019s Responsible Scaling Policy"
+      },
+      {
+        "level": 3,
+        "text": "Anthropic Academy: Build and Learn with Claude"
+      },
+      {
+        "level": 3,
+        "text": "Anthropic\u2019s Economic Index"
+      },
+      {
+        "level": 3,
+        "text": "Claude\u2019s Constitution"
+      },
+      {
+        "level": 2,
+        "text": "Footer"
+      }
+    ],
+    "multiple_h1": false,
+    "level_skip_violations": [
+      "H3 \u2192 H6 (skipped)"
+    ],
+    "has_violations": true
+  },
+  "hreflang": {
+    "hreflang_count": 0,
+    "has_x_default": false,
+    "languages_declared": [],
+    "html_lang": "en"
+  },
+  "page_size": {
+    "html_size_bytes": 174476,
+    "html_size_kb": 170.4
+  },
+  "broken_links": {
+    "links_checked": 0,
+    "broken_links": [],
+    "broken_count": 0
+  },
+  "redirect_chain": {
+    "hop_count": 2,
+    "chain": [
+      {
+        "url": "https://anthropic.com",
+        "status": 301,
+        "error": null
+      },
+      {
+        "url": "https://www.anthropic.com/",
+        "status": 200,
+        "error": null
+      }
+    ],
+    "has_loop": false,
+    "has_long_chain": false
+  }
+}

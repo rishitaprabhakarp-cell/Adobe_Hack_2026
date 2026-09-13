@@ -36,24 +36,27 @@ Invoke each sub-skill below, passing `site_url`. Collect the `findings` array ea
 
 | Order | Sub-skill | Coverage |
 |-------|-----------|----------|
-| 1 | `crawlability-probe` | RC2, RC4, RC7, RC14, RC17, RC19, RC23 — 27-bot check |
+| 1 | `crawlability-probe` | RC2, RC4-001/002, RC7, RC14, RC17, RC19, RC23, CDN-WAF-001/002 — 27-bot check + Crawl-delay |
 | 2 | `render-gap-detector` | RC1, RC9, RC12, RC20 — JS render gaps |
 | 3 | `structured-data-auditor` | RC3, RC10, RC11, RC13, RC15, RC16, RC18, RC21 — JSON-LD quality |
 | 4 | `entity-corroboration-checker` | RC5, RC6 — Wikidata/sameAs/entity collision |
 | 5 | `engagement-analyzer` | RC8, RC16, RC22 — CTA, above-fold, response time |
 | 6 | `llm-citation-tester` | CITE-001 to 004 — LLM perspective via web_search |
-| 7 | `content-extractability-auditor` | CEA-001 to 008 — passage-level structure (Princeton KDD 2024) |
-| 8 | `eeeat-signal-checker` | EEAT-001 to 006 — E-E-A-T, review platforms, Reddit |
-| 9 | `technical-seo-probe` | TSEO-001 to 009 — canonical, nosnippet, HTTPS, redirects |
+| 7 | `content-extractability-auditor` | CEA-001 to 013 + CEA-007 to 010 — passage extractability (6-signal scorer), quotability, lede quality, structured content ratio, **named entity density** (Wellows 4.8×), **semantic HTML tables** (Bigeye +400%), **top-third citable density** (SIGI 8.5/10), **commercial independence signal** (SIGI 9.0/10) |
+| 8 | `eeeat-signal-checker` | EEAT-001 to 010 — E-E-A-T, Wikipedia quality class, Reddit API, weighted Brand Authority Score (0–100) |
+| 9 | `technical-seo-probe` | TSEO-001 to 013 — canonical, nosnippet, HTTPS, redirects, lang/hreflang mismatch, generic anchors, stale Last-Modified, RAG chunk size |
 | 10 | `opengraph-meta-auditor` | OG-001 to 008 — OpenGraph, Twitter Card, meta quality |
-| 11 | `rsl-licensing-checker` | RSL-001 to 005 — RSL 1.0, llms-full.txt, deep llms.txt |
-| 12 | `geo-score-aggregator` | Scoring layer — produces GEO readiness % and per-engine scores |
+| 11 | `rsl-licensing-checker` | RSL-001 to 008 — RSL 1.0, llms-full.txt, deep llms.txt, private URLs, WebMCP readiness (4 levels), markdown alternates |
+| 12 | `geo-score-aggregator` | Scoring layer — produces GEO readiness %, per-engine scores, Citability Coverage %, vertical benchmark, score formula transparency, platform-specific fix code (Next.js/WordPress/Shopify/generic) |
+| 13 | `technical-seo-probe` extension | FRESH-001 — 5-layer freshness signal consistency (HTTP Last-Modified + JSON-LD dateModified + OG modified_time + visible text + meta tag; Lureon 76%, AuthorityTech +47%) |
 
 ### Step 3 — Merge and deduplicate findings
 
 1. Concatenate all `findings` arrays from the 6 sub-skills.
 2. Deduplicate: if two findings share the same `id`, keep the one with the higher severity (CRITICAL > HIGH > MEDIUM > LOW). If same severity, keep the one with more evidence text.
 3. Sort: CRITICAL → HIGH → MEDIUM → LOW, then alphabetically by `id` within each group.
+4. Enrich each finding with `platform_fix_code` if available (platform auto-detected from response headers/HTML: nextjs / wordpress / shopify / generic).
+5. Attach `research_lift` citations to eligible findings (e.g. "+33% AI citation rate").
 
 ### Step 4 — Count severity buckets
 
@@ -73,6 +76,11 @@ After merging findings, pass the full findings array to `geo-score-aggregator`. 
 - Calculate per-engine scores (ChatGPT, Perplexity, Google AI Overviews, Gemini, Bing Copilot)
 - Produce an overall GEO readiness percentage (threshold: 70% = GEO Ready)
 - Generate a prioritized action roadmap
+- Compute **Citability Coverage %** (% of content passages scoring >70% extractable)
+- Compute **vertical benchmark** vs. 10-site live benchmark median (52/100)
+- Compute **projected score** after fixing all CRITICAL+HIGH findings
+- Expose **score formula** per engine for full transparency
+- Detect site **platform** (Next.js / WordPress / Shopify / generic) for fix code generation
 
 Add the returned `geo_score` object as a top-level key in the final report.
 

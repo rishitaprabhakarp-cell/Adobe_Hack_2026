@@ -1,0 +1,129 @@
+{
+  "site": "stripe.com",
+  "base_url": "https://stripe.com",
+  "probed_at": "2026-09-12T19:39:39Z",
+  "pages": [
+    {
+      "path": "/",
+      "url": "https://stripe.com",
+      "status": 200,
+      "error": null,
+      "word_count": 1857,
+      "raw_text_snippet": "Stripe Financial Infrastructure to Grow Your Revenue Products Solutions Developers Resources Pricing Sign in Start now Contact sales Back Sign in Sign in Contact sales Global GDP running on Stripe:",
+      "page_title": "Stripe | Financial Infrastructure to Grow Your Revenue",
+      "meta_description": "Stripe is a financial services platform that helps all types of businesses accept payments, build flexible billing models and manage money movement.",
+      "has_h1": true,
+      "h1_text": "Financial infrastructure to grow your revenue. Accept payments, offer financial services and impleme",
+      "spa_shell_detected": true,
+      "spa_shell_markers": [
+        "<div id=\"__next\">"
+      ],
+      "js_framework_signals": [
+        {
+          "signal": "__NEXT_DATA__",
+          "framework": "Next.js"
+        }
+      ],
+      "has_meta_viewport": true,
+      "noscript_content": false,
+      "response_time_ms": 847,
+      "classification": "raw_html_works",
+      "raw_html_length": 699633
+    },
+    {
+      "path": "/about",
+      "url": "https://stripe.com/about",
+      "status": 200,
+      "error": null,
+      "word_count": 331,
+      "raw_text_snippet": "About Us Stripe View full website Stripe is technology company focused on improving the conditions for economic growth and prosperity. We build programmable financial infrastructure, rethinking from first principles how",
+      "page_title": "About Us | Stripe",
+      "meta_description": "Stripe is a financial services platform that helps all types of businesses accept payments, build flexible billing models and manage money movement.",
+      "has_h1": false,
+      "h1_text": null,
+      "spa_shell_detected": true,
+      "spa_shell_markers": [
+        "<div id=\"__next\">"
+      ],
+      "js_framework_signals": [
+        {
+          "signal": "__NEXT_DATA__",
+          "framework": "Next.js"
+        }
+      ],
+      "has_meta_viewport": true,
+      "noscript_content": false,
+      "response_time_ms": 1274,
+      "classification": "poor_semantics",
+      "raw_html_length": 160061
+    },
+    {
+      "path": "/pricing",
+      "url": "https://stripe.com/pricing",
+      "status": 200,
+      "error": null,
+      "word_count": 3000,
+      "raw_text_snippet": "Pricing Fees sales reps available We're here to discuss your business needs. Chat now with sales Stripe logo Products Solutions Developers Resources Pricing Dashboard Sign in Sign in Contact sales",
+      "page_title": "Pricing &amp; Fees",
+      "meta_description": "Find Stripe fees and pricing information. Find our processing fees for credit cards, pricing models and pay-as-you-go fees for businesses.",
+      "has_h1": true,
+      "h1_text": "Stripe logo",
+      "spa_shell_detected": false,
+      "spa_shell_markers": [],
+      "js_framework_signals": [],
+      "has_meta_viewport": true,
+      "noscript_content": false,
+      "response_time_ms": 827,
+      "classification": "raw_html_works",
+      "raw_html_length": 713957
+    },
+    {
+      "path": "/product",
+      "url": "https://stripe.com/product",
+      "status": 404,
+      "error": null,
+      "word_count": 0,
+      "raw_text_snippet": null,
+      "page_title": null,
+      "meta_description": null,
+      "has_h1": false,
+      "h1_text": null,
+      "spa_shell_detected": false,
+      "spa_shell_markers": [],
+      "js_framework_signals": [],
+      "has_meta_viewport": false,
+      "noscript_content": false,
+      "response_time_ms": 714,
+      "classification": "fully_blocked"
+    },
+    {
+      "path": "/services",
+      "url": "https://stripe.com/services",
+      "status": 404,
+      "error": null,
+      "word_count": 0,
+      "raw_text_snippet": null,
+      "page_title": null,
+      "meta_description": null,
+      "has_h1": false,
+      "h1_text": null,
+      "spa_shell_detected": false,
+      "spa_shell_markers": [],
+      "js_framework_signals": [],
+      "has_meta_viewport": false,
+      "noscript_content": false,
+      "response_time_ms": 654,
+      "classification": "fully_blocked"
+    }
+  ],
+  "summary": {
+    "total_pages_sampled": 5,
+    "raw_html_works": 2,
+    "browser_only": 0,
+    "poor_semantics": 1,
+    "fully_blocked": 2
+  },
+  "js_frameworks_detected": [
+    "Next.js"
+  ]
+}

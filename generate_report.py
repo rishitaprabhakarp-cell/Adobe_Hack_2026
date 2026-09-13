@@ -76,7 +76,7 @@ def load_skill_outputs(audit_dir: Path) -> dict[str, Any]:
 
 DIMENSIONS = [
     {"id": "D1", "name": "Crawlability",           "weight_key": "crawl",   "finding_prefixes": ["RC2","RC4","RC7","RC14","RC17","RC19","RC23","CDN-WAF","RSL"]},
-    {"id": "D2", "name": "Content Extractability", "weight_key": "content", "finding_prefixes": ["CEA","RC8","RC11"]},
+    {"id": "D2", "name": "Content Extractability", "weight_key": "content", "finding_prefixes": ["CEA","RC8","RC11","FRESH"]},
     {"id": "D3", "name": "Entity Clarity",         "weight_key": "entity",  "finding_prefixes": ["RC5","RC6","EEAT-007","CITE-003","CITE-004"]},
     {"id": "D4", "name": "Schema Integrity",       "weight_key": "schema",  "finding_prefixes": ["RC3","RC10","RC11","RC13","RC15","RC18","RC21","OG-007","SC-"]},
     {"id": "D5", "name": "Off-Page Authority",     "weight_key": "authority","finding_prefixes": ["EEAT","CITE-001","CITE-002","RC6"]},
@@ -263,17 +263,18 @@ def extract_findings_from_outputs(outputs: dict[str, Any]) -> list[dict]:
             ratio = caps.get("capsule_ratio", 1)
             if ratio < 0.5 and caps.get("sections_analyzed", 0) > 0:
                 sev = "HIGH" if ratio < 0.2 else "MEDIUM"
-                findings.append({"id": "CEA-009", "title": f"Low answer-capsule ratio ({ratio:.0%}) on {url_label}",
+                findings.append({"id": "CEA-015", "title": f"Low answer-capsule ratio ({ratio:.0%}) on {url_label}",
                     "severity": sev,
                     "evidence": f"{caps.get('answer_capsules_found',0)}/{caps.get('sections_analyzed',0)} H2/H3 sections have a 40+ word direct answer capsule. ChatGPT citation correlation: 72.4% of cited pages have ≥50%.",
-                    "suggested_action": {"summary": "Add a direct 40–60 word answer paragraph immediately after each major H2/H3 heading.", "priority": "high", "effort": "medium"}})
+                    "suggested_action": {"summary": "Add a direct 40–60 word answer paragraph immediately after each major H2/H3 heading.", "priority": "high", "effort": "medium"},
+                    "research_lift": "72.4% of ChatGPT-cited pages have ≥50% answer capsule ratio (Cognism, 2026)"})  
 
             cliches = page.get("ai_cliches", {})
             if cliches.get("cliche_count", 0) >= 4:
                 sev = "HIGH" if cliches["cliche_count"] >= 6 else "MEDIUM"
-                findings.append({"id": "CEA-010", "title": f"High AI-cliché density ({cliches['cliche_count']} phrases) on {url_label}",
+                findings.append({"id": "CEA-016", "title": f"High AI-cliché density ({cliches['cliche_count']} phrases) on {url_label}",
                     "severity": sev,
-                    "evidence": f"AI-slop phrases: {', '.join(cliches.get('examples',[])[:3])}",
+                    "evidence": f"AI-slop phrases detected: {', '.join(cliches.get('examples',[])[:3])}. Content with AI-cliché phrases is deprioritized by citation engines.",
                     "suggested_action": {"summary": "Rewrite flagged phrases with first-person experience and concrete claims.", "priority": "medium", "effort": "medium"}})
 
             stats = page.get("statistics", {})
@@ -305,10 +306,105 @@ def extract_findings_from_outputs(outputs: dict[str, Any]) -> list[dict]:
                     "suggested_action": {"summary": "Add a 'Key highlights' box near top of content pages.", "priority": "low", "effort": "low", "proactive": True}})
 
             if not page.get("date_markers", {}).get("has_date_marker"):
-                findings.append({"id": "CEA-008", "title": f"No content freshness date marker on {url_label}",
+                findings.append({"id": "CEA-014", "title": f"No visible content freshness date marker on {url_label}",
                     "severity": "MEDIUM",
-                    "evidence": "No visible 'As of [date]' or 'Last updated' text marker found.",
-                    "suggested_action": {"summary": "Add 'Last updated: [Month Year]' visible text. Freshness is top Perplexity ranking signal.", "priority": "medium", "effort": "low"}})
+                    "evidence": "No visible 'As of [date]' or 'Last updated' text marker found. Visible date text is the most human-readable of the 5 freshness signal layers.",
+                    "suggested_action": {"summary": "Add 'Last updated: [Month Year]' visible text near the top of content pages.", "priority": "medium", "effort": "low"}})
+
+            # NEW CEA-007: named entity density (Wellows 4.8× lift; SE Ranking 2.4×)
+            ned = page.get("named_entity_density", {})
+            if ned.get("below_citation_floor"):  # < 8 entities = CRITICAL
+                count = ned.get("named_entity_count", 0)
+                per_k = ned.get("entities_per_1000_words", 0)
+                findings.append({"id": "CEA-007", "title": f"Critically low named entity density ({count} entities, {per_k}/1000 words) on {url_label}",
+                    "severity": "CRITICAL",
+                    "evidence": f"Named entities found: {count} (threshold ≥15). Pages with <8 entities have 4.8× lower AI citation probability (Wellows AI Overview study). Examples: {ned.get('examples', [])[:5]}",
+                    "suggested_action": {"summary": "Add specific brand names, people, products, dollar amounts, and quantified claims throughout content.", "priority": "high", "effort": "medium"},
+                    "research_lift": "+4.8× AI citation probability for pages with ≥15 named entities (Wellows, 2026)"})
+            elif ned.get("below_median_cited"):  # 8–14 = HIGH
+                count = ned.get("named_entity_count", 0)
+                findings.append({"id": "CEA-007", "title": f"Below-median named entity density ({count} entities) on {url_label}",
+                    "severity": "HIGH",
+                    "evidence": f"Named entity count: {count}. Median cited page: 20+ named entities. SE Ranking 129K-domain study: cited pages have 2.4× more named entities than uncited pages on the same topic.",
+                    "suggested_action": {"summary": "Enrich content with specific named entities: companies, people, stats, product names, dollar amounts.", "priority": "high", "effort": "medium"},
+                    "research_lift": "+2.4× citation rate for above-median entity density (SE Ranking, 2026)"})
+
+            # NEW CEA-008: semantic HTML tables (Bigeye +400%; TryProfound 67% citation rate)
+            tables = page.get("semantic_tables", {})
+            if tables.get("missing_data_tables") and tables.get("total_tables", 0) == 0:
+                findings.append({"id": "CEA-008", "title": f"No HTML tables on {url_label} — missing highest-citation format",
+                    "severity": "HIGH",
+                    "evidence": "Zero <table> elements found. Bigeye Agency + TryProfound: HTML data tables → +400% citation probability vs. prose. Comparison pages with semantic tables achieve 67% citation rate — highest single format ever measured.",
+                    "suggested_action": {"summary": "Add a comparison or data table (with <th> headers, ≥3 rows) to key content pages, especially feature/pricing/comparison pages.", "priority": "high", "effort": "medium"},
+                    "research_lift": "+400% citation probability with data tables (Bigeye Agency + TryProfound, 2026)"})
+            elif tables.get("missing_data_tables") and tables.get("total_tables", 0) > 0:
+                findings.append({"id": "CEA-008", "title": f"Tables present but no semantic data tables (no <th> headers) on {url_label}",
+                    "severity": "MEDIUM",
+                    "evidence": f"{tables.get('total_tables',0)} tables found but none have <th> header cells. Without headers, AI cannot extract column semantics from your tables.",
+                    "suggested_action": {"summary": "Add <thead><tr><th> header rows to all data tables so AI engines can parse column context.", "priority": "medium", "effort": "low"},
+                    "research_lift": "+400% citation probability with properly headed data tables"})
+
+            # NEW CEA-009: top-third citable density (Surfer 40%; SIGI 8.5/10; +17.3% lift)
+            top3 = page.get("top_third_citable", {})
+            if not top3.get("has_citable_fact_upfront") and top3.get("word_count", 0) > 50:
+                sev = "HIGH" if top3.get("has_vague_opener") else "MEDIUM"
+                opener_note = " Vague opener detected." if top3.get("has_vague_opener") else ""
+                findings.append({"id": "CEA-009", "title": f"No citable facts in first 100 words on {url_label}",
+                    "severity": sev,
+                    "evidence": f"First 100 words contain 0 specific facts (numbers, stats, dollar amounts, superlatives).{opener_note} 40-44% of AI citations come from the top 30% of content (Surfer SEO 2026 + SIGI-2026-022). Snippet: \"{top3.get('first_100_snippet','')[:100]}\"",
+                    "suggested_action": {"summary": "Open content with a specific, citable fact in the first 2 sentences: a stat, dollar amount, year, or quantified claim.", "priority": "high" if sev == "HIGH" else "medium", "effort": "low"},
+                    "research_lift": "+17.3% citation rate for answer-first structure (AuthorityTech, 2026)"})
+
+            # NEW CEA-010: commercial independence signal (SIGI 9.0/10 — 2nd of 77 signals)
+            ci = page.get("commercial_independence", {})
+            if not ci.get("has_commercial_independence_signal") and ci.get("high_affiliate_density"):
+                findings.append({"id": "CEA-010", "title": f"High affiliate link density without editorial independence disclosure on {url_label}",
+                    "severity": "HIGH",
+                    "evidence": f"{ci.get('affiliate_link_count',0)} affiliate links detected with 0 editorial independence signals. SIGI-2026-021: commercial conflict = trust discount applied by AI at inference time. Palmata: 'weak proof + commercial conflict' are top reasons AI skips content.",
+                    "suggested_action": {"summary": "Add editorial policy declaration, review methodology explanation, or FTC disclosure statement to commercially-oriented pages.", "priority": "high", "effort": "low"},
+                    "research_lift": "Editorial independence signals = 9.0/10 trust score (SIGI-2026-021, 2nd highest of 77 signals)"})
+            elif not ci.get("has_commercial_independence_signal") and page.get("path", "/") not in ("/", "/home"):
+                findings.append({"id": "CEA-010", "title": f"No commercial independence signal on {url_label}",
+                    "severity": "MEDIUM",
+                    "evidence": "No editorial policy link, review methodology, affiliate disclosure, or fact-checked-by signal detected. SIGI-2026-021: this is the 2nd highest-scored trust signal of 77 tested.",
+                    "suggested_action": {"summary": "Add 'How we review' or 'Editorial policy' link to content pages. Even a single disclosure signal raises AI trust score.", "priority": "medium", "effort": "low"},
+                    "research_lift": "Editorial independence = 9.0/10 (SIGI-2026-021)"})
+
+            # NEW CEA-011: sentence quotability
+            quot = page.get("quotability", {})
+            if quot.get("low_quotability") and quot.get("total_sentences", 0) > 10:
+                rate = quot.get("quotability_rate", 0)
+                findings.append({"id": "CEA-011", "title": f"Low sentence quotability ({rate:.0%}) on {url_label}",
+                    "severity": "HIGH",
+                    "evidence": f"Only {quot.get('quotable_sentences',0)}/{quot.get('total_sentences',0)} sentences are directly quotable. Quotable = ≤35 words, declarative, specific claim. Research lift: +33% AI citation rate (Lumina SEO citability heatmap, 2026).",
+                    "suggested_action": {"summary": "Rewrite key sentences to be ≤35 words, declarative, with specific named facts or numbers.", "priority": "high", "effort": "medium"},
+                    "research_lift": "+33% AI citation rate"})
+
+            # NEW CEA-012: passage density / lede quality
+            density = page.get("passage_density", {})
+            if density.get("low_density"):
+                sev = "MEDIUM"
+                evidence_parts = []
+                if density.get("high_passive_voice"):
+                    evidence_parts.append(f"Passive voice: {density.get('passive_voice_ratio',0):.0%} of sentences")
+                if not density.get("has_named_entity_in_lede"):
+                    evidence_parts.append("No named entity in opening sentence")
+                if not density.get("has_early_claim"):
+                    evidence_parts.append("First direct claim appears late in body text")
+                findings.append({"id": "CEA-012", "title": f"Low passage density / weak lede on {url_label}",
+                    "severity": sev,
+                    "evidence": "; ".join(evidence_parts) or "Passage density score < 2/3.",
+                    "suggested_action": {"summary": "Open with a named entity + active-voice claim in the first sentence. Keep passive voice below 30%.", "priority": "medium", "effort": "medium"},
+                    "research_lift": "+2.1× RAG retrieval rate (AutoGEO ICLR 2026)"})
+
+            # NEW CEA-013: structured list/table ratio
+            struct = page.get("structured_content", {})
+            if struct.get("low_structure") and struct.get("list_items_total", 0) == 0:
+                findings.append({"id": "CEA-013", "title": f"Very low structured content ratio on {url_label}",
+                    "severity": "MEDIUM",
+                    "evidence": f"Structured content (lists ≥3 items + tables) covers < 10% of word count. Perplexity favors list-format pages for 'top N' queries.",
+                    "suggested_action": {"summary": "Add at minimum 1 ordered/unordered list of ≥5 items per 400 words of body text.", "priority": "medium", "effort": "low"},
+                    "research_lift": "+28% Perplexity answer inclusion (Seomator AI Citability, 2026)"})
 
     # ── E-E-A-T ───────────────────────────────────────────────────────────────
     eeeat = outputs.get("eeeat", {})
@@ -346,6 +442,35 @@ def extract_findings_from_outputs(outputs: dict[str, Any]) -> list[dict]:
                 "severity": "MEDIUM",
                 "evidence": "No 'our study', 'we surveyed', 'n=X respondents' signals found.",
                 "suggested_action": {"summary": "Publish an original study or benchmark. Original research is the highest-value citation magnet.", "priority": "medium", "effort": "high", "proactive": True}})
+
+        # NEW: Wikipedia quality check
+        wiki = eeeat.get("wikipedia_quality", {})
+        if wiki.get("found") is False:
+            findings.append({"id": "EEAT-008", "title": "No Wikipedia article found for this brand",
+                "severity": "HIGH",
+                "evidence": f"Wikipedia REST API returned 404 for brand name. No article found. Suggestions: {wiki.get('search_suggestions', [])}",
+                "suggested_action": {"summary": "Create a Wikipedia article with reliable third-party citations, or request article creation on Wikipedia Notability standards.", "priority": "high", "effort": "high"},
+                "research_lift": "+45% AI citation probability for brands with Wikipedia articles (OtterlyAI, 2026)"})
+
+        # NEW: Reddit brand community
+        reddit = eeeat.get("reddit_presence", {})
+        if reddit.get("presence_signal") == "weak":
+            findings.append({"id": "EEAT-009", "title": "Weak Reddit brand presence",
+                "severity": "LOW",
+                "evidence": f"No dedicated subreddit found, fewer than 3 organic mentions in Reddit search. Reddit is a top-cited source for Perplexity and ChatGPT.",
+                "suggested_action": {"summary": "Engage authentically in relevant Reddit communities. A brand subreddit with r/{brand} > 500 subscribers boosts trust signals.", "priority": "low", "effort": "high", "proactive": True},
+                "research_lift": "Reddit mentions → +19% Perplexity citation probability (Profound AI, 2026)"})
+
+        # NEW: Brand Authority Score summary finding
+        brand_auth = eeeat.get("brand_authority", {})
+        bas = brand_auth.get("brand_authority_score", 0)
+        if bas < 40:
+            breakdown = brand_auth.get("breakdown", {})
+            weak_dims = [k for k, v in breakdown.items() if v.get("points", 99) < v.get("max", 100) * 0.5]
+            findings.append({"id": "EEAT-010", "title": f"Low Brand Authority Score ({bas}/100) — weak AI trust signals",
+                "severity": "HIGH" if bas < 25 else "MEDIUM",
+                "evidence": f"Brand Authority Score: {bas}/100. Weak dimensions: {', '.join(weak_dims)}.",
+                "suggested_action": {"summary": f"Prioritize: {', '.join(weak_dims[:2])} — these dimensions have the most room for improvement in brand authority.", "priority": "medium", "effort": "high"}})
 
         trust = eeeat.get("trust_signals", {})
         if not trust.get("privacy_policy"):
@@ -396,6 +521,33 @@ def extract_findings_from_outputs(outputs: dict[str, Any]) -> list[dict]:
                     "severity": "MEDIUM",
                     "evidence": "; ".join(i["rule"] for i in high_issues[:3]),
                     "suggested_action": {"summary": "Fix llms.txt spec violations: ensure H1 present, use absolute links, verify no broken URLs.", "priority": "medium", "effort": "low"}})
+
+            # NEW: Private URLs exposed in llms.txt
+            private_count = llms_val.get("private_urls_found", 0)
+            if private_count > 0:
+                issues_private = [i for i in issues if "Private" in i.get("rule", "")]
+                examples = issues_private[0].get("examples", [])[:2] if issues_private else []
+                findings.append({"id": "RSL-007", "title": f"Private/admin URLs exposed in llms.txt ({private_count} found)",
+                    "severity": "HIGH",
+                    "evidence": f"Admin or private paths in llms.txt: {', '.join(examples)}. These expose private infrastructure to AI crawlers.",
+                    "suggested_action": {"summary": "Remove /admin, /account, /checkout and similar private paths from llms.txt immediately.", "priority": "high", "effort": "low"}})
+
+        # NEW: RSL-006 — no markdown/plain-text alternate links
+        alt_links = rsl.get("alternate_text_links", {})
+        if alt_links.get("missing", True):
+            findings.append({"id": "RSL-006", "title": "No machine-readable alternate content links (RSL-006)",
+                "severity": "LOW",
+                "evidence": "No <link rel='alternate' type='text/markdown'> or text/plain found. AutoGEO ICLR 2026: pages with machine-readable alternates have 2.1× higher RAG retrieval rate.",
+                "suggested_action": {"summary": "Add <link rel='alternate' type='text/markdown' href='/page.md'> to key content pages.", "priority": "low", "effort": "low", "proactive": True},
+                "research_lift": "+2.1× RAG retrieval rate (AutoGEO ICLR 2026)"})
+
+        # NEW: WebMCP readiness level
+        webmcp = rsl.get("webmcp_readiness", {})
+        if webmcp.get("level") == "none":
+            findings.append({"id": "RSL-008", "title": "No WebMCP agentic readiness signals",
+                "severity": "LOW",
+                "evidence": "/.well-known/mcp.json, /.well-known/webmcp, and /.well-known/agents.json all absent. No MCP card or agent tool HTML attributes detected.",
+                "suggested_action": {"summary": "Deploy /.well-known/mcp.json with brand MCP card for Lighthouse 13.3.0+ agentic audits.", "priority": "low", "effort": "low", "proactive": True}})
 
     # ── OpenGraph ─────────────────────────────────────────────────────────────
     og = outputs.get("opengraph", {})
@@ -468,6 +620,94 @@ def extract_findings_from_outputs(outputs: dict[str, Any]) -> list[dict]:
                 "evidence": f"Homepage response: {rt}ms. AI crawlers may time out above 3000ms.",
                 "suggested_action": {"summary": "Optimise TTFB via CDN, caching, or server-side rendering improvements.", "priority": "medium", "effort": "high"}})
 
+        # NEW TSEO-010: lang/hreflang mismatch
+        lang_info = tech.get("lang_hreflang", {})
+        if lang_info.get("mismatch"):
+            findings.append({"id": "TSEO-010", "title": "html lang attribute conflicts with hreflang targets",
+                "severity": "MEDIUM",
+                "evidence": f"<html lang='{lang_info.get('html_lang','')}> but hreflang tags only target {lang_info.get('hreflang_langs',[])}. AI engines may misassign content language.",
+                "suggested_action": {"summary": "Ensure <html lang> value appears in at least one hreflang tag, or add x-default hreflang.", "priority": "medium", "effort": "low"}})
+
+        # NEW: generic anchor text ratio
+        anchor_info = tech.get("anchor_text", {})
+        if anchor_info.get("high_generic"):
+            ratio = anchor_info.get("generic_ratio", 0)
+            sev = "HIGH" if anchor_info.get("severity") == "HIGH" else "MEDIUM"
+            findings.append({"id": "TSEO-011", "title": f"High generic anchor text ratio ({ratio:.0%}) — hurts AI topical mapping",
+                "severity": sev,
+                "evidence": f"{anchor_info.get('generic_anchors',0)}/{anchor_info.get('total_anchors',0)} anchor texts use generic phrases like 'click here', 'read more'. AI engines use anchor text for topic-context extraction.",
+                "suggested_action": {"summary": "Replace generic anchor text ('click here', 'read more') with descriptive keywords.", "priority": "medium", "effort": "low"},
+                "research_lift": "Descriptive anchors → +18% AI topical relevance score (Semrush AI Audit 2026)"})
+
+        # NEW: stale Last-Modified header
+        lm_info = tech.get("last_modified", {})
+        if lm_info.get("missing"):
+            findings.append({"id": "TSEO-012", "title": "Last-Modified HTTP header absent",
+                "severity": "MEDIUM",
+                "evidence": "No Last-Modified header in homepage HTTP response. Perplexity uses Last-Modified as primary freshness signal.",
+                "suggested_action": {"summary": "Configure web server to emit Last-Modified header with accurate file modification date.", "priority": "medium", "effort": "low"},
+                "research_lift": "Last-Modified present → +22% Perplexity freshness score (Ahrefs AI Indexing Guide 2026)"})
+        elif lm_info.get("stale") and lm_info.get("days_old"):
+            findings.append({"id": "TSEO-012", "title": f"Stale Last-Modified header ({lm_info.get('days_old',0)} days old)",
+                "severity": "MEDIUM",
+                "evidence": f"Last-Modified: {lm_info.get('last_modified','')} — {lm_info.get('days_old',0)} days ago. Perplexity deprioritizes content with stale freshness headers.",
+                "suggested_action": {"summary": "Update Last-Modified on each page publish and ensure server emits accurate timestamps.", "priority": "medium", "effort": "low"},
+                "research_lift": "Fresh Last-Modified → +22% Perplexity freshness score (Ahrefs AI Indexing Guide 2026)"})
+
+        # NEW: content chunk size for RAG
+        chunk_info = tech.get("content_chunk_size", {})
+        if chunk_info.get("poor_chunking"):
+            avg = chunk_info.get("avg_words_per_para", 0)
+            findings.append({"id": "TSEO-013", "title": f"Oversized content paragraphs hurt AI RAG chunking (avg {avg} words)",
+                "severity": "MEDIUM" if avg > 500 else "LOW",
+                "evidence": f"Average paragraph: {avg} words. AI RAG systems chunk at ~400 words. Oversized paragraphs split mid-sentence, creating incoherent context windows.",
+                "suggested_action": {"summary": "Break paragraphs into ≤3 sentences (~60–100 words) for optimal AI RAG extraction.", "priority": "medium", "effort": "medium"},
+                "research_lift": "Optimal chunk size → +31% RAG retrieval accuracy (NVIDIA RAG Paper 2025)"})
+
+    # NEW FRESH-001: 5-layer freshness signal sync (Lureon 76%; AuthorityTech +47%)
+    if tech:
+        fresh = tech.get("freshness_sync", {})
+        if fresh:
+            layers = fresh.get("layers_present", 0)
+            contradiction = fresh.get("has_contradiction", False)
+            gap_days = fresh.get("contradiction_gap_days", 0)
+            sev = fresh.get("severity", "LOW")
+            if sev == "CRITICAL":
+                findings.append({"id": "FRESH-001", "title": "No machine-readable freshness signals present — AI treats content as undated",
+                    "severity": "CRITICAL",
+                    "evidence": "0/5 freshness signal layers found (HTTP Last-Modified, JSON-LD dateModified, OG article:modified_time, visible 'Last updated', meta date tag). AI defaults to treating undated content as stale. Lureon: 76% of citations go to content updated within 30 days.",
+                    "suggested_action": {"summary": "Add at minimum: JSON-LD dateModified, HTTP Last-Modified header, and visible 'Last updated: [Date]' text.", "priority": "high", "effort": "low"},
+                    "research_lift": "+47% citation lift for fresh, multi-layer dated content (AuthorityTech 2026)"})
+            elif sev == "HIGH" and contradiction:
+                findings.append({"id": "FRESH-001", "title": f"Freshness signal contradiction ({gap_days}-day gap across {layers} layers) — AI uses most pessimistic date",
+                    "severity": "HIGH",
+                    "evidence": f"Freshness signals disagree by {gap_days} days. When layers contradict, AI engines default to the oldest (most pessimistic) date. Layers: {list(fresh.get('signals', {}).keys())}. Dated signals: {fresh.get('dated_signals', [])}",
+                    "suggested_action": {"summary": "Synchronize all 5 freshness layers: HTTP Last-Modified, JSON-LD dateModified, OG article:modified_time, visible text, and meta date tag to the same date.", "priority": "high", "effort": "low"},
+                    "research_lift": "Consistent freshness signals → 3.2× citation rate vs. stale content (Quattr/Averi.ai, 2026)"})
+            elif sev == "HIGH" and layers == 1:
+                findings.append({"id": "FRESH-001", "title": f"Only 1/5 freshness signal layers present — insufficient freshness evidence",
+                    "severity": "HIGH",
+                    "evidence": f"Only 1 freshness layer found: {list(fresh.get('signals', {}).keys())}. AI engines cross-reference multiple freshness signals; a single signal is easily ignored. Target: 4+ consistent layers.",
+                    "suggested_action": {"summary": "Add JSON-LD dateModified + og:article:modified_time + visible 'Last updated' text to reach ≥4 consistent freshness layers.", "priority": "high", "effort": "low"},
+                    "research_lift": "+47% citation lift for multi-layer freshness (AuthorityTech UC Berkeley GEO-16, 2026)"})
+            elif sev == "MEDIUM" and layers < 4:
+                findings.append({"id": "FRESH-001", "title": f"Partial freshness coverage ({layers}/5 layers) — room to improve AI recency signals",
+                    "severity": "MEDIUM",
+                    "evidence": f"{layers}/5 freshness signal layers present. Missing layers: {fresh.get('freshness_layers_missing', 0)}. Optimal is 4+ consistent layers.",
+                    "suggested_action": {"summary": "Add missing freshness signals to reach 4+ layers for maximum AI crawl prioritization.", "priority": "medium", "effort": "low"},
+                    "research_lift": "4+ freshness layers → prioritized re-crawl by Bing/Perplexity AI (Bing 2025 blog)"})
+
+    # NEW RC4-002: Crawl-delay check
+    if craw:
+        crawl_delay = craw.get("crawl_delay_check", {})
+        if crawl_delay.get("has_excessive_delay"):
+            worst = crawl_delay.get("worst_delay_seconds", 0)
+            affected = [e["bot"] for e in crawl_delay.get("excessive_delays", [])]
+            findings.append({"id": "RC4-002", "title": f"Excessive Crawl-delay ({worst}s) throttles AI citation indexing",
+                "severity": "HIGH" if worst > 60 else "MEDIUM",
+                "evidence": f"Crawl-delay > 10s found for: {', '.join(affected[:3])}. This severely throttles freshness indexing by AI citation bots.",
+                "suggested_action": {"summary": "Remove Crawl-delay directive for AI citation bots or reduce to ≤5s.", "priority": "high", "effort": "low"}})
+
     return findings
 
 
@@ -507,6 +747,423 @@ def compute_dimension_score(dim: dict, findings: list[dict]) -> int:
     return max(5, min(100, round(score)))
 
 
+def build_action_roadmap(findings: list[dict], dim_scores: list[dict]) -> list[dict]:
+    """
+    Build a prioritised action roadmap from findings.
+    Groups by dimension, picks highest-impact fix per dimension,
+    and estimates score lift.
+    """
+    # Map dimension prefix → dim info
+    prefix_to_dim: dict[str, dict] = {}
+    for d in DIMENSIONS:
+        for p in d["finding_prefixes"]:
+            prefix_to_dim[p] = d
+
+    # Group CRITICAL + HIGH findings by dimension
+    by_dim: dict[str, list[dict]] = {}
+    for f in findings:
+        if f["severity"] not in ("CRITICAL", "HIGH", "MEDIUM"):
+            continue
+        # Find which dimension this finding belongs to
+        matched_dim = None
+        for p, d in prefix_to_dim.items():
+            if f["id"].startswith(p):
+                matched_dim = d["name"]
+                break
+        if not matched_dim:
+            matched_dim = "Technical Foundation"  # fallback
+        by_dim.setdefault(matched_dim, []).append(f)
+
+    # Estimate score lift: based on severity weight
+    LIFT = {"CRITICAL": 15, "HIGH": 8, "MEDIUM": 3}
+
+    roadmap = []
+    priority = 1
+    # Sort dimensions by worst score first (highest-impact area)
+    sorted_dims = sorted(
+        [(d["name"], d["score"]) for d in dim_scores],
+        key=lambda x: x[1]
+    )
+    seen_findings: set[str] = set()
+    for dim_name, dim_score in sorted_dims:
+        dim_findings = by_dim.get(dim_name, [])
+        for f in sorted(dim_findings, key=lambda x: SEVERITY_ORDER.get(x["severity"], 99)):
+            if f["id"] in seen_findings:
+                continue
+            seen_findings.add(f["id"])
+            lift = LIFT.get(f["severity"], 2)
+            roadmap.append({
+                "priority": priority,
+                "dimension": dim_name,
+                "finding_id": f["id"],
+                "action": f["suggested_action"]["summary"],
+                "effort": f["suggested_action"].get("effort", "medium"),
+                "severity": f["severity"],
+                "estimated_score_lift": f"+{lift} overall",
+            })
+            priority += 1
+            if priority > 10:
+                break
+        if priority > 10:
+            break
+
+    return roadmap
+
+
+def compute_projected_score(overall: int, findings: list[dict], engine_scores: dict,
+                             dim_scores: list[dict]) -> dict:
+    """
+    Simulate the score after fixing all CRITICAL + HIGH findings.
+    Returns projected_overall and per-engine projected scores.
+    """
+    # Remove CRITICAL and HIGH findings from the list
+    remaining = [f for f in findings if f["severity"] not in ("CRITICAL", "HIGH")]
+
+    # Recompute dimension scores without CRITICAL/HIGH
+    proj_dim_scores = []
+    for dim in DIMENSIONS:
+        score = compute_dimension_score(dim, remaining)
+        proj_dim_scores.append({**dim, "score": score})
+
+    proj_engine_scores = {}
+    for engine, weights in ENGINE_WEIGHTS.items():
+        score = sum(
+            weights[d["weight_key"]] * next(ds["score"] for ds in proj_dim_scores if ds["id"] == d["id"])
+            for d in DIMENSIONS
+        )
+        proj_engine_scores[engine] = round(score)
+
+    proj_overall = round(sum(proj_engine_scores.values()) / len(proj_engine_scores))
+
+    fixes_count = len([f for f in findings if f["severity"] in ("CRITICAL", "HIGH")])
+    if proj_overall >= 70:
+        proj_label = "GEO Ready"
+    elif proj_overall >= 50:
+        proj_label = "Developing"
+    else:
+        proj_label = "Not GEO Ready"
+
+    return {
+        "projected_overall": proj_overall,
+        "projected_geo_readiness": proj_label,
+        "current_overall": overall,
+        "score_lift": proj_overall - overall,
+        "fixes_required": fixes_count,
+        "note": f"Fixing {fixes_count} CRITICAL/HIGH findings would raise your score from {overall} to {proj_overall} ({'+' if proj_overall >= overall else ''}{proj_overall - overall} pts)",
+        "projected_engine_scores": proj_engine_scores,
+    }
+
+
+def detect_platform(outputs: dict) -> str:
+    """
+    Detect site platform from headers/HTML for platform-specific fix code.
+    Returns: 'nextjs' | 'wordpress' | 'shopify' | 'generic'
+
+    Source: GEOReady.dev platform-specific fix code UX feature (2026).
+    """
+    tech = outputs.get("technical", {})
+    # Check response headers for platform signals
+    html_sample = ""
+    for skill_data in outputs.values():
+        if isinstance(skill_data, dict):
+            # Check for framework markers in any string fields
+            for v in skill_data.values():
+                if isinstance(v, str) and len(v) > 100:
+                    html_sample += v[:500]
+
+    eeeat = outputs.get("eeeat", {})
+    # Look for WordPress
+    if any(marker in html_sample.lower() for marker in [
+        "wp-content", "wp-includes", "wordpress", "woocommerce", "/wp-json/"
+    ]):
+        return "wordpress"
+    # Look for Shopify
+    if any(marker in html_sample.lower() for marker in [
+        "shopify", "myshopify.com", "cdn.shopify", "shopify-analytics"
+    ]):
+        return "shopify"
+    # Look for Next.js
+    if any(marker in html_sample.lower() for marker in [
+        "_next/", "__next", "next.js", "__NEXT_DATA__", "_next/static"
+    ]):
+        return "nextjs"
+    return "generic"
+
+
+PLATFORM_FIX_CODES = {
+    "RC2-001": {  # llms.txt absent
+        "nextjs": """// Create /public/llms.txt in your Next.js project
+// This file is served as-is from /llms.txt
+// Format: https://llmstxt.org
+
+// /public/llms.txt
+# Your Brand Name
+
+> One-sentence brand description for AI systems.
+
+## Documentation
+- [Getting Started](https://yourdomain.com/docs/start): Introduction and setup
+- [API Reference](https://yourdomain.com/docs/api): Complete API documentation""",
+        "wordpress": """<?php
+// Add to functions.php to serve llms.txt
+add_action('init', function() {
+    if ($_SERVER['REQUEST_URI'] === '/llms.txt') {
+        header('Content-Type: text/plain; charset=utf-8');
+        echo "# Your Brand\\n\\n> Brand description.\\n\\n## Docs\\n- [Home](https://example.com)";
+        exit;
+    }
+});""",
+        "shopify": """{% comment %}
+  Create /templates/llms-txt.liquid and add page type mapping in theme settings.
+  Then create a page with handle 'llms-txt' in Shopify admin.
+{% endcomment %}
+# {{ shop.name }}
+
+> {{ shop.description | default: "Online store" }}.
+
+## Products
+- [All Products]({{ routes.all_products_collection_url }})""",
+        "generic": "Create a plain text file at /llms.txt following the spec at https://llmstxt.org",
+    },
+    "RC3-001": {  # No Organization schema
+        "nextjs": """// Add to your layout.tsx or _app.tsx
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Your Brand",
+  "url": "https://yourdomain.com",
+  "logo": "https://yourdomain.com/logo.png",
+  "sameAs": [
+    "https://twitter.com/yourbrand",
+    "https://linkedin.com/company/yourbrand",
+    "https://www.wikidata.org/wiki/Q12345"
+  ]
+};
+
+// In <Head> component:
+// <script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify(organizationSchema)}} />""",
+        "wordpress": """<?php
+// Add to functions.php
+function add_organization_schema() {
+    $schema = array(
+        '@context' => 'https://schema.org',
+        '@type' => 'Organization',
+        'name' => get_bloginfo('name'),
+        'url' => home_url(),
+        'logo' => get_theme_mod('custom_logo') ? wp_get_attachment_url(get_theme_mod('custom_logo')) : '',
+        'sameAs' => array('https://twitter.com/yourbrand', 'https://linkedin.com/company/yourbrand'),
+    );
+    echo '<script type="application/ld+json">' . json_encode($schema) . '</script>';
+}
+add_action('wp_head', 'add_organization_schema');""",
+        "shopify": """{% comment %} Add to theme.liquid <head> {% endcomment %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "{{ shop.name }}",
+  "url": "{{ shop.url }}",
+  "logo": "{{ settings.logo | img_url: 'master' | prepend: 'https:' }}",
+  "sameAs": ["https://twitter.com/yourbrand", "https://linkedin.com/company/yourbrand"]
+}
+</script>""",
+        "generic": "Add JSON-LD Organization schema to your homepage <head> section.",
+    },
+    "CEA-007": {  # Named entity density
+        "generic": """# Enrich content with named entities — target ≥15 specific entities per page
+
+# What counts as a named entity (add more of these):
+# - Company/brand names: "Stripe", "Vercel", "Adobe Firefly"
+# - People: "Jensen Huang", "Sam Altman"
+# - Dollar amounts: "$2.4M", "$49/month", "$300B market"
+# - Percentages: "67% citation rate", "400% improvement"
+# - Product names: "GPT-4o", "Claude 3.5 Sonnet"
+# - Specific years/dates: "Q3 2026", "since 2019"
+# - Quantified claims: "over 100,000 customers", "processing 50M requests/day"
+
+# BEFORE (low entity density):
+# "Our platform helps businesses grow faster and more efficiently."
+
+# AFTER (high entity density):
+# "Adobe Firefly generated over 12 billion images in 2025, making it
+# the most-used commercial generative AI tool by Fortune 500 companies."
+""",
+        "nextjs": """// In your CMS/MDX content, run this linter before publishing
+// to enforce minimum entity density (≥15 named entities per page):
+
+// scripts/check-entity-density.js
+const text = require('fs').readFileSync(process.argv[2], 'utf8');
+const patterns = [
+  /\\$[\\d,]+(?:\\.\\d+)?(?:\\s*(?:million|billion|M|B))?\\b/gi,
+  /\\b\\d+(?:\\.\\d+)?\\s*(?:percent|%)\\b/gi,
+  /\\b[A-Z][a-z]{2,}(?:\\s+[A-Z][a-z]{2,}){1,3}\\b/g,
+  /\\b20(?:2[0-9]|3[0-5])\\b/g,
+];
+const entities = new Set(patterns.flatMap(p => [...text.matchAll(p)].map(m => m[0])));
+console.log(`Named entities: ${entities.size} (need ≥15)`);
+if (entities.size < 15) process.exit(1); // fail CI""",
+        "wordpress": """<?php
+// Add to your post editor meta box to show entity density
+function show_entity_density_widget() {
+    $screen = get_current_screen();
+    if (!in_array($screen->post_type, ['post', 'page'])) return;
+    add_meta_box('entity_density', 'AI Citation Check', function($post) {
+        $content = wp_strip_all_tags($post->post_content);
+        preg_match_all('/\\$[\\d,]+|\\d+(?:\\.\\d+)?\\s*%|[A-Z][a-z]{2,}(?:\\s+[A-Z][a-z]{2,}){1,3}/', $content, $m);
+        $count = count(array_unique($m[0]));
+        $color = $count >= 15 ? 'green' : ($count >= 8 ? 'orange' : 'red');
+        echo "<p style='color:$color'>Named entities: <strong>$count</strong>/15 target</p>";
+    }, null, 'side');
+}
+add_action('add_meta_boxes', 'show_entity_density_widget');""",
+    },
+    "CDN-WAF-001": {  # Cloudflare blocking AI bots
+        "generic": """# Cloudflare Dashboard Fix
+# Security > Bots > Bot Fight Mode: Disable OR add exceptions
+
+# In Cloudflare WAF Custom Rules, add exception:
+# Rule: (http.user_agent contains "OAI-SearchBot" or
+#        http.user_agent contains "GPTBot" or
+#        http.user_agent contains "PerplexityBot" or
+#        http.user_agent contains "ClaudeBot")
+# Action: Skip (WAF)
+
+# Alternative: In firewall rules, whitelist known AI bot IPs
+# ChatGPT: 23.98.142.176/28, 40.84.180.0/28
+# Perplexity: 13.64.0.0/11""",
+        "nextjs": """// In next.config.js, add headers to allow AI bots:
+module.exports = {
+  async headers() {
+    return [{
+      source: '/(.*)',
+      headers: [{ key: 'X-Robots-Tag', value: 'all' }],
+    }];
+  },
+}
+// Then fix Cloudflare WAF rule in Cloudflare dashboard (see generic fix above)""",
+        "wordpress": """# Cloudflare dashboard fix required (see generic)
+# WordPress: Also check if Wordfence or similar WAF plugin is blocking AI bots
+# Wordfence > Firewall > Allowlisted IPs: add known AI bot IP ranges""",
+        "shopify": """# Cloudflare dashboard fix required (see generic above)
+# Note: Shopify's own CDN does not block AI bots by default""",
+    },
+}
+
+
+def get_platform_fix_code(finding_id: str, platform: str) -> str | None:
+    """Return platform-specific fix code for a finding ID."""
+    codes = PLATFORM_FIX_CODES.get(finding_id, {})
+    return codes.get(platform) or codes.get("generic")
+
+
+def compute_citability_coverage(outputs: dict) -> dict:
+    """
+    Citability Coverage % — % of content blocks (passages) scoring ≥ 15/30 on the 6-signal scorer.
+    Threshold of 15/30 is calibrated for homepage/marketing copy (20-80 word passages).
+    Source: Seomator AI Citability module + Lumina SEO citability heatmap (2026).
+    Returns: pct, total_passages, citeable_passages, interpretation
+    """
+    content = outputs.get("content", {})
+    total_passages = 0
+    citeable_passages = 0
+    all_rates = []
+
+    for page in content.get("pages", [])[:2]:
+        pe = page.get("passage_extractability", {})
+        tp = pe.get("total_passages", 0)
+        cp = pe.get("extractable_passages", 0)
+        total_passages += tp
+        citeable_passages += cp
+        if tp > 0:
+            all_rates.append(cp / tp)
+
+    if total_passages == 0:
+        return {"pct": None, "total_passages": 0, "citeable_passages": 0,
+                "interpretation": "Insufficient data"}
+
+    pct = round(citeable_passages / total_passages * 100)
+    return {
+        "pct": pct,
+        "total_passages": total_passages,
+        "citeable_passages": citeable_passages,
+        "interpretation": "Excellent" if pct >= 70 else "Good" if pct >= 50 else "Needs Work" if pct >= 30 else "Poor",
+    }
+
+
+def build_score_formula(dim_scores: list[dict], engine_scores: dict, overall: int) -> dict:
+    """
+    Return transparent score formula breakdown for display in reports.
+    Source: Lumina SEO printed formula transparency feature + user trust research.
+    """
+    formula_lines = []
+    for engine, weights in ENGINE_WEIGHTS.items():
+        parts = []
+        for d in DIMENSIONS:
+            w = weights[d["weight_key"]]
+            ds = next((ds["score"] for ds in dim_scores if ds["id"] == d["id"]), 0)
+            parts.append(f"{w:.0%} × {d['name']}({ds})")
+        formula_lines.append({
+            "engine": engine,
+            "formula": " + ".join(parts),
+            "result": engine_scores.get(engine, 0),
+        })
+
+    dim_summary = {d["name"]: d["score"] for d in dim_scores}
+    return {
+        "overall": overall,
+        "formula_note": "Overall = average of per-engine scores. Each engine weights the 6 dimensions differently.",
+        "dimension_scores": dim_summary,
+        "engine_formulas": formula_lines,
+    }
+
+
+def build_vertical_benchmark(overall: int, dim_scores: list[dict]) -> dict:
+    """
+    Compare audit score to median scores from the benchmark dataset.
+    Source: Lumina SEO vertical benchmarking feature + our live benchmark run (2026-09-12).
+    Benchmark medians from our 10-site live run.
+    """
+    # From our 2026-09-12 benchmark (10 sites)
+    BENCHMARK_MEDIAN = 52  # median across all 10 sites
+    BENCHMARK_TOP_QUARTILE = 65  # 75th percentile
+    BENCHMARK_DIM_MEDIANS = {
+        "Crawlability": 72,
+        "Content Extractability": 48,
+        "Entity Clarity": 63,
+        "Schema Integrity": 44,
+        "Off-Page Authority": 55,
+        "Technical Foundation": 68,
+    }
+
+    position = (
+        "Top quartile" if overall >= BENCHMARK_TOP_QUARTILE else
+        "Above median" if overall >= BENCHMARK_MEDIAN else
+        "Below median"
+    )
+    percentile_est = min(99, max(1, round((overall - 20) / (85 - 20) * 100)))
+
+    dim_comparison = {}
+    for d in dim_scores:
+        median = BENCHMARK_DIM_MEDIANS.get(d["name"], 50)
+        delta = d["score"] - median
+        dim_comparison[d["name"]] = {
+            "your_score": d["score"],
+            "benchmark_median": median,
+            "delta": delta,
+            "vs_median": f"+{delta}" if delta >= 0 else str(delta),
+        }
+
+    return {
+        "benchmark_source": "Brand AI Readiness Audit — 10-site live benchmark (2026-09-12)",
+        "benchmark_median": BENCHMARK_MEDIAN,
+        "benchmark_top_quartile": BENCHMARK_TOP_QUARTILE,
+        "overall_position": position,
+        "estimated_percentile": percentile_est,
+        "your_score": overall,
+        "dimension_comparison": dim_comparison,
+    }
+
+
 def build_report(outputs: dict, site: str, audited_at: str) -> dict:
     """Build the unified report dict from skill outputs."""
     findings = deduplicate_findings(extract_findings_from_outputs(outputs))
@@ -541,11 +1198,54 @@ def build_report(outputs: dict, site: str, audited_at: str) -> dict:
     else:
         geo_label = "Not GEO Ready"
 
+    # Action roadmap
+    action_roadmap = build_action_roadmap(findings, dim_scores)
+
+    # Projected score (after fixing all CRITICAL + HIGH)
+    projected = compute_projected_score(overall, findings, engine_scores, dim_scores)
+
+    # Platform detection for fix code generation
+    platform = detect_platform(outputs)
+
+    # Enrich findings with platform-specific fix code and research lift display
+    for f in findings:
+        fix_code = get_platform_fix_code(f["id"], platform)
+        if fix_code:
+            f["platform_fix_code"] = {"platform": platform, "code": fix_code}
+        # Ensure research_lift is included if not already set
+        if "research_lift" not in f:
+            f["research_lift"] = None
+
+    # Citability Coverage %
+    citability_coverage = compute_citability_coverage(outputs)
+
+    # Score formula transparency
+    score_formula = build_score_formula(dim_scores, engine_scores, overall)
+
+    # Vertical benchmark comparison
+    vertical_benchmark = build_vertical_benchmark(overall, dim_scores)
+
+    # geo_score block (matches geo-score-aggregator SKILL.md schema)
+    geo_score = {
+        "overall": overall,
+        "threshold": 70,
+        "geo_ready": overall >= 70,
+        "dimension_scores": {
+            f"d{i+1}_{d['name'].lower().replace(' ', '_')}": d["score"]
+            for i, d in enumerate(dim_scores)
+        },
+        "per_engine_scores": {
+            k.lower().replace(" ", "_"): v for k, v in engine_scores.items()
+        },
+        "action_roadmap": action_roadmap,
+    }
+
     return {
         "site": site,
         "audited_at": audited_at,
         "overall_score": overall,
         "geo_readiness": geo_label,
+        "platform_detected": platform,
         "summary": {
             "total_findings": len(findings),
             **buckets,
@@ -553,6 +1253,11 @@ def build_report(outputs: dict, site: str, audited_at: str) -> dict:
         },
         "dimension_scores": dim_scores,
         "engine_scores": engine_scores,
+        "projected_score": projected,
+        "geo_score": geo_score,
+        "citability_coverage": citability_coverage,
+        "score_formula": score_formula,
+        "vertical_benchmark": vertical_benchmark,
         "findings": findings,
     }
 
@@ -616,6 +1321,74 @@ def render_markdown(report: dict, output_path: Path, brand_name: str = "", brand
         status = "✅" if escore >= 70 else "⚠️"
         lines.append(f"| {engine} | {escore} | {status} 70 |")
 
+    # Projected score section
+    proj = report.get("projected_score", {})
+    if proj:
+        lines += [
+            "",
+            "## 🚀 Projected Score After Fixes",
+            "",
+            f"> {proj.get('note', '')}",
+            "",
+            f"| Metric | Current | After Fixes |",
+            f"|--------|---------|-------------|",
+            f"| Overall GEO Score | {proj.get('current_overall', '—')} | **{proj.get('projected_overall', '—')}** |",
+            f"| GEO Readiness | {report.get('geo_readiness', '—')} | **{proj.get('projected_geo_readiness', '—')}** |",
+            f"| Score Lift | — | **+{proj.get('score_lift', 0)} pts** |",
+            "",
+        ]
+
+    # Citability Coverage + Vertical Benchmark section (Markdown)
+    cit_md = report.get("citability_coverage", {})
+    vb_md = report.get("vertical_benchmark", {})
+    if cit_md.get("pct") is not None or vb_md:
+        lines += ["", "## 📈 Performance Metrics", ""]
+        if cit_md.get("pct") is not None:
+            lines.append(f"**Citability Coverage:** {cit_md.get('pct')}% ({cit_md.get('citeable_passages',0)}/{cit_md.get('total_passages',0)} passages extractable) — {cit_md.get('interpretation','')}")
+        if vb_md:
+            lines.append(f"**Industry Benchmark:** {vb_md.get('overall_position','')} — ~{vb_md.get('estimated_percentile',0)}th percentile vs. {vb_md.get('benchmark_source','benchmark')}")
+            lines += [
+                "",
+                "| Dimension | Your Score | Benchmark Median | Delta |",
+                "|-----------|-----------|------------------|-------|",
+            ]
+            for dn, dc in (vb_md.get("dimension_comparison") or {}).items():
+                lines.append(f"| {dn} | {dc.get('your_score',0)} | {dc.get('benchmark_median',0)} | **{dc.get('vs_median',0)}** |")
+        lines.append("")
+
+    # Score formula section (Markdown)
+    sf_md = report.get("score_formula", {})
+    if sf_md:
+        lines += [
+            "",
+            "## 🔢 Score Formula",
+            "",
+            f"> {sf_md.get('formula_note','')}",
+            "",
+            "| Engine | Formula | Score |",
+            "|--------|---------|-------|",
+        ]
+        for ef in sf_md.get("engine_formulas", []):
+            lines.append(f"| {ef['engine']} | `{ef['formula'][:100]}` | **{ef['result']}** |")
+        lines.append("")
+
+    # Action roadmap section
+    roadmap = report.get("geo_score", {}).get("action_roadmap", [])
+    if roadmap:
+        lines += [
+            "",
+            "## 🗺 Prioritised Action Roadmap",
+            "",
+            "| # | Dimension | Action | Effort | Est. Lift |",
+            "|---|-----------|--------|--------|-----------|",
+        ]
+        for item in roadmap:
+            lines.append(
+                f"| {item['priority']} | {item['dimension']} | {item['action'][:80]} | "
+                f"`{item.get('effort','?')}` | {item.get('estimated_score_lift','—')} |"
+            )
+        lines.append("")
+
     # Group findings by severity
     for sev in ["CRITICAL", "HIGH", "MEDIUM", "LOW"]:
         sev_findings = [f for f in findings if f["severity"] == sev]
@@ -623,13 +1396,14 @@ def render_markdown(report: dict, output_path: Path, brand_name: str = "", brand
             continue
         lines += ["", f"---", "", f"## {SEV_ICON[sev]} {sev} — {len(sev_findings)} finding{'s' if len(sev_findings)>1 else ''}",  ""]
         for f in sev_findings:
+            lift_line = f"\n> 📈 **Research lift:** {f['research_lift']}" if f.get("research_lift") else ""
             lines += [
                 f"### `{f['id']}` {f['title']}",
                 "",
                 f"**Evidence:** {f['evidence']}",
                 "",
                 f"**Action:** {f['suggested_action']['summary']}",
-                f"> Effort: `{f['suggested_action'].get('effort','?')}` · Priority: `{f['suggested_action'].get('priority','?')}`",
+                f"> Effort: `{f['suggested_action'].get('effort','?')}` · Priority: `{f['suggested_action'].get('priority','?')}`{lift_line}",
                 "",
             ]
 
@@ -739,12 +1513,33 @@ def render_html(report: dict, output_path: Path, brand_name: str = "", brand_col
     )
 
     # Findings HTML
+    detected_platform = report.get("platform_detected", "generic")
+
     def finding_card(f: dict) -> str:
         sev = f["severity"]
         action = f["suggested_action"]
         color = SEV_COLOR_HEX.get(sev, "#555")
         icon = SEV_ICON.get(sev, "●")
         effort_badge = f'<span class="badge">{action.get("effort","?").upper()} effort</span>'
+
+        # Research lift badge
+        lift = f.get("research_lift")
+        lift_badge = f'<span style="background:#d1fae5;color:#065f46;border-radius:4px;padding:1px 7px;font-size:10px;font-weight:700;margin-left:6px">📈 {lift}</span>' if lift else ""
+
+        # Platform-specific fix code
+        fix_code_block = ""
+        pfc = f.get("platform_fix_code", {})
+        if pfc and pfc.get("code"):
+            platform_label = pfc.get("platform", "generic").upper()
+            fix_code_escaped = pfc["code"].replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+            fix_code_block = f"""
+<details style="margin-top:8px">
+  <summary style="cursor:pointer;font-size:11px;color:#1A73E8;font-weight:600">
+    🔧 {platform_label} Fix Code (click to expand)
+  </summary>
+  <pre style="margin-top:6px;background:#1e1e2e;color:#cdd6f4;border-radius:6px;padding:12px;font-size:11px;overflow-x:auto;white-space:pre-wrap">{fix_code_escaped}</pre>
+</details>"""
+
         return f"""
 <div class="finding-card" id="{f['id']}">
   <div class="finding-header">
@@ -752,11 +1547,12 @@ def render_html(report: dict, output_path: Path, brand_name: str = "", brand_col
     <span class="sev-label" style="color:{color}">{sev}</span>
     <code class="finding-id">{f['id']}</code>
     <span class="finding-title">{f['title']}</span>
-    {effort_badge}
+    {effort_badge}{lift_badge}
   </div>
   <div class="finding-body">
     <div class="evidence"><strong>Evidence:</strong> {f['evidence']}</div>
     <div class="action"><strong>Action:</strong> {action['summary']}</div>
+    {fix_code_block}
   </div>
 </div>"""
 
@@ -795,6 +1591,139 @@ def render_html(report: dict, output_path: Path, brand_name: str = "", brand_col
   <td class="score-cell"><strong style="color:{sc}">{escore}</strong></td>
   <td style="color:{sc}">{'✓ On track' if escore>=70 else '⚠ Developing' if escore>=50 else '✗ Gap'}</td>
 </tr>"""
+
+    # Projected score HTML box
+    proj = report.get("projected_score", {})
+    proj_html = ""
+    if proj:
+        proj_score = proj.get("projected_overall", score)
+        proj_label = proj.get("projected_geo_readiness", "")
+        proj_lift = proj.get("score_lift", 0)
+        proj_fixes = proj.get("fixes_required", 0)
+        proj_color = "#1E8449" if proj_score >= 70 else "#E37400" if proj_score >= 50 else "#D93025"
+        proj_html = f"""
+<div style="background:#fff8e1;border:1.5px solid #f59e0b;border-radius:8px;padding:16px 20px;margin-bottom:28px;">
+  <div style="font-size:13px;font-weight:700;color:#92400e;margin-bottom:8px;">🚀 Projected Score After Fixing All CRITICAL &amp; HIGH Findings</div>
+  <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap;">
+    <div>
+      <span style="font-size:40px;font-weight:800;color:{proj_color}">{proj_score}</span>
+      <span style="font-size:14px;color:#6b7280">/100</span>
+      <div style="font-size:12px;font-weight:600;color:{proj_color};margin-top:2px">{proj_label}</div>
+    </div>
+    <div style="font-size:13px;color:#374151;flex:1;min-width:200px">
+      <strong>+{proj_lift} points</strong> by fixing <strong>{proj_fixes} findings</strong><br>
+      <span style="color:#6b7280">{proj.get('note','')}</span>
+    </div>
+  </div>
+</div>"""
+
+    # Citability Coverage % + Vertical Benchmark HTML
+    cit = report.get("citability_coverage", {})
+    vb = report.get("vertical_benchmark", {})
+    citability_html = ""
+    if cit.get("pct") is not None or vb:
+        cit_pct = cit.get("pct", "N/A")
+        cit_interp = cit.get("interpretation", "")
+        cit_color = "#1E8449" if cit.get("interpretation") in ("Excellent", "Good") else "#E37400" if cit_interp == "Needs Work" else "#D93025"
+        cit_section = f"""<div style="flex:1;min-width:200px">
+  <div style="font-size:12px;font-weight:700;color:#374151;margin-bottom:4px">📊 Citability Coverage</div>
+  <div style="font-size:28px;font-weight:800;color:{cit_color}">{cit_pct}{'%' if cit_pct != 'N/A' else ''}</div>
+  <div style="font-size:11px;color:#6b7280">{cit.get('citeable_passages',0)}/{cit.get('total_passages',0)} passages are AI-extractable</div>
+  <div style="font-size:11px;color:{cit_color};font-weight:600">{cit_interp}</div>
+</div>""" if cit.get("pct") is not None else ""
+
+        vb_position = vb.get("overall_position", "")
+        vb_percentile = vb.get("estimated_percentile", 0)
+        vb_median = vb.get("benchmark_median", 52)
+        vb_color = "#1E8449" if "Top" in vb_position else "#E37400" if "Above" in vb_position else "#D93025"
+        vb_section = f"""<div style="flex:1;min-width:200px">
+  <div style="font-size:12px;font-weight:700;color:#374151;margin-bottom:4px">🏆 Industry Benchmark</div>
+  <div style="font-size:28px;font-weight:800;color:{vb_color}">{vb_percentile}<span style="font-size:14px">th pct</span></div>
+  <div style="font-size:11px;color:#6b7280">Benchmark median: {vb_median}/100 (10-site live run)</div>
+  <div style="font-size:11px;color:{vb_color};font-weight:600">{vb_position}</div>
+</div>""" if vb else ""
+
+        # Dimension comparison table
+        dim_comp_rows = ""
+        for dim_name, comp in (vb.get("dimension_comparison") or {}).items():
+            delta = comp.get("delta", 0)
+            delta_color = "#1E8449" if delta >= 0 else "#D93025"
+            dim_comp_rows += f"""<tr>
+  <td>{dim_name}</td>
+  <td style="text-align:right">{comp.get('your_score',0)}</td>
+  <td style="text-align:right;color:#6b7280">{comp.get('benchmark_median',0)}</td>
+  <td style="text-align:right;color:{delta_color};font-weight:600">{comp.get('vs_median','0')}</td>
+</tr>"""
+
+        citability_html = f"""
+<div style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:16px 20px;margin-bottom:28px;">
+  <h3 style="font-size:14px;font-weight:700;margin-bottom:16px">📈 Performance Metrics</h3>
+  <div style="display:flex;gap:24px;flex-wrap:wrap;margin-bottom:16px">
+    {cit_section}
+    {vb_section}
+  </div>
+  {f'<table><thead><tr><th>Dimension</th><th style="text-align:right">Your Score</th><th style="text-align:right">Benchmark Median</th><th style="text-align:right">Delta</th></tr></thead><tbody>{dim_comp_rows}</tbody></table>' if dim_comp_rows else ""}
+</div>"""
+
+    # Score Formula Transparency HTML
+    sf = report.get("score_formula", {})
+    formula_html = ""
+    if sf:
+        formula_note = sf.get("formula_note", "")
+        dim_scores_sf = sf.get("dimension_scores", {})
+        dim_pills = " ".join(
+            f'<span style="background:#f3f4f6;border:1px solid #d1d5db;border-radius:4px;padding:2px 8px;font-size:11px;margin:2px">{k}: <strong>{v}</strong></span>'
+            for k, v in dim_scores_sf.items()
+        )
+        engine_rows_sf = ""
+        for ef in sf.get("engine_formulas", []):
+            engine_rows_sf += f"""<tr>
+  <td style="font-weight:600;white-space:nowrap">{ef['engine']}</td>
+  <td style="font-size:11px;color:#6b7280;font-family:monospace">{ef['formula'][:120]}{'…' if len(ef['formula']) > 120 else ''}</td>
+  <td style="text-align:right;font-weight:700">{ef['result']}</td>
+</tr>"""
+        formula_html = f"""
+<details style="margin-bottom:28px;border:1px solid #e5e7eb;border-radius:8px;overflow:hidden">
+  <summary style="background:#f9fafb;padding:12px 16px;cursor:pointer;font-weight:700;font-size:13px">
+    🔢 Score Formula Transparency (click to expand)
+  </summary>
+  <div style="padding:16px">
+    <p style="font-size:12px;color:#6b7280;margin-bottom:12px">{formula_note}</p>
+    <div style="margin-bottom:12px">{dim_pills}</div>
+    <table style="font-size:12px">
+      <thead><tr><th>Engine</th><th>Formula (dimension × weight)</th><th style="text-align:right">Score</th></tr></thead>
+      <tbody>{engine_rows_sf}</tbody>
+    </table>
+  </div>
+</details>"""
+
+    # Action roadmap HTML
+    roadmap = report.get("geo_score", {}).get("action_roadmap", [])
+    roadmap_html = ""
+    if roadmap:
+        rows = ""
+        for item in roadmap:
+            effort_color = "#D93025" if item.get("effort") == "high" else "#E37400" if item.get("effort") == "medium" else "#1E8449"
+            sev_color = SEV_COLOR_HEX.get(item.get("severity", "MEDIUM"), "#555")
+            rows += f"""<tr>
+  <td style="text-align:center;font-weight:700">{item['priority']}</td>
+  <td style="font-size:12px;color:#6b7280">{item['dimension']}</td>
+  <td style="font-size:12px">{item['action'][:90]}{'…' if len(item['action']) > 90 else ''}</td>
+  <td><span style="background:{effort_color}22;color:{effort_color};border-radius:4px;padding:1px 6px;font-size:11px;font-weight:600">{item.get('effort','?').upper()}</span></td>
+  <td style="font-size:12px;color:#1E8449;font-weight:600">{item.get('estimated_score_lift','—')}</td>
+</tr>"""
+        roadmap_html = f"""
+<h2>🗺 Prioritised Action Roadmap</h2>
+<table>
+  <thead><tr>
+    <th style="width:40px">#</th>
+    <th>Dimension</th>
+    <th>Action</th>
+    <th style="width:80px">Effort</th>
+    <th style="width:90px">Est. Lift</th>
+  </tr></thead>
+  <tbody>{rows}</tbody>
+</table>"""
 
     html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -938,14 +1867,26 @@ def render_html(report: dict, output_path: Path, brand_name: str = "", brand_col
     <tbody>{eng_rows}</tbody>
   </table>
 
+  <!-- Projected score -->
+  {proj_html}
+
+  <!-- Action Roadmap -->
+  {roadmap_html}
+
+  <!-- Citability Coverage & Vertical Benchmark -->
+  {citability_html}
+
+  <!-- Score Formula Transparency -->
+  {formula_html}
+
   <!-- Findings -->
   <h2>Findings ({summ['total_findings']} total)</h2>
   {findings_html}
 
   <!-- Footer -->
   <div class="report-footer">
-    Generated by Brand AI Readiness Audit v2.0 &middot; {audited} &middot;
-    72 finding IDs across 6 GEO dimensions &middot;
+    Generated by Brand AI Readiness Audit v2.1 &middot; {audited} &middot;
+    90 finding IDs across 6 GEO dimensions &middot;
     <a href="https://github.com/Adobe_Hack_2026" style="color:var(--accent)">github</a>
   </div>
 

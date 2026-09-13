@@ -1,0 +1,75 @@
+{
+  "site": "www.adobe.com",
+  "base_url": "https://www.adobe.com",
+  "probed_at": "2026-09-12T18:22:35Z",
+  "homepage_status": 200,
+  "homepage_error": null,
+  "brand_name": "Adobe",
+  "brand_name_source": "domain name",
+  "same_as_links": [],
+  "same_as_categorized": {
+    "wikidata": null,
+    "wikipedia": null,
+    "crunchbase": null,
+    "linkedin": null,
+    "twitter": null,
+    "facebook": null,
+    "other": []
+  },
+  "wikidata": {
+    "query": "Adobe",
+    "found": true,
+    "qid": "Q11463",
+    "label": "Adobe",
+    "description": "American multinational computer software company",
+    "candidates": [
+      {
+        "qid": "Q11463",
+        "label": "Adobe",
+        "description": "American multinational computer software company",
+        "url": "//www.wikidata.org/wiki/Q11463"
+      },
+      {
+        "qid": "Q42332",
+        "label": "PDF",
+        "description": "family of file formats used to present documents",
+        "url": "//www.wikidata.org/wiki/Q42332"
+      },
+      {
+        "qid": "Q183496",
+        "label": "adobe",
+        "description": "building material of earth and organic materials",
+        "url": "//www.wikidata.org/wiki/Q183496"
+      },
+      {
+        "qid": "Q165658",
+        "label": "Adobe Flash",
+        "description": "deprecated multimedia platform used to add animation and interactivity to web pages",
+        "url": "//www.wikidata.org/wiki/Q165658"
+      },
+      {
+        "qid": "Q41176",
+        "label": "building",
+        "description": "structure, typically enclosed with a roof and walls, standing more or less permanently in one place",
+        "url": "//www.wikidata.org/wiki/Q41176"
+      }
+    ],
+    "error": null
+  },
+  "entity_collision_risk": {
+    "name": "Adobe",
+    "risk_factors": [
+      "Short single lowercase word \u2014 high overlap risk"
+    ],
+    "high_risk": true
+  },
+  "name_variants": {
+    "homepage_title": "Adobe: Creative, marketing and document management solutions"
+  },
+  "name_is_consistent": true,
+  "_agent_next_steps": [
+    "web_search: \\\"Adobe\\\" founded",
+    "web_search: \\\"Adobe\\\" company",
+    "web_search: \\\"Adobe\\\" www"
+  ]
+}

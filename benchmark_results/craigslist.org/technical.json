@@ -1,0 +1,137 @@
+{
+  "site": "www.craigslist.org",
+  "base_url": "https://www.craigslist.org",
+  "probed_at": "2026-09-12T18:26:00Z",
+  "https_redirect": {
+    "http_status": 301,
+    "redirects_to_https": true,
+    "redirect_type": 301,
+    "location": "https://www.craigslist.org/",
+    "error": null
+  },
+  "homepage_status": 200,
+  "response_time_ms": 4270,
+  "error": null,
+  "meta_robots": {
+    "meta_robots": null,
+    "x_robots_tag": "",
+    "has_noindex": false,
+    "has_nosnippet": false,
+    "has_max_snippet_0": false
+  },
+  "canonical": {
+    "has_canonical": true,
+    "canonical_url": "https://www.craigslist.org/area/bangalore",
+    "is_self_referential": false,
+    "is_cross_domain": false
+  },
+  "heading_hierarchy": {
+    "total_headings": 21,
+    "h1_count": 2,
+    "heading_tree": [
+      {
+        "level": 2,
+        "text": "bangalore"
+      },
+      {
+        "level": 1,
+        "text": "craigslist\n        in"
+      },
+      {
+        "level": 4,
+        "text": "event calendar"
+      },
+      {
+        "level": 3,
+        "text": "community"
+      },
+      {
+        "level": 3,
+        "text": "services"
+      },
+      {
+        "level": 3,
+        "text": "discussion forums"
+      },
+      {
+        "level": 3,
+        "text": "housing"
+      },
+      {
+        "level": 3,
+        "text": "for sale"
+      },
+      {
+        "level": 3,
+        "text": "jobs"
+      },
+      {
+        "level": 3,
+        "text": "gigs"
+      },
+      {
+        "level": 3,
+        "text": "resumes"
+      },
+      {
+        "level": 5,
+        "text": "india"
+      },
+      {
+        "level": 5,
+        "text": "asia/pacific"
+      },
+      {
+        "level": 5,
+        "text": "cl worldwide"
+      },
+      {
+        "level": 5,
+        "text": "africa"
+      }
+    ],
+    "multiple_h1": true,
+    "level_skip_violations": [
+      "H1 \u2192 H4 (skipped)",
+      "H3 \u2192 H5 (skipped)"
+    ],
+    "has_violations": true
+  },
+  "hreflang": {
+    "hreflang_count": 0,
+    "has_x_default": false,
+    "languages_declared": [],
+    "html_lang": null
+  },
+  "page_size": {
+    "html_size_bytes": 54377,
+    "html_size_kb": 53.1
+  },
+  "broken_links": {
+    "links_checked": 15,
+    "broken_links": [],
+    "broken_count": 0
+  },
+  "redirect_chain": {
+    "hop_count": 3,
+    "chain": [
+      {
+        "url": "https://www.craigslist.org",
+        "status": 302,
+        "error": null
+      },
+      {
+        "url": "https://geo.craigslist.org/",
+        "status": 302,
+        "error": null
+      },
+      {
+        "url": "https://www.craigslist.org/area/bangalore",
+        "status": 200,
+        "error": null
+      }
+    ],
+    "has_loop": false,
+    "has_long_chain": false
+  }
+}

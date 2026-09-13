@@ -1,0 +1,116 @@
+{
+  "site": "linear.app",
+  "base_url": "https://linear.app",
+  "probed_at": "2026-09-12T18:21:05Z",
+  "pages": [
+    {
+      "path": "/",
+      "url": "https://linear.app",
+      "status": 200,
+      "error": null,
+      "jsonld_blocks": [],
+      "schema_types": [],
+      "schema_richness": [],
+      "has_speakable": false,
+      "freshness_dates": [],
+      "images_missing_alt": [
+        "https://linear.app/cdn-cgi/imagedelivery/fO02fVwohEs9s9UHFwon6A/6600ca96-e49b-4f",
+        "https://linear.app/cdn-cgi/imagedelivery/fO02fVwohEs9s9UHFwon6A/c7fa8f5f-d439-43",
+        "https://linear.app/cdn-cgi/imagedelivery/fO02fVwohEs9s9UHFwon6A/f28b59f4-538c-45",
+        "https://linear.app/cdn-cgi/imagedelivery/fO02fVwohEs9s9UHFwon6A/c2f6447a-d507-43",
+        "https://linear.app/cdn-cgi/imagedelivery/fO02fVwohEs9s9UHFwon6A/086b510a-f5da-41",
+        "https://linear.app/cdn-cgi/imagedelivery/fO02fVwohEs9s9UHFwon6A/302b16a5-f9ca-42",
+        "https://linear.app/cdn-cgi/imagedelivery/fO02fVwohEs9s9UHFwon6A/1eb8f8b2-3593-47",
+        "https://linear.app/cdn-cgi/imagedelivery/fO02fVwohEs9s9UHFwon6A/6550520e-9e50-44",
+        "https://linear.app/cdn-cgi/imagedelivery/fO02fVwohEs9s9UHFwon6A/4d3381aa-fb2f-4d",
+        "https://linear.app/cdn-cgi/imagedelivery/fO02fVwohEs9s9UHFwon6A/7ea107e7-c1a0-4c"
+      ],
+      "html_lang": "en",
+      "hreflang_count": 0,
+      "paywall_detected": false,
+      "paywall_evidence": null,
+      "is_accessible_for_free": null,
+      "video_objects": [],
+      "faq_howto_headings": []
+    },
+    {
+      "path": "/product",
+      "url": "https://linear.app/product",
+      "status": 200,
+      "error": null,
+      "jsonld_blocks": [],
+      "schema_types": [],
+      "schema_richness": [],
+      "has_speakable": false,
+      "freshness_dates": [],
+      "images_missing_alt": [],
+      "html_lang": null,
+      "hreflang_count": 0,
+      "paywall_detected": false,
+      "paywall_evidence": null,
+      "is_accessible_for_free": null,
+      "video_objects": [],
+      "faq_howto_headings": []
+    },
+    {
+      "path": "/about",
+      "url": "https://linear.app/about",
+      "status": 200,
+      "error": null,
+      "jsonld_blocks": [],
+      "schema_types": [],
+      "schema_richness": [],
+      "has_speakable": false,
+      "freshness_dates": [],
+      "images_missing_alt": [],
+      "html_lang": "en",
+      "hreflang_count": 0,
+      "paywall_detected": false,
+      "paywall_evidence": null,
+      "is_accessible_for_free": null,
+      "video_objects": [],
+      "faq_howto_headings": []
+    },
+    {
+      "path": "/pricing",
+      "url": "https://linear.app/pricing",
+      "status": 200,
+      "error": null,
+      "jsonld_blocks": [
+        {
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "url": "https://linear.app/pricing",
+          "primaryImageOfPage": "https://linear.app/api/og/generic?title=Pricing&v=3"
+        }
+      ],
+      "schema_types": [
+        "WebPage"
+      ],
+      "schema_richness": [
+        {
+          "@type": "WebPage",
+          "field_count": 2
+        }
+      ],
+      "has_speakable": false,
+      "freshness_dates": [],
+      "images_missing_alt": [],
+      "html_lang": "en",
+      "hreflang_count": 0,
+      "paywall_detected": false,
+      "paywall_evidence": null,
+      "is_accessible_for_free": null,
+      "video_objects": [],
+      "faq_howto_headings": []
+    }
+  ],
+  "site_schema_types": [
+    "WebPage"
+  ],
+  "site_has_speakable": false,
+  "site_has_faqpage": false,
+  "site_has_howto": false,
+  "site_has_video_object": false,
+  "site_inlanguage": null
+}

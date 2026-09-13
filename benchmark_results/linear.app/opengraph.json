@@ -1,0 +1,123 @@
+{
+  "site": "linear.app",
+  "base_url": "https://linear.app",
+  "probed_at": "2026-09-12T18:21:05Z",
+  "pages": [
+    {
+      "url": "https://linear.app",
+      "status": 200,
+      "og_tags": {
+        "title": "Linear \u2013 The system for product development",
+        "description": "Purpose-built for planning and building products with AI agents.",
+        "image": "https://linear.app/static/og/homepage.jpg"
+      },
+      "og_title": "Linear \u2013 The system for product development",
+      "og_description": "Purpose-built for planning and building products with AI agents.",
+      "og_type": "",
+      "og_site_name": "",
+      "og_image": "https://linear.app/static/og/homepage.jpg",
+      "og_image_validation": {
+        "present": true,
+        "url": "https://linear.app/static/og/homepage.jpg",
+        "is_absolute": true,
+        "http_status": 200,
+        "valid": true
+      },
+      "twitter_card": {
+        "card": "summary_large_image",
+        "site": "@linear",
+        "title": "Linear \u2013 The system for product development",
+        "description": "Purpose-built for planning and building products with AI agents.",
+        "creator": "@linear",
+        "image": "https://linear.app/static/og/homepage.jpg"
+      },
+      "meta_description": "Purpose-built for planning and building products with AI agents.",
+      "meta_description_quality": {
+        "present": true,
+        "text": "Purpose-built for planning and building products with AI agents.",
+        "length": 64,
+        "too_short": false,
+        "too_long": false,
+        "optimal_length": true,
+        "is_generic": false
+      },
+      "meta_author": null,
+      "canonical": "https://linear.app",
+      "markdown_alternate": {
+        "has_markdown_alternate": false,
+        "markdown_url": null
+      }
+    },
+    {
+      "url": "https://linear.app/about",
+      "status": 200,
+      "og_tags": {
+        "title": "About \u2013 Linear",
+        "description": "We\u2019re bringing magic back to software.",
+        "image": "https://linear.app/api/og/generic?title=About+Us&amp;v=3"
+      },
+      "og_title": "About \u2013 Linear",
+      "og_description": "We\u2019re bringing magic back to software.",
+      "og_type": "",
+      "og_site_name": "",
+      "og_image": "https://linear.app/api/og/generic?title=About+Us&amp;v=3",
+      "og_image_validation": {
+        "present": true,
+        "url": "https://linear.app/api/og/generic?title=About+Us&amp;v=3",
+        "is_absolute": true,
+        "http_status": 200,
+        "valid": true
+      },
+      "twitter_card": {
+        "card": "summary_large_image",
+        "site": "@linear",
+        "title": "About \u2013 Linear",
+        "description": "We\u2019re bringing magic back to software.",
+        "creator": "@linear",
+        "image": "https://linear.app/api/og/generic?title=About+Us&amp;v=3"
+      },
+      "meta_description": "We\u2019re bringing magic back to software.",
+      "meta_description_quality": {
+        "present": true,
+        "text": "We\u2019re bringing magic back to software.",
+        "length": 38,
+        "too_short": true,
+        "too_long": false,
+        "optimal_length": false,
+        "is_generic": false
+      },
+      "meta_author": null,
+      "canonical": "https://linear.app/about",
+      "markdown_alternate": {
+        "has_markdown_alternate": false,
+        "markdown_url": null
+      }
+    },
+    {
+      "url": "https://linear.app/product",
+      "status": 200,
+      "og_tags": {},
+      "og_title": "",
+      "og_description": "",
+      "og_type": "",
+      "og_site_name": "",
+      "og_image": "",
+      "og_image_validation": {
+        "present": false
+      },
+      "twitter_card": {},
+      "meta_description": null,
+      "meta_description_quality": {
+        "present": false
+      },
+      "meta_author": null,
+      "canonical": null,
+      "markdown_alternate": {
+        "has_markdown_alternate": false,
+        "markdown_url": null
+      }
+    }
+  ],
+  "duplicate_meta_descriptions": false,
+  "og_site_name_consistent": true
+}

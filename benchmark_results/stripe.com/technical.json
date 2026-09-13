@@ -1,0 +1,188 @@
+{
+  "site": "stripe.com",
+  "base_url": "https://stripe.com",
+  "probed_at": "2026-09-12T19:33:39Z",
+  "https_redirect": {
+    "http_status": 301,
+    "redirects_to_https": true,
+    "redirect_type": 301,
+    "location": "https://stripe.com/",
+    "error": null
+  },
+  "homepage_status": 200,
+  "response_time_ms": 830,
+  "error": null,
+  "meta_robots": {
+    "meta_robots": null,
+    "x_robots_tag": "",
+    "has_noindex": false,
+    "has_nosnippet": false,
+    "has_max_snippet_0": false
+  },
+  "canonical": {
+    "has_canonical": true,
+    "canonical_url": "https://stripe.com/in",
+    "is_self_referential": false,
+    "is_cross_domain": false
+  },
+  "heading_hierarchy": {
+    "total_headings": 57,
+    "h1_count": 2,
+    "heading_tree": [
+      {
+        "level": 1,
+        "text": "Financial infrastructure to grow your revenue. Accept paymen"
+      },
+      {
+        "level": 1,
+        "text": "Financial infrastructure to grow your revenue. Accept paymen"
+      },
+      {
+        "level": 2,
+        "text": "Flexible solutions for every business model."
+      },
+      {
+        "level": 3,
+        "text": "Accept and optimise payments globally \u2013 online and in person"
+      },
+      {
+        "level": 3,
+        "text": "Enable any billing model"
+      },
+      {
+        "level": 3,
+        "text": "Monetise through agentic commerce"
+      },
+      {
+        "level": 3,
+        "text": "Create a card issuing programme"
+      },
+      {
+        "level": 3,
+        "text": "Access borderless money movement with stablecoins and crypto"
+      },
+      {
+        "level": 3,
+        "text": "Embed payments in your platform"
+      },
+      {
+        "level": 2,
+        "text": "The backbone of\u00a0global commerce"
+      },
+      {
+        "level": 2,
+        "text": "Powering businesses of all sizes."
+      },
+      {
+        "level": 3,
+        "text": "Transform your enterprise with agile financial infrastructur"
+      },
+      {
+        "level": 3,
+        "text": "Hertz unifies commerce with Stripe."
+      },
+      {
+        "level": 3,
+        "text": "URBN consolidates $5 billion in online and in-store revenue "
+      },
+      {
+        "level": 3,
+        "text": "Instacart powers online grocery delivery with Stripe."
+      }
+    ],
+    "multiple_h1": true,
+    "level_skip_violations": [],
+    "has_violations": true
+  },
+  "hreflang": {
+    "hreflang_count": 89,
+    "has_x_default": false,
+    "languages_declared": [
+      "https://stripe.com/sv-fi",
+      "https://stripe.com/en-bg",
+      "https://stripe.com/it-si",
+      "https://stripe.com/fr-ca",
+      "https://stripe.com/nz",
+      "https://stripe.com/it",
+      "https://stripe.com/en-br",
+      "https://stripe.com/en-ch",
+      "https://stripe.com/en-my",
+      "https://stripe.com/en-si"
+    ],
+    "html_lang": "en-IN"
+  },
+  "page_size": {
+    "html_size_bytes": 700904,
+    "html_size_kb": 684.5
+  },
+  "broken_links": {
+    "links_checked": 15,
+    "broken_links": [],
+    "broken_count": 0
+  },
+  "anchor_text": {
+    "total_anchors": 149,
+    "generic_anchors": 4,
+    "generic_ratio": 0.03,
+    "high_generic": false,
+    "severity": "OK",
+    "examples": [
+      "Get started",
+      "Read more",
+      "Read more",
+      "Link"
+    ]
+  },
+  "lang_hreflang": {
+    "html_lang": "en-in",
+    "hreflang_langs": [],
+    "mismatch": false,
+    "note": "No hreflang tags found (no conflict, but also no multi-region targeting)"
+  },
+  "content_chunk_size": {
+    "paragraphs_checked": 22,
+    "avg_words_per_para": 56,
+    "oversized_paragraphs": 0,
+    "poor_chunking": false,
+    "severity": "OK",
+    "max_para_words": 264,
+    "recommendation": null
+  },
+  "last_modified": {
+    "last_modified": null,
+    "missing": true,
+    "days_old": null,
+    "stale": true,
+    "severity": "MEDIUM"
+  },
+  "freshness_sync": {
+    "layers_present": 0,
+    "layers_with_dates": 0,
+    "signals": {},
+    "dated_signals": [],
+    "has_contradiction": false,
+    "contradiction_gap_days": 0,
+    "has_any_freshness_signal": false,
+    "most_recent_age_days": null,
+    "content_stale": false,
+    "freshness_layers_missing": 5,
+    "severity": "CRITICAL"
+  },
+  "redirect_chain": {
+    "hop_count": 2,
+    "chain": [
+      {
+        "url": "https://stripe.com",
+        "status": 307,
+        "error": null
+      },
+      {
+        "url": "https://stripe.com/in",
+        "status": 200,
+        "error": null
+      }
+    ],
+    "has_loop": false,
+    "has_long_chain": false
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "site": "openai.com",
+  "base_url": "https://openai.com",
+  "probed_at": "2026-09-12T18:18:56Z",
+  "homepage_status": 403,
+  "response_time_ms": 173,
+  "error": null,
+  "above_fold": null,
+  "cta_found": false,
+  "ctas": [],
+  "avg_paragraph_word_count": 0,
+  "dynamic_state_signals": [],
+  "contact_info": {},
+  "hero_images_missing_alt": [],
+  "has_meta_viewport": false
+}

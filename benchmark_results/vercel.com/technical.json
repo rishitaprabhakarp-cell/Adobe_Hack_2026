@@ -1,0 +1,124 @@
+{
+  "site": "vercel.com",
+  "base_url": "https://vercel.com",
+  "probed_at": "2026-09-12T18:19:34Z",
+  "https_redirect": {
+    "http_status": 308,
+    "redirects_to_https": true,
+    "redirect_type": 308,
+    "location": "https://vercel.com/",
+    "error": null
+  },
+  "homepage_status": 200,
+  "response_time_ms": 242,
+  "error": null,
+  "meta_robots": {
+    "meta_robots": "index, max-image-preview:large",
+    "x_robots_tag": "",
+    "has_noindex": false,
+    "has_nosnippet": false,
+    "has_max_snippet_0": false
+  },
+  "canonical": {
+    "has_canonical": true,
+    "canonical_url": "https://vercel.com",
+    "is_self_referential": true,
+    "is_cross_domain": false
+  },
+  "heading_hierarchy": {
+    "total_headings": 30,
+    "h1_count": 1,
+    "heading_tree": [
+      {
+        "level": 5,
+        "text": "Agent Stack"
+      },
+      {
+        "level": 5,
+        "text": "Core Platform"
+      },
+      {
+        "level": 5,
+        "text": "Tools"
+      },
+      {
+        "level": 5,
+        "text": "Learn"
+      },
+      {
+        "level": 5,
+        "text": "Build"
+      },
+      {
+        "level": 5,
+        "text": "Explore"
+      },
+      {
+        "level": 3,
+        "text": "Agent Stack"
+      },
+      {
+        "level": 3,
+        "text": "Core Platform"
+      },
+      {
+        "level": 3,
+        "text": "Tools"
+      },
+      {
+        "level": 3,
+        "text": "Learn"
+      },
+      {
+        "level": 3,
+        "text": "Build"
+      },
+      {
+        "level": 3,
+        "text": "Explore"
+      },
+      {
+        "level": 1,
+        "text": "Agentic Infrastructure"
+      },
+      {
+        "level": 2,
+        "text": "Build agents on infrastructure that thinks like them"
+      },
+      {
+        "level": 2,
+        "text": "Ship apps that scale from zero to millions instantly"
+      }
+    ],
+    "multiple_h1": false,
+    "level_skip_violations": [],
+    "has_violations": false
+  },
+  "hreflang": {
+    "hreflang_count": 0,
+    "has_x_default": false,
+    "languages_declared": [],
+    "html_lang": "en"
+  },
+  "page_size": {
+    "html_size_bytes": 527998,
+    "html_size_kb": 515.6
+  },
+  "broken_links": {
+    "links_checked": 15,
+    "broken_links": [],
+    "broken_count": 0
+  },
+  "redirect_chain": {
+    "hop_count": 1,
+    "chain": [
+      {
+        "url": "https://vercel.com",
+        "status": 200,
+        "error": null
+      }
+    ],
+    "has_loop": false,
+    "has_long_chain": false
+  }
+}

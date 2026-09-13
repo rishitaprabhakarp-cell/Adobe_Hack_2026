@@ -1,0 +1,67 @@
+{
+  "site": "www.hubspot.com",
+  "base_url": "https://www.hubspot.com",
+  "probed_at": "2026-09-12T18:23:52Z",
+  "homepage_status": 200,
+  "homepage_error": null,
+  "brand_name": "HubSpot",
+  "brand_name_source": "page <title>",
+  "same_as_links": [],
+  "same_as_categorized": {
+    "wikidata": null,
+    "wikipedia": null,
+    "crunchbase": null,
+    "linkedin": null,
+    "twitter": null,
+    "facebook": null,
+    "other": []
+  },
+  "wikidata": {
+    "query": "HubSpot",
+    "found": true,
+    "qid": "Q5926631",
+    "label": "HubSpot",
+    "description": "American marketing software company",
+    "candidates": [
+      {
+        "qid": "Q5926631",
+        "label": "HubSpot",
+        "description": "American marketing software company",
+        "url": "//www.wikidata.org/wiki/Q5926631"
+      },
+      {
+        "qid": "Q107384321",
+        "label": "hubspot3",
+        "description": "Python library",
+        "url": "//www.wikidata.org/wiki/Q107384321"
+      },
+      {
+        "qid": "Q139300144",
+        "label": "Precision Labs AS",
+        "description": "Nordic Revenue Operations consultancy specializing in HubSpot implementation and CRM optimization for Nordic B2B companies",
+        "url": "//www.wikidata.org/wiki/Q139300144"
+      },
+      {
+        "qid": "Q140047523",
+        "label": "MAN Digital",
+        "description": "HubSpot & RevOps agency",
+        "url": "//www.wikidata.org/wiki/Q140047523"
+      }
+    ],
+    "error": null
+  },
+  "entity_collision_risk": {
+    "name": "HubSpot",
+    "risk_factors": [],
+    "high_risk": false
+  },
+  "name_variants": {
+    "homepage_title": "HubSpot | Software &amp; Tools for your Business - Homepage"
+  },
+  "name_is_consistent": true,
+  "_agent_next_steps": [
+    "web_search: \\\"HubSpot\\\" founded",
+    "web_search: \\\"HubSpot\\\" company",
+    "web_search: \\\"HubSpot\\\" www"
+  ]
+}

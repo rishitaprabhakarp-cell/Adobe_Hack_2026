@@ -1,0 +1,46 @@
+{
+  "site": "linear.app",
+  "base_url": "https://linear.app",
+  "probed_at": "2026-09-12T18:21:05Z",
+  "homepage_status": 200,
+  "response_time_ms": 816,
+  "error": null,
+  "above_fold": {
+    "text_snippet": "",
+    "word_count": 0,
+    "h1": "The product development system for teams and agentsThe product developmentsystem for teams and agentsThe product develop",
+    "has_h1": true,
+    "has_description_paragraph": false
+  },
+  "cta_found": true,
+  "ctas": [
+    "log in",
+    "sign up",
+    "learn more\u2192",
+    "download",
+    "contact us"
+  ],
+  "avg_paragraph_word_count": 55.8,
+  "long_paragraph_samples": [
+    "Backlog ENG-2085 Reduce UI flicker during autonomy... ENG-2094 Add buffering for autonomy event streams ENG-2092 Reduce startup delay caused by...",
+    "In Review ENG-2498 Replace isFullySynced with sync status #54910 iOS Oct ENG-2380 Show stale data banner while syncing #55167 Reliability..."
+  ],
+  "dynamic_state_signals": [
+    "loading",
+    "showing",
+    "reserve"
+  ],
+  "hero_images_missing_alt": [],
+  "has_meta_viewport": true,
+  "contact_info": {
+    "contact_reachable": true,
+    "contact_url": "/contact",
+    "contact_evidence": "found in HTML links",
+    "about_reachable": true,
+    "about_url": "/about",
+    "about_evidence": "found in HTML links",
+    "has_email_inline": false,
+    "has_phone_inline": true
+  },
+  "static_word_count": 1491
+}

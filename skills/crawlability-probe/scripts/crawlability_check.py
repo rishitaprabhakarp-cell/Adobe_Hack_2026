@@ -282,6 +282,52 @@ def probe_bot_enforcement(base_url, robots_info):
     return results
 
 
+def check_crawl_delay_for_citation_bots(base_url, robots_body):
+    """
+    RC4-002: Detect excessive Crawl-delay directives for AI citation bots.
+    A Crawl-delay > 10s for citation bots severely throttles freshness indexing.
+    Source: geo-optimizer-skill v4.17 crawl-delay scoring rule.
+    """
+    if not robots_body:
+        return {"checked": False}
+
+    results = []
+    current_agent = None
+    crawl_delays = {}
+
+    for line in robots_body.splitlines():
+        line = line.strip()
+        if line.lower().startswith("user-agent:"):
+            current_agent = line.split(":", 1)[1].strip()
+        elif line.lower().startswith("crawl-delay:") and current_agent:
+            try:
+                delay = float(line.split(":", 1)[1].strip())
+                # Store worst (highest) delay per agent
+                if current_agent not in crawl_delays or delay > crawl_delays[current_agent]:
+                    crawl_delays[current_agent] = delay
+            except ValueError:
+                pass
+
+    # Check citation bots and wildcard
+    for bot in CITATION_BOTS:
+        delay = crawl_delays.get(bot) or crawl_delays.get("*")
+        if delay is not None:
+            results.append({
+                "bot": bot,
+                "crawl_delay_seconds": delay,
+                "excessive": delay > 10,
+                "severity": "HIGH" if delay > 60 else "MEDIUM" if delay > 10 else "OK",
+            })
+
+    excessive = [r for r in results if r["excessive"]]
+    return {
+        "crawl_delays_found": results,
+        "excessive_delays": excessive,
+        "has_excessive_delay": len(excessive) > 0,
+        "worst_delay_seconds": max((r["crawl_delay_seconds"] for r in results), default=0),
+    }
+
+
 def check_oai_searchbot_vs_gptbot(robots_info):
     """
     Detect the #1 silent citation killer: blocking GPTBot (training) but not
@@ -356,6 +402,18 @@ def main():
 
     print("[*] Checking GPTBot vs OAI-SearchBot policy distinction...", file=sys.stderr)
     output["oai_searchbot_policy"] = check_oai_searchbot_vs_gptbot(robots)
+
+    print("[*] Checking Crawl-delay directives for citation bots...", file=sys.stderr)
+    robots_raw = robots.get("raw_snippet", "") or ""
+    # Fetch full robots body if snippet was truncated
+    try:
+        import requests as _req
+        r = _req.get(urljoin(base_url, "/robots.txt"),
+                     headers={"User-Agent": "BrandAuditBot/1.0"}, timeout=10)
+        robots_full_body = r.text if r.status_code == 200 else robots_raw
+    except Exception:
+        robots_full_body = robots_raw
+    output["crawl_delay_check"] = check_crawl_delay_for_citation_bots(base_url, robots_full_body)
 
     print(json.dumps(output, indent=2))
 

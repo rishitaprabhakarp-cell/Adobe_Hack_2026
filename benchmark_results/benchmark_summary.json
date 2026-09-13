@@ -1,0 +1,310 @@
+{
+  "generated_at": "2026-09-12T18:27:36.363301+00:00",
+  "tool": "Brand AI Readiness Audit Marketplace v2.0",
+  "sites_audited": 10,
+  "sites_scored": 0,
+  "average_score": null,
+  "in_expected_range": 0,
+  "score_accuracy_pct": 0,
+  "tier_distribution": {
+    "GEO_READY": 3,
+    "DEVELOPING": 5,
+    "NOT_GEO_READY": 2
+  },
+  "monotonicity_check_passed": false,
+  "results": [
+    {
+      "domain": "stripe.com",
+      "url": "https://stripe.com",
+      "industry": "FinTech / Payments",
+      "expected_tier": "GEO_READY",
+      "expected_range": [
+        68,
+        85
+      ],
+      "confirmed_score": null,
+      "observed_score": null,
+      "in_expected_range": false,
+      "geo_readiness": null,
+      "total_findings": null,
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0,
+      "dimension_scores": {},
+      "engine_scores": {},
+      "known_gaps": [
+        "No RSL 1.0",
+        "No llms-full.txt"
+      ],
+      "scripts_ok": 10,
+      "scripts_failed": 0,
+      "total_elapsed_s": 136.0,
+      "score_source": "none"
+    },
+    {
+      "domain": "openai.com",
+      "url": "https://openai.com",
+      "industry": "AI / Technology",
+      "expected_tier": "GEO_READY",
+      "expected_range": [
+        72,
+        90
+      ],
+      "confirmed_score": null,
+      "observed_score": null,
+      "in_expected_range": false,
+      "geo_readiness": null,
+      "total_findings": null,
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0,
+      "dimension_scores": {},
+      "engine_scores": {},
+      "known_gaps": [
+        "Possible nosnippet on some pages"
+      ],
+      "scripts_ok": 10,
+      "scripts_failed": 0,
+      "total_elapsed_s": 76.1,
+      "score_source": "none"
+    },
+    {
+      "domain": "anthropic.com",
+      "url": "https://anthropic.com",
+      "industry": "AI / Research",
+      "expected_tier": "GEO_READY",
+      "expected_range": [
+        65,
+        82
+      ],
+      "confirmed_score": null,
+      "observed_score": null,
+      "in_expected_range": false,
+      "geo_readiness": null,
+      "total_findings": null,
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0,
+      "dimension_scores": {},
+      "engine_scores": {},
+      "known_gaps": [
+        "Possible thin schema on blog pages"
+      ],
+      "scripts_ok": 10,
+      "scripts_failed": 0,
+      "total_elapsed_s": 75.9,
+      "score_source": "none"
+    },
+    {
+      "domain": "vercel.com",
+      "url": "https://vercel.com",
+      "industry": "Developer Tools / Cloud",
+      "expected_tier": "DEVELOPING",
+      "expected_range": [
+        52,
+        70
+      ],
+      "confirmed_score": null,
+      "observed_score": null,
+      "in_expected_range": false,
+      "geo_readiness": null,
+      "total_findings": null,
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0,
+      "dimension_scores": {},
+      "engine_scores": {},
+      "known_gaps": [
+        "Thin review platform presence",
+        "No RSS feed"
+      ],
+      "scripts_ok": 9,
+      "scripts_failed": 1,
+      "total_elapsed_s": 171.9,
+      "score_source": "none"
+    },
+    {
+      "domain": "linear.app",
+      "url": "https://linear.app",
+      "industry": "Project Management SaaS",
+      "expected_tier": "DEVELOPING",
+      "expected_range": [
+        50,
+        68
+      ],
+      "confirmed_score": null,
+      "observed_score": null,
+      "in_expected_range": false,
+      "geo_readiness": null,
+      "total_findings": null,
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0,
+      "dimension_scores": {},
+      "engine_scores": {},
+      "known_gaps": [
+        "Limited review platform links",
+        "No author bylines"
+      ],
+      "scripts_ok": 9,
+      "scripts_failed": 1,
+      "total_elapsed_s": 183.5,
+      "score_source": "none"
+    },
+    {
+      "domain": "adobe.com",
+      "url": "https://www.adobe.com",
+      "industry": "Creative Software / Enterprise",
+      "expected_tier": "NOT_GEO_READY",
+      "expected_range": [
+        40,
+        55
+      ],
+      "confirmed_score": 48,
+      "observed_score": null,
+      "in_expected_range": false,
+      "geo_readiness": null,
+      "total_findings": null,
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0,
+      "dimension_scores": {},
+      "engine_scores": {},
+      "known_gaps": [
+        "No OpenGraph tags (CRITICAL)",
+        "No RSL 1.0",
+        "No AI discovery endpoints",
+        "No answer capsules"
+      ],
+      "scripts_ok": 10,
+      "scripts_failed": 0,
+      "total_elapsed_s": 192.5,
+      "score_source": "none"
+    },
+    {
+      "domain": "hubspot.com",
+      "url": "https://www.hubspot.com",
+      "industry": "Marketing / CRM SaaS",
+      "expected_tier": "DEVELOPING",
+      "expected_range": [
+        45,
+        65
+      ],
+      "confirmed_score": null,
+      "observed_score": null,
+      "in_expected_range": false,
+      "geo_readiness": null,
+      "total_findings": null,
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0,
+      "dimension_scores": {},
+      "engine_scores": {},
+      "known_gaps": [
+        "Likely missing RSL/llms.txt",
+        "JS-heavy pages"
+      ],
+      "scripts_ok": 10,
+      "scripts_failed": 0,
+      "total_elapsed_s": 110.6,
+      "score_source": "none"
+    },
+    {
+      "domain": "shopify.com",
+      "url": "https://www.shopify.com",
+      "industry": "eCommerce Platform",
+      "expected_tier": "DEVELOPING",
+      "expected_range": [
+        48,
+        65
+      ],
+      "confirmed_score": null,
+      "observed_score": null,
+      "in_expected_range": false,
+      "geo_readiness": null,
+      "total_findings": null,
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0,
+      "dimension_scores": {},
+      "engine_scores": {},
+      "known_gaps": [
+        "Likely no llms.txt",
+        "Variable schema quality across sections"
+      ],
+      "scripts_ok": 9,
+      "scripts_failed": 1,
+      "total_elapsed_s": 146.8,
+      "score_source": "none"
+    },
+    {
+      "domain": "craigslist.org",
+      "url": "https://www.craigslist.org",
+      "industry": "Classifieds / Marketplace",
+      "expected_tier": "NOT_GEO_READY",
+      "expected_range": [
+        10,
+        30
+      ],
+      "confirmed_score": null,
+      "observed_score": null,
+      "in_expected_range": false,
+      "geo_readiness": null,
+      "total_findings": null,
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0,
+      "dimension_scores": {},
+      "engine_scores": {},
+      "known_gaps": [
+        "No JSON-LD",
+        "No llms.txt",
+        "No OG tags",
+        "No AI discovery endpoints"
+      ],
+      "scripts_ok": 10,
+      "scripts_failed": 0,
+      "total_elapsed_s": 271.0,
+      "score_source": "none"
+    },
+    {
+      "domain": "supabase.com",
+      "url": "https://supabase.com",
+      "industry": "Developer Tools / Database",
+      "expected_tier": "DEVELOPING",
+      "expected_range": [
+        50,
+        68
+      ],
+      "confirmed_score": null,
+      "observed_score": null,
+      "in_expected_range": false,
+      "geo_readiness": null,
+      "total_findings": null,
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0,
+      "dimension_scores": {},
+      "engine_scores": {},
+      "known_gaps": [
+        "Possible thin E-E-A-T",
+        "No RSL 1.0"
+      ],
+      "scripts_ok": 10,
+      "scripts_failed": 0,
+      "total_elapsed_s": 81.6,
+      "score_source": "none"
+    }
+  ],
+  "total_wall_time_s": 553.2
+}

@@ -1,0 +1,131 @@
+{
+  "site": "www.hubspot.com",
+  "base_url": "https://www.hubspot.com",
+  "probed_at": "2026-09-12T18:23:52Z",
+  "https_redirect": {
+    "http_status": 301,
+    "redirects_to_https": true,
+    "redirect_type": 301,
+    "location": "https://www.hubspot.com/",
+    "error": null
+  },
+  "homepage_status": 200,
+  "response_time_ms": 1382,
+  "error": null,
+  "meta_robots": {
+    "meta_robots": null,
+    "x_robots_tag": "",
+    "has_noindex": false,
+    "has_nosnippet": false,
+    "has_max_snippet_0": false
+  },
+  "canonical": {
+    "has_canonical": true,
+    "canonical_url": "https://www.hubspot.com",
+    "is_self_referential": true,
+    "is_cross_domain": false
+  },
+  "heading_hierarchy": {
+    "total_headings": 108,
+    "h1_count": 1,
+    "heading_tree": [
+      {
+        "level": 2,
+        "text": "The HubSpot Customer Platform"
+      },
+      {
+        "level": 3,
+        "text": "Marketing Hub"
+      },
+      {
+        "level": 3,
+        "text": "Sales Hub"
+      },
+      {
+        "level": 3,
+        "text": "Service Hub"
+      },
+      {
+        "level": 3,
+        "text": "Content Hub"
+      },
+      {
+        "level": 3,
+        "text": "Data Hub"
+      },
+      {
+        "level": 3,
+        "text": "Revenue Hub"
+      },
+      {
+        "level": 3,
+        "text": "Smart CRM"
+      },
+      {
+        "level": 3,
+        "text": "Agent Hub"
+      },
+      {
+        "level": 3,
+        "text": "Small Business Bundle"
+      },
+      {
+        "level": 3,
+        "text": "AEO (Beta)"
+      },
+      {
+        "level": 3,
+        "text": "HubSpot Marketplace"
+      },
+      {
+        "level": 2,
+        "text": "Marketing"
+      },
+      {
+        "level": 3,
+        "text": "Generate leads"
+      },
+      {
+        "level": 3,
+        "text": "Automate marketing"
+      }
+    ],
+    "multiple_h1": false,
+    "level_skip_violations": [],
+    "has_violations": false
+  },
+  "hreflang": {
+    "hreflang_count": 7,
+    "has_x_default": false,
+    "languages_declared": [
+      "https://www.hubspot.jp",
+      "https://www.hubspot.es",
+      "https://www.hubspot.fr",
+      "https://www.hubspot.com",
+      "https://br.hubspot.com",
+      "https://www.hubspot.de"
+    ],
+    "html_lang": "en"
+  },
+  "page_size": {
+    "html_size_bytes": 642500,
+    "html_size_kb": 627.4
+  },
+  "broken_links": {
+    "links_checked": 15,
+    "broken_links": [],
+    "broken_count": 0
+  },
+  "redirect_chain": {
+    "hop_count": 1,
+    "chain": [
+      {
+        "url": "https://www.hubspot.com",
+        "status": 200,
+        "error": null
+      }
+    ],
+    "has_loop": false,
+    "has_long_chain": false
+  }
+}

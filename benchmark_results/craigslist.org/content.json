@@ -1,0 +1,72 @@
+{
+  "site": "www.craigslist.org",
+  "base_url": "https://www.craigslist.org",
+  "probed_at": "2026-09-12T18:26:00Z",
+  "pages": [
+    {
+      "url": "https://www.craigslist.org",
+      "path": "/",
+      "above_fold": {
+        "first_80_words": "CL bangalore post account favorites hidden CL bangalore ... new posting my account bangalore craigslist in post an ad event calendar 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 help, faq, abuse, legal avoid scams fraud personal safety tips about craigslist best-of-craigslist what's new system status craigslist charitable craig newmark philanthropies community activities artists childcare classes events general groups local news lost+found missed connections musicians pets politics",
+        "word_count": 498,
+        "has_direct_claim": true,
+        "has_unresolved_pronouns": false
+      },
+      "headings": {
+        "total_h2_h3_count": 9,
+        "question_format_count": 0,
+        "question_format_ratio": 0.0,
+        "sample_question_headings": []
+      },
+      "statistics": {
+        "total_statistics": 0,
+        "with_citation": 0,
+        "without_citation": 0,
+        "citation_ratio": 0,
+        "examples_cited": [],
+        "examples_uncited": []
+      },
+      "paragraphs": {
+        "total_paragraphs": 2,
+        "avg_words": 16.5,
+        "max_words": 17,
+        "violation_count": 0,
+        "violation_ratio": 0.0,
+        "violations": []
+      },
+      "faq": {
+        "has_faq_heading": false,
+        "estimated_qa_pairs": 7,
+        "has_faq_section": true
+      },
+      "key_takeaways": {
+        "has_key_takeaways": false,
+        "patterns_found": []
+      },
+      "hedge_words": {
+        "total_sentences": 5,
+        "hedge_sentence_count": 0,
+        "hedge_ratio": 0.0,
+        "sample_hedge_sentences": []
+      },
+      "date_markers": {
+        "has_date_marker": false,
+        "markers_found": []
+      },
+      "ai_cliches": {
+        "cliche_count": 0,
+        "high_cliche_density": false,
+        "examples": []
+      },
+      "answer_capsules": {
+        "sections_analyzed": 5,
+        "answer_capsules_found": 1,
+        "capsule_ratio": 0.2,
+        "meets_threshold": false,
+        "examples": [
+          "discussion forums apple arts atheist autos beauty bikes celebs comp cosmos diet..."
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,309 @@
+{
+  "site": "anthropic.com",
+  "base_url": "https://anthropic.com",
+  "probed_at": "2026-09-12T18:19:14Z",
+  "robots_txt": {
+    "url": "https://anthropic.com/robots.txt",
+    "status": 200,
+    "error": null,
+    "sitemap_declared": [
+      "https://www.anthropic.com/sitemap.xml"
+    ],
+    "bots": {
+      "GPTBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "ChatGPT-User": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "OAI-SearchBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "ClaudeBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "Claude-Web": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "anthropic-ai": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "PerplexityBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "Perplexity-User": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "Gemini-Web": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "Google-Extended": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "BingBot-AI": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "YouBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "CCBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "Applebot-Extended": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "Amazonbot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "DuckAssistBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "FacebookBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "cohere-ai": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "AI2Bot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "Bytespider": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "PetalBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "SemrushBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "AhrefsBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "DataForSeoBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "MJ12bot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "ia_archiver": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      }
+    },
+    "raw_snippet": "User-Agent: *\nAllow: /\n\nSitemap: https://www.anthropic.com/sitemap.xml\n"
+  },
+  "llms_txt": {
+    "url": "https://anthropic.com/llms.txt",
+    "status": 404,
+    "content_type": "text/html; charset=utf-8",
+    "error": null,
+    "redirect_chain": [
+      "https://anthropic.com/llms.txt"
+    ],
+    "redirect_count": 1,
+    "starts_with_hash": false,
+    "word_count": 425,
+    "first_100_chars": "<!DOCTYPE html><html id=\"__next_error__\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=",
+    "first_200_bytes_has_html": true
+  },
+  "sitemap": [
+    {
+      "url": "https://www.anthropic.com/sitemap.xml",
+      "status": 200,
+      "error": null,
+      "lastmod_count": 531,
+      "lastmod_dates": [
+        "2026-09-09T13:22:55.000Z",
+        "2026-09-12T18:16:36.808Z",
+        "2026-03-23T17:15:18.000Z",
+        "2026-08-25T15:23:20.000Z",
+        "2026-09-12T18:16:36.808Z"
+      ]
+    }
+  ],
+  "feeds": [
+    {
+      "url": "https://anthropic.com/feed",
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "looks_like_feed": false
+    },
+    {
+      "url": "https://anthropic.com/rss.xml",
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "looks_like_feed": false
+    },
+    {
+      "url": "https://anthropic.com/atom.xml",
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "looks_like_feed": false
+    },
+    {
+      "url": "https://anthropic.com/feed.xml",
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "looks_like_feed": false
+    },
+    {
+      "url": "https://anthropic.com/feeds/posts/default",
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "looks_like_feed": false
+    }
+  ],
+  "ai_endpoints": [
+    {
+      "url": "https://anthropic.com/.well-known/ai.txt",
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "error": null
+    },
+    {
+      "url": "https://anthropic.com/ai/summary.json",
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "error": null
+    }
+  ],
+  "bot_enforcement": [
+    {
+      "bot": "GPTBot",
+      "robots_txt_blocked": false,
+      "actual_status": 200,
+      "actual_word_count": 12396,
+      "browser_baseline_words": 12396,
+      "cdn_waf_blocked": true,
+      "js_dependent": false,
+      "content_ratio_vs_browser": 1.0,
+      "effective_block": true,
+      "error": null
+    },
+    {
+      "bot": "ChatGPT-User",
+      "robots_txt_blocked": false,
+      "actual_status": 200,
+      "actual_word_count": 12396,
+      "browser_baseline_words": 12396,
+      "cdn_waf_blocked": true,
+      "js_dependent": false,
+      "content_ratio_vs_browser": 1.0,
+      "effective_block": true,
+      "error": null
+    },
+    {
+      "bot": "OAI-SearchBot",
+      "robots_txt_blocked": false,
+      "actual_status": 200,
+      "actual_word_count": 12396,
+      "browser_baseline_words": 12396,
+      "cdn_waf_blocked": true,
+      "js_dependent": false,
+      "content_ratio_vs_browser": 1.0,
+      "effective_block": true,
+      "error": null
+    },
+    {
+      "bot": "ClaudeBot",
+      "robots_txt_blocked": false,
+      "actual_status": 200,
+      "actual_word_count": 12396,
+      "browser_baseline_words": 12396,
+      "cdn_waf_blocked": true,
+      "js_dependent": false,
+      "content_ratio_vs_browser": 1.0,
+      "effective_block": true,
+      "error": null
+    },
+    {
+      "bot": "Claude-Web",
+      "robots_txt_blocked": false,
+      "actual_status": 200,
+      "actual_word_count": 12396,
+      "browser_baseline_words": 12396,
+      "cdn_waf_blocked": true,
+      "js_dependent": false,
+      "content_ratio_vs_browser": 1.0,
+      "effective_block": true,
+      "error": null
+    },
+    {
+      "bot": "anthropic-ai",
+      "robots_txt_blocked": false,
+      "actual_status": 200,
+      "actual_word_count": 12396,
+      "browser_baseline_words": 12396,
+      "cdn_waf_blocked": true,
+      "js_dependent": false,
+      "content_ratio_vs_browser": 1.0,
+      "effective_block": true,
+      "error": null
+    }
+  ],
+  "oai_searchbot_policy": {
+    "gptbot_blocked": false,
+    "oai_searchbot_blocked": false,
+    "chatgpt_user_blocked": false,
+    "training_blocked_citation_allowed": false,
+    "both_blocked": false,
+    "both_allowed": true,
+    "policy_note": "OPEN: both allowed (acceptable)"
+  }
+}

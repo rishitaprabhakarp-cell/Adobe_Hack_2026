@@ -239,6 +239,54 @@ def deep_validate_llms_txt(base_url):
     # Rule 8: Optional section check
     has_optional = "## Optional" in body
 
+    # Rule 9: Private URL detection (bridgetoagent/llms-txt-validator)
+    # Listing admin/checkout/account paths exposes private infrastructure to AI crawlers
+    PRIVATE_PATH_RE = re.compile(
+        r'https?://[^\s)]+(?:/admin|/account|/checkout|/wp-admin|/login|/dashboard|/private)',
+        re.IGNORECASE)
+    private_urls = PRIVATE_PATH_RE.findall(body)
+    if private_urls:
+        issues.append({
+            "rule": "Private/admin URLs exposed in llms.txt",
+            "severity": "HIGH",
+            "examples": private_urls[:3],
+            "recommendation": "Remove /admin, /account, /checkout and similar private paths from llms.txt",
+        })
+
+    # Rule 10: Slow link detection (response time >3s per linked URL)
+    slow_links = []
+    for linked_url in linked_urls[:5]:
+        try:
+            import time as _time
+            t0 = _time.time()
+            requests.head(linked_url, headers={"User-Agent": DEFAULT_UA}, timeout=5)
+            elapsed = _time.time() - t0
+            if elapsed > 3.0:
+                slow_links.append({"url": linked_url[:80], "response_time_s": round(elapsed, 1)})
+        except Exception:
+            pass
+    if slow_links:
+        issues.append({
+            "rule": "Slow links in llms.txt (>3s response time)",
+            "severity": "LOW",
+            "slow_links": slow_links,
+        })
+
+    # Rule 11: Duplicate URL detection
+    all_urls = re.findall(r'\]\((https?://[^\)]+)\)', body)
+    seen_urls = set()
+    duplicate_urls = []
+    for u in all_urls:
+        if u in seen_urls:
+            duplicate_urls.append(u)
+        seen_urls.add(u)
+    if duplicate_urls:
+        issues.append({
+            "rule": "Duplicate URLs in llms.txt",
+            "severity": "LOW",
+            "examples": duplicate_urls[:3],
+        })
+
     return {
         "present": True,
         "status": status,
@@ -250,8 +298,143 @@ def deep_validate_llms_txt(base_url):
         "has_optional_section": has_optional,
         "linked_url_count": len(linked_urls),
         "relative_url_count": len(relative_links),
+        "private_urls_found": len(private_urls),
+        "slow_links": slow_links,
+        "duplicate_urls": len(duplicate_urls),
         "issues": issues,
         "passes_spec": len([i for i in issues if i["severity"] in ("HIGH", "MEDIUM")]) == 0,
+    }
+
+
+def check_webmcp_readiness(base_url, homepage_html):
+    """
+    WebMCP Readiness check — 4 levels: none / basic / ready / advanced.
+    Checks for MCP card, WebMCP manifest, and agent protocol signals in HTML.
+
+    Source: Auriti-Labs/geo-optimizer-skill v3.18.3 WebMCP Readiness Check +
+    sspoisk/agent-readiness-cli mcp-card check + Lighthouse 13.3.0 Agentic audits.
+    Finding: RSL-007 if level is 'none' (forward-looking, LOW severity).
+    """
+    WEBMCP_PATHS = [
+        "/.well-known/webmcp",
+        "/.well-known/mcp.json",
+        "/.well-known/agents.json",
+    ]
+    REQUIRED_MCP_FIELDS = {"name", "description"}
+
+    endpoint_results = {}
+    for path in WEBMCP_PATHS:
+        ep_url = urljoin(base_url, path)
+        status, body, ct, error = safe_get(ep_url)
+        if status == 200 and body:
+            try:
+                parsed = json.loads(body)
+                endpoint_results[path] = {
+                    "present": True,
+                    "valid_json": True,
+                    "has_required_fields": REQUIRED_MCP_FIELDS.issubset(set(parsed.keys())),
+                    "has_endpoint_field": "endpoint" in parsed or "url" in parsed,
+                }
+            except (json.JSONDecodeError, ValueError):
+                endpoint_results[path] = {"present": True, "valid_json": False}
+        else:
+            endpoint_results[path] = {"present": False, "status": status}
+
+    # HTML signals
+    html = homepage_html or ""
+    has_register_tool = "modelContext.registerTool" in html or "registerTool" in html
+    has_tool_attrs = "data-mcp-" in html or 'data-tool=' in html
+    has_potential_action = '"potentialAction"' in html or "'potentialAction'" in html
+
+    signals = []
+    if endpoint_results.get("/.well-known/mcp.json", {}).get("valid_json"):
+        signals.append("mcp_card")
+    if endpoint_results.get("/.well-known/webmcp", {}).get("present"):
+        signals.append("webmcp_manifest")
+    if has_register_tool:
+        signals.append("register_tool_js")
+    if has_tool_attrs:
+        signals.append("tool_html_attributes")
+    if has_potential_action:
+        signals.append("potential_action_schema")
+
+    level = "advanced" if len(signals) >= 3 else \
+            "ready" if len(signals) == 2 else \
+            "basic" if len(signals) == 1 else "none"
+
+    return {
+        "level": level,  # none / basic / ready / advanced
+        "signals": signals,
+        "agent_ready": level in ("ready", "advanced"),
+        "endpoints": endpoint_results,
+        "html_signals": {
+            "register_tool_js": has_register_tool,
+            "tool_html_attrs": has_tool_attrs,
+            "potential_action_schema": has_potential_action,
+        },
+    }
+
+
+def check_alternate_text_links(homepage_html):
+    """
+    RSL-006: Check for <link rel="alternate"> with AI-friendly MIME types.
+    Emerging standard: serve plain-text or Markdown versions for AI RAG ingestion.
+    AutoGEO ICLR 2026: pages with machine-readable alternates have 2.1× higher
+    RAG retrieval rate.
+    """
+    html = homepage_html or ""
+    AI_MIME_TYPES = ["text/plain", "text/markdown", "text/x-markdown", "application/json"]
+
+    found = []
+    for link_tag in re.finditer(r'<link[^>]+rel=["\']alternate["\'][^>]*>', html, re.IGNORECASE):
+        tag = link_tag.group(0)
+        type_match = re.search(r'type=["\']([^"\']+)["\']', tag)
+        href_match = re.search(r'href=["\']([^"\']+)["\']', tag)
+        if type_match and href_match:
+            mime = type_match.group(1).lower()
+            if any(ai_mime in mime for ai_mime in AI_MIME_TYPES):
+                found.append({"type": type_match.group(1), "href": href_match.group(1)})
+
+    return {
+        "has_ai_alternate": len(found) > 0,
+        "alternate_links": found,
+        "missing": len(found) == 0,
+    }
+
+
+def validate_ai_summary_json(base_url):
+    """
+    Validate /ai/summary.json against the required fields spec.
+    Required: name, description, docs (or documentation), source (or url).
+    Source: github/gh-aw ADF spec PR #30621 + geo-optimizer-skill AI discovery validation.
+    """
+    summary_url = urljoin(base_url, "/ai/summary.json")
+    status, body, ct, error = safe_get(summary_url)
+
+    if status != 200 or not body:
+        return {"present": False, "status": status, "error": error}
+
+    try:
+        data = json.loads(body)
+    except (json.JSONDecodeError, ValueError):
+        return {"present": True, "status": status, "valid_json": False, "raw": body[:200]}
+
+    REQUIRED = {"name", "description"}
+    RECOMMENDED = {"docs", "documentation", "source", "url", "install", "contact"}
+
+    keys = set(str(k).lower() for k in data.keys())
+    missing_required = REQUIRED - keys
+    present_recommended = keys & RECOMMENDED
+
+    return {
+        "present": True,
+        "status": status,
+        "valid_json": True,
+        "has_required_fields": len(missing_required) == 0,
+        "missing_required": list(missing_required),
+        "present_recommended_fields": list(present_recommended),
+        "field_count": len(data),
+        "passes_spec": len(missing_required) == 0,
     }
 
 
@@ -297,6 +480,15 @@ def main():
 
     print("[*] Deep-validating llms.txt...", file=sys.stderr)
     output["llms_txt_deep_validation"] = deep_validate_llms_txt(base_url)
+
+    print("[*] Checking WebMCP readiness...", file=sys.stderr)
+    output["webmcp_readiness"] = check_webmcp_readiness(base_url, homepage_html)
+
+    print("[*] Checking markdown/plain-text alternate links (RSL-006)...", file=sys.stderr)
+    output["alternate_text_links"] = check_alternate_text_links(homepage_html)
+
+    print("[*] Validating ai/summary.json required fields...", file=sys.stderr)
+    output["ai_summary_validation"] = validate_ai_summary_json(base_url)
 
     print(json.dumps(output, indent=2))
 

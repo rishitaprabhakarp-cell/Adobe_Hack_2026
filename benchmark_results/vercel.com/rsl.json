@@ -1,0 +1,164 @@
+{
+  "site": "vercel.com",
+  "base_url": "https://vercel.com",
+  "probed_at": "2026-09-12T18:19:34Z",
+  "rsl_declaration": {
+    "html_rsl_link": null,
+    "well_known_rsl_status": 404,
+    "well_known_rsl_content": null,
+    "has_rsl": false
+  },
+  "llms_full_txt": {
+    "url": "https://vercel.com/llms-full.txt",
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "word_count": 124602,
+    "present": true,
+    "error": null
+  },
+  "ai_discovery_endpoints": [
+    {
+      "path": "/.well-known/ai.txt",
+      "url": "https://vercel.com/.well-known/ai.txt",
+      "status": 404,
+      "content_type": "text/plain;charset=UTF-8",
+      "error": null,
+      "present": false
+    },
+    {
+      "path": "/.well-known/ai.json",
+      "url": "https://vercel.com/.well-known/ai.json",
+      "status": 404,
+      "content_type": "text/plain;charset=UTF-8",
+      "error": null,
+      "present": false
+    },
+    {
+      "path": "/.well-known/rsl.json",
+      "url": "https://vercel.com/.well-known/rsl.json",
+      "status": 404,
+      "content_type": "text/plain;charset=UTF-8",
+      "error": null,
+      "present": false
+    },
+    {
+      "path": "/ai/summary.json",
+      "url": "https://vercel.com/ai/summary.json",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "present": true,
+      "snippet": "<!DOCTYPE html><html data-dpl-id=\"dpl_GPtUbvGrw93ULvT34oYBSKcLxJAc\" class=\"VEU71W_className fTT4la_className VEU71W_variable fTT4la_variable dash\" lang=\"en-US\"><head><meta charSet=\"utf-8\"/><meta name="
+    },
+    {
+      "path": "/ai/faq.json",
+      "url": "https://vercel.com/ai/faq.json",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "present": true,
+      "snippet": "<!DOCTYPE html><html data-dpl-id=\"dpl_GPtUbvGrw93ULvT34oYBSKcLxJAc\" class=\"VEU71W_className fTT4la_className VEU71W_variable fTT4la_variable dash\" lang=\"en-US\"><head><meta charSet=\"utf-8\"/><meta name="
+    },
+    {
+      "path": "/ai/service.json",
+      "url": "https://vercel.com/ai/service.json",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "present": true,
+      "snippet": "<!DOCTYPE html><html data-dpl-id=\"dpl_GPtUbvGrw93ULvT34oYBSKcLxJAc\" class=\"VEU71W_className fTT4la_className VEU71W_variable fTT4la_variable dash\" lang=\"en-US\"><head><meta charSet=\"utf-8\"/><meta name="
+    },
+    {
+      "path": "/ai/manifest.json",
+      "url": "https://vercel.com/ai/manifest.json",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "present": true,
+      "snippet": "<!DOCTYPE html><html data-dpl-id=\"dpl_GPtUbvGrw93ULvT34oYBSKcLxJAc\" class=\"VEU71W_className fTT4la_className VEU71W_variable fTT4la_variable dash\" lang=\"en-US\"><head><meta charSet=\"utf-8\"/><meta name="
+    },
+    {
+      "path": "/brand.txt",
+      "url": "https://vercel.com/brand.txt",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "present": true,
+      "snippet": "<!DOCTYPE html><html data-dpl-id=\"dpl_GPtUbvGrw93ULvT34oYBSKcLxJAc\" class=\"VEU71W_className fTT4la_className VEU71W_variable fTT4la_variable dash\" lang=\"en-US\"><head><meta charSet=\"utf-8\"/><meta name="
+    },
+    {
+      "path": "/identity.json",
+      "url": "https://vercel.com/identity.json",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "present": true,
+      "snippet": "<!DOCTYPE html><html data-dpl-id=\"dpl_GPtUbvGrw93ULvT34oYBSKcLxJAc\" class=\"VEU71W_className fTT4la_className VEU71W_variable fTT4la_variable dash\" lang=\"en-US\"><head><meta charSet=\"utf-8\"/><meta name="
+    },
+    {
+      "path": "/faq-ai.txt",
+      "url": "https://vercel.com/faq-ai.txt",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "present": true,
+      "snippet": "<!DOCTYPE html><html data-dpl-id=\"dpl_GPtUbvGrw93ULvT34oYBSKcLxJAc\" class=\"VEU71W_className fTT4la_className VEU71W_variable fTT4la_variable dash\" lang=\"en-US\"><head><meta charSet=\"utf-8\"/><meta name="
+    },
+    {
+      "path": "/ai.json",
+      "url": "https://vercel.com/ai.json",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "present": true,
+      "snippet": "<!DOCTYPE html><html data-dpl-id=\"dpl_GPtUbvGrw93ULvT34oYBSKcLxJAc\" class=\"VEU71W_className fTT4la_className VEU71W_variable fTT4la_variable dash\" lang=\"en-US\"><head><meta charSet=\"utf-8\"/><meta name="
+    },
+    {
+      "path": "/.well-known/brand.json",
+      "url": "https://vercel.com/.well-known/brand.json",
+      "status": 404,
+      "content_type": "text/plain;charset=UTF-8",
+      "error": null,
+      "present": false
+    },
+    {
+      "path": "/.well-known/llms-context.txt",
+      "url": "https://vercel.com/.well-known/llms-context.txt",
+      "status": 404,
+      "content_type": "text/plain;charset=UTF-8",
+      "error": null,
+      "present": false
+    }
+  ],
+  "ai_discovery_endpoint_count": 8,
+  "indexnow": {
+    "indexnow_in_html": false,
+    "indexnow_in_robots": false,
+    "indexnow_key_found": null,
+    "has_indexnow": false
+  },
+  "llms_txt_deep_validation": {
+    "present": true,
+    "status": 200,
+    "content_type": "text/plain; charset=utf-8",
+    "file_size_bytes": 4721,
+    "has_h1": true,
+    "h1_text": "Vercel",
+    "has_blockquote": true,
+    "has_optional_section": true,
+    "linked_url_count": 24,
+    "relative_url_count": 0,
+    "issues": [
+      {
+        "rule": "H2 section items without absolute markdown links",
+        "severity": "MEDIUM",
+        "examples": [
+          "- Deploy and scale web applications, APIs, and AI workloads from a Git repositor",
+          "- Automate projects, deployments, domains, and account resources through the Ver",
+          "- Connect an authenticated AI assistant to Vercel projects, deployments, logs, a"
+        ]
+      }
+    ],
+    "passes_spec": false
+  }
+}

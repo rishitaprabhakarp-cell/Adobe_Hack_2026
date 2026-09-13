@@ -1,0 +1,43 @@
+{
+  "site": "www.craigslist.org",
+  "base_url": "https://www.craigslist.org",
+  "probed_at": "2026-09-12T18:25:59Z",
+  "homepage_status": 200,
+  "homepage_error": null,
+  "brand_name": "bangalore Craigslist",
+  "brand_name_source": "WebSite JSON-LD",
+  "same_as_links": [],
+  "same_as_categorized": {
+    "wikidata": null,
+    "wikipedia": null,
+    "crunchbase": null,
+    "linkedin": null,
+    "twitter": null,
+    "facebook": null,
+    "other": []
+  },
+  "wikidata": {
+    "query": "bangalore Craigslist",
+    "found": false,
+    "qid": null,
+    "label": null,
+    "description": null,
+    "candidates": [],
+    "error": null
+  },
+  "entity_collision_risk": {
+    "name": "bangalore Craigslist",
+    "risk_factors": [],
+    "high_risk": false
+  },
+  "name_variants": {
+    "homepage_og_site_name": "craigslist",
+    "homepage_title": "craigslist: bangalore jobs, apartments, for sale, services, community, and event"
+  },
+  "name_is_consistent": false,
+  "_agent_next_steps": [
+    "web_search: \\\"bangalore Craigslist\\\" founded",
+    "web_search: \\\"bangalore Craigslist\\\" company",
+    "web_search: \\\"bangalore Craigslist\\\" www"
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "site": "www.adobe.com",
+  "base_url": "https://www.adobe.com",
+  "probed_at": "2026-09-12T18:22:35Z",
+  "pages": [
+    {
+      "path": "/",
+      "url": "https://www.adobe.com",
+      "status": 200,
+      "error": null,
+      "jsonld_blocks": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebSite",
+              "@id": "https://www.adobe.com/#website",
+              "url": "https://www.adobe.com",
+              "name": "Adobe",
+              "publisher": {
+                "@type": "Organization",
+                "@id": "https://www.adobe.com/#organization"
+              }
+            },
+            {
+              "@type": [
+                "Organization",
+                "Corporation"
+              ],
+              "@id": "https://www.adobe.com/#organization",
+              "name": "Adobe",
+              "legalName": "Adobe Inc.",
+              "url": "https://www.adobe.com",
+              "tickerSymbol": "NASDAQ:ADBE",
+              "logo": {
+                "@type": "ImageObject",
+                "@id": "https://www.adobe.com/#logo",
+                "url": "https://www.adobe.com/content/dam/cc/icons/adobe_wordmark_red.svg",
+                "caption": "Adobe Corporate Logo"
+              },
+              "sameAs": [
+                "https://en.wikipedia.org/wiki/Adobe_Inc.",
+                "https://www.wikidata.org/wiki/Q11463",
+                "https://www.linkedin.com/company/adobe",
+                "https://www.google.com/finance/quote/ADBE:NASDAQ",
+                "https://www.youtube.com/user/AdobeSystems",
+                "https://www.instagram.com/adobe/"
+              ],
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "345 Park Avenue",
+                "addressLocality": "San Jose",
+                "addressRegion": "CA",
+                "postalCode": "95110",
+                "addressCountry": "US"
+              }
+            }
+          ]
+        }
+      ],
+      "schema_types": [],
+      "schema_richness": [
+        {
+          "@type": "unknown",
+          "field_count": 1
+        }
+      ],
+      "has_speakable": false,
+      "freshness_dates": [],
+      "images_missing_alt": [
+        "./media_15d0c67d468c6ab860bd67d3af2d0998c15f45bbc.webp?width=750&#x26;format=web",
+        "./media_180a8327664c8013005414b32d539cb95ce16ef7a.webp?width=750&#x26;format=web",
+        "./media_13dac5079e7f5c35eb785e3e282b020d3859f4c5a.webp?width=750&#x26;format=web",
+        "./media_117290bb35cebd4038b07dd09d84f6b7bb026c5e9.webp?width=750&#x26;format=web",
+        "./media_1690113d62812c36efb9ae3f8ddbb15bbb7a3b242.webp?width=750&#x26;format=web",
+        "./media_172052cb5b8572f330e80da31f57777f7252dc36a.jpg?width=750&#x26;format=jpg&"
+      ],
+      "html_lang": null,
+      "hreflang_count": 30,
+      "paywall_detected": false,
+      "paywall_evidence": null,
+      "is_accessible_for_free": null,
+      "video_objects": [],
+      "faq_howto_headings": []
+    },
+    {
+      "path": "/product",
+      "url": "https://www.adobe.com/product",
+      "status": 404,
+      "error": null,
+      "jsonld_blocks": [],
+      "schema_types": [],
+      "schema_richness": [],
+      "has_speakable": false,
+      "freshness_dates": [],
+      "images_missing_alt": [],
+      "html_lang": null,
+      "hreflang_count": 0,
+      "paywall_detected": false,
+      "paywall_evidence": null,
+      "is_accessible_for_free": null,
+      "video_objects": [],
+      "faq_howto_headings": []
+    },
+    {
+      "path": "/about",
+      "url": "https://www.adobe.com/about",
+      "status": 404,
+      "error": null,
+      "jsonld_blocks": [],
+      "schema_types": [],
+      "schema_richness": [],
+      "has_speakable": false,
+      "freshness_dates": [],
+      "images_missing_alt": [],
+      "html_lang": null,
+      "hreflang_count": 0,
+      "paywall_detected": false,
+      "paywall_evidence": null,
+      "is_accessible_for_free": null,
+      "video_objects": [],
+      "faq_howto_headings": []
+    },
+    {
+      "path": "/pricing",
+      "url": "https://www.adobe.com/pricing",
+      "status": 404,
+      "error": null,
+      "jsonld_blocks": [],
+      "schema_types": [],
+      "schema_richness": [],
+      "has_speakable": false,
+      "freshness_dates": [],
+      "images_missing_alt": [],
+      "html_lang": null,
+      "hreflang_count": 0,
+      "paywall_detected": false,
+      "paywall_evidence": null,
+      "is_accessible_for_free": null,
+      "video_objects": [],
+      "faq_howto_headings": []
+    }
+  ],
+  "site_schema_types": [],
+  "site_has_speakable": false,
+  "site_has_faqpage": false,
+  "site_has_howto": false,
+  "site_has_video_object": false,
+  "site_inlanguage": null
+}

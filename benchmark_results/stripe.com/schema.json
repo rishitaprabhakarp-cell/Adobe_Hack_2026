@@ -1,0 +1,531 @@
+{
+  "site": "stripe.com",
+  "base_url": "https://stripe.com",
+  "probed_at": "2026-09-12T19:39:34Z",
+  "pages": [
+    {
+      "path": "/",
+      "url": "https://stripe.com",
+      "status": 200,
+      "error": null,
+      "jsonld_blocks": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebSite",
+              "url": "https://stripe.com/",
+              "name": "Stripe"
+            },
+            {
+              "@type": "Organization",
+              "@id": "https://stripe.com/#organization",
+              "url": "https://stripe.com/",
+              "name": "Stripe",
+              "legalName": "Stripe, LLC",
+              "founders": [
+                {
+                  "@type": "Person",
+                  "name": "Patrick Collison"
+                },
+                {
+                  "@type": "Person",
+                  "name": "John Collison"
+                }
+              ],
+              "description": "Stripe powers online and in-person payment processing and financial solutions for businesses of all sizes.",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://images.stripeassets.com/fzn2n1nzq965/1hgcBNd12BfT9VLgbId7By/01d91920114b124fb4cf6d448f9f06eb/favicon.svg"
+              },
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "customer support",
+                "url": "https://support.stripe.com/",
+                "availableLanguage": [
+                  "en",
+                  "es",
+                  "fr",
+                  "ja",
+                  "de"
+                ]
+              },
+              "sameAs": [
+                "https://twitter.com/stripe",
+                "https://youtube.com/@stripe",
+                "https://youtube.com/@StripeDev",
+                "https://www.linkedin.com/company/stripe/",
+                "https://www.facebook.com/StripeHQ",
+                "https://en.wikipedia.org/wiki/Stripe,_Inc.",
+                "https://www.crunchbase.com/organization/stripe",
+                "https://github.com/stripe",
+                "https://www.instagram.com/stripehq/",
+                "https://www.bloomberg.com/profile/company/0170016D:US",
+                "https://finance.yahoo.com/quote/STRI.PVT/",
+                "https://www.wikidata.org/wiki/Q7624104"
+              ],
+              "location": [
+                {
+                  "@type": "Place",
+                  "name": "Stripe Singapore",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "60 Anson Road #05-01",
+                    "addressLocality": "Singapore",
+                    "postalCode": "079914",
+                    "addressCountry": "SG"
+                  }
+                },
+                {
+                  "@type": "Place",
+                  "name": "Stripe Seattle",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "920 5th Avenue, Suite 1900",
+                    "addressLocality": "Seattle",
+                    "addressRegion": "WA",
+                    "postalCode": "98104",
+                    "addressCountry": "US"
+                  }
+                },
+                {
+                  "@type": "Place",
+                  "name": "Stripe London",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "201 Bishopsgate, 5th Floor",
+                    "addressLocality": "London",
+                    "postalCode": "EC2M 3AB",
+                    "addressCountry": "GB"
+                  }
+                },
+                {
+                  "@type": "Place",
+                  "name": "Stripe Chicago",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "350 N. Orleans, Suite 5000S",
+                    "addressLocality": "Chicago",
+                    "addressRegion": "IL",
+                    "postalCode": "60654",
+                    "addressCountry": "US"
+                  }
+                },
+                {
+                  "@type": "Place",
+                  "name": "Stripe New York",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "28 Liberty Street, 48th floor",
+                    "addressLocality": "New York",
+                    "addressRegion": "NY",
+                    "postalCode": "10005",
+                    "addressCountry": "US"
+                  }
+                },
+                {
+                  "@type": "Place",
+                  "name": "Stripe South San Francisco",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "354 Oyster Point Blvd",
+                    "addressLocality": "South San Francisco",
+                    "addressRegion": "CA",
+                    "postalCode": "94080",
+                    "addressCountry": "US"
+                  }
+                },
+                {
+                  "@type": "Place",
+                  "name": "Stripe Dublin",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "1 Wilton Park, Wilton Place, Grand Canal Street Lower",
+                    "addressLocality": "Dublin 2",
+                    "postalCode": "D02 FX04",
+                    "addressCountry": "IE"
+                  }
+                },
+                {
+                  "@type": "Place",
+                  "name": "Stripe S\u00e3o Paulo",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Alameda Rio Claro 241, Floor 15",
+                    "addressLocality": "S\u00e3o Paulo",
+                    "addressRegion": "SP",
+                    "postalCode": "01332-010",
+                    "addressCountry": "BR"
+                  }
+                },
+                {
+                  "@type": "Place",
+                  "name": "Stripe Melbourne",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "530 Collins Street, L14 TNCY 1, Podium",
+                    "addressLocality": "Melbourne",
+                    "addressRegion": "VIC",
+                    "postalCode": "3000",
+                    "addressCountry": "AU"
+                  }
+                },
+                {
+                  "@type": "Place",
+                  "name": "Stripe Sydney",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Level 18, 383 Kent Street",
+                    "addressLocality": "Sydney",
+                    "addressRegion": "NSW",
+                    "postalCode": "2000",
+                    "addressCountry": "AU"
+                  }
+                },
+                {
+                  "@type": "Place",
+                  "name": "Stripe Tokyo",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Jingumae Tower Building 22F, 1-5-8 Jingumae",
+                    "addressLocality": "Shibuya-ku",
+                    "addressRegion": "Tokyo",
+                    "postalCode": "150-0001",
+                    "addressCountry": "JP"
+                  }
+                },
+                {
+                  "@type": "Place",
+                  "name": "Stripe Toronto Office",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "1 University Avenue, 10th Floor",
+                    "addressLocality": "Toronto",
+                    "addressRegion": "ON",
+                    "postalCode": "M5J 2P1",
+                    "addressCountry": "CA"
+                  }
+                },
+                {
+                  "@type": "Place",
+                  "name": "Stripe Romania",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Str Sergent Ion Nutu, nr 44, The One Cotroceni, Cladirea C, etaj11",
+                    "addressLocality": "Bucuresti",
+                    "addressRegion": "B",
+                    "postalCode": "050762",
+                    "addressCountry": "RO"
+                  }
+                },
+                {
+                  "@type": "Place",
+                  "name": "Stripe Technology India Private Limited",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Prestige Tech Pacific Park, 10th Floor, Building 2",
+                    "addressLocality": "Bangalore",
+                    "addressRegion": "Karnataka",
+                    "postalCode": "560103",
+                    "addressCountry": "IN"
+                  }
+                },
+                {
+                  "@type": "Place",
+                  "name": "Stripe Deutschland GmbH",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "c/o WeWork, Haus 2, Floor 1, Stresemannstra\u00dfe 123",
+                    "addressLocality": "Berlin",
+                    "addressRegion": "Berlin",
+                    "postalCode": "10963",
+                    "addressCountry": "DE"
+                  }
+                },
+                {
+                  "@type": "Place",
+                  "name": "Stripe Atlanta",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "505 N Angier Ave NE, Suite 3000",
+                    "addressLocality": "Atlanta",
+                    "addressRegion": "GA",
+                    "postalCode": "30308",
+                    "addressCountry": "US"
+                  }
+                },
+                {
+                  "@type": "Place",
+                  "name": "Stripe Mexico",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Reforma 180, Piso 29, Colonia Ju\u00e1rez",
+                    "addressLocality": "Ciudad de M\u00e9xico",
+                    "addressRegion": "CDMX",
+                    "postalCode": "06600",
+                    "addressCountry": "MX"
+                  }
+                },
+                {
+                  "@type": "Place",
+                  "name": "Stripe Washington D.C.",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "600 14th Street NW, Convene 5th floor, Worksuite 509",
+                    "addressLocality": "Washington",
+                    "addressRegion": "D.C.",
+                    "postalCode": "20005",
+                    "addressCountry": "US"
+                  }
+                },
+                {
+                  "@type": "Place",
+                  "name": "Stripe Amsterdam",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Fred. Roeskestraat 100",
+                    "addressLocality": "Amsterdam",
+                    "addressRegion": "Noord-Holland",
+                    "postalCode": "1076 EE",
+                    "addressCountry": "NL"
+                  }
+                },
+                {
+                  "@type": "Place",
+                  "name": "Stripe Dubai",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Dubai Internet City, Building no. 16, Office 338-341",
+                    "addressLocality": "Al Falak street",
+                    "addressRegion": "Dubai",
+                    "addressCountry": "UAE"
+                  }
+                },
+                {
+                  "@type": "Place",
+                  "name": "Stripe France SARL",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "10 Boulevard Haussmann, 2nd Floor",
+                    "addressLocality": "Paris",
+                    "addressRegion": "\u00cele-de-France",
+                    "postalCode": "75009",
+                    "addressCountry": "FR"
+                  }
+                },
+                {
+                  "@type": "Place",
+                  "name": "Stripe Madrid",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "P.\u00ba de la Castellana, 43",
+                    "addressLocality": "Madrid",
+                    "addressRegion": "Madrid",
+                    "postalCode": "28046",
+                    "addressCountry": "ES"
+                  }
+                },
+                {
+                  "@type": "Place",
+                  "name": "Stripe Thailand",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "88, The Parq Building, Ratchadaphisek Road",
+                    "addressLocality": "Klongtoey",
+                    "addressRegion": "Bangkok",
+                    "postalCode": "10110",
+                    "addressCountry": "TH"
+                  }
+                },
+                {
+                  "@type": "Place",
+                  "name": "Stripe Indonesia",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Equity Tower, 49th floor, Suite# 1230, Jl Jenderal Sudirman, Kavling 52-53",
+                    "addressLocality": "Jakarta",
+                    "addressRegion": "DKI Jakarta",
+                    "postalCode": "12190",
+                    "addressCountry": "ID"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "schema_types": [],
+      "schema_richness": [
+        {
+          "@type": "unknown",
+          "field_count": 1
+        }
+      ],
+      "has_speakable": false,
+      "freshness_dates": [],
+      "images_missing_alt": [
+        "https://images.stripeassets.com/fzn2n1nzq965/115d4Vd5LVAsqFGDR1ClAv/0ceb2c44a7a7",
+        "https://images.stripeassets.com/fzn2n1nzq965/vYmk6v8n7oDAwbDpwhjV6/846f9b3e21454",
+        "https://images.stripeassets.com/fzn2n1nzq965/m9HBEK464p46FeNIhs2PV/f5054a93c8a0a",
+        "https://images.stripeassets.com/fzn2n1nzq965/3NcSrMqMgaKe75QNr8wZI8/46d520dfc48c",
+        "https://images.stripeassets.com/fzn2n1nzq965/43eqkFV1GG5GqcbNNeEzVp/8f4705b1b80a",
+        "https://images.stripeassets.com/fzn2n1nzq965/2YFdgdFPeIiDpmQbhHPAx8/186752498bf7",
+        "https://images.stripeassets.com/fzn2n1nzq965/52qeQQDMQNJ3CmnFPjHbTi/1a3a3acd4f02",
+        "https://images.stripeassets.com/fzn2n1nzq965/63zO5Z4CABvFl3pLLhnu3l/a9c12c883f82",
+        "https://images.stripeassets.com/fzn2n1nzq965/1CBkJePR5Cwf2QNIVCia1I/c0a702cec7a3",
+        "https://images.stripeassets.com/fzn2n1nzq965/2QjRFO1cRvocACDtyA7g9e/44245671788d"
+      ],
+      "html_lang": "en-IN",
+      "hreflang_count": 89,
+      "paywall_detected": false,
+      "paywall_evidence": null,
+      "is_accessible_for_free": null,
+      "video_objects": [],
+      "faq_howto_headings": []
+    },
+    {
+      "path": "/product",
+      "url": "https://stripe.com/product",
+      "status": 404,
+      "error": null,
+      "jsonld_blocks": [],
+      "schema_types": [],
+      "schema_richness": [],
+      "has_speakable": false,
+      "freshness_dates": [],
+      "images_missing_alt": [],
+      "html_lang": null,
+      "hreflang_count": 0,
+      "paywall_detected": false,
+      "paywall_evidence": null,
+      "is_accessible_for_free": null,
+      "video_objects": [],
+      "faq_howto_headings": []
+    },
+    {
+      "path": "/about",
+      "url": "https://stripe.com/about",
+      "status": 200,
+      "error": null,
+      "jsonld_blocks": [],
+      "schema_types": [],
+      "schema_richness": [],
+      "has_speakable": false,
+      "freshness_dates": [],
+      "images_missing_alt": [
+        "https://images.stripeassets.com/fzn2n1nzq965/4ypTSIGvCg1arpn5n6bpQ/729bd4aa1e425",
+        "https://images.stripeassets.com/fzn2n1nzq965/4fvmNDAF6Wkf13cWSr3CX8/0c548935a56c",
+        "https://images.stripeassets.com/fzn2n1nzq965/1DnCXAMCo86A1KvepKkzmc/75cb71698382",
+        "https://images.stripeassets.com/fzn2n1nzq965/28UZrzDBft01Rub4HGCTm5/c962903f68d1",
+        "https://images.stripeassets.com/fzn2n1nzq965/50TIm75ZJejeKBinHWSHuD/558947fade44",
+        "https://images.stripeassets.com/fzn2n1nzq965/4vXE53YYSX3ysklfb0hVRv/6d27ddeb413c",
+        "https://images.stripeassets.com/fzn2n1nzq965/4HY3fJzV3P6MNlhFr3VAhY/9fcff0f82712",
+        "https://images.stripeassets.com/fzn2n1nzq965/3PSPzVsgYC85L6Q63Rjink/89bd7c8533d6",
+        "https://images.stripeassets.com/fzn2n1nzq965/5HKoXIRHSZWlfoAWBhEiOp/fe3ba7b2fa85",
+        "https://images.stripeassets.com/fzn2n1nzq965/Si5CM5QEs3ahhIphtQ745/591f6dd11059d"
+      ],
+      "html_lang": "en-IN",
+      "hreflang_count": 89,
+      "paywall_detected": false,
+      "paywall_evidence": null,
+      "is_accessible_for_free": null,
+      "video_objects": [],
+      "faq_howto_headings": []
+    },
+    {
+      "path": "/pricing",
+      "url": "https://stripe.com/pricing",
+      "status": 200,
+      "error": null,
+      "jsonld_blocks": [
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "url": "https://stripe.com/in/pricing",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How are payment fees calculated?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Stripe charges a per-transaction fee depending on the payment method used by the end customer. More details on fees by payment method."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Will I be charged tax?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Stripe is required to charge tax on certain products and services. Tax is charged based on your location and/ or your business/tax status, which determines whether a product or service is subject to taxes, and the applicable tax rates.\n\nRead more"
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Are there additional fees for refunds?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "- For businesses on standard pricing: There may be fees for refunds when bank transfers are used. For all other payment methods, there are no fees for issuing refunds. The payment processing, Connect and currency conversion fees from the original transaction are not returned.\n- For businesses on custom pricing: There may be fees for issuing refunds depending on your fee schedule with Stripe."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you have setup fees or monthly fees?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Stripe does not charge setup fees, monthly fees, or any other hidden fees like closure fees. All fees for businesses on standard pricing are listed on our website."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you offer any discounts?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Stripe offers custom pricing for businesses with large processing volumes. Eligibility varies by market."
+              }
+            }
+          ]
+        }
+      ],
+      "schema_types": [
+        "FAQPage"
+      ],
+      "schema_richness": [
+        {
+          "@type": "FAQPage",
+          "field_count": 2
+        }
+      ],
+      "has_speakable": false,
+      "freshness_dates": [],
+      "images_missing_alt": [
+        "",
+        "",
+        "https://images.stripeassets.com/fzn2n1nzq965/1ctgMwd2p9euFW9pPSM7jR/451d5e987ca7",
+        "https://images.stripeassets.com/fzn2n1nzq965/4zeFefnpB8yh7U3qSQRktP/d583ee93dd3d",
+        "https://images.stripeassets.com/fzn2n1nzq965/5DaqGgXeMbxSIqQj9WSqSF/8142c0c6e15b",
+        "https://images.stripeassets.com/fzn2n1nzq965/4jq1Wguyus7CA7yc2kxMgn/cf7b01aadf30",
+        "https://images.stripeassets.com/fzn2n1nzq965/7szA8TJHWKDIEuCbu6Yblm/4548db61648d",
+        "https://images.stripeassets.com/fzn2n1nzq965/5F0uhf7cRg9vhR6NmgWzzI/664e14ddebb9",
+        "https://images.stripeassets.com/fzn2n1nzq965/6c56LuWUxcACbVkv4fqszI/d0a88e48d11a",
+        "https://images.stripeassets.com/fzn2n1nzq965/7jjWJlm9NHgLI7SV98B0Dg/ea1ae753f376"
+      ],
+      "html_lang": "en-IN",
+      "hreflang_count": 89,
+      "paywall_detected": false,
+      "paywall_evidence": null,
+      "is_accessible_for_free": null,
+      "video_objects": [],
+      "faq_howto_headings": [
+        "faqs"
+      ]
+    }
+  ],
+  "site_schema_types": [
+    "FAQPage"
+  ],
+  "site_has_speakable": false,
+  "site_has_faqpage": true,
+  "site_has_howto": false,
+  "site_has_video_object": false,
+  "site_inlanguage": null
+}

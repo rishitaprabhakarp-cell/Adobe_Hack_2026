@@ -105,6 +105,133 @@
     "Gemini": 48,
     "Bing Copilot": 45
   },
+  "projected_score": {
+    "projected_overall": 62,
+    "projected_geo_readiness": "Developing",
+    "current_overall": 48,
+    "score_lift": 14,
+    "fixes_required": 5,
+    "note": "Fixing 5 CRITICAL/HIGH findings would raise your score from 48 to 62 (+14 pts)",
+    "projected_engine_scores": {
+      "ChatGPT": 64,
+      "Perplexity": 60,
+      "Google AI Overviews": 62,
+      "Gemini": 62,
+      "Bing Copilot": 60
+    }
+  },
+  "geo_score": {
+    "overall": 48,
+    "threshold": 70,
+    "geo_ready": false,
+    "dimension_scores": {
+      "d1_crawlability": 33,
+      "d2_content_extractability": 31,
+      "d3_entity_clarity": 88,
+      "d4_schema_integrity": 64,
+      "d5_off-page_authority": 32,
+      "d6_technical_foundation": 27
+    },
+    "per_engine_scores": {
+      "chatgpt": 52,
+      "perplexity": 45,
+      "google_ai_overviews": 48,
+      "gemini": 48,
+      "bing_copilot": 45
+    },
+    "action_roadmap": [
+      {
+        "priority": 1,
+        "dimension": "Technical Foundation",
+        "finding_id": "OG-001",
+        "action": "Add og:title, og:description, og:image, og:type to every page template.",
+        "effort": "low",
+        "severity": "CRITICAL",
+        "estimated_score_lift": "+15 overall"
+      },
+      {
+        "priority": 2,
+        "dimension": "Technical Foundation",
+        "finding_id": "IMG-001",
+        "action": "Add descriptive alt text to all images. Alt text is an AI-indexable content signal.",
+        "effort": "low",
+        "severity": "MEDIUM",
+        "estimated_score_lift": "+3 overall"
+      },
+      {
+        "priority": 3,
+        "dimension": "Content Extractability",
+        "finding_id": "CEA-004",
+        "action": "Add source links or parenthetical citations to every statistic.",
+        "effort": "low",
+        "severity": "HIGH",
+        "estimated_score_lift": "+8 overall"
+      },
+      {
+        "priority": 4,
+        "dimension": "Content Extractability",
+        "finding_id": "CEA-003",
+        "action": "Rewrite key H2 headings as questions to improve FAQ schema eligibility and AI direct-answer targeting.",
+        "effort": "low",
+        "severity": "MEDIUM",
+        "estimated_score_lift": "+3 overall"
+      },
+      {
+        "priority": 5,
+        "dimension": "Content Extractability",
+        "finding_id": "CEA-005",
+        "action": "Add FAQ section + FAQPage schema.",
+        "effort": "medium",
+        "severity": "MEDIUM",
+        "estimated_score_lift": "+3 overall"
+      },
+      {
+        "priority": 6,
+        "dimension": "Content Extractability",
+        "finding_id": "CEA-008",
+        "action": "Add 'Last updated: [Month Year]' visible text. Freshness is top Perplexity ranking signal.",
+        "effort": "low",
+        "severity": "MEDIUM",
+        "estimated_score_lift": "+3 overall"
+      },
+      {
+        "priority": 7,
+        "dimension": "Content Extractability",
+        "finding_id": "CEA-009",
+        "action": "Add a direct 40\u201360 word answer paragraph immediately after each major H2/H3 heading.",
+        "effort": "medium",
+        "severity": "MEDIUM",
+        "estimated_score_lift": "+3 overall"
+      },
+      {
+        "priority": 8,
+        "dimension": "Off-Page Authority",
+        "finding_id": "EEAT-001",
+        "action": "Add named author bylines + Person schema to blog and editorial content.",
+        "effort": "medium",
+        "severity": "HIGH",
+        "estimated_score_lift": "+8 overall"
+      },
+      {
+        "priority": 9,
+        "dimension": "Off-Page Authority",
+        "finding_id": "EEAT-002",
+        "action": "Add G2/Trustpilot badges. SE Ranking 2026: review links \u2192 3\u00d7 citation probability.",
+        "effort": "low",
+        "severity": "MEDIUM",
+        "estimated_score_lift": "+3 overall"
+      },
+      {
+        "priority": 10,
+        "dimension": "Off-Page Authority",
+        "finding_id": "EEAT-003",
+        "action": "Add visible social links in footer HTML matching the sameAs JSON-LD values.",
+        "effort": "low",
+        "severity": "MEDIUM",
+        "estimated_score_lift": "+3 overall"
+      }
+    ]
+  },
   "findings": [
     {
       "id": "OG-001",

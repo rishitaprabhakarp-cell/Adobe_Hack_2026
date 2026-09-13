@@ -1,0 +1,41 @@
+{
+  "site": "www.shopify.com",
+  "base_url": "https://www.shopify.com",
+  "probed_at": "2026-09-12T18:24:29Z",
+  "homepage_status": 200,
+  "response_time_ms": 355,
+  "error": null,
+  "above_fold": {
+    "text_snippet": "Be the next AI all-star Be the next store they line up for AI all-star household name solo-preneur category creator global empire store they line up for big thing Dream big and build fast on Shopify. The world\u2019s best commerce platform. Start for free",
+    "word_count": 44,
+    "h1": "Be the nextAI all-star",
+    "has_h1": true,
+    "has_description_paragraph": true
+  },
+  "cta_found": true,
+  "ctas": [
+    "log in",
+    "get started fastyou could be selling by tomorrow."
+  ],
+  "avg_paragraph_word_count": 17.7,
+  "long_paragraph_samples": [],
+  "dynamic_state_signals": [
+    "loading",
+    "showing"
+  ],
+  "hero_images_missing_alt": [
+    "https://cdn.shopify.com/b/shopify-brochure2-assets/7ecd57f2fa3d7b997d29181a62c95"
+  ],
+  "has_meta_viewport": true,
+  "contact_info": {
+    "contact_reachable": true,
+    "contact_url": "https://www.shopify.com/contact",
+    "contact_evidence": "HTTP 200",
+    "about_reachable": true,
+    "about_url": "https://www.shopify.com/about",
+    "about_evidence": "HTTP 200",
+    "has_email_inline": true,
+    "has_phone_inline": true
+  },
+  "static_word_count": 1122
+}

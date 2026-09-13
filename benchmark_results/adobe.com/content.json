@@ -1,0 +1,81 @@
+{
+  "site": "www.adobe.com",
+  "base_url": "https://www.adobe.com",
+  "probed_at": "2026-09-12T18:22:35Z",
+  "pages": [
+    {
+      "url": "https://www.adobe.com",
+      "path": "/",
+      "above_fold": {
+        "first_80_words": "Adobe homepage mobile Creative Cloud Create at the highest level. Photoshop, Illustrator, Premiere, and much more. Work with the tools behind the world's most iconic creative content. https://main--upp--adobecom.aem.page/homepage/fragments/loggedout/redesign/default/en-lingo/marquee-sub-copy/cc-pro/default Free trial https://main--federal--adobecom.aem.page/federal/assets/svgs/creative-cloud.svg Creativity and design Firefly All the best models, all in one place. Generate and edit images, video, audio, and designs using top AI models from Adobe, Google, OpenAI, and more. https://main--upp--adobecom.aem.page/homepage/fragments/loggedout/row-custom-pods/regular-pods/ff-date-ext-192863 Create with Firefly https://main--federal--adobecom.aem.page/federal/assets/svgs/firefly-appicon-256.svg Content creation Acrobat Get work done. Faster. Create, edit, share and sign documents with",
+        "word_count": 607,
+        "has_direct_claim": true,
+        "has_unresolved_pronouns": false
+      },
+      "headings": {
+        "total_h2_h3_count": 104,
+        "question_format_count": 4,
+        "question_format_ratio": 0.04,
+        "sample_question_headings": [
+          "do it all in less time.",
+          "do it all in less time.",
+          "how adobe transformed its email marketing.",
+          "how adobe transformed its email marketing."
+        ]
+      },
+      "statistics": {
+        "total_statistics": 3,
+        "with_citation": 0,
+        "without_citation": 3,
+        "citation_ratio": 0.0,
+        "examples_cited": [],
+        "examples_uncited": [
+          "See all products background style spacing-4xl-top, parallax-garage-door-reveal images 3x https://main--upp--adobecom",
+          "It starts with Adobe It starts with Adobe Adobe for Business Adobe for Business Students and teachers save 71%",
+          "Students and teachers save 71%"
+        ]
+      },
+      "paragraphs": {
+        "total_paragraphs": 7,
+        "avg_words": 16.4,
+        "max_words": 24,
+        "violation_count": 0,
+        "violation_ratio": 0.0,
+        "violations": []
+      },
+      "faq": {
+        "has_faq_heading": false,
+        "estimated_qa_pairs": 0,
+        "has_faq_section": false
+      },
+      "key_takeaways": {
+        "has_key_takeaways": false,
+        "patterns_found": []
+      },
+      "hedge_words": {
+        "total_sentences": 44,
+        "hedge_sentence_count": 0,
+        "hedge_ratio": 0.0,
+        "sample_hedge_sentences": []
+      },
+      "date_markers": {
+        "has_date_marker": false,
+        "markers_found": []
+      },
+      "ai_cliches": {
+        "cliche_count": 0,
+        "high_cliche_density": false,
+        "examples": []
+      },
+      "answer_capsules": {
+        "sections_analyzed": 5,
+        "answer_capsules_found": 1,
+        "capsule_ratio": 0.2,
+        "meets_threshold": false,
+        "examples": [
+          "Students and teachers save {{percentage-discount-ste}}. Save big on industry-standard tools with {{cc-pro}}...."
+        ]
+      }
+    }
+  ]
+}

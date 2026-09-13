@@ -1,0 +1,126 @@
+{
+  "site": "linear.app",
+  "base_url": "https://linear.app",
+  "probed_at": "2026-09-12T18:21:05Z",
+  "https_redirect": {
+    "http_status": 301,
+    "redirects_to_https": true,
+    "redirect_type": 301,
+    "location": "https://linear.app/",
+    "error": null
+  },
+  "homepage_status": 200,
+  "response_time_ms": 2189,
+  "error": null,
+  "meta_robots": {
+    "meta_robots": null,
+    "x_robots_tag": "",
+    "has_noindex": false,
+    "has_nosnippet": false,
+    "has_max_snippet_0": false
+  },
+  "canonical": {
+    "has_canonical": true,
+    "canonical_url": "https://linear.app",
+    "is_self_referential": true,
+    "is_cross_domain": false
+  },
+  "heading_hierarchy": {
+    "total_headings": 16,
+    "h1_count": 1,
+    "heading_tree": [
+      {
+        "level": 1,
+        "text": "The product development system for teams and agentsThe produ"
+      },
+      {
+        "level": 3,
+        "text": "Faster app launch"
+      },
+      {
+        "level": 4,
+        "text": "Activity"
+      },
+      {
+        "level": 2,
+        "text": "A new species of product tool. Purpose-built for modern team"
+      },
+      {
+        "level": 2,
+        "text": "Intakeand integrations"
+      },
+      {
+        "level": 2,
+        "text": "Planningand monitoring"
+      },
+      {
+        "level": 2,
+        "text": "AI andautomations"
+      },
+      {
+        "level": 2,
+        "text": "Build, review,and ship"
+      },
+      {
+        "level": 2,
+        "text": "Changelog"
+      },
+      {
+        "level": 2,
+        "text": "Built for the future. Available today."
+      },
+      {
+        "level": 3,
+        "text": "Product"
+      },
+      {
+        "level": 3,
+        "text": "Features"
+      },
+      {
+        "level": 3,
+        "text": "Company"
+      },
+      {
+        "level": 3,
+        "text": "Resources"
+      },
+      {
+        "level": 3,
+        "text": "Connect"
+      }
+    ],
+    "multiple_h1": false,
+    "level_skip_violations": [
+      "H1 \u2192 H3 (skipped)"
+    ],
+    "has_violations": true
+  },
+  "hreflang": {
+    "hreflang_count": 0,
+    "has_x_default": false,
+    "languages_declared": [],
+    "html_lang": "en"
+  },
+  "page_size": {
+    "html_size_bytes": 1271348,
+    "html_size_kb": 1241.6
+  },
+  "broken_links": {
+    "links_checked": 15,
+    "broken_links": [],
+    "broken_count": 0
+  },
+  "redirect_chain": {
+    "hop_count": 1,
+    "chain": [
+      {
+        "url": "https://linear.app",
+        "status": 200,
+        "error": null
+      }
+    ],
+    "has_loop": false,
+    "has_long_chain": false
+  }
+}

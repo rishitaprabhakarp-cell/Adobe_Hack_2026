@@ -1,0 +1,443 @@
+{
+  "site": "www.hubspot.com",
+  "base_url": "https://www.hubspot.com",
+  "probed_at": "2026-09-12T18:23:52Z",
+  "pages": [
+    {
+      "path": "/",
+      "url": "https://www.hubspot.com",
+      "status": 200,
+      "error": null,
+      "jsonld_blocks": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Organization",
+              "@id": "https://www.hubspot.com/#organization",
+              "name": "HubSpot",
+              "url": "https://www.hubspot.com",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.hubspot.com/hubfs/HubSpot_Logos/HSLogo_color.svg"
+              },
+              "description": "HubSpot is an AI-powered customer platform with software for marketing, sales, customer service, content management, operations, and commerce.",
+              "foundingDate": "2006",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "2 Canal Park",
+                "addressLocality": "Cambridge",
+                "addressRegion": "MA",
+                "postalCode": "02141",
+                "addressCountry": "US"
+              },
+              "sameAs": [
+                "https://www.wikidata.org/wiki/Q5926631",
+                "https://en.wikipedia.org/wiki/HubSpot",
+                "https://www.linkedin.com/company/hubspot",
+                "https://x.com/HubSpot",
+                "https://www.instagram.com/hubspot/",
+                "https://www.facebook.com/hubspot/",
+                "https://www.tiktok.com/@HubSpot"
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://www.hubspot.com/#website",
+              "url": "https://www.hubspot.com/",
+              "name": "HubSpot",
+              "inLanguage": "en",
+              "publisher": {
+                "@id": "https://www.hubspot.com/#organization"
+              }
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://www.hubspot.com/#homepage",
+              "url": "https://www.hubspot.com/",
+              "name": "HubSpot | Software & Tools for your Business",
+              "inLanguage": "en",
+              "isPartOf": {
+                "@id": "https://www.hubspot.com/#website"
+              },
+              "about": {
+                "@id": "https://www.hubspot.com/#organization"
+              },
+              "primaryImageOfPage": {
+                "@type": "ImageObject",
+                "url": "https://www.hubspot.com/hubfs/HubSpot_Logos/HSLogo_color.svg"
+              }
+            },
+            {
+              "@type": "Product",
+              "@id": "https://www.hubspot.com/#platform",
+              "name": "HubSpot Customer Platform",
+              "description": "HubSpot is an AI-powered customer platform with software for marketing, sales, customer service, content management, operations, and commerce. It connects your data, teams, and customers on one AI-powered platform that grows with your business. HubSpot Credits are an account/portal-level usage currency shared across the platform; included credits are based on your highest subscription tier, reset monthly, and are not additive across Hubs.",
+              "image": "https://www.hubspot.com/hubfs/HubSpot_Logos/HSLogo_color.svg",
+              "url": "https://www.hubspot.com/",
+              "brand": {
+                "@type": "Brand",
+                "name": "HubSpot"
+              },
+              "featureList": [
+                "Marketing automation software",
+                "Sales automation",
+                "AI-powered help desk",
+                "Content management",
+                "Data sync and management",
+                "Commerce and billing",
+                "Smart CRM",
+                "Breeze AI agents",
+                "Reporting dashboards",
+                "Answer engine optimization"
+              ],
+              "additionalProperty": [
+                {
+                  "@type": "PropertyValue",
+                  "name": "Deployment",
+                  "value": "Cloud / SaaS"
+                },
+                {
+                  "@type": "PropertyValue",
+                  "name": "Platform",
+                  "value": "Web-based"
+                },
+                {
+                  "@type": "PropertyValue",
+                  "name": "HubSpot Credits model",
+                  "value": "HubSpot Credits are an account/portal-level usage currency (1 credit = $0.01). Paid editions include a monthly credit allowance based on the account's highest subscription tier; credits reset monthly and are not additive across Hubs. Additional credits can be purchased as credit packs."
+                },
+                {
+                  "@type": "PropertyValue",
+                  "name": "Included credits \u2014 Customer Platform Starter",
+                  "value": "500 credits/month (portal-level; not additive across Hubs)"
+                },
+                {
+                  "@type": "PropertyValue",
+                  "name": "Included credits \u2014 Customer Platform Professional",
+                  "value": "5000 credits/month (portal-level; not additive across Hubs)"
+                },
+                {
+                  "@type": "PropertyValue",
+                  "name": "Included credits \u2014 Customer Platform Enterprise",
+                  "value": "10000 credits/month (portal-level; not additive across Hubs)"
+                }
+              ],
+              "hasPart": [
+                {
+                  "@id": "https://www.hubspot.com/products/marketing#product"
+                },
+                {
+                  "@id": "https://www.hubspot.com/products/sales#product"
+                },
+                {
+                  "@id": "https://www.hubspot.com/products/service#product"
+                },
+                {
+                  "@id": "https://www.hubspot.com/products/content#product"
+                },
+                {
+                  "@id": "https://www.hubspot.com/products/operations#product"
+                },
+                {
+                  "@id": "https://www.hubspot.com/products/revenue#product"
+                },
+                {
+                  "@id": "https://www.hubspot.com/products/crm#product"
+                }
+              ],
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.5",
+                "ratingCount": "4462",
+                "bestRating": "5",
+                "worstRating": "1"
+              }
+            }
+          ]
+        }
+      ],
+      "schema_types": [],
+      "schema_richness": [
+        {
+          "@type": "unknown",
+          "field_count": 1
+        }
+      ],
+      "has_speakable": false,
+      "freshness_dates": [],
+      "images_missing_alt": [
+        "https://www.hubspot.com/hubfs/HS_Full_Bleed_1_optmised.webp",
+        "https://www.hubspot.com/hubfs/DO%20NOT%20USE%20-%20WBZ%202025%20Rebrand-%20conta",
+        "https://www.hubspot.com/hs-fs/hubfs/DO%20NOT%20USE%20-%20WBZ%202025%20Rebrand-%2",
+        "https://www.hubspot.com/hs-fs/hubfs/DO%20NOT%20USE%20-%20WBZ%202025%20Rebrand-%2",
+        "https://www.hubspot.com/hs-fs/hubfs/DO%20NOT%20USE%20-%20WBZ%202025%20Rebrand-%2",
+        "https://www.hubspot.com/hs-fs/hubfs/DO%20NOT%20USE%20-%20WBZ%202025%20Rebrand-%2",
+        "https://www.hubspot.com/hs-fs/hubfs/WBZ%202025%20Rebrand/Hub%20Logos/Icons%20Web",
+        "https://www.hubspot.com/hs-fs/hubfs/DO%20NOT%20USE%20-%20WBZ%202025%20Rebrand-%2",
+        "https://www.hubspot.com/hs-fs/hubfs/DO%20NOT%20USE%20-%20WBZ%202025%20Rebrand-%2",
+        "https://www.hubspot.com/hubfs/assets/webteam-cms-portal/images/breeze/ProductIco"
+      ],
+      "html_lang": "en",
+      "hreflang_count": 9,
+      "paywall_detected": false,
+      "paywall_evidence": null,
+      "is_accessible_for_free": null,
+      "video_objects": [],
+      "faq_howto_headings": []
+    },
+    {
+      "path": "/product",
+      "url": "https://www.hubspot.com/product",
+      "status": 200,
+      "error": null,
+      "jsonld_blocks": [
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Organization",
+              "@id": "https://www.hubspot.com/#organization",
+              "name": "HubSpot",
+              "url": "https://www.hubspot.com",
+              "logo": "https://www.hubspot.com/hubfs/HubSpot_Logos/HSLogo_color.svg",
+              "sameAs": [
+                "https://www.wikidata.org/wiki/Q5926631",
+                "https://en.wikipedia.org/wiki/HubSpot",
+                "https://www.linkedin.com/company/hubspot",
+                "https://x.com/HubSpot",
+                "https://www.instagram.com/hubspot/",
+                "https://www.facebook.com/hubspot/",
+                "https://www.tiktok.com/@HubSpot"
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://www.hubspot.com/#website",
+              "url": "https://www.hubspot.com/",
+              "name": "HubSpot",
+              "publisher": {
+                "@id": "https://www.hubspot.com/#organization"
+              }
+            },
+            {
+              "@type": [
+                "WebPage",
+                "CollectionPage"
+              ],
+              "@id": "https://www.hubspot.com/products#webpage",
+              "url": "https://www.hubspot.com/products",
+              "name": "HubSpot Products",
+              "isPartOf": {
+                "@id": "https://www.hubspot.com/#website"
+              },
+              "about": {
+                "@id": "https://www.hubspot.com/#organization"
+              },
+              "mainEntity": {
+                "@id": "https://www.hubspot.com/products#product-list"
+              }
+            },
+            {
+              "@type": "ItemList",
+              "@id": "https://www.hubspot.com/products#product-list",
+              "name": "HubSpot Hubs",
+              "itemListOrder": "http://schema.org/ItemListOrderAscending",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Marketing Hub",
+                  "item": {
+                    "@id": "https://www.hubspot.com/products/marketing#product"
+                  }
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Sales Hub",
+                  "item": {
+                    "@id": "https://www.hubspot.com/products/sales#product"
+                  }
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Service Hub",
+                  "item": {
+                    "@id": "https://www.hubspot.com/products/service#product"
+                  }
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 4,
+                  "name": "Content Hub",
+                  "item": {
+                    "@id": "https://www.hubspot.com/products/content#product"
+                  }
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 5,
+                  "name": "Data Hub",
+                  "item": {
+                    "@id": "https://www.hubspot.com/products/data#product"
+                  }
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 6,
+                  "name": "Commerce Hub",
+                  "item": {
+                    "@id": "https://www.hubspot.com/products/commerce#product"
+                  }
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 7,
+                  "name": "HubSpot CRM",
+                  "item": {
+                    "@id": "https://www.hubspot.com/products/crm#product"
+                  }
+                }
+              ]
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://www.hubspot.com/products#breadcrumbs",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://www.hubspot.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Products",
+                  "item": "https://www.hubspot.com/products"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is the HubSpot customer platform?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "<p>The HubSpot customer platform is an AI-powered ecosystem that brings together all the tools businesses need to grow better. With natively-built marketing, sales, customer service, website content management, and data management&nbsp;software, open APIs, <a href=\"/products/single-sign-on\" rel=\"noopener\" target=\"_blank\">single sign on</a>, and hundreds of certified integrations, the HubSpot customer platform is the single source of truth businesses need to offer remarkable customer experiences at every stage of growth.</p>"
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why's HubSpot so popular?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "<p>Businesses choose HubSpot because it brings together all their marketing, sales, content, data managem, and service tools in one place. With HubSpot, teams can work together seamlessly, make smart decisions using customer data and AI, and get things done efficiently without the headaches of juggling different tools or missing pieces of information.</p>"
+              }
+            }
+          ]
+        }
+      ],
+      "schema_types": [
+        "FAQPage"
+      ],
+      "schema_richness": [
+        {
+          "@type": "unknown",
+          "field_count": 1
+        },
+        {
+          "@type": "FAQPage",
+          "field_count": 1
+        }
+      ],
+      "has_speakable": false,
+      "freshness_dates": [],
+      "images_missing_alt": [
+        "https://www.hubspot.com/hs-fs/hubfs/DO%20NOT%20USE-%202025%20Rebrand%20All%20Pro",
+        "https://www.hubspot.com/hs-fs/hubfs/DO%20NOT%20USE-%202025%20Rebrand%20All%20Pro",
+        "https://19916472.fs1.hubspotusercontent-na1.net/hubfs/19916472/product_icons_202",
+        "https://www.hubspot.com/hs-fs/hubfs/DO%20NOT%20USE-%202025%20Rebrand%20All%20Pro",
+        "https://19916472.fs1.hubspotusercontent-na1.net/hubfs/19916472/product_icons_202",
+        "https://www.hubspot.com/hs-fs/hubfs/DO%20NOT%20USE-%202025%20Rebrand%20All%20Pro",
+        "https://19916472.fs1.hubspotusercontent-na1.net/hubfs/19916472/product_icons_202",
+        "https://www.hubspot.com/hs-fs/hubfs/DO%20NOT%20USE-%202025%20Rebrand%20All%20Pro",
+        "https://www.hubspot.com/hubfs/Imported%20sitepage%20images/Content%20Hub%20Produ",
+        "https://www.hubspot.com/hs-fs/hubfs/DO%20NOT%20USE-%202025%20Rebrand%20All%20Pro"
+      ],
+      "html_lang": "en",
+      "hreflang_count": 9,
+      "paywall_detected": false,
+      "paywall_evidence": null,
+      "is_accessible_for_free": null,
+      "video_objects": [],
+      "faq_howto_headings": [
+        "frequently asked questions"
+      ]
+    },
+    {
+      "path": "/about",
+      "url": "https://www.hubspot.com/about",
+      "status": 200,
+      "error": null,
+      "jsonld_blocks": [],
+      "schema_types": [],
+      "schema_richness": [],
+      "has_speakable": false,
+      "freshness_dates": [],
+      "images_missing_alt": [
+        "https://www.hubspot.com/hs-fs/hubfs/Imported%20sitepage%20images/Hubspotters.jpg",
+        "https://www.hubspot.com/hubfs/About%20Us%20(Our-story)/DO%20NOT%20USE-%20About%2",
+        "https://www.hubspot.com/hubfs/About%20Us%20(Our-story)/DO%20NOT%20USE-%20About%2",
+        "https://www.hubspot.com/hubfs/About%20Us%20(Our-story)/DO%20NOT%20USE-%20About%2",
+        "https://www.hubspot.com/hs-fs/hubfs/Headshot%20-%20Patricia%20Portik%20(1)-1.jpe",
+        "https://www.hubspot.com/hs-fs/hubfs/AARON%20GOH.jpeg?width=120&amp;height=120&am",
+        "https://www.hubspot.com/hs-fs/hubfs/Headshot%20-%20Frank%20Loughan%20(1)-1.jpeg?",
+        "https://www.hubspot.com/hs-fs/hubfs/MARIE-MORGANE%20LE%20BRAS%20%20.jpeg?width=1",
+        "https://www.hubspot.com/hs-fs/hubfs/About%20Us%20(Our-story)/DO%20NOT%20USE-%20A",
+        "https://www.hubspot.com/hs-fs/hubfs/About%20Us%20(Our-story)/DO%20NOT%20USE-%20A"
+      ],
+      "html_lang": "en",
+      "hreflang_count": 9,
+      "paywall_detected": false,
+      "paywall_evidence": null,
+      "is_accessible_for_free": null,
+      "video_objects": [],
+      "faq_howto_headings": []
+    },
+    {
+      "path": "/pricing",
+      "url": "https://www.hubspot.com/pricing",
+      "status": 200,
+      "error": null,
+      "jsonld_blocks": [],
+      "schema_types": [],
+      "schema_richness": [],
+      "has_speakable": false,
+      "freshness_dates": [],
+      "images_missing_alt": [],
+      "html_lang": "en",
+      "hreflang_count": 8,
+      "paywall_detected": false,
+      "paywall_evidence": null,
+      "is_accessible_for_free": null,
+      "video_objects": [],
+      "faq_howto_headings": []
+    }
+  ],
+  "site_schema_types": [
+    "FAQPage"
+  ],
+  "site_has_speakable": false,
+  "site_has_faqpage": true,
+  "site_has_howto": false,
+  "site_has_video_object": false,
+  "site_inlanguage": null
+}

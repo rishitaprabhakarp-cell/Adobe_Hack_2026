@@ -1,0 +1,154 @@
+{
+  "site": "www.hubspot.com",
+  "base_url": "https://www.hubspot.com",
+  "probed_at": "2026-09-12T18:23:52Z",
+  "pages": [
+    {
+      "url": "https://www.hubspot.com",
+      "status": 200,
+      "og_tags": {
+        "description": "HubSpot",
+        "title": "HubSpot | Software &amp; Tools for your Business - Homepage",
+        "image": "https://www.hubspot.com/hubfs/assets/hubspot.com/homepage/hero-backgrounds-2025/HS_Full_Bleed_1.jpg",
+        "image:width": "2160",
+        "image:height": "1440",
+        "image:alt": "HubSpot",
+        "url": "https://www.hubspot.com"
+      },
+      "og_title": "HubSpot | Software &amp; Tools for your Business - Homepage",
+      "og_description": "HubSpot",
+      "og_type": "",
+      "og_site_name": "",
+      "og_image": "https://www.hubspot.com/hubfs/assets/hubspot.com/homepage/hero-backgrounds-2025/HS_Full_Bleed_1.jpg",
+      "og_image_validation": {
+        "present": true,
+        "url": "https://www.hubspot.com/hubfs/assets/hubspot.com/homepage/hero-backgrounds-2025/",
+        "is_absolute": true,
+        "http_status": 200,
+        "valid": true
+      },
+      "twitter_card": {
+        "card": "summary_large_image",
+        "description": "HubSpot",
+        "title": "HubSpot | Software &amp; Tools for your Business - Homepage",
+        "account_id": "14458280",
+        "image": "https://www.hubspot.com/hubfs/assets/hubspot.com/homepage/hero-backgrounds-2025/HS_Full_Bleed_1.jpg",
+        "image:alt": "HubSpot"
+      },
+      "meta_description": "HubSpot",
+      "meta_description_quality": {
+        "present": true,
+        "text": "HubSpot",
+        "length": 7,
+        "too_short": true,
+        "too_long": false,
+        "optimal_length": false,
+        "is_generic": false
+      },
+      "meta_author": null,
+      "canonical": "https://www.hubspot.com",
+      "markdown_alternate": {
+        "has_markdown_alternate": false,
+        "markdown_url": null
+      }
+    },
+    {
+      "url": "https://www.hubspot.com/about",
+      "status": 200,
+      "og_tags": {
+        "description": "Founded in Boston in 2006 as marketing software, today HubSpot is a complete customer platform that helps millions of businesses grow around the world.",
+        "title": "About HubSpot | HubSpot\u2019s Story",
+        "image": "https://www.hubspot.com/hubfs/Hubspot_CEOAnnouncement_6-600x400-9801ebf.png",
+        "image:width": "600",
+        "image:height": "400",
+        "image:alt": "HubSpot CEO, Yamini Rangan sits with HubSpot co-founder and executive chairperson, Brian Halligan.",
+        "url": "https://www.hubspot.com/our-story"
+      },
+      "og_title": "About HubSpot | HubSpot\u2019s Story",
+      "og_description": "Founded in Boston in 2006 as marketing software, today HubSpot is a complete customer platform that helps millions of businesses grow around the world.",
+      "og_type": "",
+      "og_site_name": "",
+      "og_image": "https://www.hubspot.com/hubfs/Hubspot_CEOAnnouncement_6-600x400-9801ebf.png",
+      "og_image_validation": {
+        "present": true,
+        "url": "https://www.hubspot.com/hubfs/Hubspot_CEOAnnouncement_6-600x400-9801ebf.png",
+        "is_absolute": true,
+        "http_status": 200,
+        "valid": true
+      },
+      "twitter_card": {
+        "card": "summary_large_image",
+        "description": "Founded in Boston in 2006 as marketing software, today HubSpot is a complete customer platform that helps millions of businesses grow around the world.",
+        "title": "About HubSpot | HubSpot\u2019s Story",
+        "account_id": "14458280",
+        "image": "https://www.hubspot.com/hubfs/Hubspot_CEOAnnouncement_6-600x400-9801ebf.png",
+        "image:alt": "HubSpot CEO, Yamini Rangan sits with HubSpot co-founder and executive chairperson, Brian Halligan."
+      },
+      "meta_description": "Founded in Boston in 2006 as marketing software, today HubSpot is a complete customer platform that helps millions of businesses grow around the world.",
+      "meta_description_quality": {
+        "present": true,
+        "text": "Founded in Boston in 2006 as marketing software, today HubSpot is a complete customer platform that helps millions of businesses grow around the world.",
+        "length": 151,
+        "too_short": false,
+        "too_long": false,
+        "optimal_length": true,
+        "is_generic": false
+      },
+      "meta_author": null,
+      "canonical": "https://www.hubspot.com/our-story",
+      "markdown_alternate": {
+        "has_markdown_alternate": false,
+        "markdown_url": null
+      }
+    },
+    {
+      "url": "https://www.hubspot.com/product",
+      "status": 200,
+      "og_tags": {
+        "image": "https://wtcfns.hubspot.com/wt-api/social-sharing",
+        "image:width": "600",
+        "image:height": "335",
+        "description": "Explore all of HubSpot",
+        "title": "Explore HubSpot",
+        "url": "https://www.hubspot.com/products"
+      },
+      "og_title": "Explore HubSpot",
+      "og_description": "Explore all of HubSpot",
+      "og_type": "",
+      "og_site_name": "",
+      "og_image": "https://wtcfns.hubspot.com/wt-api/social-sharing",
+      "og_image_validation": {
+        "present": true,
+        "url": "https://wtcfns.hubspot.com/wt-api/social-sharing",
+        "is_absolute": true,
+        "http_status": 403,
+        "valid": false
+      },
+      "twitter_card": {
+        "image": "https://wtcfns.hubspot.com/wt-api/social-sharing",
+        "card": "summary",
+        "description": "Explore all of HubSpot",
+        "title": "Explore HubSpot",
+        "account_id": "14458280"
+      },
+      "meta_description": "Explore all of HubSpot",
+      "meta_description_quality": {
+        "present": true,
+        "text": "Explore all of HubSpot",
+        "length": 22,
+        "too_short": true,
+        "too_long": false,
+        "optimal_length": false,
+        "is_generic": false
+      },
+      "meta_author": null,
+      "canonical": "https://www.hubspot.com/products",
+      "markdown_alternate": {
+        "has_markdown_alternate": false,
+        "markdown_url": null
+      }
+    }
+  ],
+  "duplicate_meta_descriptions": false,
+  "og_site_name_consistent": true
+}

@@ -1,0 +1,35 @@
+{
+  "site": "www.craigslist.org",
+  "base_url": "https://www.craigslist.org",
+  "probed_at": "2026-09-12T18:26:00Z",
+  "homepage_status": 200,
+  "response_time_ms": 4262,
+  "error": null,
+  "above_fold": {
+    "text_snippet": "CL bangalore post account favorites hidden CL bangalore ... new posting my account bangalore craigslist in post an ad event calendar 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 help, faq, abuse, legal avoid scams fraud personal safety tips about craigslist best-of-craigslist what'",
+    "word_count": 200,
+    "h1": "craigslist\n        in",
+    "has_h1": true,
+    "has_description_paragraph": true
+  },
+  "cta_found": false,
+  "ctas": [],
+  "avg_paragraph_word_count": 16.5,
+  "long_paragraph_samples": [],
+  "dynamic_state_signals": [
+    "loading"
+  ],
+  "hero_images_missing_alt": [],
+  "has_meta_viewport": true,
+  "contact_info": {
+    "contact_reachable": true,
+    "contact_url": "https://www.craigslist.org/contact",
+    "contact_evidence": "HTTP 200",
+    "about_reachable": true,
+    "about_url": "https://www.craigslist.org/about",
+    "about_evidence": "HTTP 200",
+    "has_email_inline": false,
+    "has_phone_inline": true
+  },
+  "static_word_count": 559
+}

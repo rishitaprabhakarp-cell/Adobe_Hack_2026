@@ -1,0 +1,68 @@
+{
+  "site": "vercel.com",
+  "base_url": "https://vercel.com",
+  "probed_at": "2026-09-12T18:19:34Z",
+  "homepage_status": 200,
+  "homepage_error": null,
+  "brand_name": "Vercel Inc.",
+  "brand_name_source": "Organization JSON-LD",
+  "same_as_links": [
+    "https://www.facebook.com/VercelHQ/",
+    "https://x.com/vercel",
+    "https://www.linkedin.com/company/vercel/",
+    "https://github.com/vercel",
+    "https://en.wikipedia.org/wiki/Vercel",
+    "https://www.wikidata.org/wiki/Q56069184",
+    "https://www.youtube.com/@VercelHQ",
+    "https://www.npmjs.com/package/vercel",
+    "https://bsky.app/profile/vercel.com",
+    "https://www.reddit.com/r/vercel/"
+  ],
+  "same_as_categorized": {
+    "wikidata": "https://www.wikidata.org/wiki/Q56069184",
+    "wikipedia": "https://en.wikipedia.org/wiki/Vercel",
+    "crunchbase": null,
+    "linkedin": "https://www.linkedin.com/company/vercel/",
+    "twitter": "https://x.com/vercel",
+    "facebook": "https://www.facebook.com/VercelHQ/",
+    "other": [
+      "https://github.com/vercel",
+      "https://www.youtube.com/@VercelHQ",
+      "https://www.npmjs.com/package/vercel",
+      "https://bsky.app/profile/vercel.com",
+      "https://www.reddit.com/r/vercel/"
+    ]
+  },
+  "wikidata": {
+    "query": "Vercel Inc.",
+    "found": true,
+    "qid": "Q56069184",
+    "label": "Vercel Inc.",
+    "description": "San Francisco based cloud computing company",
+    "candidates": [
+      {
+        "qid": "Q56069184",
+        "label": "Vercel Inc.",
+        "description": "San Francisco based cloud computing company",
+        "url": "//www.wikidata.org/wiki/Q56069184"
+      }
+    ],
+    "error": null
+  },
+  "entity_collision_risk": {
+    "name": "Vercel Inc.",
+    "risk_factors": [],
+    "high_risk": false
+  },
+  "name_variants": {
+    "homepage_og_site_name": "Vercel",
+    "homepage_title": "Agentic Infrastructure - Vercel",
+    "about_og_site_name": "Vercel"
+  },
+  "name_is_consistent": false,
+  "_agent_next_steps": [
+    "web_search: \\\"Vercel Inc.\\\" founded",
+    "web_search: \\\"Vercel Inc.\\\" company",
+    "web_search: \\\"Vercel Inc.\\\" vercel"
+  ]
+}
