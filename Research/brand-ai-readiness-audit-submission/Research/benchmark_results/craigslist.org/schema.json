@@ -1,0 +1,110 @@
+{
+  "site": "www.craigslist.org",
+  "base_url": "https://www.craigslist.org",
+  "probed_at": "2026-09-12T18:25:59Z",
+  "pages": [
+    {
+      "path": "/",
+      "url": "https://www.craigslist.org",
+      "status": 200,
+      "error": null,
+      "jsonld_blocks": [
+        {
+          "@context": "https://schema.org/",
+          "name": "bangalore Craigslist",
+          "url": "https://www.craigslist.org/area/bangalore",
+          "@type": "WebSite",
+          "potentialAction": {
+            "target": "https://www.craigslist.org/search/area/bangalore?cat=sss&query={search_term_string}",
+            "query-input": "required name=search_term_string",
+            "@type": "SearchAction"
+          }
+        }
+      ],
+      "schema_types": [
+        "WebSite"
+      ],
+      "schema_richness": [
+        {
+          "@type": "WebSite",
+          "field_count": 3
+        }
+      ],
+      "has_speakable": false,
+      "freshness_dates": [],
+      "images_missing_alt": [],
+      "html_lang": null,
+      "hreflang_count": 0,
+      "paywall_detected": false,
+      "paywall_evidence": null,
+      "is_accessible_for_free": null,
+      "video_objects": [],
+      "faq_howto_headings": []
+    },
+    {
+      "path": "/product",
+      "url": "https://www.craigslist.org/product",
+      "status": 404,
+      "error": null,
+      "jsonld_blocks": [],
+      "schema_types": [],
+      "schema_richness": [],
+      "has_speakable": false,
+      "freshness_dates": [],
+      "images_missing_alt": [],
+      "html_lang": null,
+      "hreflang_count": 0,
+      "paywall_detected": false,
+      "paywall_evidence": null,
+      "is_accessible_for_free": null,
+      "video_objects": [],
+      "faq_howto_headings": []
+    },
+    {
+      "path": "/about",
+      "url": "https://www.craigslist.org/about",
+      "status": 200,
+      "error": null,
+      "jsonld_blocks": [],
+      "schema_types": [],
+      "schema_richness": [],
+      "has_speakable": false,
+      "freshness_dates": [],
+      "images_missing_alt": [],
+      "html_lang": null,
+      "hreflang_count": 0,
+      "paywall_detected": false,
+      "paywall_evidence": null,
+      "is_accessible_for_free": null,
+      "video_objects": [],
+      "faq_howto_headings": []
+    },
+    {
+      "path": "/pricing",
+      "url": "https://www.craigslist.org/pricing",
+      "status": 404,
+      "error": null,
+      "jsonld_blocks": [],
+      "schema_types": [],
+      "schema_richness": [],
+      "has_speakable": false,
+      "freshness_dates": [],
+      "images_missing_alt": [],
+      "html_lang": null,
+      "hreflang_count": 0,
+      "paywall_detected": false,
+      "paywall_evidence": null,
+      "is_accessible_for_free": null,
+      "video_objects": [],
+      "faq_howto_headings": []
+    }
+  ],
+  "site_schema_types": [
+    "WebSite"
+  ],
+  "site_has_speakable": false,
+  "site_has_faqpage": false,
+  "site_has_howto": false,
+  "site_has_video_object": false,
+  "site_inlanguage": null
+}

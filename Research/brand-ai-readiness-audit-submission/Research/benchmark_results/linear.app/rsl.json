@@ -1,0 +1,150 @@
+{
+  "site": "linear.app",
+  "base_url": "https://linear.app",
+  "probed_at": "2026-09-12T18:21:05Z",
+  "rsl_declaration": {
+    "html_rsl_link": null,
+    "well_known_rsl_status": 404,
+    "well_known_rsl_content": null,
+    "has_rsl": false
+  },
+  "llms_full_txt": {
+    "url": "https://linear.app/llms-full.txt",
+    "status": 200,
+    "content_type": "text/html",
+    "word_count": 743,
+    "present": true,
+    "error": null
+  },
+  "ai_discovery_endpoints": [
+    {
+      "path": "/.well-known/ai.txt",
+      "url": "https://linear.app/.well-known/ai.txt",
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "present": false
+    },
+    {
+      "path": "/.well-known/ai.json",
+      "url": "https://linear.app/.well-known/ai.json",
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "present": false
+    },
+    {
+      "path": "/.well-known/rsl.json",
+      "url": "https://linear.app/.well-known/rsl.json",
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "present": false
+    },
+    {
+      "path": "/ai/summary.json",
+      "url": "https://linear.app/ai/summary.json",
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "present": false
+    },
+    {
+      "path": "/ai/faq.json",
+      "url": "https://linear.app/ai/faq.json",
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "present": false
+    },
+    {
+      "path": "/ai/service.json",
+      "url": "https://linear.app/ai/service.json",
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "present": false
+    },
+    {
+      "path": "/ai/manifest.json",
+      "url": "https://linear.app/ai/manifest.json",
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "present": false
+    },
+    {
+      "path": "/brand.txt",
+      "url": "https://linear.app/brand.txt",
+      "status": 200,
+      "content_type": "text/html",
+      "error": null,
+      "present": true,
+      "snippet": "<!doctype html> <html data-sw-cache=true lang=en> <head> <style></style> <script nonce=\"5d2eb551b71e47ab8daac53a7caff96a\" type=text/javascript>performance.mark(\"appStart\"),window.__appStylesheetLoadFa"
+    },
+    {
+      "path": "/identity.json",
+      "url": "https://linear.app/identity.json",
+      "status": 200,
+      "content_type": "text/html",
+      "error": null,
+      "present": true,
+      "snippet": "<!doctype html> <html data-sw-cache=true lang=en> <head> <style></style> <script nonce=\"0e51849840b347b98561168b4ddc4180\" type=text/javascript>performance.mark(\"appStart\"),window.__appStylesheetLoadFa"
+    },
+    {
+      "path": "/faq-ai.txt",
+      "url": "https://linear.app/faq-ai.txt",
+      "status": 200,
+      "content_type": "text/html",
+      "error": null,
+      "present": true,
+      "snippet": "<!doctype html> <html data-sw-cache=true lang=en> <head> <style></style> <script nonce=\"57065d05eb674090917202e6e29f31cf\" type=text/javascript>performance.mark(\"appStart\"),window.__appStylesheetLoadFa"
+    },
+    {
+      "path": "/ai.json",
+      "url": "https://linear.app/ai.json",
+      "status": 200,
+      "content_type": "text/html",
+      "error": null,
+      "present": true,
+      "snippet": "<!doctype html> <html data-sw-cache=true lang=en> <head> <style></style> <script nonce=\"84c542d3e76a43259c5b9a9c3d7b5680\" type=text/javascript>performance.mark(\"appStart\"),window.__appStylesheetLoadFa"
+    },
+    {
+      "path": "/.well-known/brand.json",
+      "url": "https://linear.app/.well-known/brand.json",
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "present": false
+    },
+    {
+      "path": "/.well-known/llms-context.txt",
+      "url": "https://linear.app/.well-known/llms-context.txt",
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "present": false
+    }
+  ],
+  "ai_discovery_endpoint_count": 4,
+  "indexnow": {
+    "indexnow_in_html": false,
+    "indexnow_in_robots": false,
+    "indexnow_key_found": null,
+    "has_indexnow": false
+  },
+  "llms_txt_deep_validation": {
+    "present": true,
+    "status": 200,
+    "content_type": "text/plain; charset=utf-8",
+    "file_size_bytes": 10119,
+    "has_h1": true,
+    "h1_text": "Linear",
+    "has_blockquote": true,
+    "has_optional_section": false,
+    "linked_url_count": 152,
+    "relative_url_count": 0,
+    "issues": [],
+    "passes_spec": true
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "site": "vercel.com",
+  "base_url": "https://vercel.com",
+  "probed_at": "2026-09-12T18:19:34Z",
+  "homepage_status": 200,
+  "response_time_ms": 1239,
+  "error": null,
+  "above_fold": {
+    "text_snippet": "Ship 26 is coming to SF Get your ticket Drop to deploy Loading Agentic Infrastructure To ship apps and agents For coding agents For coding agents to ship apps and agents automated by agents. Deploy now Talk to sales For coding agents to deploy in their native language, with Vercel&#x27;s API, CLI, M",
+    "word_count": 83,
+    "h1": "Agentic Infrastructure",
+    "has_h1": true,
+    "has_description_paragraph": true
+  },
+  "cta_found": true,
+  "ctas": [
+    "log in",
+    "download brand assets",
+    "sign up"
+  ],
+  "avg_paragraph_word_count": 47.4,
+  "long_paragraph_samples": [
+    "Copy Wordmark Copy Logo Download Brand Assets Brand Guidelines Products Agent Stack AI SDK AI Gateway Sandbox Passport Connect eve...",
+    "Onboard your agent Paste to your agent Onboard your agent Agent Stack AI SDK AI Gateway Sandbox Workflows Connect New..."
+  ],
+  "dynamic_state_signals": [
+    "loading"
+  ],
+  "hero_images_missing_alt": [],
+  "has_meta_viewport": true,
+  "contact_info": {
+    "contact_reachable": true,
+    "contact_url": "/contact",
+    "contact_evidence": "found in HTML links",
+    "about_reachable": true,
+    "about_url": "/about",
+    "about_evidence": "found in HTML links",
+    "has_email_inline": false,
+    "has_phone_inline": true
+  },
+  "static_word_count": 532
+}

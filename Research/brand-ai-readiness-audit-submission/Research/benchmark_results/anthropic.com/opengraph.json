@@ -1,0 +1,100 @@
+{
+  "site": "anthropic.com",
+  "base_url": "https://anthropic.com",
+  "probed_at": "2026-09-12T18:19:14Z",
+  "pages": [
+    {
+      "url": "https://anthropic.com",
+      "status": 200,
+      "og_tags": {
+        "type": "website",
+        "image": "https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/68309ab48369f7ad9b4a40e1_open-graph.jpg",
+        "title": "Home \\ Anthropic",
+        "description": "Anthropic is an AI safety and research company that&#x27;s working to build reliable, interpretable, and steerable AI systems."
+      },
+      "og_title": "Home \\ Anthropic",
+      "og_description": "Anthropic is an AI safety and research company that&#x27;s working to build reliable, interpretable, and steerable AI systems.",
+      "og_type": "website",
+      "og_site_name": "",
+      "og_image": "https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/68309ab48369f7ad9b4a40e1_open-graph.jpg",
+      "og_image_validation": {
+        "present": true,
+        "url": "https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/68309ab48369f7ad9b4a",
+        "is_absolute": true,
+        "http_status": 200,
+        "valid": true
+      },
+      "twitter_card": {
+        "card": "summary_large_image",
+        "site": "@AnthropicAI",
+        "creator": "@AnthropicAI"
+      },
+      "meta_description": "Anthropic is an AI safety and research company that&#x27;s working to build reliable, interpretable, and steerable AI systems.",
+      "meta_description_quality": {
+        "present": true,
+        "text": "Anthropic is an AI safety and research company that&#x27;s working to build reliable, interpretable, and steerable AI systems.",
+        "length": 126,
+        "too_short": false,
+        "too_long": false,
+        "optimal_length": true,
+        "is_generic": false
+      },
+      "meta_author": null,
+      "canonical": "https://www.anthropic.com",
+      "markdown_alternate": {
+        "has_markdown_alternate": false,
+        "markdown_url": null
+      }
+    },
+    {
+      "url": "https://anthropic.com/product",
+      "status": 200,
+      "og_tags": {
+        "type": "website",
+        "site_name": "Claude",
+        "image:width": "1200",
+        "image:height": "630",
+        "image:alt": "The AI for Problem Solvers | Claude by Anthropic",
+        "url": "https://claude.com/product/overview",
+        "title": "The AI for Problem Solvers | Claude by Anthropic",
+        "description": "Claude is Anthropic&#x27;s AI, built for problem solvers. Tackle complex challenges, analyze data, write code, and think through your hardest work.",
+        "image": "https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/68c469d23594abeb9ab6ee48_70ed020ecf8fa028b9bc95fa819720b6_og_claude-generic.jpg"
+      },
+      "og_title": "The AI for Problem Solvers | Claude by Anthropic",
+      "og_description": "Claude is Anthropic&#x27;s AI, built for problem solvers. Tackle complex challenges, analyze data, write code, and think through your hardest work.",
+      "og_type": "website",
+      "og_site_name": "Claude",
+      "og_image": "https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/68c469d23594abeb9ab6ee48_70ed020ecf8fa028b9bc95fa819720b6_og_claude-generic.jpg",
+      "og_image_validation": {
+        "present": true,
+        "url": "https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/68c469d23594abeb9ab6",
+        "is_absolute": true,
+        "http_status": 200,
+        "valid": true
+      },
+      "twitter_card": {
+        "site": "@claudeai",
+        "creator": "@claudeai",
+        "image": "https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/68c469d23594abeb9ab6ee48_70ed020ecf8fa028b9bc95fa819720b6_og_claude-generic.jpg"
+      },
+      "meta_description": "Claude is Anthropic&#x27;s AI, built for problem solvers. Tackle complex challenges, analyze data, write code, and think through your hardest work.",
+      "meta_description_quality": {
+        "present": true,
+        "text": "Claude is Anthropic&#x27;s AI, built for problem solvers. Tackle complex challenges, analyze data, write code, and think through your hardest work.",
+        "length": 147,
+        "too_short": false,
+        "too_long": false,
+        "optimal_length": true,
+        "is_generic": false
+      },
+      "meta_author": null,
+      "canonical": "https://claude.com/product/overview",
+      "markdown_alternate": {
+        "has_markdown_alternate": false,
+        "markdown_url": null
+      }
+    }
+  ],
+  "duplicate_meta_descriptions": false,
+  "og_site_name_consistent": true
+}

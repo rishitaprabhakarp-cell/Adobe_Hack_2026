@@ -1,0 +1,254 @@
+{
+  "site": "stripe.com",
+  "base_url": "https://stripe.com",
+  "probed_at": "2026-09-12T19:41:24Z",
+  "pages": [
+    {
+      "url": "https://stripe.com",
+      "path": "/",
+      "above_fold": {
+        "first_80_words": "Start now Contact sales",
+        "word_count": 4,
+        "has_direct_claim": false,
+        "has_unresolved_pronouns": false
+      },
+      "headings": {
+        "total_h2_h3_count": 30,
+        "question_format_count": 2,
+        "question_format_ratio": 0.07,
+        "sample_question_headings": [
+          "what&#x27;s happening",
+          "how leading retailers unify customer experiences and drive growth."
+        ]
+      },
+      "statistics": {
+        "total_statistics": 10,
+        "with_citation": 0,
+        "without_citation": 10,
+        "citation_ratio": 0.0,
+        "examples_cited": [],
+        "examples_uncited": [
+          "999% historical uptime for Stripe services 200M+ active subscriptions managed on Stripe Billing 135+ currencies and paym",
+          "999% historical uptime for Stripe services 200M+ active subscriptions managed on Stripe Billing Powering businesses of a",
+          "Transform your enterprise with agile financial infrastructure Stripe for enterprises 50% of Fortune 100 companies have u"
+        ]
+      },
+      "paragraphs": {
+        "total_paragraphs": 43,
+        "avg_words": 38.2,
+        "max_words": 284,
+        "violation_count": 3,
+        "violation_ratio": 0.07,
+        "violations": [
+          {
+            "word_count": 183,
+            "snippet": "With Stripe, we have global technology partner to help our customers from Canadian yoga studios..."
+          },
+          {
+            "word_count": 284,
+            "snippet": "Item of 8: Businesses on Stripe generated US$1.9tn in 2025. Businesses on Stripe generated US$1.9tn..."
+          },
+          {
+            "word_count": 162,
+            "snippet": "Products and pricing Pricing Atlas Authorization Boost Billing Capital Capital for platforms Checkout Climate Connect..."
+          }
+        ]
+      },
+      "faq": {
+        "has_faq_heading": false,
+        "estimated_qa_pairs": 7,
+        "has_faq_section": true
+      },
+      "key_takeaways": {
+        "has_key_takeaways": false,
+        "patterns_found": []
+      },
+      "hedge_words": {
+        "total_sentences": 98,
+        "hedge_sentence_count": 0,
+        "hedge_ratio": 0.0,
+        "sample_hedge_sentences": []
+      },
+      "date_markers": {
+        "has_date_marker": false,
+        "markers_found": []
+      },
+      "ai_cliches": {
+        "cliche_count": 0,
+        "high_cliche_density": false,
+        "examples": []
+      },
+      "answer_capsules": {
+        "sections_analyzed": 5,
+        "answer_capsules_found": 0,
+        "capsule_ratio": 0.0,
+        "meets_threshold": false,
+        "examples": []
+      },
+      "passage_extractability": {
+        "total_passages": 16,
+        "extractable_passages": 6,
+        "extractability_rate": 0.38,
+        "avg_score": 14.6,
+        "citability_coverage_pct": 38,
+        "top_passages": [
+          {
+            "snippet": "Lovable grows into a vibe-coding juggernaut with Stripe. Read Lovable&#x27;s story Gamma...",
+            "word_count": 118,
+            "score": 22,
+            "max_score": 30,
+            "is_extractable": true,
+            "signals": {
+              "da": 5,
+              "dd": 5,
+              "as": 3,
+              "sq": 4,
+              "fr": 5,
+              "uq": 0
+            }
+          },
+          {
+            "snippet": "From stablecoin pioneers to 88% of the Forbes AI 50, Stripe helps...",
+            "word_count": 20,
+            "score": 18,
+            "max_score": 30,
+            "is_extractable": true,
+            "signals": {
+              "da": 5,
+              "dd": 5,
+              "as": 0,
+              "sq": 3,
+              "fr": 5,
+              "uq": 0
+            }
+          },
+          {
+            "snippet": "50% of Fortune 100 companies have used Stripe to grow their businesses...",
+            "word_count": 21,
+            "score": 16,
+            "max_score": 30,
+            "is_extractable": true,
+            "signals": {
+              "da": 3,
+              "dd": 5,
+              "as": 0,
+              "sq": 3,
+              "fr": 5,
+              "uq": 0
+            }
+          }
+        ],
+        "bottom_passages": [
+          {
+            "snippet": "Realise value faster with dedicated experts Professional services. Get tailored guidance from...",
+            "word_count": 20,
+            "score": 13,
+            "max_score": 30,
+            "is_extractable": false,
+            "signals": {
+              "da": 5,
+              "dd": 0,
+              "as": 0,
+              "sq": 3,
+              "fr": 5,
+              "uq": 0
+            }
+          },
+          {
+            "snippet": "From the Fortune 100 to the Forbes Cloud 100, vertical SaaS platforms...",
+            "word_count": 25,
+            "score": 13,
+            "max_score": 30,
+            "is_extractable": false,
+            "signals": {
+              "da": 5,
+              "dd": 0,
+              "as": 0,
+              "sq": 3,
+              "fr": 5,
+              "uq": 0
+            }
+          }
+        ]
+      },
+      "quotability": {
+        "total_sentences": 101,
+        "quotable_sentences": 35,
+        "quotability_rate": 0.35,
+        "low_quotability": false,
+        "examples": [
+          "Stripe | Financial Infrastructure to Grow Your Revenue Global GDP running on Str",
+          "Pro Plan Billed monthly Tokens \u20b90.95 per 1,000 units Usage meter Tokens used in ",
+          "Read the story 160 countries 11K+ locations globally Products used Payments, Ter"
+        ]
+      },
+      "passage_density": {
+        "passage_density_score": 3,
+        "low_density": false,
+        "has_early_claim": true,
+        "first_claim_word_offset": 130,
+        "passive_voice_ratio": 0.0,
+        "high_passive_voice": false,
+        "has_named_entity_in_lede": true,
+        "first_sentence_snippet": "Stripe | Financial Infrastructure to Grow Your Revenue Products Solutions Developers Resources Prici"
+      },
+      "structured_content": {
+        "total_lists": 5,
+        "meaningful_lists": 4,
+        "tables_with_headers": 0,
+        "structured_content_ratio": 0.26,
+        "low_structure": false,
+        "list_items_total": 61
+      },
+      "named_entity_density": {
+        "named_entity_count": 45,
+        "word_count": 1606,
+        "entities_per_1000_words": 28.0,
+        "below_citation_floor": false,
+        "below_median_cited": false,
+        "passes_threshold": true,
+        "examples": [
+          "$100m",
+          "$5 billion",
+          "1,000",
+          "5 billion",
+          "70 million",
+          "Adapt Stripe",
+          "Agentic Commerce",
+          "Cyber Monday",
+          "Data Pipeline",
+          "Dax Dasilva"
+        ]
+      },
+      "semantic_tables": {
+        "total_tables": 0,
+        "data_tables": 0,
+        "comparison_tables": 0,
+        "has_structured_tables": false,
+        "has_comparison_tables": false,
+        "missing_data_tables": true,
+        "table_signals": []
+      },
+      "top_third_citable": {
+        "word_count": 1658,
+        "citable_facts_first_100_words": 2,
+        "citable_facts_first_30_pct": 9,
+        "has_citable_fact_upfront": true,
+        "has_vague_opener": false,
+        "fact_examples": [
+          "most comprehensive set of",
+          "1,000"
+        ],
+        "first_100_snippet": "Global GDP running on Stripe: Request an invite Flexible solutions for every business model. Grow your business with a comprehensive set of payments and financial tools\u2060 \u2013 designed to work individuall"
+      },
+      "commercial_independence": {
+        "independence_signals_count": 0,
+        "signals_found": [],
+        "has_commercial_independence_signal": false,
+        "affiliate_link_count": 0,
+        "high_affiliate_density": false,
+        "no_signals_and_high_affiliate": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,665 @@
+{
+  "site": "stripe.com",
+  "audited_at": "2026-09-12T19:32:44Z",
+  "overall_score": 40,
+  "geo_readiness": "Not GEO Ready",
+  "platform_detected": "generic",
+  "summary": {
+    "total_findings": 27,
+    "critical": 2,
+    "high": 9,
+    "medium": 9,
+    "low": 7,
+    "passing_checks": 10
+  },
+  "dimension_scores": [
+    {
+      "id": "D1",
+      "name": "Crawlability",
+      "weight_key": "crawl",
+      "finding_prefixes": [
+        "RC2",
+        "RC4",
+        "RC7",
+        "RC14",
+        "RC17",
+        "RC19",
+        "RC23",
+        "CDN-WAF",
+        "RSL"
+      ],
+      "score": 18
+    },
+    {
+      "id": "D2",
+      "name": "Content Extractability",
+      "weight_key": "content",
+      "finding_prefixes": [
+        "CEA",
+        "RC8",
+        "RC11",
+        "FRESH"
+      ],
+      "score": 7
+    },
+    {
+      "id": "D3",
+      "name": "Entity Clarity",
+      "weight_key": "entity",
+      "finding_prefixes": [
+        "RC5",
+        "RC6",
+        "EEAT-007",
+        "CITE-003",
+        "CITE-004"
+      ],
+      "score": 88
+    },
+    {
+      "id": "D4",
+      "name": "Schema Integrity",
+      "weight_key": "schema",
+      "finding_prefixes": [
+        "RC3",
+        "RC10",
+        "RC11",
+        "RC13",
+        "RC15",
+        "RC18",
+        "RC21",
+        "OG-007",
+        "SC-"
+      ],
+      "score": 52
+    },
+    {
+      "id": "D5",
+      "name": "Off-Page Authority",
+      "weight_key": "authority",
+      "finding_prefixes": [
+        "EEAT",
+        "CITE-001",
+        "CITE-002",
+        "RC6"
+      ],
+      "score": 50
+    },
+    {
+      "id": "D6",
+      "name": "Technical Foundation",
+      "weight_key": "technical",
+      "finding_prefixes": [
+        "RC1",
+        "RC9",
+        "RC12",
+        "RC20",
+        "TSEO",
+        "OG-00",
+        "IMG-"
+      ],
+      "score": 20
+    }
+  ],
+  "engine_scores": {
+    "ChatGPT": 45,
+    "Perplexity": 37,
+    "Google AI Overviews": 40,
+    "Gemini": 41,
+    "Bing Copilot": 38
+  },
+  "projected_score": {
+    "projected_overall": 67,
+    "projected_geo_readiness": "Developing",
+    "current_overall": 40,
+    "score_lift": 27,
+    "fixes_required": 11,
+    "note": "Fixing 11 CRITICAL/HIGH findings would raise your score from 40 to 67 (+27 pts)",
+    "projected_engine_scores": {
+      "ChatGPT": 70,
+      "Perplexity": 66,
+      "Google AI Overviews": 66,
+      "Gemini": 67,
+      "Bing Copilot": 65
+    }
+  },
+  "geo_score": {
+    "overall": 40,
+    "threshold": 70,
+    "geo_ready": false,
+    "dimension_scores": {
+      "d1_crawlability": 18,
+      "d2_content_extractability": 7,
+      "d3_entity_clarity": 88,
+      "d4_schema_integrity": 52,
+      "d5_off-page_authority": 50,
+      "d6_technical_foundation": 20
+    },
+    "per_engine_scores": {
+      "chatgpt": 45,
+      "perplexity": 37,
+      "google_ai_overviews": 40,
+      "gemini": 41,
+      "bing_copilot": 38
+    },
+    "action_roadmap": [
+      {
+        "priority": 1,
+        "dimension": "Content Extractability",
+        "finding_id": "FRESH-001",
+        "action": "Add at minimum: JSON-LD dateModified, HTTP Last-Modified header, and visible 'Last updated: [Date]' text.",
+        "effort": "low",
+        "severity": "CRITICAL",
+        "estimated_score_lift": "+15 overall"
+      },
+      {
+        "priority": 2,
+        "dimension": "Content Extractability",
+        "finding_id": "CEA-001",
+        "action": "Open the page with a clear, self-contained statement of what the brand/product does.",
+        "effort": "low",
+        "severity": "HIGH",
+        "estimated_score_lift": "+8 overall"
+      },
+      {
+        "priority": 3,
+        "dimension": "Content Extractability",
+        "finding_id": "CEA-004",
+        "action": "Add source links or parenthetical citations to every statistic.",
+        "effort": "low",
+        "severity": "HIGH",
+        "estimated_score_lift": "+8 overall"
+      },
+      {
+        "priority": 4,
+        "dimension": "Content Extractability",
+        "finding_id": "CEA-008",
+        "action": "Add a comparison or data table (with <th> headers, \u22653 rows) to key content pages, especially feature/pricing/comparison pages.",
+        "effort": "medium",
+        "severity": "HIGH",
+        "estimated_score_lift": "+8 overall"
+      },
+      {
+        "priority": 5,
+        "dimension": "Content Extractability",
+        "finding_id": "CEA-015",
+        "action": "Add a direct 40\u201360 word answer paragraph immediately after each major H2/H3 heading.",
+        "effort": "medium",
+        "severity": "HIGH",
+        "estimated_score_lift": "+8 overall"
+      },
+      {
+        "priority": 6,
+        "dimension": "Content Extractability",
+        "finding_id": "CEA-003",
+        "action": "Rewrite key H2 headings as questions to improve FAQ schema eligibility and AI direct-answer targeting.",
+        "effort": "low",
+        "severity": "MEDIUM",
+        "estimated_score_lift": "+3 overall"
+      },
+      {
+        "priority": 7,
+        "dimension": "Content Extractability",
+        "finding_id": "CEA-014",
+        "action": "Add 'Last updated: [Month Year]' visible text near the top of content pages.",
+        "effort": "low",
+        "severity": "MEDIUM",
+        "estimated_score_lift": "+3 overall"
+      },
+      {
+        "priority": 8,
+        "dimension": "Crawlability",
+        "finding_id": "RSL-001",
+        "action": "Deploy /.well-known/rsl.json with RSL 1.0 to declare content reuse terms for AI crawlers.",
+        "effort": "low",
+        "severity": "HIGH",
+        "estimated_score_lift": "+8 overall"
+      },
+      {
+        "priority": 9,
+        "dimension": "Crawlability",
+        "finding_id": "RSL-003",
+        "action": "Deploy /.well-known/ai.txt and /ai/summary.json as minimum viable AI discovery.",
+        "effort": "low",
+        "severity": "HIGH",
+        "estimated_score_lift": "+8 overall"
+      },
+      {
+        "priority": 10,
+        "dimension": "Crawlability",
+        "finding_id": "RSL-007",
+        "action": "Remove /admin, /account, /checkout and similar private paths from llms.txt immediately.",
+        "effort": "low",
+        "severity": "HIGH",
+        "estimated_score_lift": "+8 overall"
+      }
+    ]
+  },
+  "citability_coverage": {
+    "pct": 38,
+    "total_passages": 16,
+    "citeable_passages": 6,
+    "interpretation": "Needs Work"
+  },
+  "score_formula": {
+    "overall": 40,
+    "formula_note": "Overall = average of per-engine scores. Each engine weights the 6 dimensions differently.",
+    "dimension_scores": {
+      "Crawlability": 18,
+      "Content Extractability": 7,
+      "Entity Clarity": 88,
+      "Schema Integrity": 52,
+      "Off-Page Authority": 50,
+      "Technical Foundation": 20
+    },
+    "engine_formulas": [
+      {
+        "engine": "ChatGPT",
+        "formula": "15% \u00d7 Crawlability(18) + 20% \u00d7 Content Extractability(7) + 25% \u00d7 Entity Clarity(88) + 20% \u00d7 Schema Integrity(52) + 15% \u00d7 Off-Page Authority(50) + 5% \u00d7 Technical Foundation(20)",
+        "result": 45
+      },
+      {
+        "engine": "Perplexity",
+        "formula": "20% \u00d7 Crawlability(18) + 25% \u00d7 Content Extractability(7) + 15% \u00d7 Entity Clarity(88) + 15% \u00d7 Schema Integrity(52) + 20% \u00d7 Off-Page Authority(50) + 5% \u00d7 Technical Foundation(20)",
+        "result": 37
+      },
+      {
+        "engine": "Google AI Overviews",
+        "formula": "15% \u00d7 Crawlability(18) + 15% \u00d7 Content Extractability(7) + 15% \u00d7 Entity Clarity(88) + 25% \u00d7 Schema Integrity(52) + 15% \u00d7 Off-Page Authority(50) + 15% \u00d7 Technical Foundation(20)",
+        "result": 40
+      },
+      {
+        "engine": "Gemini",
+        "formula": "15% \u00d7 Crawlability(18) + 18% \u00d7 Content Extractability(7) + 18% \u00d7 Entity Clarity(88) + 22% \u00d7 Schema Integrity(52) + 15% \u00d7 Off-Page Authority(50) + 12% \u00d7 Technical Foundation(20)",
+        "result": 41
+      },
+      {
+        "engine": "Bing Copilot",
+        "formula": "20% \u00d7 Crawlability(18) + 20% \u00d7 Content Extractability(7) + 15% \u00d7 Entity Clarity(88) + 15% \u00d7 Schema Integrity(52) + 20% \u00d7 Off-Page Authority(50) + 10% \u00d7 Technical Foundation(20)",
+        "result": 38
+      }
+    ]
+  },
+  "vertical_benchmark": {
+    "benchmark_source": "Brand AI Readiness Audit \u2014 10-site live benchmark (2026-09-12)",
+    "benchmark_median": 52,
+    "benchmark_top_quartile": 65,
+    "overall_position": "Below median",
+    "estimated_percentile": 31,
+    "your_score": 40,
+    "dimension_comparison": {
+      "Crawlability": {
+        "your_score": 18,
+        "benchmark_median": 72,
+        "delta": -54,
+        "vs_median": "-54"
+      },
+      "Content Extractability": {
+        "your_score": 7,
+        "benchmark_median": 48,
+        "delta": -41,
+        "vs_median": "-41"
+      },
+      "Entity Clarity": {
+        "your_score": 88,
+        "benchmark_median": 63,
+        "delta": 25,
+        "vs_median": "+25"
+      },
+      "Schema Integrity": {
+        "your_score": 52,
+        "benchmark_median": 44,
+        "delta": 8,
+        "vs_median": "+8"
+      },
+      "Off-Page Authority": {
+        "your_score": 50,
+        "benchmark_median": 55,
+        "delta": -5,
+        "vs_median": "-5"
+      },
+      "Technical Foundation": {
+        "your_score": 20,
+        "benchmark_median": 68,
+        "delta": -48,
+        "vs_median": "-48"
+      }
+    }
+  },
+  "findings": [
+    {
+      "id": "FRESH-001",
+      "title": "No machine-readable freshness signals present \u2014 AI treats content as undated",
+      "severity": "CRITICAL",
+      "evidence": "0/5 freshness signal layers found (HTTP Last-Modified, JSON-LD dateModified, OG article:modified_time, visible 'Last updated', meta date tag). AI defaults to treating undated content as stale. Lureon: 76% of citations go to content updated within 30 days.",
+      "suggested_action": {
+        "summary": "Add at minimum: JSON-LD dateModified, HTTP Last-Modified header, and visible 'Last updated: [Date]' text.",
+        "priority": "high",
+        "effort": "low"
+      },
+      "research_lift": "+47% citation lift for fresh, multi-layer dated content (AuthorityTech 2026)"
+    },
+    {
+      "id": "OG-001",
+      "title": "No OpenGraph tags on homepage",
+      "severity": "CRITICAL",
+      "evidence": "og:title, og:description, and og:image are all absent from the homepage. OpenGraph tags are used by ChatGPT, Perplexity, and social AI surfaces to generate rich previews and brand descriptions. Without them, AI tools construct generic or inaccurate brand summaries.",
+      "suggested_action": {
+        "summary": "Add og:title, og:description, og:image, og:type to every page template.",
+        "priority": "high",
+        "effort": "low"
+      },
+      "research_lift": "OpenGraph tags \u2192 AI tools use og:description as primary brand description source; absent = AI generates its own (often inaccurate)"
+    },
+    {
+      "id": "CEA-001",
+      "title": "No direct answer in first 80 words (/)",
+      "severity": "HIGH",
+      "evidence": "First 80 words contain no direct, self-contained brand/product claim. Snippet: \"Start now Contact sales...\". AI engines extract the lede to populate brand descriptions in summaries.",
+      "suggested_action": {
+        "summary": "Open the page with a clear, self-contained statement of what the brand/product does.",
+        "priority": "high",
+        "effort": "low"
+      },
+      "research_lift": "Answer-first structure \u2192 +17.3% citation rate (AuthorityTech 2026); top-of-page content = 44% of all AI citations (Surfer SEO 2026)"
+    },
+    {
+      "id": "CEA-004",
+      "title": "Statistics without source citations on /",
+      "severity": "HIGH",
+      "evidence": "10 uncited statistics found, only 0 have source attribution. Unsourced stats are deprioritised by citation engines \u2014 AI treats sourced claims as more authoritative and quotable.",
+      "suggested_action": {
+        "summary": "Add source links or parenthetical citations to every statistic.",
+        "priority": "high",
+        "effort": "low"
+      },
+      "research_lift": "Sourced statistics \u2192 +40% AI citation probability (Princeton KDD 2024 GEO study)"
+    },
+    {
+      "id": "CEA-008",
+      "title": "No HTML tables on / \u2014 missing highest-citation format",
+      "severity": "HIGH",
+      "evidence": "Zero <table> elements found. Bigeye Agency + TryProfound: HTML data tables \u2192 +400% citation probability vs. prose. Comparison pages with semantic tables achieve 67% citation rate \u2014 highest single format ever measured.",
+      "suggested_action": {
+        "summary": "Add a comparison or data table (with <th> headers, \u22653 rows) to key content pages, especially feature/pricing/comparison pages.",
+        "priority": "high",
+        "effort": "medium"
+      },
+      "research_lift": "+400% citation probability with data tables (Bigeye Agency + TryProfound, 2026)"
+    },
+    {
+      "id": "CEA-015",
+      "title": "Low answer-capsule ratio (0%) on /",
+      "severity": "HIGH",
+      "evidence": "0/5 H2/H3 sections have a 40+ word direct answer capsule. ChatGPT citation correlation: 72.4% of cited pages have \u226550%.",
+      "suggested_action": {
+        "summary": "Add a direct 40\u201360 word answer paragraph immediately after each major H2/H3 heading.",
+        "priority": "high",
+        "effort": "medium"
+      },
+      "research_lift": "72.4% of ChatGPT-cited pages have \u226550% answer capsule ratio (Cognism, 2026)"
+    },
+    {
+      "id": "EEAT-010",
+      "title": "Low Brand Authority Score (23/100) \u2014 weak AI trust signals",
+      "severity": "HIGH",
+      "evidence": "Brand Authority Score: 23/100 (scale: 0\u2013100 weighted across Wikipedia, Reddit, review platforms, social profiles, Wikidata). Weak dimensions: reddit, review_platforms, social_profiles, wikidata. AI engines weight brand authority when selecting sources for brand-related queries.",
+      "suggested_action": {
+        "summary": "Prioritize: reddit, review_platforms \u2014 these dimensions have the most room for improvement in brand authority.",
+        "priority": "medium",
+        "effort": "high"
+      },
+      "research_lift": "High brand authority \u2192 AI engines preferentially select brand as authoritative source; Wikipedia + Reddit alone account for 45% of composite score"
+    },
+    {
+      "id": "RC3-001",
+      "title": "No Organization schema detected",
+      "severity": "HIGH",
+      "evidence": "No Organization, Corporation, or LocalBusiness @type found in JSON-LD. Without this, AI engines cannot reliably associate the site with a named brand entity \u2014 critical for Knowledge Graph inclusion.",
+      "suggested_action": {
+        "summary": "Add Organization JSON-LD with name, url, logo, and sameAs to every page.",
+        "priority": "high",
+        "effort": "low"
+      },
+      "research_lift": "Organization schema \u2192 confirmed Knowledge Graph inclusion; Onely 5,000-site study: schema presence = +34% AI citation rate",
+      "platform_fix_code": {
+        "platform": "generic",
+        "code": "Add JSON-LD Organization schema to your homepage <head> section."
+      }
+    },
+    {
+      "id": "RSL-001",
+      "title": "No RSL 1.0 machine-readable license declaration",
+      "severity": "HIGH",
+      "evidence": "/.well-known/rsl.json returns 404 and no <link rel='robots-standard-license'> tag found in HTML. Without RSL, AI crawlers cannot determine permitted reuse terms \u2014 many default to 'no training' or skip the domain entirely.",
+      "suggested_action": {
+        "summary": "Deploy /.well-known/rsl.json with RSL 1.0 to declare content reuse terms for AI crawlers.",
+        "priority": "high",
+        "effort": "low"
+      },
+      "research_lift": "RSL 1.0 declaration \u2192 AI crawlers recognise explicit reuse permission; absence = conservative default = reduced indexing likelihood"
+    },
+    {
+      "id": "RSL-003",
+      "title": "Zero AI discovery endpoints present (0/14 checked)",
+      "severity": "HIGH",
+      "evidence": "None of 14 standard AI discovery endpoints return HTTP 200 (checked: /.well-known/ai.txt, /ai/summary.json, /llms.txt, /brand.txt, /identity.json, and 9 others). These endpoints are the primary way AI agents discover brand facts, product descriptions, and authorised content.",
+      "suggested_action": {
+        "summary": "Deploy /.well-known/ai.txt and /ai/summary.json as minimum viable AI discovery.",
+        "priority": "high",
+        "effort": "low"
+      },
+      "research_lift": "AI discovery endpoints \u2192 brand facts served directly to AI agents; sites with \u22653 endpoints see +28% brand mention accuracy (Profound AI, 2026)"
+    },
+    {
+      "id": "RSL-007",
+      "title": "Private/admin URLs exposed in llms.txt (5 found)",
+      "severity": "HIGH",
+      "evidence": "5 private or admin-area URLs found in llms.txt: https://stripe.com/payments/checkout, https://docs.stripe.com/payments/checkout. Exposing /admin, /checkout, /account paths invites AI crawlers into authenticated areas and leaks internal infrastructure details.",
+      "suggested_action": {
+        "summary": "Remove /admin, /account, /checkout and similar private paths from llms.txt immediately.",
+        "priority": "high",
+        "effort": "low"
+      },
+      "research_lift": "Clean llms.txt = AI crawlers only index intended public content; private URL exposure = security risk + crawler misdirection"
+    },
+    {
+      "id": "CEA-003",
+      "title": "Low question-format heading ratio (7%) on /",
+      "severity": "MEDIUM",
+      "evidence": "2/30 H2/H3 headings are phrased as questions. Sample: ['what&#x27;s happening', 'how leading retailers unify customer experiences and drive growth.']. Question-format headings directly match conversational AI query patterns.",
+      "suggested_action": {
+        "summary": "Rewrite key H2 headings as questions to improve FAQ schema eligibility and AI direct-answer targeting.",
+        "priority": "medium",
+        "effort": "low"
+      },
+      "research_lift": "Question-format headings \u2192 FAQPage schema eligibility; FAQ schema pages = 2.7\u00d7 more likely to appear in AI Overviews (Onely 2026)"
+    },
+    {
+      "id": "CEA-014",
+      "title": "No visible content freshness date marker on /",
+      "severity": "MEDIUM",
+      "evidence": "No visible 'As of [date]', 'Last updated', or 'Published' text marker found on page. Visible date text is the most human-readable of the 5 freshness signal layers and acts as a reader trust signal alongside machine-readable metadata.",
+      "suggested_action": {
+        "summary": "Add 'Last updated: [Month Year]' visible text near the top of content pages.",
+        "priority": "medium",
+        "effort": "low"
+      },
+      "research_lift": "Visible freshness date = human-readable layer 5 of 5-layer freshness sync; Lureon: 76% of citations go to content updated within 30 days"
+    },
+    {
+      "id": "EEAT-002",
+      "title": "No review platform links from homepage",
+      "severity": "MEDIUM",
+      "evidence": "No G2, Capterra, Trustpilot, G2Crowd, or similar review platform links detected in homepage HTML. Third-party review signals are a top E-E-A-T corroboration source for AI citation engines.",
+      "suggested_action": {
+        "summary": "Add G2/Trustpilot review badges with links to footer. Even a single third-party review platform link signals independent validation.",
+        "priority": "medium",
+        "effort": "low"
+      },
+      "research_lift": "Review platform links \u2192 3\u00d7 AI citation probability (SE Ranking 2026 E-E-A-T study)"
+    },
+    {
+      "id": "IMG-001",
+      "title": "30 images missing alt text",
+      "severity": "MEDIUM",
+      "evidence": "30 images have no alt attribute. Examples: https://images.stripeassets.com/fzn2n1nzq965/115d4Vd5LVAsqFGDR1ClAv/0ceb2c44a7a7, https://images.stripeassets.com/fzn2n1nzq965/vYmk6v8n7oDAwbDpwhjV6/846f9b3e21454, https://images.stripeassets.com/fzn2n1nzq965/m9HBEK464p46FeNIhs2PV/f5054a93c8a0a.... Alt text is the only machine-readable content signal for images; absent = invisible to AI crawlers.",
+      "suggested_action": {
+        "summary": "Add descriptive alt text to all images. Alt text is an AI-indexable content signal.",
+        "priority": "medium",
+        "effort": "low"
+      },
+      "research_lift": "Alt text present \u2192 images indexed as content by AI crawlers; each image = additional citation surface"
+    },
+    {
+      "id": "RC17-001",
+      "title": "No RSS/Atom feed found",
+      "severity": "MEDIUM",
+      "evidence": "Checked /feed, /rss.xml, /atom.xml, /feed.xml \u2014 all returned non-200. Perplexity, Bing Copilot, and AI news agents actively consume RSS/Atom feeds to discover and rank fresh content.",
+      "suggested_action": {
+        "summary": "Create an RSS/Atom feed. Perplexity and AI news agents index feeds for freshness.",
+        "priority": "medium",
+        "effort": "low"
+      },
+      "research_lift": "RSS feeds indexed by Perplexity/Bing AI for freshness signals \u2014 absence = stale content perception"
+    },
+    {
+      "id": "RSL-005",
+      "title": "llms.txt fails spec validation (2 issues)",
+      "severity": "MEDIUM",
+      "evidence": "llms.txt spec violations (2 issues): File size 63KB exceeds 50KB limit; Private/admin URLs exposed in llms.txt. Malformed llms.txt causes AI parsers to reject or partially parse the file, reducing the brand information available to AI agents.",
+      "suggested_action": {
+        "summary": "Fix llms.txt spec violations: ensure H1 present, use absolute links, verify no broken URLs.",
+        "priority": "medium",
+        "effort": "low"
+      },
+      "research_lift": "Spec-compliant llms.txt = fully parsed by AI agents; non-compliant = partial or no ingestion"
+    },
+    {
+      "id": "SC-001",
+      "title": "No Speakable schema",
+      "severity": "MEDIUM",
+      "evidence": "site_has_speakable=False. No SpeakableSpecification markup found. Speakable markup tells Google and voice assistants exactly which passages to read aloud or surface in AI Overview snippets.",
+      "suggested_action": {
+        "summary": "Add Speakable schema to product descriptions and key content sections.",
+        "priority": "medium",
+        "effort": "low"
+      },
+      "research_lift": "Speakable markup \u2192 eligible for Google AI Overviews voice-snippet selection (Google Search Central, 2026)"
+    },
+    {
+      "id": "TSEO-007",
+      "title": "Multiple H1 headings (2) on homepage",
+      "severity": "MEDIUM",
+      "evidence": "h1_count=2. Multiple H1s dilute topical authority signal \u2014 AI crawlers use the H1 to identify the primary topic of a page; multiple H1s send conflicting signals about what the page is about.",
+      "suggested_action": {
+        "summary": "Reduce to exactly one H1 per page.",
+        "priority": "medium",
+        "effort": "low"
+      },
+      "research_lift": "Single H1 = unambiguous primary topic signal for AI crawlers; multiple H1s = topic dilution, lower topical authority score"
+    },
+    {
+      "id": "TSEO-012",
+      "title": "Last-Modified HTTP header absent",
+      "severity": "MEDIUM",
+      "evidence": "No Last-Modified header in homepage HTTP response. Perplexity uses Last-Modified as primary freshness signal.",
+      "suggested_action": {
+        "summary": "Configure web server to emit Last-Modified header with accurate file modification date.",
+        "priority": "medium",
+        "effort": "low"
+      },
+      "research_lift": "Last-Modified present \u2192 +22% Perplexity freshness score (Ahrefs AI Indexing Guide 2026)"
+    },
+    {
+      "id": "CEA-006",
+      "title": "No key-takeaway / TL;DR box on /",
+      "severity": "LOW",
+      "evidence": "No TL;DR, key highlights, or summary box detected. These compact blocks are prime AI extraction targets \u2014 they concentrate citable facts in a scannable format AI engines prefer for quick answers.",
+      "suggested_action": {
+        "summary": "Add a 'Key highlights' box near top of content pages.",
+        "priority": "low",
+        "effort": "low",
+        "proactive": true
+      },
+      "research_lift": "Summary/TL;DR boxes \u2192 high AI extraction rate; compact fact-dense blocks preferred by ChatGPT and Perplexity for answer generation"
+    },
+    {
+      "id": "EEAT-009",
+      "title": "Weak Reddit brand presence",
+      "severity": "LOW",
+      "evidence": "No dedicated subreddit found, fewer than 3 organic mentions in Reddit search. Reddit is a top-cited source for Perplexity and ChatGPT.",
+      "suggested_action": {
+        "summary": "Engage authentically in relevant Reddit communities. A brand subreddit with r/{brand} > 500 subscribers boosts trust signals.",
+        "priority": "low",
+        "effort": "high",
+        "proactive": true
+      },
+      "research_lift": "Reddit mentions \u2192 +19% Perplexity citation probability (Profound AI, 2026)"
+    },
+    {
+      "id": "OG-005",
+      "title": "No Twitter Card meta tags",
+      "severity": "LOW",
+      "evidence": "No twitter:card, twitter:title, or twitter:description tags found. Twitter Cards are consumed by Grok/xAI and social AI surfaces to generate previews; their absence reduces brand surface area on AI-powered social platforms.",
+      "suggested_action": {
+        "summary": "Add twitter:card=summary_large_image and twitter:title/description.",
+        "priority": "low",
+        "effort": "low",
+        "proactive": true
+      },
+      "research_lift": "Twitter Cards consumed by Grok/xAI for brand context; adds brand discovery surface on X AI features"
+    },
+    {
+      "id": "RSL-002",
+      "title": "No llms-full.txt companion file",
+      "severity": "LOW",
+      "evidence": "/llms-full.txt returns 404. The llms-full.txt companion file provides the complete, unabridged version of all content \u2014 ideal for LLMs that need full context rather than the summary llms.txt. Its absence limits the depth of brand knowledge LLMs can ingest in a single fetch.",
+      "suggested_action": {
+        "summary": "Create /llms-full.txt with complete product documentation, pricing, and brand narrative for LLM ingestion.",
+        "priority": "low",
+        "effort": "high",
+        "proactive": true
+      },
+      "research_lift": "llms-full.txt enables LLMs to ingest comprehensive brand documentation in one request \u2014 deeper context = more accurate brand representation"
+    },
+    {
+      "id": "RSL-004",
+      "title": "IndexNow not implemented",
+      "severity": "LOW",
+      "evidence": "No IndexNow key found in HTML meta tags or robots.txt. IndexNow is the real-time publish-notification protocol used by Bing, Perplexity, and Yandex \u2014 without it, new content may take days to be discovered.",
+      "suggested_action": {
+        "summary": "Implement IndexNow to notify Bing/Perplexity immediately on content publish or update.",
+        "priority": "low",
+        "effort": "low",
+        "proactive": true
+      },
+      "research_lift": "IndexNow \u2192 content indexed by Bing/Perplexity within minutes of publish vs. days without it (Microsoft Bing Webmaster, 2025)"
+    },
+    {
+      "id": "RSL-006",
+      "title": "No machine-readable alternate content links (RSL-006)",
+      "severity": "LOW",
+      "evidence": "No <link rel='alternate' type='text/markdown'> or text/plain found. AutoGEO ICLR 2026: pages with machine-readable alternates have 2.1\u00d7 higher RAG retrieval rate.",
+      "suggested_action": {
+        "summary": "Add <link rel='alternate' type='text/markdown' href='/page.md'> to key content pages.",
+        "priority": "low",
+        "effort": "low",
+        "proactive": true
+      },
+      "research_lift": "+2.1\u00d7 RAG retrieval rate (AutoGEO ICLR 2026)"
+    },
+    {
+      "id": "RSL-008",
+      "title": "No WebMCP agentic readiness signals",
+      "severity": "LOW",
+      "evidence": "/.well-known/mcp.json, /.well-known/webmcp, and /.well-known/agents.json all absent. No MCP card or agent tool HTML attributes detected. WebMCP readiness determines whether AI agents (Claude, GPT-4 with Plugins, Lighthouse) can discover and use the site's capabilities programmatically.",
+      "suggested_action": {
+        "summary": "Deploy /.well-known/mcp.json with brand MCP card for Lighthouse 13.3.0+ agentic audits.",
+        "priority": "low",
+        "effort": "low",
+        "proactive": true
+      },
+      "research_lift": "WebMCP readiness \u2192 AI agents can discover and invoke brand capabilities; future-proofing for agentic web (Anthropic MCP spec, 2025)"
+    }
+  ]
+}

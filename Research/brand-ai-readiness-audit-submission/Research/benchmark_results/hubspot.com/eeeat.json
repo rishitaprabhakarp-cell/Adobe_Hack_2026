@@ -1,0 +1,87 @@
+{
+  "site": "www.hubspot.com",
+  "base_url": "https://www.hubspot.com",
+  "probed_at": "2026-09-12T18:23:52Z",
+  "homepage_status": 200,
+  "error": null,
+  "https_check": {
+    "https_enforced": true,
+    "redirect_code": 301,
+    "redirect_to": "https://www.hubspot.com/"
+  },
+  "author_signals": {
+    "bylines_found": [
+      "Read full case studyof Youth on Course",
+      "John Mothershead",
+      "Director of Member Success, Youth on Course",
+      "Read full case studyabout Unipart",
+      "Read full case studyof Angel City FC"
+    ],
+    "author_count": 9,
+    "has_credentials": true,
+    "has_author_bio": false,
+    "has_person_schema": false
+  },
+  "trust_signals": {
+    "privacy_policy": true,
+    "terms_of_service": false,
+    "cookie_policy": false,
+    "gdpr_compliance": true,
+    "security_badge": true,
+    "money_back_guarantee": false,
+    "contact_info": true
+  },
+  "original_research": {
+    "has_original_research": true,
+    "signals_found": [
+      "n="
+    ]
+  },
+  "review_platform_links": {
+    "platforms_linked": [],
+    "platform_count": 0,
+    "details": {
+      "g2": false,
+      "capterra": false,
+      "trustpilot": false,
+      "producthunt": false,
+      "yelp": false,
+      "glassdoor": false
+    }
+  },
+  "social_profiles": {
+    "profiles_found": {
+      "linkedin": "href=\"https://www.linkedin.com/company/hubspot\"",
+      "twitter": "href=\"https://x.com/HubSpot\"",
+      "facebook": "href=\"https://www.facebook.com/hubspot\""
+    },
+    "count": 3
+  },
+  "wikidata_p856": {
+    "wikidata_entity_found": null,
+    "error": "HTTPSConnectionPool(host='query.wikidata.org', port=443): Read timed out. (read timeout=12)"
+  },
+  "about_page_author_signals": {
+    "bylines_found": [],
+    "author_count": 0,
+    "has_credentials": true,
+    "has_author_bio": false,
+    "has_person_schema": false
+  },
+  "about_page_trust_signals": {
+    "privacy_policy": true,
+    "terms_of_service": false,
+    "cookie_policy": false,
+    "gdpr_compliance": true,
+    "security_badge": false,
+    "money_back_guarantee": false,
+    "contact_info": true
+  },
+  "_agent_next_steps": [
+    "web_search: site:reddit.com \"hubspot\"",
+    "web_search: site:linkedin.com/company \"hubspot\"",
+    "web_search: site:g2.com OR site:capterra.com OR site:trustpilot.com \"hubspot\"",
+    "web_search: \"hubspot\" site:news.google.com",
+    "web_search: site:wikidata.org \"hubspot\""
+  ]
+}

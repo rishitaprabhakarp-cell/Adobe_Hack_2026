@@ -1,0 +1,60 @@
+{
+  "site": "www.adobe.com",
+  "base_url": "https://www.adobe.com",
+  "probed_at": "2026-09-12T18:22:35Z",
+  "homepage_status": 200,
+  "error": null,
+  "https_check": {
+    "https_enforced": true,
+    "redirect_code": 301,
+    "redirect_to": "https://www.adobe.com/"
+  },
+  "author_signals": {
+    "bylines_found": [],
+    "author_count": 0,
+    "has_credentials": true,
+    "has_author_bio": false,
+    "has_person_schema": false
+  },
+  "trust_signals": {
+    "privacy_policy": false,
+    "terms_of_service": false,
+    "cookie_policy": false,
+    "gdpr_compliance": false,
+    "security_badge": true,
+    "money_back_guarantee": false,
+    "contact_info": false
+  },
+  "original_research": {
+    "has_original_research": false,
+    "signals_found": []
+  },
+  "review_platform_links": {
+    "platforms_linked": [],
+    "platform_count": 0,
+    "details": {
+      "g2": false,
+      "capterra": false,
+      "trustpilot": false,
+      "producthunt": false,
+      "yelp": false,
+      "glassdoor": false
+    }
+  },
+  "social_profiles": {
+    "profiles_found": {},
+    "count": 0
+  },
+  "wikidata_p856": {
+    "wikidata_entity_found": null,
+    "error": "HTTPSConnectionPool(host='query.wikidata.org', port=443): Read timed out. (read timeout=12)"
+  },
+  "about_page_status": 404,
+  "_agent_next_steps": [
+    "web_search: site:reddit.com \"adobe\"",
+    "web_search: site:linkedin.com/company \"adobe\"",
+    "web_search: site:g2.com OR site:capterra.com OR site:trustpilot.com \"adobe\"",
+    "web_search: \"adobe\" site:news.google.com",
+    "web_search: site:wikidata.org \"adobe\""
+  ]
+}

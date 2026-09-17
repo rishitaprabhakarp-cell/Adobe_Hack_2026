@@ -1,0 +1,186 @@
+{
+  "site": "anthropic.com",
+  "base_url": "https://anthropic.com",
+  "probed_at": "2026-09-12T18:19:14Z",
+  "pages": [
+    {
+      "path": "/",
+      "url": "https://anthropic.com",
+      "status": 200,
+      "error": null,
+      "jsonld_blocks": [],
+      "schema_types": [],
+      "schema_richness": [],
+      "has_speakable": false,
+      "freshness_dates": [],
+      "images_missing_alt": [],
+      "html_lang": "en",
+      "hreflang_count": 0,
+      "paywall_detected": false,
+      "paywall_evidence": null,
+      "is_accessible_for_free": null,
+      "video_objects": [],
+      "faq_howto_headings": []
+    },
+    {
+      "path": "/product",
+      "url": "https://anthropic.com/product",
+      "status": 200,
+      "error": null,
+      "jsonld_blocks": [],
+      "schema_types": [],
+      "schema_richness": [],
+      "has_speakable": false,
+      "freshness_dates": [],
+      "images_missing_alt": [
+        "https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69e130b671817eddec5f",
+        "https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abdac9a60d37ccbb9",
+        "https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.s",
+        "https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/696ab3c6f49d2f3d81e1"
+      ],
+      "html_lang": "en-US",
+      "hreflang_count": 13,
+      "paywall_detected": false,
+      "paywall_evidence": null,
+      "is_accessible_for_free": null,
+      "video_objects": [],
+      "faq_howto_headings": []
+    },
+    {
+      "path": "/about",
+      "url": "https://anthropic.com/about",
+      "status": 404,
+      "error": null,
+      "jsonld_blocks": [],
+      "schema_types": [],
+      "schema_richness": [],
+      "has_speakable": false,
+      "freshness_dates": [],
+      "images_missing_alt": [],
+      "html_lang": null,
+      "hreflang_count": 0,
+      "paywall_detected": false,
+      "paywall_evidence": null,
+      "is_accessible_for_free": null,
+      "video_objects": [],
+      "faq_howto_headings": []
+    },
+    {
+      "path": "/pricing",
+      "url": "https://anthropic.com/pricing",
+      "status": 200,
+      "error": null,
+      "jsonld_blocks": [
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What do I get with Claude Pro?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The Pro plan gives you everything in a Free plan with more usage and the full set of Claude capabilities. That includes Claude Code, Claude Cowork, Claude Design, along with projects to organize your chats and documents, access to more Claude models, and Claude for Microsoft 365. You can choose a monthly or annual subscription."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How is Claude Max different from Pro?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The Max plan is built for people who work with Claude throughout the day and want longer, uninterrupted sessions. You get everything in Pro, plus more usage: choose from 5x or 20x the usage of Pro per 5-hour session. Max also gives you higher output limits. Both options are billed monthly. See the cards above for current pricing."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What are the usage limits on each plan, and what happens when I hit them?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Every plan has usage limits that reset on a rolling five-hour session window, and paid plans add weekly limits on top. Your activity across Claude on web, desktop, mobile, and Claude Code all draws from the same pool. How much you can do depends on the length and complexity of your conversations, the model you choose, and the features you use, so there's no fixed message count. Free covers everyday questions. Pro gives you at least 5x more usage per 5-hour session than Free. Max gives you 5x or 20x more usage per 5-hour session than Pro. On Team plans, Standard seats give more than Pro and Premium seats give 5x more than Standard. To manage capacity and make sure all users have fair access, we may limit your usage in other ways, such as weekly and monthly caps or model and feature usage, at our discretion. When you reach a limit, you can wait for it to reset, move to a higher plan, or, on paid plans, turn on usage credits to keep working at standard API rates. You can see where you stand anytime in Settings > Usage."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is Claude Code included in my plan?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Claude Code is included in all paid plans. It shares the same usage limits as the rest of your plan, so your work in the terminal and your chats draw from one pool. For heavy coding sessions, you can also switch to pay-as-you-go API credits through a Console account."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How much does the Claude Enterprise plan cost?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The Claude Enterprise plan is built for large businesses operating at scale. Pricing is $20 per seat per month plus usage billed at API rates, so cost scales with the models and tasks your team runs. Enterprise is billed annually and includes everything in Team plus advanced security and admin controls, including SCIM, audit logs, custom data retention, and role-based access. You can get started self-serve or contact sales for a tailored quote."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I pay annually? Does it cost less than if I pay monthly?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, annual plans are designed to cost less than monthly subscriptions. Annual subscriptions are available for Pro and Team plans. Enterprise plans are only available as annual subscriptions. When you choose to pay annually, you're billed once up front for the year. If you're already on a monthly plan, you can switch to annual in Settings > Billing, and any unused time is credited toward your first annual invoice. See the steps for Pro and Team."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does Claude offer refunds?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Payments are generally non-refundable, except where our Consumer Terms of Service say otherwise or where local law requires it. Customers outside of Europe can follow this process to request a refund: Log in, open Get help from the menu, start a message, and choose Claude Refund Request to check your eligibility. If you subscribed through the App Store, Apple handles the refund, so you'll request it from Apple. If you subscribed through Google Play, contact our Support team to check eligibility for an active subscription. If you're in the European Economic Area and the United Kingdom, and within your 14-day withdrawal period, you can request a refund directly in the app."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do I upgrade, downgrade, or switch between plans?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You can change your plan any time in Settings. For individual plans, go to Settings > Billing and choose Manage subscription. On Team plans, an Owner or Primary Owner manages this under Organization settings > Billing. See more details here. Upgrades take effect right away, and any unused time on your current plan is credited toward the new one, so you won't pay twice for the same days. Moving from monthly to annual works the same way, with your remaining time credited to the first annual invoice. In some upgrades (for example Pro Annual to Max 5x Monthly), your remaining value on your old plan is larger than the cost of one billing period of the new plan. In this case, the excess will be stored as credit, which will automatically get used for future purchases. Downgrades take effect at the end of your current billing period, and your chats, projects, and files stay with your account whichever plan you're on."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do I cancel my Claude subscription?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You can cancel anytime, and your plan stays active until the end of your current billing period. To avoid the next charge, cancel at least 24 hours before your renewal date. If you signed up on the web or the desktop app, go to Settings > Billing and click Cancel. If you subscribed through the App Store or Google Play, cancel from that app under Billing > Manage subscription, or directly in your Apple or Google Play account. Team and self-serve Enterprise: an Owner or Primary Owner cancels under Organization settings > Billing. Sales-assisted Enterprise: Reach out to your Anthropic Contact or our Sales team to discuss cancellation. Canceling doesn't delete your data. Your chats, projects, and files stay with your account, though some features aren't available on the Free plan. For Pro and Max, your account moves to the Free plan once the period ends. For step-by-step help, see how to cancel a Pro or Max plan or cancel a Team plan."
+              }
+            }
+          ]
+        }
+      ],
+      "schema_types": [
+        "FAQPage"
+      ],
+      "schema_richness": [
+        {
+          "@type": "FAQPage",
+          "field_count": 1
+        }
+      ],
+      "has_speakable": false,
+      "freshness_dates": [],
+      "images_missing_alt": [],
+      "html_lang": "en",
+      "hreflang_count": 14,
+      "paywall_detected": false,
+      "paywall_evidence": null,
+      "is_accessible_for_free": null,
+      "video_objects": [],
+      "faq_howto_headings": [
+        "faq",
+        "how do i upgrade, downgrade, or switch between plans?",
+        "how do i cancel my claude subscription?"
+      ]
+    }
+  ],
+  "site_schema_types": [
+    "FAQPage"
+  ],
+  "site_has_speakable": false,
+  "site_has_faqpage": true,
+  "site_has_howto": false,
+  "site_has_video_object": false,
+  "site_inlanguage": null
+}

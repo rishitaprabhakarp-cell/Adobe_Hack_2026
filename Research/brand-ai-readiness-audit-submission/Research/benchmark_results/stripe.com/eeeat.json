@@ -1,0 +1,137 @@
+{
+  "site": "stripe.com",
+  "base_url": "https://stripe.com",
+  "probed_at": "2026-09-12T19:33:49Z",
+  "homepage_status": 200,
+  "error": null,
+  "https_check": {
+    "https_enforced": true,
+    "redirect_code": 301,
+    "redirect_to": "https://stripe.com/"
+  },
+  "author_signals": {
+    "bylines_found": [
+      "Seth McMillan, Engineering Manager, Substack",
+      "Dax Dasilva, Founder and CEO, Lightspeed",
+      "Laura Collinson, Director of Fintech, Jobber",
+      "Kurtis Moyer, Lead Product Manager of Payments, Mindbody"
+    ],
+    "author_count": 4,
+    "has_credentials": true,
+    "has_author_bio": false,
+    "has_person_schema": true
+  },
+  "trust_signals": {
+    "privacy_policy": true,
+    "terms_of_service": false,
+    "cookie_policy": true,
+    "gdpr_compliance": false,
+    "security_badge": true,
+    "money_back_guarantee": false,
+    "contact_info": true
+  },
+  "original_research": {
+    "has_original_research": true,
+    "signals_found": [
+      "n="
+    ]
+  },
+  "review_platform_links": {
+    "platforms_linked": [],
+    "platform_count": 0,
+    "details": {
+      "g2": false,
+      "capterra": false,
+      "trustpilot": false,
+      "producthunt": false,
+      "yelp": false,
+      "glassdoor": false
+    }
+  },
+  "social_profiles": {
+    "profiles_found": {
+      "github": "href=\"https://github.com/stripe\""
+    },
+    "count": 1
+  },
+  "wikidata_p856": {
+    "wikidata_entity_found": null,
+    "error": "HTTPSConnectionPool(host='query.wikidata.org', port=443): Read timed out. (read timeout=12)"
+  },
+  "about_page_author_signals": {
+    "bylines_found": [],
+    "author_count": 0,
+    "has_credentials": true,
+    "has_author_bio": false,
+    "has_person_schema": false
+  },
+  "about_page_trust_signals": {
+    "privacy_policy": false,
+    "terms_of_service": false,
+    "cookie_policy": true,
+    "gdpr_compliance": false,
+    "security_badge": false,
+    "money_back_guarantee": false,
+    "contact_info": false
+  },
+  "wikipedia_quality": {
+    "found": true,
+    "title": "Stripe",
+    "page_id": 1258388,
+    "wikidata_qid": "Q342029",
+    "quality_class_estimate": "B/C",
+    "has_thumbnail": false,
+    "extract_snippet": "Stripe, striped, or stripes may refer to:",
+    "brand_authority_signal": "moderate"
+  },
+  "reddit_presence": {
+    "subreddit": {
+      "exists": false,
+      "status": 403
+    },
+    "search": {
+      "post_count": 0,
+      "status": 403
+    },
+    "presence_signal": "weak"
+  },
+  "brand_authority": {
+    "brand_authority_score": 23,
+    "interpretation": "Weak",
+    "breakdown": {
+      "wikipedia": {
+        "points": 15,
+        "max": 20,
+        "found": true,
+        "quality": "B/C"
+      },
+      "reddit": {
+        "points": 3,
+        "max": 25,
+        "signal": "weak"
+      },
+      "review_platforms": {
+        "points": 0,
+        "max": 15,
+        "platforms": 0
+      },
+      "social_profiles": {
+        "points": 5,
+        "max": 25,
+        "profiles": 1
+      },
+      "wikidata": {
+        "points": 0,
+        "max": 15,
+        "found": false
+      }
+    }
+  },
+  "_agent_next_steps": [
+    "web_search: site:reddit.com \"stripe\"",
+    "web_search: site:linkedin.com/company \"stripe\"",
+    "web_search: site:g2.com OR site:capterra.com OR site:trustpilot.com \"stripe\"",
+    "web_search: \"stripe\" site:news.google.com",
+    "web_search: site:wikidata.org \"stripe\""
+  ]
+}

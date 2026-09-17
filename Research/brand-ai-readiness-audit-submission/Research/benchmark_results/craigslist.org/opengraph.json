@@ -1,0 +1,70 @@
+{
+  "site": "www.craigslist.org",
+  "base_url": "https://www.craigslist.org",
+  "probed_at": "2026-09-12T18:26:00Z",
+  "pages": [
+    {
+      "url": "https://www.craigslist.org",
+      "status": 200,
+      "og_tags": {
+        "site_name": "craigslist",
+        "title": "craigslist: bangalore jobs, apartments, for sale, services, community, and events",
+        "description": "craigslist provides local classifieds and forums for jobs, housing, for sale, services, local community, and events",
+        "url": "https://www.craigslist.org/area/bangalore"
+      },
+      "og_title": "craigslist: bangalore jobs, apartments, for sale, services, community, and events",
+      "og_description": "craigslist provides local classifieds and forums for jobs, housing, for sale, services, local community, and events",
+      "og_type": "",
+      "og_site_name": "craigslist",
+      "og_image": "",
+      "og_image_validation": {
+        "present": false
+      },
+      "twitter_card": {
+        "card": "preview"
+      },
+      "meta_description": "craigslist provides local classifieds and forums for jobs, housing, for sale, services, local community, and events",
+      "meta_description_quality": {
+        "present": true,
+        "text": "craigslist provides local classifieds and forums for jobs, housing, for sale, services, local community, and events",
+        "length": 115,
+        "too_short": false,
+        "too_long": false,
+        "optimal_length": true,
+        "is_generic": false
+      },
+      "meta_author": null,
+      "canonical": "https://www.craigslist.org/area/bangalore",
+      "markdown_alternate": {
+        "has_markdown_alternate": false,
+        "markdown_url": null
+      }
+    },
+    {
+      "url": "https://www.craigslist.org/about",
+      "status": 200,
+      "og_tags": {},
+      "og_title": "",
+      "og_description": "",
+      "og_type": "",
+      "og_site_name": "",
+      "og_image": "",
+      "og_image_validation": {
+        "present": false
+      },
+      "twitter_card": {},
+      "meta_description": null,
+      "meta_description_quality": {
+        "present": false
+      },
+      "meta_author": null,
+      "canonical": null,
+      "markdown_alternate": {
+        "has_markdown_alternate": false,
+        "markdown_url": null
+      }
+    }
+  ],
+  "duplicate_meta_descriptions": false,
+  "og_site_name_consistent": true
+}

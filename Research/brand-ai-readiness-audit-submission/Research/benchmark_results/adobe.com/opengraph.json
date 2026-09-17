@@ -1,0 +1,53 @@
+{
+  "site": "www.adobe.com",
+  "base_url": "https://www.adobe.com",
+  "probed_at": "2026-09-12T18:22:35Z",
+  "pages": [
+    {
+      "url": "https://www.adobe.com",
+      "status": 200,
+      "og_tags": {
+        "title": "Adobe: Creative, marketing and document management solutions",
+        "description": "Adobe is changing the world through digital experiences. We help our customers create, deliver and optimize content and applications.",
+        "image": "https://www.adobe.com/homepage/assets/product-icons/jpg/media_1e1d6ce6caa68dfd49689c46528c152d9fdeaad6f.jpg",
+        "image:secure_url": "https://www.adobe.com/homepage/assets/product-icons/jpg/media_1e1d6ce6caa68dfd49689c46528c152d9fdeaad6f.jpg"
+      },
+      "og_title": "Adobe: Creative, marketing and document management solutions",
+      "og_description": "Adobe is changing the world through digital experiences. We help our customers create, deliver and optimize content and applications.",
+      "og_type": "",
+      "og_site_name": "",
+      "og_image": "https://www.adobe.com/homepage/assets/product-icons/jpg/media_1e1d6ce6caa68dfd49689c46528c152d9fdeaad6f.jpg",
+      "og_image_validation": {
+        "present": true,
+        "url": "https://www.adobe.com/homepage/assets/product-icons/jpg/media_1e1d6ce6caa68dfd49",
+        "is_absolute": true,
+        "http_status": 200,
+        "valid": true
+      },
+      "twitter_card": {
+        "card": "summary_large_image",
+        "title": "Adobe: Creative, marketing and document management solutions",
+        "description": "Adobe is changing the world through digital experiences. We help our customers create, deliver and optimize content and applications.",
+        "image": "https://www.adobe.com/homepage/assets/product-icons/jpg/media_1e1d6ce6caa68dfd49689c46528c152d9fdeaad6f.jpg"
+      },
+      "meta_description": "Adobe is changing the world through digital experiences. We help our customers create, deliver and optimize content and applications.",
+      "meta_description_quality": {
+        "present": true,
+        "text": "Adobe is changing the world through digital experiences. We help our customers create, deliver and optimize content and applications.",
+        "length": 133,
+        "too_short": false,
+        "too_long": false,
+        "optimal_length": true,
+        "is_generic": false
+      },
+      "meta_author": null,
+      "canonical": "https://www.adobe.com/",
+      "markdown_alternate": {
+        "has_markdown_alternate": false,
+        "markdown_url": null
+      }
+    }
+  ],
+  "duplicate_meta_descriptions": false,
+  "og_site_name_consistent": true
+}

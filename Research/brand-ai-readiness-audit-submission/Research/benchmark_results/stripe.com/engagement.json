@@ -1,0 +1,47 @@
+{
+  "site": "stripe.com",
+  "base_url": "https://stripe.com",
+  "probed_at": "2026-09-12T19:39:48Z",
+  "homepage_status": 200,
+  "response_time_ms": 1024,
+  "error": null,
+  "above_fold": {
+    "text_snippet": "Start now Contact sales",
+    "word_count": 4,
+    "h1": "Financial infrastructure to grow your revenue. Accept payments, offer financial services and implement custom revenue mo",
+    "has_h1": true,
+    "has_description_paragraph": false
+  },
+  "cta_found": true,
+  "ctas": [
+    "explore no-code",
+    "sign in",
+    "start now",
+    "get started",
+    "sign insign in"
+  ],
+  "avg_paragraph_word_count": 38.2,
+  "long_paragraph_samples": [
+    "Lovable grows into vibe-coding juggernaut with Stripe. Read Lovable&#x27;s story Gamma expands to US$100m ARR and 70 million users with...",
+    "With Stripe, we have global technology partner to help our customers from Canadian yoga studios to British boxing classes keep...",
+    "Item of 8: Businesses on Stripe generated US$1.9tn in 2025. Businesses on Stripe generated US$1.9tn in 2025. Our annual letter..."
+  ],
+  "dynamic_state_signals": [
+    "loading",
+    "showing",
+    "reserve"
+  ],
+  "hero_images_missing_alt": [],
+  "has_meta_viewport": true,
+  "contact_info": {
+    "contact_reachable": true,
+    "contact_url": "https://stripe.com/contact",
+    "contact_evidence": "HTTP 200",
+    "about_reachable": true,
+    "about_url": "https://stripe.com/about",
+    "about_evidence": "HTTP 200",
+    "has_email_inline": true,
+    "has_phone_inline": true
+  },
+  "static_word_count": 1857
+}

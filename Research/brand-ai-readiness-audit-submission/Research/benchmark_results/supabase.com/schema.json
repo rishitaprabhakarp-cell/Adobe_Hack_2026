@@ -1,0 +1,276 @@
+{
+  "site": "supabase.com",
+  "base_url": "https://supabase.com",
+  "probed_at": "2026-09-12T18:27:05Z",
+  "pages": [
+    {
+      "path": "/",
+      "url": "https://supabase.com",
+      "status": 200,
+      "error": null,
+      "jsonld_blocks": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "@id": "https://supabase.com/#organization",
+          "name": "Supabase",
+          "url": "https://supabase.com",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://supabase.com/images/og/supabase-og.png"
+          },
+          "description": "Build production-grade applications with a Postgres database, Authentication, instant APIs, Realtime, Functions, Storage and Vector embeddings. Start for free.",
+          "legalName": "Supabase Pte. Ltd.",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer support",
+            "url": "https://supabase.com/support"
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "65 Chulia Street #38-02/03, OCBC Centre",
+            "addressLocality": "Singapore",
+            "postalCode": "049513",
+            "addressCountry": "SG"
+          },
+          "sameAs": [
+            "https://github.com/supabase",
+            "https://twitter.com/supabase",
+            "https://www.linkedin.com/company/supabase",
+            "https://youtube.com/c/supabase",
+            "https://discord.supabase.com/",
+            "https://www.tiktok.com/@supabase.com",
+            "https://www.instagram.com/supabasecom"
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "@id": "https://supabase.com/#website",
+          "url": "https://supabase.com",
+          "name": "Supabase",
+          "description": "Build production-grade applications with a Postgres database, Authentication, instant APIs, Realtime, Functions, Storage and Vector embeddings. Start for free.",
+          "publisher": {
+            "@id": "https://supabase.com/#organization"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          "name": "Supabase",
+          "description": "Build production-grade applications with a Postgres database, Authentication, instant APIs, Realtime, Functions, Storage and Vector embeddings. Start for free.",
+          "url": "https://supabase.com",
+          "image": "https://supabase.com/images/og/supabase-og.png",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Cross-platform",
+          "publisher": {
+            "@id": "https://supabase.com/#organization"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "Supabase",
+          "description": "Build production-grade applications with a Postgres database, Authentication, instant APIs, Realtime, Functions, Storage and Vector embeddings. Start for free.",
+          "url": "https://supabase.com",
+          "serviceType": "Postgres development platform",
+          "provider": {
+            "@id": "https://supabase.com/#organization"
+          },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Supabase products",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Database",
+                  "url": "https://supabase.com/database"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Authentication",
+                  "url": "https://supabase.com/auth"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Storage",
+                  "url": "https://supabase.com/storage"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Edge Functions",
+                  "url": "https://supabase.com/edge-functions"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Realtime",
+                  "url": "https://supabase.com/realtime"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Vector",
+                  "url": "https://supabase.com/modules/vector"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "schema_types": [
+        "WebSite",
+        "Organization",
+        "SoftwareApplication",
+        "Service"
+      ],
+      "schema_richness": [
+        {
+          "@type": "Organization",
+          "field_count": 8
+        },
+        {
+          "@type": "WebSite",
+          "field_count": 4
+        },
+        {
+          "@type": "SoftwareApplication",
+          "field_count": 7
+        },
+        {
+          "@type": "Service",
+          "field_count": 6
+        }
+      ],
+      "has_speakable": false,
+      "freshness_dates": [],
+      "images_missing_alt": [
+        "/images/logos/frameworks/stripe.svg",
+        "/images/logos/frameworks/nextjs.svg",
+        "/images/logos/frameworks/openai.svg",
+        "/images/logos/frameworks/langchain.svg",
+        "/images/logos/frameworks/flutter.svg",
+        "/images/logos/frameworks/expo.svg"
+      ],
+      "html_lang": "en",
+      "hreflang_count": 0,
+      "paywall_detected": false,
+      "paywall_evidence": null,
+      "is_accessible_for_free": null,
+      "video_objects": [],
+      "faq_howto_headings": []
+    },
+    {
+      "path": "/product",
+      "url": "https://supabase.com/product",
+      "status": 404,
+      "error": null,
+      "jsonld_blocks": [],
+      "schema_types": [],
+      "schema_richness": [],
+      "has_speakable": false,
+      "freshness_dates": [],
+      "images_missing_alt": [],
+      "html_lang": null,
+      "hreflang_count": 0,
+      "paywall_detected": false,
+      "paywall_evidence": null,
+      "is_accessible_for_free": null,
+      "video_objects": [],
+      "faq_howto_headings": []
+    },
+    {
+      "path": "/about",
+      "url": "https://supabase.com/about",
+      "status": 404,
+      "error": null,
+      "jsonld_blocks": [],
+      "schema_types": [],
+      "schema_richness": [],
+      "has_speakable": false,
+      "freshness_dates": [],
+      "images_missing_alt": [],
+      "html_lang": null,
+      "hreflang_count": 0,
+      "paywall_detected": false,
+      "paywall_evidence": null,
+      "is_accessible_for_free": null,
+      "video_objects": [],
+      "faq_howto_headings": []
+    },
+    {
+      "path": "/pricing",
+      "url": "https://supabase.com/pricing",
+      "status": 200,
+      "error": null,
+      "jsonld_blocks": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://supabase.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Pricing",
+              "item": "https://supabase.com/pricing"
+            }
+          ]
+        }
+      ],
+      "schema_types": [
+        "BreadcrumbList"
+      ],
+      "schema_richness": [
+        {
+          "@type": "BreadcrumbList",
+          "field_count": 1
+        }
+      ],
+      "has_speakable": false,
+      "freshness_dates": [],
+      "images_missing_alt": [],
+      "html_lang": "en",
+      "hreflang_count": 0,
+      "paywall_detected": false,
+      "paywall_evidence": null,
+      "is_accessible_for_free": null,
+      "video_objects": [],
+      "faq_howto_headings": [
+        "frequently asked questions"
+      ]
+    }
+  ],
+  "site_schema_types": [
+    "BreadcrumbList",
+    "Organization",
+    "Service",
+    "SoftwareApplication",
+    "WebSite"
+  ],
+  "site_has_speakable": false,
+  "site_has_faqpage": false,
+  "site_has_howto": false,
+  "site_has_video_object": false,
+  "site_inlanguage": null
+}

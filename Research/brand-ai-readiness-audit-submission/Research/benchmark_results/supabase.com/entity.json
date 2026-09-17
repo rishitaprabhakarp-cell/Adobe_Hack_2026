@@ -1,0 +1,70 @@
+{
+  "site": "supabase.com",
+  "base_url": "https://supabase.com",
+  "probed_at": "2026-09-12T18:27:05Z",
+  "homepage_status": 200,
+  "homepage_error": null,
+  "brand_name": "Supabase",
+  "brand_name_source": "Organization JSON-LD",
+  "same_as_links": [
+    "https://github.com/supabase",
+    "https://twitter.com/supabase",
+    "https://www.linkedin.com/company/supabase",
+    "https://youtube.com/c/supabase",
+    "https://discord.supabase.com/",
+    "https://www.tiktok.com/@supabase.com",
+    "https://www.instagram.com/supabasecom"
+  ],
+  "same_as_categorized": {
+    "wikidata": null,
+    "wikipedia": null,
+    "crunchbase": null,
+    "linkedin": "https://www.linkedin.com/company/supabase",
+    "twitter": "https://twitter.com/supabase",
+    "facebook": null,
+    "other": [
+      "https://github.com/supabase",
+      "https://youtube.com/c/supabase",
+      "https://discord.supabase.com/",
+      "https://www.tiktok.com/@supabase.com",
+      "https://www.instagram.com/supabasecom"
+    ]
+  },
+  "wikidata": {
+    "query": "Supabase",
+    "found": true,
+    "qid": "Q136776342",
+    "label": "Supabase",
+    "description": "open source backend platform for app development",
+    "candidates": [
+      {
+        "qid": "Q136776342",
+        "label": "Supabase",
+        "description": "open source backend platform for app development",
+        "url": "//www.wikidata.org/wiki/Q136776342"
+      },
+      {
+        "qid": "Q120734118",
+        "label": "supabase-py",
+        "description": "Python client library for supabase",
+        "url": "//www.wikidata.org/wiki/Q120734118"
+      }
+    ],
+    "error": null
+  },
+  "entity_collision_risk": {
+    "name": "Supabase",
+    "risk_factors": [],
+    "high_risk": false
+  },
+  "name_variants": {
+    "homepage_og_site_name": "Supabase",
+    "homepage_title": "Supabase | The Postgres Development Platform"
+  },
+  "name_is_consistent": true,
+  "_agent_next_steps": [
+    "web_search: \\\"Supabase\\\" founded",
+    "web_search: \\\"Supabase\\\" company",
+    "web_search: \\\"Supabase\\\" supabase"
+  ]
+}

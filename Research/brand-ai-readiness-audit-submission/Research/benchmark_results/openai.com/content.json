@@ -1,0 +1,139 @@
+{
+  "site": "openai.com",
+  "base_url": "https://openai.com",
+  "probed_at": "2026-09-12T18:18:56Z",
+  "pages": [
+    {
+      "url": "https://openai.com",
+      "path": "/",
+      "above_fold": {
+        "first_80_words": "OpenAI What can help with? Message ChatGPT Talk with ChatGPT Research API Platform Stories More GPT-6 Astra: new generation of intelligence Research 28 min read GPT-6 Astra: new generation of intelligence Research 28 min read Introducing ChatGPT Images 2.5 Product min read GPT\u20116 Astra System Card (opens in new window) The Hugging Face incident and the road ahead Security 22 min read Recent news View more Paul Christiano joins OpenAI Foundation Board Company Sep 9, 2026 Path to Astra: critical",
+        "word_count": 252,
+        "has_direct_claim": true,
+        "has_unresolved_pronouns": false
+      },
+      "headings": {
+        "total_h2_h3_count": 5,
+        "question_format_count": 0,
+        "question_format_ratio": 0.0,
+        "sample_question_headings": []
+      },
+      "statistics": {
+        "total_statistics": 0,
+        "with_citation": 0,
+        "without_citation": 0,
+        "citation_ratio": 0,
+        "examples_cited": [],
+        "examples_uncited": []
+      },
+      "paragraphs": {
+        "total_paragraphs": 2,
+        "avg_words": 34.0,
+        "max_words": 60,
+        "violation_count": 0,
+        "violation_ratio": 0.0,
+        "violations": []
+      },
+      "faq": {
+        "has_faq_heading": false,
+        "estimated_qa_pairs": 2,
+        "has_faq_section": false
+      },
+      "key_takeaways": {
+        "has_key_takeaways": false,
+        "patterns_found": []
+      },
+      "hedge_words": {
+        "total_sentences": 6,
+        "hedge_sentence_count": 0,
+        "hedge_ratio": 0.0,
+        "sample_hedge_sentences": []
+      },
+      "date_markers": {
+        "has_date_marker": false,
+        "markers_found": []
+      },
+      "ai_cliches": {
+        "cliche_count": 0,
+        "high_cliche_density": false,
+        "examples": []
+      },
+      "answer_capsules": {
+        "sections_analyzed": 5,
+        "answer_capsules_found": 3,
+        "capsule_ratio": 0.6,
+        "meets_threshold": true,
+        "examples": [
+          "Recent news View more Paul Christiano joins OpenAI Foundation Board Company Sep...",
+          "OpenAI for business View all Model ML completes finance work more efficiently...",
+          "Get started with ChatGPT Download Research Research Index Research Overview Economic Research..."
+        ]
+      }
+    },
+    {
+      "url": "https://openai.com/news/company-announcements/",
+      "path": "/news/company-announcements/",
+      "above_fold": {
+        "first_80_words": "OpenAI Recent news Company Research Product Safety Engineering Security Intelligence Age Global Affairs AI Adoption Applied AI All Filter Sort Switch cards to show Media Switch cards to hide Media GPT-6 Astra: new generation of intelligence Research 28 min read GPT-6 Astra: new generation of intelligence Research 28 min read Introducing ChatGPT Images 2.5 Product min read The Hugging Face incident and the road ahead Security 22 min read Expanding Daybreak as the Cyber Defense Window Narrows Security Aug 10,",
+        "word_count": 230,
+        "has_direct_claim": false,
+        "has_unresolved_pronouns": false
+      },
+      "headings": {
+        "total_h2_h3_count": 1,
+        "question_format_count": 0,
+        "question_format_ratio": 0.0,
+        "sample_question_headings": []
+      },
+      "statistics": {
+        "total_statistics": 0,
+        "with_citation": 0,
+        "without_citation": 0,
+        "citation_ratio": 0,
+        "examples_cited": [],
+        "examples_uncited": []
+      },
+      "paragraphs": {
+        "total_paragraphs": 4,
+        "avg_words": 23.8,
+        "max_words": 75,
+        "violation_count": 0,
+        "violation_ratio": 0.0,
+        "violations": []
+      },
+      "faq": {
+        "has_faq_heading": false,
+        "estimated_qa_pairs": 2,
+        "has_faq_section": false
+      },
+      "key_takeaways": {
+        "has_key_takeaways": false,
+        "patterns_found": []
+      },
+      "hedge_words": {
+        "total_sentences": 5,
+        "hedge_sentence_count": 0,
+        "hedge_ratio": 0.0,
+        "sample_hedge_sentences": []
+      },
+      "date_markers": {
+        "has_date_marker": false,
+        "markers_found": []
+      },
+      "ai_cliches": {
+        "cliche_count": 0,
+        "high_cliche_density": false,
+        "examples": []
+      },
+      "answer_capsules": {
+        "sections_analyzed": 1,
+        "answer_capsules_found": 1,
+        "capsule_ratio": 1.0,
+        "meets_threshold": true,
+        "examples": [
+          "Recent news Company Research Product Safety Engineering Security Intelligence Age Global Affairs..."
+        ]
+      }
+    }
+  ]
+}

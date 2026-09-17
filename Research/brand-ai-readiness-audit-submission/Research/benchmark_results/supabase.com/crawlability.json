@@ -1,0 +1,301 @@
+{
+  "site": "supabase.com",
+  "base_url": "https://supabase.com",
+  "probed_at": "2026-09-12T18:27:05Z",
+  "robots_txt": {
+    "url": "https://supabase.com/robots.txt",
+    "status": 200,
+    "error": null,
+    "sitemap_declared": [
+      "https://supabase.com/sitemap.xml"
+    ],
+    "bots": {
+      "GPTBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "ChatGPT-User": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "OAI-SearchBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "ClaudeBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "Claude-Web": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "anthropic-ai": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "PerplexityBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "Perplexity-User": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "Gemini-Web": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "Google-Extended": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "BingBot-AI": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "YouBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "CCBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "Applebot-Extended": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "Amazonbot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "DuckAssistBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "FacebookBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "cohere-ai": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "AI2Bot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "Bytespider": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "PetalBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "SemrushBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "AhrefsBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "DataForSeoBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "MJ12bot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      },
+      "ia_archiver": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [],
+        "fully_blocked": false
+      }
+    },
+    "raw_snippet": "User-agent: *\nAllow: /\n\nUser-agent: GPTBot\nUser-agent: ClaudeBot\nUser-agent: Google-Extended\nUser-agent: PerplexityBot\nAllow: /\n\nSitemap: https://supabase.com/sitemap.xml\nContent-Signal: ai-train=yes, search=yes, ai-input=yes\n"
+  },
+  "llms_txt": {
+    "url": "https://supabase.com/llms.txt",
+    "status": 200,
+    "content_type": "text/plain; charset=utf-8",
+    "error": null,
+    "redirect_chain": [],
+    "redirect_count": 0,
+    "starts_with_hash": true,
+    "word_count": 198,
+    "first_100_chars": "# Supabase Docs\n\nFor the complete documentation in a single file, see [Full Documentation](https://s",
+    "first_200_bytes_has_html": false
+  },
+  "sitemap": [
+    {
+      "url": "https://supabase.com/sitemap.xml",
+      "status": 200,
+      "error": null,
+      "lastmod_count": 0,
+      "lastmod_dates": []
+    }
+  ],
+  "feeds": [
+    {
+      "url": "https://supabase.com/feed",
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "looks_like_feed": false
+    },
+    {
+      "url": "https://supabase.com/rss.xml",
+      "status": 200,
+      "content_type": "application/xml",
+      "error": null,
+      "looks_like_feed": true
+    },
+    {
+      "url": "https://supabase.com/atom.xml",
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "looks_like_feed": false
+    },
+    {
+      "url": "https://supabase.com/feed.xml",
+      "status": 200,
+      "content_type": "application/xml",
+      "error": null,
+      "looks_like_feed": true
+    },
+    {
+      "url": "https://supabase.com/feeds/posts/default",
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "looks_like_feed": false
+    }
+  ],
+  "ai_endpoints": [
+    {
+      "url": "https://supabase.com/.well-known/ai.txt",
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "error": null
+    },
+    {
+      "url": "https://supabase.com/ai/summary.json",
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "error": null
+    }
+  ],
+  "bot_enforcement": [
+    {
+      "bot": "GPTBot",
+      "robots_txt_blocked": false,
+      "actual_status": 200,
+      "actual_word_count": 101599,
+      "browser_baseline_words": 101599,
+      "cdn_waf_blocked": false,
+      "js_dependent": false,
+      "content_ratio_vs_browser": 1.0,
+      "effective_block": false,
+      "error": null
+    },
+    {
+      "bot": "ChatGPT-User",
+      "robots_txt_blocked": false,
+      "actual_status": 200,
+      "actual_word_count": 101599,
+      "browser_baseline_words": 101599,
+      "cdn_waf_blocked": false,
+      "js_dependent": false,
+      "content_ratio_vs_browser": 1.0,
+      "effective_block": false,
+      "error": null
+    },
+    {
+      "bot": "OAI-SearchBot",
+      "robots_txt_blocked": false,
+      "actual_status": 200,
+      "actual_word_count": 101599,
+      "browser_baseline_words": 101599,
+      "cdn_waf_blocked": false,
+      "js_dependent": false,
+      "content_ratio_vs_browser": 1.0,
+      "effective_block": false,
+      "error": null
+    },
+    {
+      "bot": "ClaudeBot",
+      "robots_txt_blocked": false,
+      "actual_status": 200,
+      "actual_word_count": 101599,
+      "browser_baseline_words": 101599,
+      "cdn_waf_blocked": false,
+      "js_dependent": false,
+      "content_ratio_vs_browser": 1.0,
+      "effective_block": false,
+      "error": null
+    },
+    {
+      "bot": "Claude-Web",
+      "robots_txt_blocked": false,
+      "actual_status": 200,
+      "actual_word_count": 101599,
+      "browser_baseline_words": 101599,
+      "cdn_waf_blocked": false,
+      "js_dependent": false,
+      "content_ratio_vs_browser": 1.0,
+      "effective_block": false,
+      "error": null
+    },
+    {
+      "bot": "anthropic-ai",
+      "robots_txt_blocked": false,
+      "actual_status": 200,
+      "actual_word_count": 101599,
+      "browser_baseline_words": 101599,
+      "cdn_waf_blocked": false,
+      "js_dependent": false,
+      "content_ratio_vs_browser": 1.0,
+      "effective_block": false,
+      "error": null
+    }
+  ],
+  "oai_searchbot_policy": {
+    "gptbot_blocked": false,
+    "oai_searchbot_blocked": false,
+    "chatgpt_user_blocked": false,
+    "training_blocked_citation_allowed": false,
+    "both_blocked": false,
+    "both_allowed": true,
+    "policy_note": "OPEN: both allowed (acceptable)"
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "site": "stripe.com",
+  "base_url": "https://stripe.com",
+  "probed_at": "2026-09-12T19:39:30Z",
+  "pages": [
+    {
+      "url": "https://stripe.com",
+      "status": 200,
+      "og_tags": {
+        "title": "Stripe | Financial Infrastructure to Grow Your Revenue",
+        "description": "Stripe is a financial services platform that helps all types of businesses accept payments, build flexible billing models and manage money movement.",
+        "image": "https://images.stripeassets.com/fzn2n1nzq965/XtX984S1GJVsVOXFC7kMu/01988281e867728dfb09aa7793a6e3b9/Stripe.jpg?q=80",
+        "url": "https://stripe.com/in",
+        "type": "website"
+      },
+      "og_title": "Stripe | Financial Infrastructure to Grow Your Revenue",
+      "og_description": "Stripe is a financial services platform that helps all types of businesses accept payments, build flexible billing models and manage money movement.",
+      "og_type": "website",
+      "og_site_name": "",
+      "og_image": "https://images.stripeassets.com/fzn2n1nzq965/XtX984S1GJVsVOXFC7kMu/01988281e867728dfb09aa7793a6e3b9/Stripe.jpg?q=80",
+      "og_image_validation": {
+        "present": true,
+        "url": "https://images.stripeassets.com/fzn2n1nzq965/XtX984S1GJVsVOXFC7kMu/01988281e8677",
+        "is_absolute": true,
+        "http_status": 200,
+        "valid": true
+      },
+      "twitter_card": {
+        "card": "summary_large_image",
+        "site": "@stripe",
+        "title": "Stripe | Financial Infrastructure to Grow Your Revenue",
+        "description": "Stripe is a financial services platform that helps all types of businesses accept payments, build flexible billing models and manage money movement.",
+        "image": "https://images.stripeassets.com/fzn2n1nzq965/XtX984S1GJVsVOXFC7kMu/01988281e867728dfb09aa7793a6e3b9/Stripe.jpg?q=80"
+      },
+      "meta_description": "Stripe is a financial services platform that helps all types of businesses accept payments, build flexible billing models and manage money movement.",
+      "meta_description_quality": {
+        "present": true,
+        "text": "Stripe is a financial services platform that helps all types of businesses accept payments, build flexible billing models and manage money movement.",
+        "length": 148,
+        "too_short": false,
+        "too_long": false,
+        "optimal_length": true,
+        "is_generic": false
+      },
+      "meta_author": null,
+      "canonical": "https://stripe.com/in",
+      "markdown_alternate": {
+        "has_markdown_alternate": false,
+        "markdown_url": null
+      }
+    },
+    {
+      "url": "https://stripe.com/about",
+      "status": 200,
+      "og_tags": {
+        "title": "About Us | Stripe",
+        "description": "Stripe is a financial services platform that helps all types of businesses accept payments, build flexible billing models and manage money movement.",
+        "image": "https://images.stripeassets.com/fzn2n1nzq965/XtX984S1GJVsVOXFC7kMu/01988281e867728dfb09aa7793a6e3b9/Stripe.jpg?q=80",
+        "url": "https://stripe.com/in/about",
+        "type": "website"
+      },
+      "og_title": "About Us | Stripe",
+      "og_description": "Stripe is a financial services platform that helps all types of businesses accept payments, build flexible billing models and manage money movement.",
+      "og_type": "website",
+      "og_site_name": "",
+      "og_image": "https://images.stripeassets.com/fzn2n1nzq965/XtX984S1GJVsVOXFC7kMu/01988281e867728dfb09aa7793a6e3b9/Stripe.jpg?q=80",
+      "og_image_validation": {
+        "present": true,
+        "url": "https://images.stripeassets.com/fzn2n1nzq965/XtX984S1GJVsVOXFC7kMu/01988281e8677",
+        "is_absolute": true,
+        "http_status": 200,
+        "valid": true
+      },
+      "twitter_card": {
+        "card": "summary_large_image",
+        "site": "@stripe",
+        "title": "About Us | Stripe",
+        "description": "Stripe is a financial services platform that helps all types of businesses accept payments, build flexible billing models and manage money movement.",
+        "image": "https://images.stripeassets.com/fzn2n1nzq965/XtX984S1GJVsVOXFC7kMu/01988281e867728dfb09aa7793a6e3b9/Stripe.jpg?q=80"
+      },
+      "meta_description": "Stripe is a financial services platform that helps all types of businesses accept payments, build flexible billing models and manage money movement.",
+      "meta_description_quality": {
+        "present": true,
+        "text": "Stripe is a financial services platform that helps all types of businesses accept payments, build flexible billing models and manage money movement.",
+        "length": 148,
+        "too_short": false,
+        "too_long": false,
+        "optimal_length": true,
+        "is_generic": false
+      },
+      "meta_author": null,
+      "canonical": "https://stripe.com/in/about",
+      "markdown_alternate": {
+        "has_markdown_alternate": false,
+        "markdown_url": null
+      }
+    }
+  ],
+  "duplicate_meta_descriptions": true,
+  "og_site_name_consistent": true
+}

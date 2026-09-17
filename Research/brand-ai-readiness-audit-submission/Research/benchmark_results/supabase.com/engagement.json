@@ -1,0 +1,44 @@
+{
+  "site": "supabase.com",
+  "base_url": "https://supabase.com",
+  "probed_at": "2026-09-12T18:27:05Z",
+  "homepage_status": 200,
+  "response_time_ms": 391,
+  "error": null,
+  "above_fold": {
+    "text_snippet": "Build in weekend Scale to millions Start your project with Postgres database. Add Authentication, Data APIs, Edge Functions, Realtime Data, Storage, and Vector embeddings. Start your project Request demo Postgres Database Every project is full Postgres database the world&#x27;s most trusted relation",
+    "word_count": 136,
+    "h1": "Build in a weekendScale to millions",
+    "has_h1": true,
+    "has_description_paragraph": true
+  },
+  "cta_found": true,
+  "ctas": [
+    "subscribe",
+    "contact us",
+    "flutter user managementget started with supabase and flutter",
+    "sign in",
+    "authenticationadd user sign ups and logins, securing your da"
+  ],
+  "avg_paragraph_word_count": 22.0,
+  "long_paragraph_samples": [
+    "Stay productive and manage your app without leaving the dashboard Table Editor SQL Editor RLS Policies Use Supabase with React..."
+  ],
+  "dynamic_state_signals": [
+    "loading",
+    "reserve"
+  ],
+  "hero_images_missing_alt": [],
+  "has_meta_viewport": true,
+  "contact_info": {
+    "contact_reachable": true,
+    "contact_url": "/contact",
+    "contact_evidence": "found in HTML links",
+    "about_reachable": true,
+    "about_url": "/company",
+    "about_evidence": "found in HTML links",
+    "has_email_inline": false,
+    "has_phone_inline": true
+  },
+  "static_word_count": 1240
+}

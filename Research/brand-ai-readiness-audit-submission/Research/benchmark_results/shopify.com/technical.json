@@ -1,0 +1,135 @@
+{
+  "site": "www.shopify.com",
+  "base_url": "https://www.shopify.com",
+  "probed_at": "2026-09-12T18:24:29Z",
+  "https_redirect": {
+    "http_status": 301,
+    "redirects_to_https": true,
+    "redirect_type": 301,
+    "location": "https://www.shopify.com/",
+    "error": null
+  },
+  "homepage_status": 200,
+  "response_time_ms": 297,
+  "error": null,
+  "meta_robots": {
+    "meta_robots": null,
+    "x_robots_tag": "",
+    "has_noindex": false,
+    "has_nosnippet": false,
+    "has_max_snippet_0": false
+  },
+  "canonical": {
+    "has_canonical": true,
+    "canonical_url": "https://www.shopify.com/",
+    "is_self_referential": false,
+    "is_cross_domain": false
+  },
+  "heading_hierarchy": {
+    "total_headings": 28,
+    "h1_count": 1,
+    "heading_tree": [
+      {
+        "level": 1,
+        "text": "Be the nextAI all-star"
+      },
+      {
+        "level": 2,
+        "text": "store they line up for"
+      },
+      {
+        "level": 2,
+        "text": "Your brand has entered the\u00a0chat"
+      },
+      {
+        "level": 3,
+        "text": "Sell more in more places"
+      },
+      {
+        "level": 4,
+        "text": "Sell on every\u00a0channel"
+      },
+      {
+        "level": 4,
+        "text": "Sell face to\u00a0face"
+      },
+      {
+        "level": 4,
+        "text": "Sell to 250M+ shoppers with\u00a0Shop"
+      },
+      {
+        "level": 3,
+        "text": "Grow around the\u00a0world"
+      },
+      {
+        "level": 4,
+        "text": "Sell across\u00a0borders"
+      },
+      {
+        "level": 3,
+        "text": "For anyone from entrepreneurs to enterprise"
+      },
+      {
+        "level": 4,
+        "text": "Get started\u00a0fast"
+      },
+      {
+        "level": 4,
+        "text": "Grow as big as you\u00a0want"
+      },
+      {
+        "level": 4,
+        "text": "Raise the\u00a0bar"
+      },
+      {
+        "level": 2,
+        "text": "Meet your secret weapon,\u00a0Sidekick"
+      },
+      {
+        "level": 3,
+        "text": "Your very own commerce AI"
+      }
+    ],
+    "multiple_h1": false,
+    "level_skip_violations": [],
+    "has_violations": false
+  },
+  "hreflang": {
+    "hreflang_count": 71,
+    "has_x_default": false,
+    "languages_declared": [
+      "https://www.shopify.com/ro",
+      "https://www.shopify.com/es-es",
+      "https://www.shopify.com/ca-fr",
+      "https://www.shopify.com/in",
+      "https://www.shopify.com/kr",
+      "https://www.shopify.com/fr",
+      "https://www.shopify.com/pe",
+      "https://www.shopify.com/ph",
+      "https://www.shopify.com/hk",
+      "https://www.shopify.com/hk-en"
+    ],
+    "html_lang": "en"
+  },
+  "page_size": {
+    "html_size_bytes": 683328,
+    "html_size_kb": 667.3
+  },
+  "broken_links": {
+    "links_checked": 15,
+    "broken_links": [],
+    "broken_count": 0
+  },
+  "redirect_chain": {
+    "hop_count": 1,
+    "chain": [
+      {
+        "url": "https://www.shopify.com",
+        "status": 200,
+        "error": null
+      }
+    ],
+    "has_loop": false,
+    "has_long_chain": false
+  }
+}

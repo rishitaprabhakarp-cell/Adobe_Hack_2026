@@ -1,0 +1,550 @@
+{
+  "site": "stripe.com",
+  "base_url": "https://stripe.com",
+  "probed_at": "2026-09-12T19:32:44Z",
+  "robots_txt": {
+    "url": "https://stripe.com/robots.txt",
+    "status": 200,
+    "error": null,
+    "sitemap_declared": [
+      "https://stripe.com/sitemap/sitemap.xml"
+    ],
+    "bots": {
+      "GPTBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/bitcoin/refund",
+          "/sources/refund",
+          "/sources/sepa_mandate",
+          "/sources/test_source",
+          "/sources/test_klarna",
+          "/unsupported-browser",
+          "/handoff-healthcheck",
+          "/handoff"
+        ],
+        "fully_blocked": false
+      },
+      "ChatGPT-User": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/bitcoin/refund",
+          "/sources/refund",
+          "/sources/sepa_mandate",
+          "/sources/test_source",
+          "/sources/test_klarna",
+          "/unsupported-browser",
+          "/handoff-healthcheck",
+          "/handoff"
+        ],
+        "fully_blocked": false
+      },
+      "OAI-SearchBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/bitcoin/refund",
+          "/sources/refund",
+          "/sources/sepa_mandate",
+          "/sources/test_source",
+          "/sources/test_klarna",
+          "/unsupported-browser",
+          "/handoff-healthcheck",
+          "/handoff"
+        ],
+        "fully_blocked": false
+      },
+      "ClaudeBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/bitcoin/refund",
+          "/sources/refund",
+          "/sources/sepa_mandate",
+          "/sources/test_source",
+          "/sources/test_klarna",
+          "/unsupported-browser",
+          "/handoff-healthcheck",
+          "/handoff"
+        ],
+        "fully_blocked": false
+      },
+      "Claude-Web": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/bitcoin/refund",
+          "/sources/refund",
+          "/sources/sepa_mandate",
+          "/sources/test_source",
+          "/sources/test_klarna",
+          "/unsupported-browser",
+          "/handoff-healthcheck",
+          "/handoff"
+        ],
+        "fully_blocked": false
+      },
+      "anthropic-ai": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/bitcoin/refund",
+          "/sources/refund",
+          "/sources/sepa_mandate",
+          "/sources/test_source",
+          "/sources/test_klarna",
+          "/unsupported-browser",
+          "/handoff-healthcheck",
+          "/handoff"
+        ],
+        "fully_blocked": false
+      },
+      "PerplexityBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/bitcoin/refund",
+          "/sources/refund",
+          "/sources/sepa_mandate",
+          "/sources/test_source",
+          "/sources/test_klarna",
+          "/unsupported-browser",
+          "/handoff-healthcheck",
+          "/handoff"
+        ],
+        "fully_blocked": false
+      },
+      "Perplexity-User": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/bitcoin/refund",
+          "/sources/refund",
+          "/sources/sepa_mandate",
+          "/sources/test_source",
+          "/sources/test_klarna",
+          "/unsupported-browser",
+          "/handoff-healthcheck",
+          "/handoff"
+        ],
+        "fully_blocked": false
+      },
+      "Gemini-Web": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/bitcoin/refund",
+          "/sources/refund",
+          "/sources/sepa_mandate",
+          "/sources/test_source",
+          "/sources/test_klarna",
+          "/unsupported-browser",
+          "/handoff-healthcheck",
+          "/handoff"
+        ],
+        "fully_blocked": false
+      },
+      "Google-Extended": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/bitcoin/refund",
+          "/sources/refund",
+          "/sources/sepa_mandate",
+          "/sources/test_source",
+          "/sources/test_klarna",
+          "/unsupported-browser",
+          "/handoff-healthcheck",
+          "/handoff"
+        ],
+        "fully_blocked": false
+      },
+      "BingBot-AI": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/bitcoin/refund",
+          "/sources/refund",
+          "/sources/sepa_mandate",
+          "/sources/test_source",
+          "/sources/test_klarna",
+          "/unsupported-browser",
+          "/handoff-healthcheck",
+          "/handoff"
+        ],
+        "fully_blocked": false
+      },
+      "YouBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/bitcoin/refund",
+          "/sources/refund",
+          "/sources/sepa_mandate",
+          "/sources/test_source",
+          "/sources/test_klarna",
+          "/unsupported-browser",
+          "/handoff-healthcheck",
+          "/handoff"
+        ],
+        "fully_blocked": false
+      },
+      "CCBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/bitcoin/refund",
+          "/sources/refund",
+          "/sources/sepa_mandate",
+          "/sources/test_source",
+          "/sources/test_klarna",
+          "/unsupported-browser",
+          "/handoff-healthcheck",
+          "/handoff"
+        ],
+        "fully_blocked": false
+      },
+      "Applebot-Extended": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/bitcoin/refund",
+          "/sources/refund",
+          "/sources/sepa_mandate",
+          "/sources/test_source",
+          "/sources/test_klarna",
+          "/unsupported-browser",
+          "/handoff-healthcheck",
+          "/handoff"
+        ],
+        "fully_blocked": false
+      },
+      "Amazonbot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/bitcoin/refund",
+          "/sources/refund",
+          "/sources/sepa_mandate",
+          "/sources/test_source",
+          "/sources/test_klarna",
+          "/unsupported-browser",
+          "/handoff-healthcheck",
+          "/handoff"
+        ],
+        "fully_blocked": false
+      },
+      "DuckAssistBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/bitcoin/refund",
+          "/sources/refund",
+          "/sources/sepa_mandate",
+          "/sources/test_source",
+          "/sources/test_klarna",
+          "/unsupported-browser",
+          "/handoff-healthcheck",
+          "/handoff"
+        ],
+        "fully_blocked": false
+      },
+      "FacebookBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/bitcoin/refund",
+          "/sources/refund",
+          "/sources/sepa_mandate",
+          "/sources/test_source",
+          "/sources/test_klarna",
+          "/unsupported-browser",
+          "/handoff-healthcheck",
+          "/handoff"
+        ],
+        "fully_blocked": false
+      },
+      "cohere-ai": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/bitcoin/refund",
+          "/sources/refund",
+          "/sources/sepa_mandate",
+          "/sources/test_source",
+          "/sources/test_klarna",
+          "/unsupported-browser",
+          "/handoff-healthcheck",
+          "/handoff"
+        ],
+        "fully_blocked": false
+      },
+      "AI2Bot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/bitcoin/refund",
+          "/sources/refund",
+          "/sources/sepa_mandate",
+          "/sources/test_source",
+          "/sources/test_klarna",
+          "/unsupported-browser",
+          "/handoff-healthcheck",
+          "/handoff"
+        ],
+        "fully_blocked": false
+      },
+      "Bytespider": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/bitcoin/refund",
+          "/sources/refund",
+          "/sources/sepa_mandate",
+          "/sources/test_source",
+          "/sources/test_klarna",
+          "/unsupported-browser",
+          "/handoff-healthcheck",
+          "/handoff"
+        ],
+        "fully_blocked": false
+      },
+      "PetalBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/bitcoin/refund",
+          "/sources/refund",
+          "/sources/sepa_mandate",
+          "/sources/test_source",
+          "/sources/test_klarna",
+          "/unsupported-browser",
+          "/handoff-healthcheck",
+          "/handoff"
+        ],
+        "fully_blocked": false
+      },
+      "SemrushBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/bitcoin/refund",
+          "/sources/refund",
+          "/sources/sepa_mandate",
+          "/sources/test_source",
+          "/sources/test_klarna",
+          "/unsupported-browser",
+          "/handoff-healthcheck",
+          "/handoff"
+        ],
+        "fully_blocked": false
+      },
+      "AhrefsBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/bitcoin/refund",
+          "/sources/refund",
+          "/sources/sepa_mandate",
+          "/sources/test_source",
+          "/sources/test_klarna",
+          "/unsupported-browser",
+          "/handoff-healthcheck",
+          "/handoff"
+        ],
+        "fully_blocked": false
+      },
+      "DataForSeoBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/bitcoin/refund",
+          "/sources/refund",
+          "/sources/sepa_mandate",
+          "/sources/test_source",
+          "/sources/test_klarna",
+          "/unsupported-browser",
+          "/handoff-healthcheck",
+          "/handoff"
+        ],
+        "fully_blocked": false
+      },
+      "MJ12bot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/bitcoin/refund",
+          "/sources/refund",
+          "/sources/sepa_mandate",
+          "/sources/test_source",
+          "/sources/test_klarna",
+          "/unsupported-browser",
+          "/handoff-healthcheck",
+          "/handoff"
+        ],
+        "fully_blocked": false
+      },
+      "ia_archiver": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/docs",
+          "/docs$",
+          "/bitcoin/refund",
+          "/sources/refund",
+          "/sources/sepa_mandate",
+          "/sources/test_source",
+          "/sources/test_klarna",
+          "/handoff-healthcheck",
+          "/handoff",
+          "/bitcoin/refund",
+          "/sources/refund",
+          "/sources/sepa_mandate",
+          "/sources/test_source",
+          "/sources/test_klarna",
+          "/unsupported-browser",
+          "/handoff-healthcheck",
+          "/handoff"
+        ],
+        "fully_blocked": false
+      }
+    },
+    "raw_snippet": "Sitemap: https://stripe.com/sitemap/sitemap.xml\n\nUser-agent: ia_archiver\nAllow: /docs/api\nAllow: /docs/api$\nDisallow: /docs\nDisallow: /docs$\nDisallow: /bitcoin/refund\nDisallow: /sources/refund\nDisallow: /sources/sepa_mandate\nDisallow: /sources/test_source\nDisallow: /sources/test_klarna\nDisallow: /handoff-healthcheck\nDisallow: /handoff\n\nUser-agent: *\nAllow: /docs\nAllow: /docs$\nDisallow: /bitcoin/refund\nDisallow: /sources/refund\nDisallow: /sources/sepa_mandate\nDisallow: /sources/test_source\nDisall"
+  },
+  "llms_txt": {
+    "url": "https://stripe.com/llms.txt",
+    "status": 200,
+    "content_type": "text/plain; charset=utf-8",
+    "error": null,
+    "redirect_chain": [],
+    "redirect_count": 0,
+    "starts_with_hash": true,
+    "word_count": 7503,
+    "first_100_chars": "# Stripe\n\n> Stripe is a technology company that provides financial infrastructure for businesses. Bu",
+    "first_200_bytes_has_html": false
+  },
+  "sitemap": [
+    {
+      "url": "https://stripe.com/sitemap/sitemap.xml",
+      "status": 200,
+      "error": null,
+      "lastmod_count": 0,
+      "lastmod_dates": []
+    }
+  ],
+  "feeds": [
+    {
+      "url": "https://stripe.com/feed",
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "looks_like_feed": false
+    },
+    {
+      "url": "https://stripe.com/rss.xml",
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "looks_like_feed": false
+    },
+    {
+      "url": "https://stripe.com/atom.xml",
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "looks_like_feed": false
+    },
+    {
+      "url": "https://stripe.com/feed.xml",
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "looks_like_feed": false
+    },
+    {
+      "url": "https://stripe.com/feeds/posts/default",
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "looks_like_feed": false
+    }
+  ],
+  "ai_endpoints": [
+    {
+      "url": "https://stripe.com/.well-known/ai.txt",
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "error": null
+    },
+    {
+      "url": "https://stripe.com/ai/summary.json",
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "error": null
+    }
+  ],
+  "bot_enforcement": [
+    {
+      "bot": "GPTBot",
+      "robots_txt_blocked": false,
+      "actual_status": 200,
+      "actual_word_count": 33926,
+      "browser_baseline_words": 33926,
+      "cdn_waf_blocked": false,
+      "js_dependent": false,
+      "content_ratio_vs_browser": 1.0,
+      "effective_block": false,
+      "error": null
+    },
+    {
+      "bot": "ChatGPT-User",
+      "robots_txt_blocked": false,
+      "actual_status": 200,
+      "actual_word_count": 33926,
+      "browser_baseline_words": 33926,
+      "cdn_waf_blocked": false,
+      "js_dependent": false,
+      "content_ratio_vs_browser": 1.0,
+      "effective_block": false,
+      "error": null
+    },
+    {
+      "bot": "OAI-SearchBot",
+      "robots_txt_blocked": false,
+      "actual_status": 200,
+      "actual_word_count": 33926,
+      "browser_baseline_words": 33926,
+      "cdn_waf_blocked": false,
+      "js_dependent": false,
+      "content_ratio_vs_browser": 1.0,
+      "effective_block": false,
+      "error": null
+    },
+    {
+      "bot": "ClaudeBot",
+      "robots_txt_blocked": false,
+      "actual_status": 200,
+      "actual_word_count": 33926,
+      "browser_baseline_words": 33926,
+      "cdn_waf_blocked": false,
+      "js_dependent": false,
+      "content_ratio_vs_browser": 1.0,
+      "effective_block": false,
+      "error": null
+    },
+    {
+      "bot": "Claude-Web",
+      "robots_txt_blocked": false,
+      "actual_status": 200,
+      "actual_word_count": 33926,
+      "browser_baseline_words": 33926,
+      "cdn_waf_blocked": false,
+      "js_dependent": false,
+      "content_ratio_vs_browser": 1.0,
+      "effective_block": false,
+      "error": null
+    },
+    {
+      "bot": "anthropic-ai",
+      "robots_txt_blocked": false,
+      "actual_status": 200,
+      "actual_word_count": 33926,
+      "browser_baseline_words": 33926,
+      "cdn_waf_blocked": false,
+      "js_dependent": false,
+      "content_ratio_vs_browser": 1.0,
+      "effective_block": false,
+      "error": null
+    }
+  ],
+  "oai_searchbot_policy": {
+    "gptbot_blocked": false,
+    "oai_searchbot_blocked": false,
+    "chatgpt_user_blocked": false,
+    "training_blocked_citation_allowed": false,
+    "both_blocked": false,
+    "both_allowed": true,
+    "policy_note": "OPEN: both allowed (acceptable)"
+  },
+  "crawl_delay_check": {
+    "crawl_delays_found": [],
+    "excessive_delays": [],
+    "has_excessive_delay": false,
+    "worst_delay_seconds": 0
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "site": "www.adobe.com",
+  "base_url": "https://www.adobe.com",
+  "probed_at": "2026-09-12T18:22:35Z",
+  "https_redirect": {
+    "http_status": 301,
+    "redirects_to_https": true,
+    "redirect_type": 301,
+    "location": "https://www.adobe.com/",
+    "error": null
+  },
+  "homepage_status": 200,
+  "response_time_ms": 219,
+  "error": null,
+  "meta_robots": {
+    "meta_robots": null,
+    "x_robots_tag": "",
+    "has_noindex": false,
+    "has_nosnippet": false,
+    "has_max_snippet_0": false
+  },
+  "canonical": {
+    "has_canonical": true,
+    "canonical_url": "https://www.adobe.com/",
+    "is_self_referential": false,
+    "is_cross_domain": false
+  },
+  "heading_hierarchy": {
+    "total_headings": 105,
+    "h1_count": 1,
+    "heading_tree": [
+      {
+        "level": 1,
+        "text": "Adobe homepage"
+      },
+      {
+        "level": 2,
+        "text": "Create at the highest level."
+      },
+      {
+        "level": 2,
+        "text": "All the best models, all in one place."
+      },
+      {
+        "level": 2,
+        "text": "Get work done. Faster."
+      },
+      {
+        "level": 2,
+        "text": "Orchestrate customer experiences with AI."
+      },
+      {
+        "level": 2,
+        "text": "Students and teachers save {{percentage-discount-ste}}."
+      },
+      {
+        "level": 2,
+        "text": "Tools that work for you."
+      },
+      {
+        "level": 3,
+        "text": "Adobe homepage"
+      },
+      {
+        "level": 3,
+        "text": "Adobe homepage"
+      },
+      {
+        "level": 3,
+        "text": "Create at the highest level."
+      },
+      {
+        "level": 3,
+        "text": "Create at the highest level."
+      },
+      {
+        "level": 3,
+        "text": "See terms"
+      },
+      {
+        "level": 3,
+        "text": "See terms"
+      },
+      {
+        "level": 3,
+        "text": "Free trial"
+      },
+      {
+        "level": 3,
+        "text": "Free trial"
+      }
+    ],
+    "multiple_h1": false,
+    "level_skip_violations": [],
+    "has_violations": false
+  },
+  "hreflang": {
+    "hreflang_count": 0,
+    "has_x_default": false,
+    "languages_declared": [],
+    "html_lang": null
+  },
+  "page_size": {
+    "html_size_bytes": 45662,
+    "html_size_kb": 44.6
+  },
+  "broken_links": {
+    "links_checked": 14,
+    "broken_links": [],
+    "broken_count": 0
+  },
+  "redirect_chain": {
+    "hop_count": 1,
+    "chain": [
+      {
+        "url": "https://www.adobe.com",
+        "status": 200,
+        "error": null
+      }
+    ],
+    "has_loop": false,
+    "has_long_chain": false
+  }
+}

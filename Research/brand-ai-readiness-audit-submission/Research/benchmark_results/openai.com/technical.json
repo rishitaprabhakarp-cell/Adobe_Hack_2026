@@ -1,0 +1,106 @@
+{
+  "site": "openai.com",
+  "base_url": "https://openai.com",
+  "probed_at": "2026-09-12T18:18:56Z",
+  "https_redirect": {
+    "http_status": 301,
+    "redirects_to_https": true,
+    "redirect_type": 301,
+    "location": "https://openai.com/",
+    "error": null
+  },
+  "homepage_status": 200,
+  "response_time_ms": 258,
+  "error": null,
+  "meta_robots": {
+    "meta_robots": "index, follow",
+    "x_robots_tag": "",
+    "has_noindex": false,
+    "has_nosnippet": false,
+    "has_max_snippet_0": false
+  },
+  "canonical": {
+    "has_canonical": true,
+    "canonical_url": "https://openai.com/",
+    "is_self_referential": false,
+    "is_cross_domain": false
+  },
+  "heading_hierarchy": {
+    "total_headings": 5,
+    "h1_count": 0,
+    "heading_tree": [
+      {
+        "level": 2,
+        "text": "Recent news"
+      },
+      {
+        "level": 2,
+        "text": "Stories"
+      },
+      {
+        "level": 2,
+        "text": "Latest research"
+      },
+      {
+        "level": 2,
+        "text": "OpenAI for business"
+      },
+      {
+        "level": 2,
+        "text": "Get started with ChatGPT"
+      }
+    ],
+    "multiple_h1": false,
+    "level_skip_violations": [],
+    "has_violations": false
+  },
+  "hreflang": {
+    "hreflang_count": 69,
+    "has_x_default": true,
+    "languages_declared": [
+      "pt-BR",
+      "da-DK",
+      "mr-IN",
+      "hu-HU",
+      "zh-Hant",
+      "bn-BD",
+      "th-TH",
+      "ga-IE",
+      "hr-HR",
+      "uk-UA"
+    ],
+    "html_lang": "en-US"
+  },
+  "page_size": {
+    "html_size_bytes": 448313,
+    "html_size_kb": 437.8
+  },
+  "broken_links": {
+    "links_checked": 15,
+    "broken_links": [
+      {
+        "url": "https://openai.com/_next/static/immutable/chunks/1c3l7ofa-vr4e.css",
+        "status": 403,
+        "error": null
+      },
+      {
+        "url": "https://openai.com/_next/static/immutable/chunks/371m1wkroup7c.css",
+        "status": 403,
+        "error": null
+      }
+    ],
+    "broken_count": 2
+  },
+  "redirect_chain": {
+    "hop_count": 1,
+    "chain": [
+      {
+        "url": "https://openai.com",
+        "status": 200,
+        "error": null
+      }
+    ],
+    "has_loop": false,
+    "has_long_chain": false
+  }
+}

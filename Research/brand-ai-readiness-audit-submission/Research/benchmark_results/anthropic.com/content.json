@@ -1,0 +1,81 @@
+{
+  "site": "anthropic.com",
+  "base_url": "https://anthropic.com",
+  "probed_at": "2026-09-12T18:19:14Z",
+  "pages": [
+    {
+      "url": "https://anthropic.com",
+      "path": "/",
+      "above_fold": {
+        "first_80_words": "Skip to main content Skip to footer Research Overview Alignment Economics Engineering Frontier Red Team Interpretability Science Societal Impacts Policy Commitments Initiatives Claude&#x27;s Constitution Claude Corps Policy on the AI Exponential Transparency Responsible Scaling Policy Beneficial Deployments Trust center Security and compliance Learn Learn Anthropic Academy Tutorials Use cases Developer docs Company About Leadership Careers Events News Try Claude Try Claude Try Claude Learn more about Claude About Claude Overview Pricing Contact sales Models Mythos Fable Opus Sonnet Haiku Log",
+        "word_count": 269,
+        "has_direct_claim": false,
+        "has_unresolved_pronouns": false
+      },
+      "headings": {
+        "total_h2_h3_count": 24,
+        "question_format_count": 0,
+        "question_format_ratio": 0.0,
+        "sample_question_headings": []
+      },
+      "statistics": {
+        "total_statistics": 0,
+        "with_citation": 0,
+        "without_citation": 0,
+        "citation_ratio": 0,
+        "examples_cited": [],
+        "examples_uncited": []
+      },
+      "paragraphs": {
+        "total_paragraphs": 6,
+        "avg_words": 92.3,
+        "max_words": 239,
+        "violation_count": 2,
+        "violation_ratio": 0.33,
+        "violations": [
+          {
+            "word_count": 239,
+            "snippet": "Overview Alignment Economics Engineering Frontier Red Team Interpretability Science Societal Impacts Policy Commitments Initiatives Claude&#x27;s..."
+          },
+          {
+            "word_count": 231,
+            "snippet": "At Anthropic, we build AI to serve humanity\u2019s long-term well-being. Claude Science Announcements Core views..."
+          }
+        ]
+      },
+      "faq": {
+        "has_faq_heading": false,
+        "estimated_qa_pairs": 1,
+        "has_faq_section": false
+      },
+      "key_takeaways": {
+        "has_key_takeaways": false,
+        "patterns_found": []
+      },
+      "hedge_words": {
+        "total_sentences": 19,
+        "hedge_sentence_count": 0,
+        "hedge_ratio": 0.0,
+        "sample_hedge_sentences": []
+      },
+      "date_markers": {
+        "has_date_marker": false,
+        "markers_found": []
+      },
+      "ai_cliches": {
+        "cliche_count": 0,
+        "high_cliche_density": false,
+        "examples": []
+      },
+      "answer_capsules": {
+        "sections_analyzed": 5,
+        "answer_capsules_found": 1,
+        "capsule_ratio": 0.2,
+        "meets_threshold": false,
+        "examples": [
+          "Introducing Fable 5.1 and Mythos 5.1 Our most advanced models for coding..."
+        ]
+      }
+    }
+  ]
+}

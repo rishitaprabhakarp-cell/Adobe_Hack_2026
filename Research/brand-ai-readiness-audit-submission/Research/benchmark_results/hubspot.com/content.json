@@ -1,0 +1,87 @@
+{
+  "site": "www.hubspot.com",
+  "base_url": "https://www.hubspot.com",
+  "probed_at": "2026-09-12T18:23:52Z",
+  "pages": [
+    {
+      "url": "https://www.hubspot.com",
+      "path": "/",
+      "above_fold": {
+        "first_80_words": "The HubSpot Customer Platform All of HubSpot's marketing, sales, and customer service software on one agentic platform. Free HubSpot CRM Overview of all products Marketing Hub Marketing automation software Free and premium plans Sales Hub Sales software Free and premium plans Service Hub Customer service software Free and premium plans Content Hub Content marketing software Free and premium plans Data Hub Data management software Free and premium plans Revenue Hub CPQ, billing, and payments software Free and premium plans Smart",
+        "word_count": 149,
+        "has_direct_claim": false,
+        "has_unresolved_pronouns": false
+      },
+      "headings": {
+        "total_h2_h3_count": 107,
+        "question_format_count": 4,
+        "question_format_ratio": 0.04,
+        "sample_question_headings": [
+          "why hubspot?",
+          "why choose hubspot?",
+          "why hubspot?",
+          "why choose hubspot?"
+        ]
+      },
+      "statistics": {
+        "total_statistics": 6,
+        "with_citation": 0,
+        "without_citation": 6,
+        "citation_ratio": 0.0,
+        "examples_cited": [],
+        "examples_uncited": [
+          "After just one year, HubSpot customers acquire 129% more leads, close 36% more deals, and see a 37% improvement in ticke",
+          "After just one year, HubSpot customers acquire 129% more leads, close 36% more deals, and see a 37% improvement in ticke",
+          "They can resolve over 65% of customer inquiries, accelerate your sales pipeline, and whip up quality content in no time"
+        ]
+      },
+      "paragraphs": {
+        "total_paragraphs": 57,
+        "avg_words": 23.3,
+        "max_words": 477,
+        "violation_count": 1,
+        "violation_ratio": 0.02,
+        "violations": [
+          {
+            "word_count": 477,
+            "snippet": "\");background-repeat:no-repeat}[data-cl-brand=hubspot-2025] .cl-input-input::-webkit-resizer{background-image:url(\"data:image/svg+xml, \")}[data-cl-theme=dark] .cl-input-input::-webkit-resizer{background-image:url(\"data:image/svg+xml, \")}[data-cl-brand=hubspot-2025] [data-cl-theme=dark] .cl-input-input::-webkit-resizer{background-image:url(\"data:image/svg+xml, \")}.cl-input-input:is(select){cursor:pointer;appearance:none;padding-right:2.5rem}.cl-input-input:has(~.cl-input-state-icon),.cl-input.-invalid .cl-input-input{padding:.5rem 2.5rem .5rem 1rem}.cl-input-input:is(select):has(~.cl-input-state-icon),.cl-input.-invalid .cl-input-input:is(select){padding-right:4.25rem}.cl-input-input:is(input[type=search]):has(~.cl-input-state-icon),.cl-input.-invalid .cl-input-input:is(input[type=search]){padding-left:2.5rem}.cl-input.-invalid .cl-input-input{border:1px..."
+          }
+        ]
+      },
+      "faq": {
+        "has_faq_heading": false,
+        "estimated_qa_pairs": 23,
+        "has_faq_section": true
+      },
+      "key_takeaways": {
+        "has_key_takeaways": false,
+        "patterns_found": []
+      },
+      "hedge_words": {
+        "total_sentences": 83,
+        "hedge_sentence_count": 2,
+        "hedge_ratio": 0.02,
+        "sample_hedge_sentences": [
+          "\u201d Whitney Hallock Director of Marketing Experience, Angel City FC Read full case study of Angel City",
+          "\u201d John Mothershead Director of Member Success, Youth on Course Read full case study of Youth on Cour"
+        ]
+      },
+      "date_markers": {
+        "has_date_marker": false,
+        "markers_found": []
+      },
+      "ai_cliches": {
+        "cliche_count": 0,
+        "high_cliche_density": false,
+        "examples": []
+      },
+      "answer_capsules": {
+        "sections_analyzed": 5,
+        "answer_capsules_found": 0,
+        "capsule_ratio": 0.0,
+        "meets_threshold": false,
+        "examples": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "site": "supabase.com",
+  "base_url": "https://supabase.com",
+  "probed_at": "2026-09-12T18:27:05Z",
+  "pages": [
+    {
+      "url": "https://supabase.com",
+      "path": "/",
+      "above_fold": {
+        "first_80_words": "Build in weekend Scale to millions Start your project with Postgres database. Add Authentication, Data APIs, Edge Functions, Realtime Data, Storage, and Vector embeddings. Start your project Request demo Postgres Database Every project is full Postgres database the world&#x27;s most trusted relational database. 100% portable Built-in Auth with RLS Easy to extend Authentication Add user sign ups and logins securing your data with Row Level Security. Edge Functions Easily write custom code without deploying or scaling servers. supabase functions deploy",
+        "word_count": 136,
+        "has_direct_claim": true,
+        "has_unresolved_pronouns": false
+      },
+      "headings": {
+        "total_h2_h3_count": 15,
+        "question_format_count": 1,
+        "question_format_ratio": 0.07,
+        "sample_question_headings": [
+          "how industry leaders  are building with supabase"
+        ]
+      },
+      "statistics": {
+        "total_statistics": 5,
+        "with_citation": 0,
+        "without_citation": 5,
+        "citation_ratio": 0.0,
+        "examples_cited": [],
+        "examples_uncited": [
+          "100% portable Built-in Auth with RLS Easy to extend Authentication Add user sign ups and logins , securing your data wit",
+          "Only 1% of the population knows how to code",
+          "Lovable has unlocked that ability for the other 99%"
+        ]
+      },
+      "paragraphs": {
+        "total_paragraphs": 46,
+        "avg_words": 22.0,
+        "max_words": 142,
+        "violation_count": 0,
+        "violation_ratio": 0.0,
+        "violations": []
+      },
+      "faq": {
+        "has_faq_heading": false,
+        "estimated_qa_pairs": 3,
+        "has_faq_section": true
+      },
+      "key_takeaways": {
+        "has_key_takeaways": false,
+        "patterns_found": []
+      },
+      "hedge_words": {
+        "total_sentences": 76,
+        "hedge_sentence_count": 5,
+        "hedge_ratio": 0.07,
+        "sample_hedge_sentences": [
+          "We needed a system that could handle serious performance and security requirements \u2014 without slowing",
+          "We could not have built this company without Supabase",
+          "For new startups, they seem to have gone from promising to standard in remarkably short order"
+        ]
+      },
+      "date_markers": {
+        "has_date_marker": false,
+        "markers_found": []
+      },
+      "ai_cliches": {
+        "cliche_count": 0,
+        "high_cliche_density": false,
+        "examples": []
+      },
+      "answer_capsules": {
+        "sections_analyzed": 5,
+        "answer_capsules_found": 0,
+        "capsule_ratio": 0.0,
+        "meets_threshold": false,
+        "examples": []
+      }
+    },
+    {
+      "url": "https://supabase.com/blog",
+      "path": "/blog",
+      "above_fold": {
+        "first_80_words": "Supabase Blog Supabase is now available in Gemini Enterprise Connect Supabase to Gemini Enterprise and query your Supabase projects with natural language, right inside the platform. Author: Shaziya Bandukia, Elsa Heffernan Published September 2026 minute read",
+        "word_count": 36,
+        "has_direct_claim": true,
+        "has_unresolved_pronouns": true
+      },
+      "headings": {
+        "total_h2_h3_count": 26,
+        "question_format_count": 1,
+        "question_format_ratio": 0.04,
+        "sample_question_headings": [
+          "are supabase docs agent-friendly? we didn&#x27;t know, so we checked"
+        ]
+      },
+      "statistics": {
+        "total_statistics": 0,
+        "with_citation": 0,
+        "without_citation": 0,
+        "citation_ratio": 0,
+        "examples_cited": [],
+        "examples_uncited": []
+      },
+      "paragraphs": {
+        "total_paragraphs": 2,
+        "avg_words": 28.0,
+        "max_words": 35,
+        "violation_count": 0,
+        "violation_ratio": 0.0,
+        "violations": []
+      },
+      "faq": {
+        "has_faq_heading": false,
+        "estimated_qa_pairs": 10,
+        "has_faq_section": true
+      },
+      "key_takeaways": {
+        "has_key_takeaways": false,
+        "patterns_found": []
+      },
+      "hedge_words": {
+        "total_sentences": 10,
+        "hedge_sentence_count": 0,
+        "hedge_ratio": 0.0,
+        "sample_hedge_sentences": []
+      },
+      "date_markers": {
+        "has_date_marker": false,
+        "markers_found": []
+      },
+      "ai_cliches": {
+        "cliche_count": 0,
+        "high_cliche_density": false,
+        "examples": []
+      },
+      "answer_capsules": {
+        "sections_analyzed": 5,
+        "answer_capsules_found": 0,
+        "capsule_ratio": 0.0,
+        "meets_threshold": false,
+        "examples": []
+      }
+    }
+  ]
+}

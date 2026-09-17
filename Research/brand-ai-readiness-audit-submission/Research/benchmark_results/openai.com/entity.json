@@ -1,0 +1,76 @@
+{
+  "site": "openai.com",
+  "base_url": "https://openai.com",
+  "probed_at": "2026-09-12T18:18:56Z",
+  "homepage_status": 200,
+  "homepage_error": null,
+  "brand_name": "OpenAI",
+  "brand_name_source": "og:site_name",
+  "same_as_links": [],
+  "same_as_categorized": {
+    "wikidata": null,
+    "wikipedia": null,
+    "crunchbase": null,
+    "linkedin": null,
+    "twitter": null,
+    "facebook": null,
+    "other": []
+  },
+  "wikidata": {
+    "query": "OpenAI",
+    "found": true,
+    "qid": "Q21708200",
+    "label": "OpenAI",
+    "description": "American artificial intelligence research organization",
+    "candidates": [
+      {
+        "qid": "Q21708200",
+        "label": "OpenAI",
+        "description": "American artificial intelligence research organization",
+        "url": "//www.wikidata.org/wiki/Q21708200"
+      },
+      {
+        "qid": "Q96237091",
+        "label": "OpenAI API",
+        "description": "various AI APIs, products of OpenAI",
+        "url": "//www.wikidata.org/wiki/Q96237091"
+      },
+      {
+        "qid": "Q101366575",
+        "label": "OpenAir Sessions",
+        "description": "podcast from CPR News",
+        "url": "//www.wikidata.org/wiki/Q101366575"
+      },
+      {
+        "qid": "Q25106053",
+        "label": "OpenAIRE",
+        "description": "network of Open Access repositories, archives and journals that support Open Access policies",
+        "url": "//www.wikidata.org/wiki/Q25106053"
+      },
+      {
+        "qid": "Q124544998",
+        "label": "Sora",
+        "description": "text-to-video model developed by OpenAI",
+        "url": "//www.wikidata.org/wiki/Q124544998"
+      }
+    ],
+    "error": null
+  },
+  "entity_collision_risk": {
+    "name": "OpenAI",
+    "risk_factors": [
+      "Short single lowercase word \u2014 high overlap risk"
+    ],
+    "high_risk": true
+  },
+  "name_variants": {
+    "homepage_og_site_name": "OpenAI",
+    "homepage_title": "OpenAI | Research &amp; Deployment"
+  },
+  "name_is_consistent": true,
+  "_agent_next_steps": [
+    "web_search: \\\"OpenAI\\\" founded",
+    "web_search: \\\"OpenAI\\\" company",
+    "web_search: \\\"OpenAI\\\" openai"
+  ]
+}

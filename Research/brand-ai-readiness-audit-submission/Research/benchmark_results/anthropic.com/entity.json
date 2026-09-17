@@ -1,0 +1,42 @@
+{
+  "site": "anthropic.com",
+  "base_url": "https://anthropic.com",
+  "probed_at": "2026-09-12T18:19:14Z",
+  "homepage_status": 200,
+  "homepage_error": null,
+  "brand_name": "Home \\ Anthropic",
+  "brand_name_source": "page <title>",
+  "same_as_links": [],
+  "same_as_categorized": {
+    "wikidata": null,
+    "wikipedia": null,
+    "crunchbase": null,
+    "linkedin": null,
+    "twitter": null,
+    "facebook": null,
+    "other": []
+  },
+  "wikidata": {
+    "query": "Home \\ Anthropic",
+    "found": false,
+    "qid": null,
+    "label": null,
+    "description": null,
+    "candidates": [],
+    "error": null
+  },
+  "entity_collision_risk": {
+    "name": "Home \\ Anthropic",
+    "risk_factors": [],
+    "high_risk": false
+  },
+  "name_variants": {
+    "homepage_title": "Home \\ Anthropic"
+  },
+  "name_is_consistent": true,
+  "_agent_next_steps": [
+    "web_search: \\\"Home \\ Anthropic\\\" founded",
+    "web_search: \\\"Home \\ Anthropic\\\" company",
+    "web_search: \\\"Home \\ Anthropic\\\" anthropic"
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "site": "www.hubspot.com",
+  "base_url": "https://www.hubspot.com",
+  "probed_at": "2026-09-12T18:23:52Z",
+  "rsl_declaration": {
+    "html_rsl_link": null,
+    "well_known_rsl_status": 404,
+    "well_known_rsl_content": null,
+    "has_rsl": false
+  },
+  "llms_full_txt": {
+    "url": "https://www.hubspot.com/llms-full.txt",
+    "status": 404,
+    "content_type": "text/html;charset=utf-8",
+    "word_count": 24353,
+    "present": false,
+    "error": null
+  },
+  "ai_discovery_endpoints": [
+    {
+      "path": "/.well-known/ai.txt",
+      "url": "https://www.hubspot.com/.well-known/ai.txt",
+      "status": 404,
+      "content_type": "text/html;charset=utf-8",
+      "error": null,
+      "present": false
+    },
+    {
+      "path": "/.well-known/ai.json",
+      "url": "https://www.hubspot.com/.well-known/ai.json",
+      "status": 404,
+      "content_type": "text/html;charset=utf-8",
+      "error": null,
+      "present": false
+    },
+    {
+      "path": "/.well-known/rsl.json",
+      "url": "https://www.hubspot.com/.well-known/rsl.json",
+      "status": 404,
+      "content_type": "text/html;charset=utf-8",
+      "error": null,
+      "present": false
+    },
+    {
+      "path": "/ai/summary.json",
+      "url": "https://www.hubspot.com/ai/summary.json",
+      "status": 404,
+      "content_type": "text/html;charset=utf-8",
+      "error": null,
+      "present": false
+    },
+    {
+      "path": "/ai/faq.json",
+      "url": "https://www.hubspot.com/ai/faq.json",
+      "status": 404,
+      "content_type": "text/html;charset=utf-8",
+      "error": null,
+      "present": false
+    },
+    {
+      "path": "/ai/service.json",
+      "url": "https://www.hubspot.com/ai/service.json",
+      "status": 404,
+      "content_type": "text/html;charset=utf-8",
+      "error": null,
+      "present": false
+    },
+    {
+      "path": "/ai/manifest.json",
+      "url": "https://www.hubspot.com/ai/manifest.json",
+      "status": 404,
+      "content_type": "text/html;charset=utf-8",
+      "error": null,
+      "present": false
+    },
+    {
+      "path": "/brand.txt",
+      "url": "https://www.hubspot.com/brand.txt",
+      "status": 404,
+      "content_type": "text/html;charset=utf-8",
+      "error": null,
+      "present": false
+    },
+    {
+      "path": "/identity.json",
+      "url": "https://www.hubspot.com/identity.json",
+      "status": 404,
+      "content_type": "text/html;charset=utf-8",
+      "error": null,
+      "present": false
+    },
+    {
+      "path": "/faq-ai.txt",
+      "url": "https://www.hubspot.com/faq-ai.txt",
+      "status": 404,
+      "content_type": "text/html;charset=utf-8",
+      "error": null,
+      "present": false
+    },
+    {
+      "path": "/ai.json",
+      "url": "https://www.hubspot.com/ai.json",
+      "status": 404,
+      "content_type": "text/html;charset=utf-8",
+      "error": null,
+      "present": false
+    },
+    {
+      "path": "/.well-known/brand.json",
+      "url": "https://www.hubspot.com/.well-known/brand.json",
+      "status": 404,
+      "content_type": "text/html;charset=utf-8",
+      "error": null,
+      "present": false
+    },
+    {
+      "path": "/.well-known/llms-context.txt",
+      "url": "https://www.hubspot.com/.well-known/llms-context.txt",
+      "status": 404,
+      "content_type": "text/html;charset=utf-8",
+      "error": null,
+      "present": false
+    }
+  ],
+  "ai_discovery_endpoint_count": 0,
+  "indexnow": {
+    "indexnow_in_html": false,
+    "indexnow_in_robots": false,
+    "indexnow_key_found": null,
+    "has_indexnow": false
+  },
+  "llms_txt_deep_validation": {
+    "present": true,
+    "status": 200,
+    "content_type": "text/plain",
+    "file_size_bytes": 30688,
+    "has_h1": true,
+    "h1_text": "HubSpot",
+    "has_blockquote": false,
+    "has_optional_section": false,
+    "linked_url_count": 201,
+    "relative_url_count": 0,
+    "issues": [
+      {
+        "rule": "Missing blockquote summary (recommended)",
+        "severity": "LOW"
+      },
+      {
+        "rule": "H2 section items without absolute markdown links",
+        "severity": "MEDIUM",
+        "examples": [
+          "- Website: https://www.hubspot.com",
+          "- Contact: https://www.hubspot.com/company/contact",
+          "- Developer docs: https://developers.hubspot.com"
+        ]
+      }
+    ],
+    "passes_spec": false
+  }
+}

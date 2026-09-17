@@ -1,0 +1,63 @@
+{
+  "site": "supabase.com",
+  "base_url": "https://supabase.com",
+  "probed_at": "2026-09-12T18:27:05Z",
+  "pages": [
+    {
+      "url": "https://supabase.com",
+      "status": 200,
+      "og_tags": {
+        "title": "Supabase | The Postgres Development Platform",
+        "description": "Build production-grade applications with a Postgres database, Authentication, instant APIs, Realtime, Functions, Storage and Vector embeddings. Start for free.",
+        "url": "https://supabase.com/",
+        "site_name": "Supabase",
+        "image": "https://supabase.com/images/og/supabase-og.png",
+        "image:width": "800",
+        "image:height": "600",
+        "image:alt": "Supabase Og Image",
+        "type": "website"
+      },
+      "og_title": "Supabase | The Postgres Development Platform",
+      "og_description": "Build production-grade applications with a Postgres database, Authentication, instant APIs, Realtime, Functions, Storage and Vector embeddings. Start for free.",
+      "og_type": "website",
+      "og_site_name": "Supabase",
+      "og_image": "https://supabase.com/images/og/supabase-og.png",
+      "og_image_validation": {
+        "present": true,
+        "url": "https://supabase.com/images/og/supabase-og.png",
+        "is_absolute": true,
+        "http_status": 200,
+        "valid": true
+      },
+      "twitter_card": {
+        "card": "summary_large_image",
+        "site": "@supabase",
+        "creator": "@supabase",
+        "title": "Supabase | The Postgres Development Platform",
+        "description": "Build production-grade applications with a Postgres database, Authentication, instant APIs, Realtime, Functions, Storage and Vector embeddings. Start for free.",
+        "image": "https://supabase.com/images/og/supabase-og.png",
+        "image:width": "800",
+        "image:height": "600",
+        "image:alt": "Supabase Og Image"
+      },
+      "meta_description": "Build production-grade applications with a Postgres database, Authentication, instant APIs, Realtime, Functions, Storage and Vector embeddings. Start for free.",
+      "meta_description_quality": {
+        "present": true,
+        "text": "Build production-grade applications with a Postgres database, Authentication, instant APIs, Realtime, Functions, Storage and Vector embeddings. Start for free.",
+        "length": 159,
+        "too_short": false,
+        "too_long": false,
+        "optimal_length": true,
+        "is_generic": false
+      },
+      "meta_author": null,
+      "canonical": "https://supabase.com",
+      "markdown_alternate": {
+        "has_markdown_alternate": true,
+        "markdown_url": "https://supabase.com/index.md"
+      }
+    }
+  ],
+  "duplicate_meta_descriptions": false,
+  "og_site_name_consistent": true
+}

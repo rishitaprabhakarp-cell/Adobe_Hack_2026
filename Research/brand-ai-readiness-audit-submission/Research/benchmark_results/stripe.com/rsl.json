@@ -1,0 +1,205 @@
+{
+  "site": "stripe.com",
+  "base_url": "https://stripe.com",
+  "probed_at": "2026-09-12T19:33:07Z",
+  "rsl_declaration": {
+    "html_rsl_link": null,
+    "well_known_rsl_status": 404,
+    "well_known_rsl_content": null,
+    "has_rsl": false
+  },
+  "llms_full_txt": {
+    "url": "https://stripe.com/llms-full.txt",
+    "status": 404,
+    "content_type": "text/html; charset=utf-8",
+    "word_count": 19139,
+    "present": false,
+    "error": null
+  },
+  "ai_discovery_endpoints": [
+    {
+      "path": "/.well-known/ai.txt",
+      "url": "https://stripe.com/.well-known/ai.txt",
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "present": false
+    },
+    {
+      "path": "/.well-known/ai.json",
+      "url": "https://stripe.com/.well-known/ai.json",
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "present": false
+    },
+    {
+      "path": "/.well-known/rsl.json",
+      "url": "https://stripe.com/.well-known/rsl.json",
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "present": false
+    },
+    {
+      "path": "/ai/summary.json",
+      "url": "https://stripe.com/ai/summary.json",
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "present": false
+    },
+    {
+      "path": "/ai/faq.json",
+      "url": "https://stripe.com/ai/faq.json",
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "present": false
+    },
+    {
+      "path": "/ai/service.json",
+      "url": "https://stripe.com/ai/service.json",
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "present": false
+    },
+    {
+      "path": "/ai/manifest.json",
+      "url": "https://stripe.com/ai/manifest.json",
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "present": false
+    },
+    {
+      "path": "/brand.txt",
+      "url": "https://stripe.com/brand.txt",
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "present": false
+    },
+    {
+      "path": "/identity.json",
+      "url": "https://stripe.com/identity.json",
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "present": false
+    },
+    {
+      "path": "/faq-ai.txt",
+      "url": "https://stripe.com/faq-ai.txt",
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "present": false
+    },
+    {
+      "path": "/ai.json",
+      "url": "https://stripe.com/ai.json",
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "present": false
+    },
+    {
+      "path": "/.well-known/brand.json",
+      "url": "https://stripe.com/.well-known/brand.json",
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "present": false
+    },
+    {
+      "path": "/.well-known/llms-context.txt",
+      "url": "https://stripe.com/.well-known/llms-context.txt",
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "error": null,
+      "present": false
+    }
+  ],
+  "ai_discovery_endpoint_count": 0,
+  "indexnow": {
+    "indexnow_in_html": false,
+    "indexnow_in_robots": false,
+    "indexnow_key_found": null,
+    "has_indexnow": false
+  },
+  "llms_txt_deep_validation": {
+    "present": true,
+    "status": 200,
+    "content_type": "text/plain; charset=utf-8",
+    "file_size_bytes": 65026,
+    "has_h1": true,
+    "h1_text": "Stripe",
+    "has_blockquote": true,
+    "has_optional_section": true,
+    "linked_url_count": 288,
+    "relative_url_count": 0,
+    "private_urls_found": 5,
+    "slow_links": [],
+    "duplicate_urls": 1,
+    "issues": [
+      {
+        "rule": "File size 63KB exceeds 50KB limit",
+        "severity": "MEDIUM"
+      },
+      {
+        "rule": "Private/admin URLs exposed in llms.txt",
+        "severity": "HIGH",
+        "examples": [
+          "https://stripe.com/payments/checkout",
+          "https://docs.stripe.com/payments/checkout",
+          "https://stripe.com/radar/account"
+        ],
+        "recommendation": "Remove /admin, /account, /checkout and similar private paths from llms.txt"
+      },
+      {
+        "rule": "Duplicate URLs in llms.txt",
+        "severity": "LOW",
+        "examples": [
+          "https://stripe.com/payments/dispute-management"
+        ]
+      }
+    ],
+    "passes_spec": false
+  },
+  "webmcp_readiness": {
+    "level": "none",
+    "signals": [],
+    "agent_ready": false,
+    "endpoints": {
+      "/.well-known/webmcp": {
+        "present": false,
+        "status": 404
+      },
+      "/.well-known/mcp.json": {
+        "present": false,
+        "status": 404
+      },
+      "/.well-known/agents.json": {
+        "present": false,
+        "status": 404
+      }
+    },
+    "html_signals": {
+      "register_tool_js": false,
+      "tool_html_attrs": false,
+      "potential_action_schema": false
+    }
+  },
+  "alternate_text_links": {
+    "has_ai_alternate": false,
+    "alternate_links": [],
+    "missing": true
+  },
+  "ai_summary_validation": {
+    "present": false,
+    "status": 404,
+    "error": null
+  }
+}

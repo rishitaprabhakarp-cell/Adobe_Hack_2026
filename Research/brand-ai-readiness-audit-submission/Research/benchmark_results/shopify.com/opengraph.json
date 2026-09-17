@@ -1,0 +1,153 @@
+{
+  "site": "www.shopify.com",
+  "base_url": "https://www.shopify.com",
+  "probed_at": "2026-09-12T18:24:29Z",
+  "pages": [
+    {
+      "url": "https://www.shopify.com",
+      "status": 200,
+      "og_tags": {
+        "type": "website",
+        "site_name": "Shopify",
+        "title": "Shopify: The All-in-One Commerce Platform for Businesses - Shopify",
+        "description": "Try Shopify free. Build or grow your business fast with AI. Get more than ecommerce software with tools to manage every part of your business.",
+        "image": "https://cdn.shopify.com/b/shopify-brochure2-assets/d617483c5e5cdd01ae8b4f2571c76f34.png?originalWidth=2400&amp;originalHeight=1260",
+        "url": "https://www.shopify.com/"
+      },
+      "og_title": "Shopify: The All-in-One Commerce Platform for Businesses - Shopify",
+      "og_description": "Try Shopify free. Build or grow your business fast with AI. Get more than ecommerce software with tools to manage every part of your business.",
+      "og_type": "website",
+      "og_site_name": "Shopify",
+      "og_image": "https://cdn.shopify.com/b/shopify-brochure2-assets/d617483c5e5cdd01ae8b4f2571c76f34.png?originalWidth=2400&amp;originalHeight=1260",
+      "og_image_validation": {
+        "present": true,
+        "url": "https://cdn.shopify.com/b/shopify-brochure2-assets/d617483c5e5cdd01ae8b4f2571c76",
+        "is_absolute": true,
+        "http_status": 200,
+        "valid": true
+      },
+      "twitter_card": {
+        "image": "https://cdn.shopify.com/b/shopify-brochure2-assets/d617483c5e5cdd01ae8b4f2571c76f34.png?originalWidth=2400&amp;originalHeight=1260",
+        "card": "summary_large_image",
+        "site": "Shopify",
+        "account_id": "17136315",
+        "title": "Shopify: The All-in-One Commerce Platform for Businesses - Shopify",
+        "description": "Try Shopify free. Build or grow your business fast with AI. Get more than ecommerce software with tools to manage every part of your business."
+      },
+      "meta_description": "Try Shopify free. Build or grow your business fast with AI. Get more than ecommerce software with tools to manage every part of your business.",
+      "meta_description_quality": {
+        "present": true,
+        "text": "Try Shopify free. Build or grow your business fast with AI. Get more than ecommerce software with tools to manage every part of your business.",
+        "length": 142,
+        "too_short": false,
+        "too_long": false,
+        "optimal_length": true,
+        "is_generic": false
+      },
+      "meta_author": null,
+      "canonical": "https://www.shopify.com/",
+      "markdown_alternate": {
+        "has_markdown_alternate": false,
+        "markdown_url": null
+      }
+    },
+    {
+      "url": "https://www.shopify.com/about",
+      "status": 200,
+      "og_tags": {
+        "type": "website",
+        "site_name": "Shopify",
+        "title": "About Shopify",
+        "description": "Learn about Shopify and how it works. Explore its pricing plans and essential features for building and managing your business.",
+        "image": "https://cdn.shopify.com/shopifycloud/brochure/assets/shared/social-image-default-large-57a90e6a8ae96f7277e9664ebfede1f143995ce7663119c832f9a7d4dd51f7e1.png",
+        "url": "https://www.shopify.com/about"
+      },
+      "og_title": "About Shopify",
+      "og_description": "Learn about Shopify and how it works. Explore its pricing plans and essential features for building and managing your business.",
+      "og_type": "website",
+      "og_site_name": "Shopify",
+      "og_image": "https://cdn.shopify.com/shopifycloud/brochure/assets/shared/social-image-default-large-57a90e6a8ae96f7277e9664ebfede1f143995ce7663119c832f9a7d4dd51f7e1.png",
+      "og_image_validation": {
+        "present": true,
+        "url": "https://cdn.shopify.com/shopifycloud/brochure/assets/shared/social-image-default",
+        "is_absolute": true,
+        "http_status": 200,
+        "valid": true
+      },
+      "twitter_card": {
+        "image": "https://cdn.shopify.com/shopifycloud/brochure/assets/shared/social-image-default-large-57a90e6a8ae96f7277e9664ebfede1f143995ce7663119c832f9a7d4dd51f7e1.png",
+        "card": "summary_large_image",
+        "site": "Shopify",
+        "account_id": "17136315",
+        "title": "About Shopify",
+        "description": "Learn about Shopify and how it works. Explore its pricing plans and essential features for building and managing your business."
+      },
+      "meta_description": "Learn about Shopify and how it works. Explore its pricing plans and essential features for building and managing your business.",
+      "meta_description_quality": {
+        "present": true,
+        "text": "Learn about Shopify and how it works. Explore its pricing plans and essential features for building and managing your business.",
+        "length": 127,
+        "too_short": false,
+        "too_long": false,
+        "optimal_length": true,
+        "is_generic": false
+      },
+      "meta_author": null,
+      "canonical": "https://www.shopify.com/about",
+      "markdown_alternate": {
+        "has_markdown_alternate": false,
+        "markdown_url": null
+      }
+    },
+    {
+      "url": "https://www.shopify.com/product",
+      "status": 200,
+      "og_tags": {
+        "type": "website",
+        "site_name": "Shopify",
+        "title": "Shopify: The All-in-One Commerce Platform for Businesses - Shopify",
+        "description": "Try Shopify free. Build or grow your business fast with AI. Get more than ecommerce software with tools to manage every part of your business.",
+        "image": "https://cdn.shopify.com/b/shopify-brochure2-assets/d617483c5e5cdd01ae8b4f2571c76f34.png?originalWidth=2400&amp;originalHeight=1260",
+        "url": "https://www.shopify.com/"
+      },
+      "og_title": "Shopify: The All-in-One Commerce Platform for Businesses - Shopify",
+      "og_description": "Try Shopify free. Build or grow your business fast with AI. Get more than ecommerce software with tools to manage every part of your business.",
+      "og_type": "website",
+      "og_site_name": "Shopify",
+      "og_image": "https://cdn.shopify.com/b/shopify-brochure2-assets/d617483c5e5cdd01ae8b4f2571c76f34.png?originalWidth=2400&amp;originalHeight=1260",
+      "og_image_validation": {
+        "present": true,
+        "url": "https://cdn.shopify.com/b/shopify-brochure2-assets/d617483c5e5cdd01ae8b4f2571c76",
+        "is_absolute": true,
+        "http_status": 200,
+        "valid": true
+      },
+      "twitter_card": {
+        "image": "https://cdn.shopify.com/b/shopify-brochure2-assets/d617483c5e5cdd01ae8b4f2571c76f34.png?originalWidth=2400&amp;originalHeight=1260",
+        "card": "summary_large_image",
+        "site": "Shopify",
+        "account_id": "17136315",
+        "title": "Shopify: The All-in-One Commerce Platform for Businesses - Shopify",
+        "description": "Try Shopify free. Build or grow your business fast with AI. Get more than ecommerce software with tools to manage every part of your business."
+      },
+      "meta_description": "Try Shopify free. Build or grow your business fast with AI. Get more than ecommerce software with tools to manage every part of your business.",
+      "meta_description_quality": {
+        "present": true,
+        "text": "Try Shopify free. Build or grow your business fast with AI. Get more than ecommerce software with tools to manage every part of your business.",
+        "length": 142,
+        "too_short": false,
+        "too_long": false,
+        "optimal_length": true,
+        "is_generic": false
+      },
+      "meta_author": null,
+      "canonical": "https://www.shopify.com/",
+      "markdown_alternate": {
+        "has_markdown_alternate": false,
+        "markdown_url": null
+      }
+    }
+  ],
+  "duplicate_meta_descriptions": true,
+  "og_site_name_consistent": true
+}

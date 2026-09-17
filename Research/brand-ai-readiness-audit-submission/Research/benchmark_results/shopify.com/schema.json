@@ -1,0 +1,188 @@
+{
+  "site": "www.shopify.com",
+  "base_url": "https://www.shopify.com",
+  "probed_at": "2026-09-12T18:24:29Z",
+  "pages": [
+    {
+      "path": "/",
+      "url": "https://www.shopify.com",
+      "status": 200,
+      "error": null,
+      "jsonld_blocks": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Corporation",
+          "name": "Shopify",
+          "legalName": "Shopify Inc.",
+          "url": "https://www.shopify.com/",
+          "logo": "https://cdn.shopify.com/shopifycloud/brochure/assets/brand-assets/shopify-logo-primary-logo-456baa801ee66a0a435671082365958316831c9960c480451dd0330bcdae304f.svg",
+          "sameAs": [
+            "https://www.facebook.com/shopify/",
+            "https://x.com/Shopify",
+            "https://www.instagram.com/shopify/",
+            "https://www.youtube.com/shopify",
+            "https://www.linkedin.com/company/shopify/",
+            "https://github.com/Shopify",
+            "https://en.wikipedia.org/wiki/Shopify"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "Customer Support",
+            "url": "https://help.shopify.com/"
+          }
+        }
+      ],
+      "schema_types": [
+        "Corporation"
+      ],
+      "schema_richness": [
+        {
+          "@type": "Corporation",
+          "field_count": 6
+        }
+      ],
+      "has_speakable": false,
+      "freshness_dates": [],
+      "images_missing_alt": [
+        "https://cdn.shopify.com/b/shopify-brochure2-assets/7ecd57f2fa3d7b997d29181a62c95",
+        "https://cdn.shopify.com/b/shopify-brochure2-assets/e9b1787b05cc3141b4aec50b024ad",
+        "https://cdn.shopify.com/b/shopify-brochure2-assets/c87d3ea84d6b07cc56c44653ed891",
+        "https://cdn.shopify.com/b/shopify-brochure2-assets/b1debcf2c15172ecfe86b0d30d664",
+        "https://cdn.shopify.com/b/shopify-brochure2-assets/7fd378060668fbb746a61d562bd40",
+        "https://cdn.shopify.com/b/shopify-brochure2-assets/48c3fa7e8d48a8a316f818f7ab8c3",
+        "https://cdn.shopify.com/b/shopify-brochure2-assets/7aa525b00d5c1f6ca1db1f7d8030e",
+        "https://cdn.shopify.com/b/shopify-brochure2-assets/dfe62984c290cac4d9ab1f6d64d56",
+        "https://cdn.shopify.com/b/shopify-brochure2-assets/0f899d067f8fd6d3de6df6dc072a9",
+        "https://cdn.shopify.com/b/shopify-brochure2-assets/ea64c5d6352869143ca123c102a43"
+      ],
+      "html_lang": "en",
+      "hreflang_count": 73,
+      "paywall_detected": false,
+      "paywall_evidence": null,
+      "is_accessible_for_free": null,
+      "video_objects": [],
+      "faq_howto_headings": []
+    },
+    {
+      "path": "/product",
+      "url": "https://www.shopify.com/product",
+      "status": 200,
+      "error": null,
+      "jsonld_blocks": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Corporation",
+          "name": "Shopify",
+          "legalName": "Shopify Inc.",
+          "url": "https://www.shopify.com/",
+          "logo": "https://cdn.shopify.com/shopifycloud/brochure/assets/brand-assets/shopify-logo-primary-logo-456baa801ee66a0a435671082365958316831c9960c480451dd0330bcdae304f.svg",
+          "sameAs": [
+            "https://www.facebook.com/shopify/",
+            "https://x.com/Shopify",
+            "https://www.instagram.com/shopify/",
+            "https://www.youtube.com/shopify",
+            "https://www.linkedin.com/company/shopify/",
+            "https://github.com/Shopify",
+            "https://en.wikipedia.org/wiki/Shopify"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "Customer Support",
+            "url": "https://help.shopify.com/"
+          }
+        }
+      ],
+      "schema_types": [
+        "Corporation"
+      ],
+      "schema_richness": [
+        {
+          "@type": "Corporation",
+          "field_count": 6
+        }
+      ],
+      "has_speakable": false,
+      "freshness_dates": [],
+      "images_missing_alt": [
+        "https://cdn.shopify.com/b/shopify-brochure2-assets/7ecd57f2fa3d7b997d29181a62c95",
+        "https://cdn.shopify.com/b/shopify-brochure2-assets/e9b1787b05cc3141b4aec50b024ad",
+        "https://cdn.shopify.com/b/shopify-brochure2-assets/c87d3ea84d6b07cc56c44653ed891",
+        "https://cdn.shopify.com/b/shopify-brochure2-assets/b1debcf2c15172ecfe86b0d30d664",
+        "https://cdn.shopify.com/b/shopify-brochure2-assets/7fd378060668fbb746a61d562bd40",
+        "https://cdn.shopify.com/b/shopify-brochure2-assets/48c3fa7e8d48a8a316f818f7ab8c3",
+        "https://cdn.shopify.com/b/shopify-brochure2-assets/7aa525b00d5c1f6ca1db1f7d8030e",
+        "https://cdn.shopify.com/b/shopify-brochure2-assets/dfe62984c290cac4d9ab1f6d64d56",
+        "https://cdn.shopify.com/b/shopify-brochure2-assets/0f899d067f8fd6d3de6df6dc072a9",
+        "https://cdn.shopify.com/b/shopify-brochure2-assets/ea64c5d6352869143ca123c102a43"
+      ],
+      "html_lang": "en",
+      "hreflang_count": 73,
+      "paywall_detected": false,
+      "paywall_evidence": null,
+      "is_accessible_for_free": null,
+      "video_objects": [],
+      "faq_howto_headings": []
+    },
+    {
+      "path": "/about",
+      "url": "https://www.shopify.com/about",
+      "status": 200,
+      "error": null,
+      "jsonld_blocks": [],
+      "schema_types": [],
+      "schema_richness": [],
+      "has_speakable": false,
+      "freshness_dates": [],
+      "images_missing_alt": [
+        "https://cdn.shopify.com/b/shopify-brochure2-assets/11d52c8fc15a5f3eea249a41f6f70",
+        "https://cdn.shopify.com/b/shopify-brochure2-assets/ea78a94066ce7611983fd5796d4d1",
+        "https://cdn.shopify.com/b/shopify-brochure2-assets/11d52c8fc15a5f3eea249a41f6f70",
+        "https://cdn.shopify.com/b/shopify-brochure2-assets/ea78a94066ce7611983fd5796d4d1"
+      ],
+      "html_lang": "en",
+      "hreflang_count": 72,
+      "paywall_detected": false,
+      "paywall_evidence": null,
+      "is_accessible_for_free": null,
+      "video_objects": [],
+      "faq_howto_headings": []
+    },
+    {
+      "path": "/pricing",
+      "url": "https://www.shopify.com/pricing",
+      "status": 200,
+      "error": null,
+      "jsonld_blocks": [],
+      "schema_types": [],
+      "schema_richness": [],
+      "has_speakable": false,
+      "freshness_dates": [],
+      "images_missing_alt": [
+        "https://cdn.shopify.com/b/shopify-brochure2-assets/75a798084bc083a97ac57de197319",
+        "https://cdn.shopify.com/b/shopify-brochure2-assets/2096e960331b872fb1c202c62387f",
+        "https://cdn.shopify.com/b/shopify-brochure2-assets/f7b24fc19cde5db0635f9820de525",
+        "https://cdn.shopify.com/b/shopify-brochure2-assets/f4118ab5316b34e3dfb2a23b6a889",
+        "https://cdn.shopify.com/b/shopify-brochure2-assets/59bf00341c2cb8fb957882677948b",
+        "https://cdn.shopify.com/b/shopify-brochure2-assets/59bf00341c2cb8fb957882677948b"
+      ],
+      "html_lang": "en",
+      "hreflang_count": 72,
+      "paywall_detected": false,
+      "paywall_evidence": null,
+      "is_accessible_for_free": null,
+      "video_objects": [],
+      "faq_howto_headings": [
+        "faqs",
+        "what is shopify and how does it work?"
+      ]
+    }
+  ],
+  "site_schema_types": [
+    "Corporation"
+  ],
+  "site_has_speakable": false,
+  "site_has_faqpage": false,
+  "site_has_howto": false,
+  "site_has_video_object": false,
+  "site_inlanguage": null
+}

@@ -1,0 +1,94 @@
+{
+  "name": "brand-ai-readiness-audit",
+  "version": "2.0.0",
+  "description": "A 13-skill marketplace that audits any website for AI discoverability and on-site engagement issues across 6 GEO dimensions (crawlability, content extractability, entity clarity, schema integrity, off-page authority, technical foundation). Produces a structured JSON report with evidence-backed findings, prioritized suggested actions, and a per-engine GEO readiness score (ChatGPT, Perplexity, Google AI Overviews, Gemini, Bing Copilot). Covers 55 finding IDs (RC, CDN-WAF, CEA, EEAT, TSEO, OG, RSL, GEO, CITE, ORCH namespaces).",
+  "research_basis": [
+    "Aggarwal et al., Princeton/ACM KDD 2024 — foundational GEO study (10,000 queries)",
+    "AutoGEO, ICLR 2026 — automated GEO optimization",
+    "Onely 2026 — 5,000-site schema error study (78% error rate)",
+    "Directive Consulting 2026 — 70% compliance threshold framework",
+    "SE Ranking 2025 — review platform citation 3x lift",
+    "CXL 2026 — 55% of AI citations from first 30% of page",
+    "Backlinko/Semrush Jan 2026 — Reddit + LinkedIn top-2 cited domains"
+  ],
+  "skills": [
+    {
+      "id": "audit-orchestrator",
+      "path": "skills/audit-orchestrator",
+      "entrypoint": true,
+      "description": "Entrypoint: takes a URL, calls all 12 sub-skills in sequence, merges findings, scores GEO readiness by dimension and per-engine, and emits the final audit report."
+    },
+    {
+      "id": "crawlability-probe",
+      "path": "skills/crawlability-probe",
+      "entrypoint": false,
+      "description": "Checks AI crawler access across 27 bots (3 tiers), llms.txt validity, sitemap freshness, feeds, and AI discovery endpoints. Covers RC2, RC4, RC7, RC14, RC17, RC19, RC23."
+    },
+    {
+      "id": "render-gap-detector",
+      "path": "skills/render-gap-detector",
+      "entrypoint": false,
+      "description": "Checks JS-render gaps using Googlebot UA. 4-state page classification. Covers RC1, RC9, RC12, RC20."
+    },
+    {
+      "id": "structured-data-auditor",
+      "path": "skills/structured-data-auditor",
+      "entrypoint": false,
+      "description": "Audits JSON-LD schema richness, missing types, freshness signals, paywall declarations, language gaps, and alt text. Covers RC3, RC10, RC11, RC13, RC15, RC16, RC18, RC21."
+    },
+    {
+      "id": "entity-corroboration-checker",
+      "path": "skills/entity-corroboration-checker",
+      "entrypoint": false,
+      "description": "Checks Wikidata QID, sameAs links, entity collision risk, and name consistency. Covers RC5, RC6."
+    },
+    {
+      "id": "engagement-analyzer",
+      "path": "skills/engagement-analyzer",
+      "entrypoint": false,
+      "description": "Checks CTA presence, above-fold value prop, paragraph scannability, response time, and dynamic state fallback. Covers RC8, RC16, RC22."
+    },
+    {
+      "id": "llm-citation-tester",
+      "path": "skills/llm-citation-tester",
+      "entrypoint": false,
+      "description": "Tests LLM citation visibility via web_search. Checks brand awareness, product category ranking, and factual accuracy. Covers CITE-001 to 004."
+    },
+    {
+      "id": "content-extractability-auditor",
+      "path": "skills/content-extractability-auditor",
+      "entrypoint": false,
+      "description": "Audits passage-level content structure for AI citation readiness. Answer-first structure, question-format headings, statistics with citations, paragraph lengths, FAQ quality. Based on Princeton KDD 2024 research. Covers CEA-001 to 008."
+    },
+    {
+      "id": "eeeat-signal-checker",
+      "path": "skills/eeeat-signal-checker",
+      "entrypoint": false,
+      "description": "Checks E-E-A-T signals: author credentials, review platform profiles, Reddit presence, original research, LinkedIn company page. Covers EEAT-001 to 006."
+    },
+    {
+      "id": "technical-seo-probe",
+      "path": "skills/technical-seo-probe",
+      "entrypoint": false,
+      "description": "Checks technical prerequisites for AI indexability: HTTPS, nosnippet/noindex, redirect chains, canonicals, heading hierarchy, hreflang, broken links. Covers TSEO-001 to 009."
+    },
+    {
+      "id": "opengraph-meta-auditor",
+      "path": "skills/opengraph-meta-auditor",
+      "entrypoint": false,
+      "description": "Audits OpenGraph tags, Twitter Card, meta descriptions, og:image validity, and emerging Markdown alternate links. Covers OG-001 to 008."
+    },
+    {
+      "id": "rsl-licensing-checker",
+      "path": "skills/rsl-licensing-checker",
+      "entrypoint": false,
+      "description": "Checks RSL 1.0 machine-readable licensing, llms-full.txt, AI FAQ/service/summary endpoints, IndexNow, and deep llms.txt spec validation. Covers RSL-001 to 005."
+    },
+    {
+      "id": "geo-score-aggregator",
+      "path": "skills/geo-score-aggregator",
+      "entrypoint": false,
+      "description": "Scoring layer: maps findings to 6 GEO dimensions, calculates per-engine scores (ChatGPT/Perplexity/Google AI Overviews/Gemini/Bing Copilot), produces overall GEO readiness % and prioritized action roadmap."
+    }
+  ]
+}

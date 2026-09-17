@@ -1,0 +1,561 @@
+{
+  "site": "www.craigslist.org",
+  "base_url": "https://www.craigslist.org",
+  "probed_at": "2026-09-12T18:26:00Z",
+  "robots_txt": {
+    "url": "https://www.craigslist.org/robots.txt",
+    "status": 200,
+    "error": null,
+    "sitemap_declared": [
+      "https://www.craigslist.org/sitemap-index-categories-and-hubs.xml",
+      "https://www.craigslist.org/sitemap-index-postings-00.xml",
+      "https://www.craigslist.org/sitemap-index-postings-01.xml",
+      "https://www.craigslist.org/sitemap-index-postings-02.xml",
+      "https://www.craigslist.org/sitemap-index-postings-03.xml",
+      "https://www.craigslist.org/sitemap-index-postings-04.xml",
+      "https://www.craigslist.org/sitemap-index-postings-05.xml",
+      "https://www.craigslist.org/sitemap-index-postings-06.xml",
+      "https://www.craigslist.org/sitemap-index-postings-07.xml",
+      "https://www.craigslist.org/sitemap-index-postings-08.xml",
+      "https://www.craigslist.org/sitemap-index-postings-09.xml",
+      "https://www.craigslist.org/sitemap-index-postings-10.xml",
+      "https://www.craigslist.org/sitemap-index-postings-11.xml",
+      "https://www.craigslist.org/sitemap-index-postings-12.xml",
+      "https://www.craigslist.org/sitemap-index-postings-13.xml",
+      "https://www.craigslist.org/sitemap-index-postings-14.xml",
+      "https://www.craigslist.org/sitemap-index-postings-15.xml",
+      "https://www.craigslist.org/sitemap-index-postings-16.xml",
+      "https://www.craigslist.org/sitemap-index-postings-17.xml",
+      "https://www.craigslist.org/sitemap-index-postings-18.xml",
+      "https://www.craigslist.org/sitemap-index-postings-19.xml",
+      "https://www.craigslist.org/sitemap-index-postings-20.xml",
+      "https://www.craigslist.org/sitemap-index-postings-21.xml",
+      "https://www.craigslist.org/sitemap-index-postings-22.xml",
+      "https://www.craigslist.org/sitemap-index-postings-23.xml",
+      "https://www.craigslist.org/sitemap-index-postings-24.xml",
+      "https://www.craigslist.org/sitemap-index-postings-25.xml",
+      "https://www.craigslist.org/sitemap-index-postings-26.xml",
+      "https://www.craigslist.org/sitemap-index-postings-27.xml",
+      "https://www.craigslist.org/sitemap-index-postings-28.xml",
+      "https://www.craigslist.org/sitemap-index-postings-29.xml"
+    ],
+    "bots": {
+      "GPTBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/reply",
+          "/fb/",
+          "/suggest",
+          "/flag",
+          "/mf",
+          "/mailflag",
+          "/eaf"
+        ],
+        "fully_blocked": false
+      },
+      "ChatGPT-User": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/reply",
+          "/fb/",
+          "/suggest",
+          "/flag",
+          "/mf",
+          "/mailflag",
+          "/eaf"
+        ],
+        "fully_blocked": false
+      },
+      "OAI-SearchBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/reply",
+          "/fb/",
+          "/suggest",
+          "/flag",
+          "/mf",
+          "/mailflag",
+          "/eaf"
+        ],
+        "fully_blocked": false
+      },
+      "ClaudeBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/reply",
+          "/fb/",
+          "/suggest",
+          "/flag",
+          "/mf",
+          "/mailflag",
+          "/eaf"
+        ],
+        "fully_blocked": false
+      },
+      "Claude-Web": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/reply",
+          "/fb/",
+          "/suggest",
+          "/flag",
+          "/mf",
+          "/mailflag",
+          "/eaf"
+        ],
+        "fully_blocked": false
+      },
+      "anthropic-ai": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/reply",
+          "/fb/",
+          "/suggest",
+          "/flag",
+          "/mf",
+          "/mailflag",
+          "/eaf"
+        ],
+        "fully_blocked": false
+      },
+      "PerplexityBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/reply",
+          "/fb/",
+          "/suggest",
+          "/flag",
+          "/mf",
+          "/mailflag",
+          "/eaf"
+        ],
+        "fully_blocked": false
+      },
+      "Perplexity-User": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/reply",
+          "/fb/",
+          "/suggest",
+          "/flag",
+          "/mf",
+          "/mailflag",
+          "/eaf"
+        ],
+        "fully_blocked": false
+      },
+      "Gemini-Web": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/reply",
+          "/fb/",
+          "/suggest",
+          "/flag",
+          "/mf",
+          "/mailflag",
+          "/eaf"
+        ],
+        "fully_blocked": false
+      },
+      "Google-Extended": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/reply",
+          "/fb/",
+          "/suggest",
+          "/flag",
+          "/mf",
+          "/mailflag",
+          "/eaf"
+        ],
+        "fully_blocked": false
+      },
+      "BingBot-AI": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/reply",
+          "/fb/",
+          "/suggest",
+          "/flag",
+          "/mf",
+          "/mailflag",
+          "/eaf"
+        ],
+        "fully_blocked": false
+      },
+      "YouBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/reply",
+          "/fb/",
+          "/suggest",
+          "/flag",
+          "/mf",
+          "/mailflag",
+          "/eaf"
+        ],
+        "fully_blocked": false
+      },
+      "CCBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/reply",
+          "/fb/",
+          "/suggest",
+          "/flag",
+          "/mf",
+          "/mailflag",
+          "/eaf"
+        ],
+        "fully_blocked": false
+      },
+      "Applebot-Extended": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/reply",
+          "/fb/",
+          "/suggest",
+          "/flag",
+          "/mf",
+          "/mailflag",
+          "/eaf"
+        ],
+        "fully_blocked": false
+      },
+      "Amazonbot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/reply",
+          "/fb/",
+          "/suggest",
+          "/flag",
+          "/mf",
+          "/mailflag",
+          "/eaf"
+        ],
+        "fully_blocked": false
+      },
+      "DuckAssistBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/reply",
+          "/fb/",
+          "/suggest",
+          "/flag",
+          "/mf",
+          "/mailflag",
+          "/eaf"
+        ],
+        "fully_blocked": false
+      },
+      "FacebookBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/reply",
+          "/fb/",
+          "/suggest",
+          "/flag",
+          "/mf",
+          "/mailflag",
+          "/eaf"
+        ],
+        "fully_blocked": false
+      },
+      "cohere-ai": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/reply",
+          "/fb/",
+          "/suggest",
+          "/flag",
+          "/mf",
+          "/mailflag",
+          "/eaf"
+        ],
+        "fully_blocked": false
+      },
+      "AI2Bot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/reply",
+          "/fb/",
+          "/suggest",
+          "/flag",
+          "/mf",
+          "/mailflag",
+          "/eaf"
+        ],
+        "fully_blocked": false
+      },
+      "Bytespider": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/reply",
+          "/fb/",
+          "/suggest",
+          "/flag",
+          "/mf",
+          "/mailflag",
+          "/eaf"
+        ],
+        "fully_blocked": false
+      },
+      "PetalBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/reply",
+          "/fb/",
+          "/suggest",
+          "/flag",
+          "/mf",
+          "/mailflag",
+          "/eaf"
+        ],
+        "fully_blocked": false
+      },
+      "SemrushBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/reply",
+          "/fb/",
+          "/suggest",
+          "/flag",
+          "/mf",
+          "/mailflag",
+          "/eaf"
+        ],
+        "fully_blocked": false
+      },
+      "AhrefsBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/reply",
+          "/fb/",
+          "/suggest",
+          "/flag",
+          "/mf",
+          "/mailflag",
+          "/eaf"
+        ],
+        "fully_blocked": false
+      },
+      "DataForSeoBot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/reply",
+          "/fb/",
+          "/suggest",
+          "/flag",
+          "/mf",
+          "/mailflag",
+          "/eaf"
+        ],
+        "fully_blocked": false
+      },
+      "MJ12bot": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/reply",
+          "/fb/",
+          "/suggest",
+          "/flag",
+          "/mf",
+          "/mailflag",
+          "/eaf"
+        ],
+        "fully_blocked": false
+      },
+      "ia_archiver": {
+        "can_fetch_root": true,
+        "explicit_disallow_rules": [
+          "/reply",
+          "/fb/",
+          "/suggest",
+          "/flag",
+          "/mf",
+          "/mailflag",
+          "/eaf"
+        ],
+        "fully_blocked": false
+      }
+    },
+    "raw_snippet": "User-agent: *\nDisallow: /reply\nDisallow: /fb/\nDisallow: /suggest\nDisallow: /flag\nDisallow: /mf\nDisallow: /mailflag\nDisallow: /eaf\n\nSitemap: https://www.craigslist.org/sitemap-index-categories-and-hubs.xml\nSitemap: https://www.craigslist.org/sitemap-index-postings-00.xml\nSitemap: https://www.craigslist.org/sitemap-index-postings-01.xml\nSitemap: https://www.craigslist.org/sitemap-index-postings-02.xml\nSitemap: https://www.craigslist.org/sitemap-index-postings-03.xml\nSitemap: https://www.craigslist"
+  },
+  "llms_txt": {
+    "url": "https://www.craigslist.org/llms.txt",
+    "status": 404,
+    "content_type": "text/html; charset=UTF-8",
+    "error": null,
+    "redirect_chain": [
+      "https://www.craigslist.org/llms.txt"
+    ],
+    "redirect_count": 1,
+    "starts_with_hash": false,
+    "word_count": 280,
+    "first_100_chars": "<!DOCTYPE html>\n<html class=\"no-js\">\n    <head>\n        <title>craigslist | Page Not Found</title>\n ",
+    "first_200_bytes_has_html": true
+  },
+  "sitemap": [
+    {
+      "url": "https://www.craigslist.org/sitemap.xml",
+      "status": 404,
+      "error": null,
+      "lastmod_count": 0,
+      "lastmod_dates": []
+    },
+    {
+      "url": "https://www.craigslist.org/sitemap-index-categories-and-hubs.xml",
+      "status": 200,
+      "error": null,
+      "lastmod_count": 0,
+      "lastmod_dates": []
+    },
+    {
+      "url": "https://www.craigslist.org/sitemap-index-postings-00.xml",
+      "status": 200,
+      "error": null,
+      "lastmod_count": 2407,
+      "lastmod_dates": [
+        "2026-09-12",
+        "2026-09-12",
+        "2026-09-12",
+        "2026-09-12",
+        "2026-09-12"
+      ]
+    }
+  ],
+  "feeds": [
+    {
+      "url": "https://www.craigslist.org/feed",
+      "status": 404,
+      "content_type": "text/html; charset=UTF-8",
+      "error": null,
+      "looks_like_feed": false
+    },
+    {
+      "url": "https://www.craigslist.org/rss.xml",
+      "status": 404,
+      "content_type": "text/html; charset=UTF-8",
+      "error": null,
+      "looks_like_feed": false
+    },
+    {
+      "url": "https://www.craigslist.org/atom.xml",
+      "status": 404,
+      "content_type": "text/html; charset=UTF-8",
+      "error": null,
+      "looks_like_feed": false
+    },
+    {
+      "url": "https://www.craigslist.org/feed.xml",
+      "status": 404,
+      "content_type": "text/html; charset=UTF-8",
+      "error": null,
+      "looks_like_feed": false
+    },
+    {
+      "url": "https://www.craigslist.org/feeds/posts/default",
+      "status": 404,
+      "content_type": "text/html; charset=UTF-8",
+      "error": null,
+      "looks_like_feed": false
+    }
+  ],
+  "ai_endpoints": [
+    {
+      "url": "https://www.craigslist.org/.well-known/ai.txt",
+      "status": 404,
+      "content_type": "text/html; charset=UTF-8",
+      "error": null
+    },
+    {
+      "url": "https://www.craigslist.org/ai/summary.json",
+      "status": 404,
+      "content_type": "text/html; charset=UTF-8",
+      "error": null
+    }
+  ],
+  "bot_enforcement": [
+    {
+      "bot": "GPTBot",
+      "robots_txt_blocked": false,
+      "actual_status": 200,
+      "actual_word_count": 2517,
+      "browser_baseline_words": 2517,
+      "cdn_waf_blocked": false,
+      "js_dependent": false,
+      "content_ratio_vs_browser": 1.0,
+      "effective_block": false,
+      "error": null
+    },
+    {
+      "bot": "ChatGPT-User",
+      "robots_txt_blocked": false,
+      "actual_status": 200,
+      "actual_word_count": 2517,
+      "browser_baseline_words": 2517,
+      "cdn_waf_blocked": false,
+      "js_dependent": false,
+      "content_ratio_vs_browser": 1.0,
+      "effective_block": false,
+      "error": null
+    },
+    {
+      "bot": "OAI-SearchBot",
+      "robots_txt_blocked": false,
+      "actual_status": 200,
+      "actual_word_count": 2517,
+      "browser_baseline_words": 2517,
+      "cdn_waf_blocked": false,
+      "js_dependent": false,
+      "content_ratio_vs_browser": 1.0,
+      "effective_block": false,
+      "error": null
+    },
+    {
+      "bot": "ClaudeBot",
+      "robots_txt_blocked": false,
+      "actual_status": 200,
+      "actual_word_count": 2517,
+      "browser_baseline_words": 2517,
+      "cdn_waf_blocked": false,
+      "js_dependent": false,
+      "content_ratio_vs_browser": 1.0,
+      "effective_block": false,
+      "error": null
+    },
+    {
+      "bot": "Claude-Web",
+      "robots_txt_blocked": false,
+      "actual_status": 200,
+      "actual_word_count": 2517,
+      "browser_baseline_words": 2517,
+      "cdn_waf_blocked": false,
+      "js_dependent": false,
+      "content_ratio_vs_browser": 1.0,
+      "effective_block": false,
+      "error": null
+    },
+    {
+      "bot": "anthropic-ai",
+      "robots_txt_blocked": false,
+      "actual_status": 200,
+      "actual_word_count": 2517,
+      "browser_baseline_words": 2517,
+      "cdn_waf_blocked": false,
+      "js_dependent": false,
+      "content_ratio_vs_browser": 1.0,
+      "effective_block": false,
+      "error": null
+    }
+  ],
+  "oai_searchbot_policy": {
+    "gptbot_blocked": false,
+    "oai_searchbot_blocked": false,
+    "chatgpt_user_blocked": false,
+    "training_blocked_citation_allowed": false,
+    "both_blocked": false,
+    "both_allowed": true,
+    "policy_note": "OPEN: both allowed (acceptable)"
+  }
+}

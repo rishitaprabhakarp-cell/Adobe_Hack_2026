@@ -1,0 +1,42 @@
+{
+  "site": "anthropic.com",
+  "base_url": "https://anthropic.com",
+  "probed_at": "2026-09-12T18:19:14Z",
+  "homepage_status": 200,
+  "response_time_ms": 450,
+  "error": null,
+  "above_fold": {
+    "text_snippet": "Skip to main content Skip to footer Research Overview Alignment Economics Engineering Frontier Red Team Interpretability Science Societal Impacts Policy Commitments Initiatives Claude&#x27;s Constitution Claude Corps Policy on the AI Exponential Transparency Responsible Scaling Policy Beneficial Dep",
+    "word_count": 200,
+    "h1": "AI research and products that put safety at the frontier",
+    "has_h1": true,
+    "has_description_paragraph": true
+  },
+  "cta_found": true,
+  "ctas": [
+    "download app",
+    "log in to claude"
+  ],
+  "avg_paragraph_word_count": 92.3,
+  "long_paragraph_samples": [
+    "Overview Alignment Economics Engineering Frontier Red Team Interpretability Science Societal Impacts Policy Commitments Initiatives Claude&#x27;s Constitution Claude Corps Policy on...",
+    "At Anthropic, we build AI to serve humanity\u2019s long-term well-being. Claude Science Announcements Core views on AI safety Announcements Anthropic\u2019s..."
+  ],
+  "dynamic_state_signals": [
+    "loading",
+    "reserve"
+  ],
+  "hero_images_missing_alt": [],
+  "has_meta_viewport": true,
+  "contact_info": {
+    "contact_reachable": false,
+    "contact_url": "https://anthropic.com/contact",
+    "contact_evidence": "HTTP 404",
+    "about_reachable": false,
+    "about_url": "https://anthropic.com/about",
+    "about_evidence": "HTTP 404",
+    "has_email_inline": false,
+    "has_phone_inline": true
+  },
+  "static_word_count": 680
+}
